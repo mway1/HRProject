@@ -1,8 +1,9 @@
 ﻿CREATE TABLE [dbo].[Project_EmployeeRequest] (
-    [Id]        INT        NOT NULL,
-    [ProjectId] BINARY (1) NOT NULL,
-    [OrderId]   INT        NOT NULL,
-    CONSTRAINT [PK_PROJECT_EMPLOYEEREQUEST] PRIMARY KEY CLUSTERED ([Id] ASC),
-    CONSTRAINT [Project_EmployeeRequest_fk1] FOREIGN KEY ([OrderId]) REFERENCES [dbo].[EmployeeRequest] ([Id]) ON UPDATE CASCADE
+    [id]                INT IDENTITY (1, 1) NOT NULL,
+    [EmployeeRequestId] INT NOT NULL,
+    [ProjectId]         INT NOT NULL,
+    PRIMARY KEY CLUSTERED ([id] ASC),
+    FOREIGN KEY ([EmployeeRequestId]) REFERENCES [dbo].[EmployeeRequest] ([id]),
+    FOREIGN KEY ([ProjectId]) REFERENCES [dbo].[Project] ([id])
 );
 

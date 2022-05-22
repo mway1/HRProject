@@ -13,7 +13,7 @@
     </RootPath>
     <RootNamespace>HRproject.DB</RootNamespace>
     <AssemblyName>HRproject.DB</AssemblyName>
-    <ModelCollation>1033, CI</ModelCollation>
+    <ModelCollation>1049,CI</ModelCollation>
     <DefaultFileStructure>BySchemaAndSchemaType</DefaultFileStructure>
     <DeployToDatabase>True</DeployToDatabase>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
@@ -22,6 +22,8 @@
     <SqlServerVerification>False</SqlServerVerification>
     <IncludeCompositeObjects>True</IncludeCompositeObjects>
     <TargetDatabaseSet>True</TargetDatabaseSet>
+    <DefaultCollation>Cyrillic_General_CI_AS</DefaultCollation>
+    <DefaultFilegroup>PRIMARY</DefaultFilegroup>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <OutputPath>bin\Release\</OutputPath>
@@ -56,5 +58,30 @@
   <Import Condition="'$(SQLDBExtensionsRefPath)' == ''" Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets" />
   <ItemGroup>
     <Folder Include="Properties" />
+    <Folder Include="dbo\" />
+    <Folder Include="dbo\Tables\" />
+    <Folder Include="dbo\Stored Procedures\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Build Include="dbo\Tables\Department.sql" />
+    <Build Include="dbo\Tables\Status.sql" />
+    <Build Include="dbo\Tables\Employee_1.sql" />
+    <Build Include="dbo\Tables\Comment.sql" />
+    <Build Include="dbo\Tables\EmployeeHistory.sql" />
+    <Build Include="dbo\Tables\Project.sql" />
+    <Build Include="dbo\Tables\LevelOfSkill.sql" />
+    <Build Include="dbo\Tables\LevelOfPosition.sql" />
+    <Build Include="dbo\Tables\Skill.sql" />
+    <Build Include="dbo\Tables\Position.sql" />
+    <Build Include="dbo\Tables\EmployeeRequest.sql" />
+    <Build Include="dbo\Tables\Employee_Project.sql" />
+    <Build Include="dbo\Tables\Employee_Skill.sql" />
+    <Build Include="dbo\Tables\Employee_Position.sql" />
+    <Build Include="dbo\Tables\Project_EmployeeRequest.sql" />
+    <Build Include="dbo\Stored Procedures\Employee_Add.sql" />
+    <Build Include="dbo\Stored Procedures\Employee_Update.sql" />
+    <Build Include="dbo\Stored Procedures\Employee_Delete.sql" />
+    <Build Include="dbo\Stored Procedures\Employee_GetAll.sql" />
+    <Build Include="dbo\Stored Procedures\Employee_GetById.sql" />
   </ItemGroup>
 </Project>
