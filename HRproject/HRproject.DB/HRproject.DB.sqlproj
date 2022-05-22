@@ -63,21 +63,21 @@
     <Folder Include="dbo\Stored Procedures\" />
   </ItemGroup>
   <ItemGroup>
-    <Build Include="dbo\Tables\Department_1.sql" />
-    <Build Include="dbo\Tables\Status_1.sql" />
+    <Build Include="dbo\Tables\Department.sql" />
+    <Build Include="dbo\Tables\Status.sql" />
     <Build Include="dbo\Tables\Employee_1.sql" />
-    <Build Include="dbo\Tables\Comment_1.sql" />
-    <Build Include="dbo\Tables\EmployeeHistory_1.sql" />
-    <Build Include="dbo\Tables\Project_1.sql" />
+    <Build Include="dbo\Tables\Comment.sql" />
+    <Build Include="dbo\Tables\EmployeeHistory.sql" />
+    <Build Include="dbo\Tables\Project.sql" />
     <Build Include="dbo\Tables\LevelOfSkill.sql" />
     <Build Include="dbo\Tables\LevelOfPosition.sql" />
-    <Build Include="dbo\Tables\Skill_1.sql" />
-    <Build Include="dbo\Tables\Position_1.sql" />
-    <Build Include="dbo\Tables\EmployeeRequest_1.sql" />
-    <Build Include="dbo\Tables\Employee_Project_1.sql" />
+    <Build Include="dbo\Tables\Skill.sql" />
+    <Build Include="dbo\Tables\Position.sql" />
+    <Build Include="dbo\Tables\EmployeeRequest.sql" />
+    <Build Include="dbo\Tables\Employee_Project.sql" />
     <Build Include="dbo\Tables\Employee_Skill.sql" />
     <Build Include="dbo\Tables\Employee_Position.sql" />
-    <Build Include="dbo\Tables\Project_EmployeeRequest_1.sql" />
+    <Build Include="dbo\Tables\Project_EmployeeRequest.sql" />
     <Build Include="dbo\Stored Procedures\Employee_Add.sql" />
     <Build Include="dbo\Stored Procedures\Employee_Update.sql" />
     <Build Include="dbo\Stored Procedures\Employee_Delete.sql" />
