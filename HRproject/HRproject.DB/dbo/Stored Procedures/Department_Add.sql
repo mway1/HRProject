@@ -2,24 +2,24 @@
 	@id int,
 	@Name varchar(50),
 	@Description text,
-	@IsDeleted bit
+	@isDeleted bit
 AS
 BEGIN
 INSERT INTO dbo.Department(
 	[Name],
 	[Description],
-	IsDeleted
+	isDeleted
 )
 VALUES(
 	@Name,
 	@Description,
-	@IsDeleted
+	@isDeleted
 )
 
 SELECT
 	[Name]=@Name,
 	[Description]=@Description,
-	IsDeleted=@IsDeleted
+	isDeleted=@isDeleted
 FROM dbo.Department
 WHERE id=@id
 END
