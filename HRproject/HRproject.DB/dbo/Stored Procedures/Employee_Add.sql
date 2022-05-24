@@ -1,7 +1,9 @@
 ﻿CREATE PROCEDURE [dbo].[Employee_Add]
 		@id int,
 		@FirstName varchar(50),
+		@SecondName varchar(50),
 		@LastName varchar(50),
+		@BirthDate date,
 		@Email varchar(50),
 		@PhoneNumber decimal,
 		@StatusId int,
@@ -11,7 +13,9 @@ AS
 BEGIN
 INSERT INTO dbo.Employee(
         FirstName ,
+		SecondName,
 		LastName ,
+		BirthDate,
 		Email ,
 		PhoneNumber ,
 		StatusId ,
@@ -19,7 +23,9 @@ INSERT INTO dbo.Employee(
 		IsDeleted)
 VALUES(
 		@FirstName ,
+		@SecondName,
 		@LastName ,
+		@BirthDate,
 		@Email ,
 		@PhoneNumber ,
 		@StatusId ,
@@ -29,7 +35,9 @@ SET @id=SCOPE_IDENTITY()
 
 SELECT
 		FirstName=@FirstName ,
+		SecondName=@SecondName,
 		LastName=@LastName,
+		BirthDate=@BirthDate,
 		Email=@Email ,
 		PhoneNumber=@PhoneNumber ,
 		StatusId=@StatusId ,

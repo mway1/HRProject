@@ -65,7 +65,7 @@
   <ItemGroup>
     <Build Include="dbo\Tables\Department.sql" />
     <Build Include="dbo\Tables\Status.sql" />
-    <Build Include="dbo\Tables\Employee_1.sql" />
+    <Build Include="dbo\Tables\Employee.sql" />
     <Build Include="dbo\Tables\Comment.sql" />
     <Build Include="dbo\Tables\EmployeeHistory.sql" />
     <Build Include="dbo\Tables\Project.sql" />
@@ -83,5 +83,8 @@
     <Build Include="dbo\Stored Procedures\Employee_Delete.sql" />
     <Build Include="dbo\Stored Procedures\Employee_GetAll.sql" />
     <Build Include="dbo\Stored Procedures\Employee_GetById.sql" />
+    <Build Include="dbo\Tables\Position_LevelOfPosition.sql" />
+    <Build Include="dbo\Tables\EmployeeRequest_Skill.sql" />
+    <Build Include="dbo\Tables\EmployeeRequest_Position.sql" />
   </ItemGroup>
 </Project>

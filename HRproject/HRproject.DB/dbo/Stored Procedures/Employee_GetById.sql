@@ -3,7 +3,7 @@
 AS
 BEGIN
 
-	SELECT Id,FirstName, LastName,Email, PhoneNumber, StatusId,DepartmentId, IsDeleted
+	SELECT Id,FirstName,SecondName, LastName,BirthDate,Email, PhoneNumber, StatusId,DepartmentId, IsDeleted
 	FROM dbo.Employee
 	WHERE Id=@Id
 
