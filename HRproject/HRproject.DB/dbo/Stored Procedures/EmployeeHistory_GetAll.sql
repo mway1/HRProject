@@ -1,6 +1,8 @@
 ﻿CREATE PROCEDURE [dbo].[EmployeeHistory_GetAll]
-	@param1 int = 0,
-	@param2 int
+	
 AS
-	SELECT @param1, @param2
-RETURN 0
+BEGIN
+	SELECT Id, EmployeeId, [Date], StatusId, isDeleted
+	FROM dbo.EmployeeHistory
+
+	END

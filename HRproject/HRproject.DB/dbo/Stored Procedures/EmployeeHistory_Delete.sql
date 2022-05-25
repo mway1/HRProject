@@ -1,6 +1,11 @@
 ﻿CREATE PROCEDURE [dbo].[EmployeeHistory_Delete]
-	@param1 int = 0,
-	@param2 int
+	@Id int
 AS
-	SELECT @param1, @param2
-RETURN 0
+BEGIN
+
+DELETE FROM dbo.EmployeeHistory
+WHERE 
+Id=@Id
+
+END
+

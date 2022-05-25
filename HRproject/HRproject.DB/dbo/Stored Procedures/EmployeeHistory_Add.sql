@@ -14,7 +14,19 @@ StatusId,
 isDeleted
 )
 VALUES(
-
+@EmployeeId,
+@Date,
+@StatusId,
+@isDeleted
 )
-	SELECT @param1, @param2
-RETURN 0
+	SELECT 
+	EmployeeId=@EmployeeId,
+	[Date]=@Date,
+	StatusId=@StatusId,
+	isDeleted=@isDeleted
+
+	FROM dbo.EmployeeHistory
+	WHERE id=@id
+	END
+	
+

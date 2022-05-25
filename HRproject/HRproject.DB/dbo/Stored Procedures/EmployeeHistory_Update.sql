@@ -1,6 +1,15 @@
 ﻿CREATE PROCEDURE [dbo].[EmployeeHistory_Update]
-	@param1 int = 0,
-	@param2 int
+@id int,
+	@EmployeeId int,
+	@Date timestamp,
+	@StatusId int,
+	@isDeleted bit	
 AS
-	SELECT @param1, @param2
-RETURN 0
+BEGIN 
+UPDATE dbo.EmployeeHistory
+SET EmployeeId=@EmployeeId,
+	[Date]=@Date,
+	StatusId=@StatusId,
+	isDeleted=@isDeleted
+	WHERE Id = @Id
+END

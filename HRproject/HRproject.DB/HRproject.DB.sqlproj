@@ -84,5 +84,9 @@
     <Build Include="dbo\Stored Procedures\Employee_GetAll.sql" />
     <Build Include="dbo\Stored Procedures\Employee_GetById.sql" />
     <Build Include="dbo\Stored Procedures\EmployeeHistory_Add.sql" />
+    <Build Include="dbo\Stored Procedures\EmployeeHistory_Delete.sql" />
+    <Build Include="dbo\Stored Procedures\EmployeeHistory_GetAll.sql" />
+    <Build Include="dbo\Stored Procedures\EmployeeHistory_GetById.sql" />
+    <Build Include="dbo\Stored Procedures\EmployeeHistory_Update.sql" />
   </ItemGroup>
 </Project>
