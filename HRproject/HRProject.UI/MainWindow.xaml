@@ -7,6 +7,38 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
+        <TabControl HorizontalAlignment="Center" Height="434" VerticalAlignment="Center" Width="800">
+            <TabItem Header="Сотрудники">
+                <Grid Background="#FFE5E5E5">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="252*"/>
+                        <ColumnDefinition Width="0*"/>
+                        <ColumnDefinition Width="145*"/>
+                    </Grid.ColumnDefinitions>
+                    <TreeView Margin="0,0,283,0"/>
+                    <TabControl HorizontalAlignment="Left" Height="406" Margin="221,0,0,0" VerticalAlignment="Center" Width="573" Grid.ColumnSpan="3">
+                        <TabItem Header="Общее">
+                            <Grid Background="#FFE5E5E5"/>
+                        </TabItem>
+                        <TabItem Header="Опыт">
+                            <Grid Background="#FFE5E5E5">
+                                <DataGrid d:ItemsSource="{d:SampleData ItemCount=5}"/>
+                            </Grid>
+                        </TabItem>
+                    </TabControl>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Проекты">
+                <Grid Background="#FFE5E5E5">
+                    <ComboBox HorizontalAlignment="Left" Margin="10,26,0,0" VerticalAlignment="Top" Width="120"/>
+                    <ListBox HorizontalAlignment="Left" Height="300" Margin="7,59,0,0" VerticalAlignment="Top" Width="123" d:ItemsSource="{d:SampleData ItemCount=5}"/>
+                    <Label Content="Label" HorizontalAlignment="Left" Margin="249,19,0,0" VerticalAlignment="Top" Width="331"/>
+                    <ListBox HorizontalAlignment="Left" Height="114" Margin="249,70,0,0" VerticalAlignment="Top" Width="331" d:ItemsSource="{d:SampleData ItemCount=5}"/>
+                    <ListBox HorizontalAlignment="Left" Height="144" Margin="249,215,0,0" VerticalAlignment="Top" Width="331" d:ItemsSource="{d:SampleData ItemCount=5}"/>
+                </Grid>
+            </TabItem>
+            <TreeView/>
+        </TabControl>
 
     </Grid>
 </Window>
