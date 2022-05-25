@@ -61,6 +61,7 @@
     <Folder Include="dbo\" />
     <Folder Include="dbo\Tables\" />
     <Folder Include="dbo\Stored Procedures\" />
+    <Folder Include="dbo\Stored Procedures\Project_StoredProcedures" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="dbo\Tables\Department.sql" />
@@ -86,5 +87,8 @@
     <Build Include="dbo\Tables\Position_LevelOfPosition.sql" />
     <Build Include="dbo\Tables\EmployeeRequest_Skill.sql" />
     <Build Include="dbo\Tables\EmployeeRequest_Position.sql" />
+    <Build Include="dbo\Stored Procedures\Project_StoredProcedures\Project_Add.sql" />
+    <Build Include="dbo\Stored Procedures\Project_StoredProcedures\Project_Update.sql" />
+    <Build Include="dbo\Stored Procedures\Project_StoredProcedures\Project_Get.sql" />
   </ItemGroup>
 </Project>
