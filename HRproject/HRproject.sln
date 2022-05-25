@@ -9,7 +9,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HRProject.BLL", "HRProject.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HRProject.DAL", "HRProject.DAL\HRProject.DAL.csproj", "{2E167C7A-C572-4F14-ABDD-E05E8835A5F4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HRProject.UI", "HRProject.UI\HRProject.UI.csproj", "{46E0E298-1C19-4FC7-9C1B-CA58D841C303}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HRProject.IL", "HRProject.UI\HRProject.IL.csproj", "{46E0E298-1C19-4FC7-9C1B-CA58D841C303}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
