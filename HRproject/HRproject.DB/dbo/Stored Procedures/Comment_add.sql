@@ -19,6 +19,6 @@ SELECT
 		EmployeeId=@EmployeeId,
 		Description=@Description,
 		IsDeleted=@IsDeleted
-FROM dbo.Employee
+FROM dbo.Comment
 WHERE id=@id
 END
