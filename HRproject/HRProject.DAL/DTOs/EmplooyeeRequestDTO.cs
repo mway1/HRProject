@@ -9,10 +9,10 @@ namespace HRProject.DAL.DTOs
     public class EmplooyeeRequestAllInfoDTO
     {
         public string ProjectName { get; set; }
-        public string PositionName { get; set; }
-        public string LevelOfPositionName { get; set; }
-        public string SkillName { get; set; }
-        public int LevelOfSkill { get; set; }
+        public List<string> PositionName { get; set; }
+        public List<string> LevelOfPositionName { get; set; }
+        public List<string> SkillName { get; set; }
+        public List<int> LevelOfSkill { get; set; }
         public int Quantity { get; set; }
     }
 }

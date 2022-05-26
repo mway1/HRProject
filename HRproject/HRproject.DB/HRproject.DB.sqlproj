@@ -86,7 +86,6 @@
     <Build Include="dbo\Stored Procedures\Employee_GetById.sql" />
     <Build Include="dbo\Stored Procedures\EmployeeRequest_GetAllInfo.sql" />
     <Build Include="dbo\Stored Procedures\EmployeeRequest_GetAllInfoById.sql" />
-    <Build Include="dbo\Stored Procedures\EmployeeRequest_Delete.sql" />
     <Build Include="dbo\Stored Procedures\EmployeeRequest_Update.sql" />
     <Build Include="dbo\Tables\Position_LevelOfPosition.sql" />
     <Build Include="dbo\Tables\EmployeeRequest_Skill.sql" />
