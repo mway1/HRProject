@@ -5,7 +5,7 @@
 AS 
   BEGIN 
       UPDATE project 
-      SET    NAME = @name, 
+      SET    name = @name, 
              description = @description, 
              isDeleted = @isDeleted 
       WHERE  id = @id; 
