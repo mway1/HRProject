@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using HRProject.DAL.StoredProcedureEnums;
 using Dapper;
 using HRProject.DAL.DTOs;
 using System.Data.SqlClient;
@@ -15,7 +16,7 @@ namespace HRProject.DAL
                 connection.Open();
 
                 return connection.Query<EmplooyeeRequestAllInfoDTO>(
-                    "EmployeeRequest_GetAllInfo",
+                    StoredProcedures.EmployeeRequestAllInfo,
                     commandType: System.Data.CommandType.StoredProcedure)
                     .ToList();
             }
