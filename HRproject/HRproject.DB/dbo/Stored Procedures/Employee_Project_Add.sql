@@ -12,7 +12,7 @@ VALUES( @EmployeeId,
 SET @id=SCOPE_IDENTITY()
 
 SELECT EmployeeId=@EmployeeId,
-       ProcetId=@ProjectId
+       ProjectId=@ProjectId
 FROM dbo.Employee_Project
 WHERE id=@id
 END
