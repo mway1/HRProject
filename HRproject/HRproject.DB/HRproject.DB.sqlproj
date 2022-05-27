@@ -93,5 +93,7 @@
     <Build Include="dbo\Stored Procedures\Project_StoredProcedures\Project_Add.sql" />
     <Build Include="dbo\Stored Procedures\Project_StoredProcedures\Project_Update.sql" />
     <Build Include="dbo\Stored Procedures\Project_StoredProcedures\Project_Get.sql" />
+    <Build Include="dbo\Stored Procedures\EmployeeRequest_Create.sql" />
+    <Build Include="dbo\Stored Procedures\EmployeeRequest_DeleteById.sql" />
   </ItemGroup>
 </Project>
