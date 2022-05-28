@@ -6,7 +6,7 @@ namespace HRProject.DAL
 {
     public class DepartmentManager
     {
-        public string _connectionString = @"Server=.\SQLEXPRESS;Database=HRProject.DB;Trusted_Connection=True;";
+        public string _connectionString = @"Server=.\SQLEXPRESS01;Database=HRProject.DB;Trusted_Connection=True;";
         public DepartmentDTO GetByIdDpeartment(int id) 
         {
             using (var connection = new SqlConnection(_connectionString))
@@ -77,7 +77,7 @@ namespace HRProject.DAL
                 connection.Open();
 
                 connection.QuerySingle(
-                    StoredProcedures.Department_Update,
+                    StoredProcedures.Department_Delete,
                     param: new {Id = id},
                     commandType: System.Data.CommandType.StoredProcedure);
             }
