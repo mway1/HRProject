@@ -48,5 +48,15 @@ namespace HRProject.DAL
                 return result.Values.ToList();
             }
         }
+
+        public void UpdateEmployeeRequest(int id, int ProjectId, int Quantity)
+        {
+            using (var connection = new SqlConnection(_connectionString))
+            {
+                connection.Open();
+
+                connection.Execute($"{StoredProcedures.UpdateEmployeeRequest} {id}, {ProjectId}, {Quantity}");
+            }
+        }
     }
 }
