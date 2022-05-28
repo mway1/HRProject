@@ -1,7 +1,7 @@
 ﻿CREATE PROCEDURE dbo.[EmployeeRequest_GetAllInfo]
 AS
 BEGIN
-SELECT Pr.[Name], Po.[Name], LOP.[Name], S.[name], ES.[LevelOfSkill], E.[Quantity] 
+SELECT Pr.[Name], Po.[PositionName], LOP.[Name], S.[name], ES.[LevelOfSkill], E.[Quantity] 
 FROM EmployeeRequest as E
 LEFT JOIN Project as Pr ON (E.ProjectId = Pr.id)
 LEFT JOIN EmployeeRequest_Skill as ES on (E.id = ES.EmployeeRequestId)

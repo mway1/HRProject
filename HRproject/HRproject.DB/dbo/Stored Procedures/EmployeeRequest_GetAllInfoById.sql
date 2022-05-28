@@ -2,7 +2,7 @@
 @Id int
 AS
 BEGIN
-SELECT Pr.[Name], Po.[Name], LOP.[Name], S.[name], LOS.[Name], E.[Quantity] 
+SELECT Pr.[Name], Po.[PositionName], LOP.[Name], S.[name], LOS.[Name], E.[Quantity] 
 FROM EmployeeRequest as E
 LEFT JOIN Project as Pr ON (E.ProjectId = Pr.id)
 LEFT JOIN EmployeeRequest_Skill as ES on (E.id = ES.EmployeeRequestId)
