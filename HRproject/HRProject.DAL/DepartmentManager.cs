@@ -15,20 +15,33 @@ namespace HRProject.DAL
                 connection.Open();
 
                 return connection.QuerySingle<DepartmentDTO>(
-                    "dbo.Department_GetById", 
+                    "Department_GetById", 
                     param: new {id=id},
                     commandType: System.Data.CommandType.StoredProcedure);
             }
         }
 
-        public DepartmentDTO DepartmentGetAll()
+        public List<DepartmentDTO> DepartmentGetAll()
         {
             using (var connection = new SqlConnection(_connectionString))
             {
                 connection.Open();
 
                 return connection.Query<DepartmentDTO>(
-                    "dbo.Department_GetAll",
+                    "Department_GetAll",
+                    commandType: System.Data.CommandType.StoredProcedure)
+                    .ToList();
+            }
+        }
+
+        public List<DepartmentDTO> DepartmentUpdate(int id )
+        {
+            using (var connection = new SqlConnection(_connectionString))
+            {
+                connection.Open();
+
+                return connection.Query<DepartmentDTO>(
+                    "Department_GetAll",
                     commandType: System.Data.CommandType.StoredProcedure)
                     .ToList();
             }
