@@ -99,5 +99,9 @@
     <Build Include="dbo\Stored Procedures\EmployeeHistory_GetAll.sql" />
     <Build Include="dbo\Stored Procedures\EmployeeHistory_GetById.sql" />
     <Build Include="dbo\Stored Procedures\EmployeeHistory_Update.sql" />
+    <Build Include="dbo\Stored Procedures\LevelOfPosition_Add.sql" />
+    <Build Include="dbo\Stored Procedures\LevelOfPosition_Delete.sql" />
+    <Build Include="dbo\Stored Procedures\LevelOfPosition_Get.sql" />
+    <Build Include="dbo\Stored Procedures\LevelOfPosition_Update.sql" />
   </ItemGroup>
 </Project>
