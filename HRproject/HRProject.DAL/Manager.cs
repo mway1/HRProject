@@ -9,7 +9,7 @@ namespace HRProject.DAL
     {
         public string _connectionString = @"Server=.\SQLEXPRESS;Database=....;Trusted_Connection=True;";
 
-        public List<EmplooyeeRequestAllInfoDTO> GetSummOfEveryOrders()
+        public List<EmplooyeeRequestAllInfoDTO> GetEmployeeRequestAllInfo()
         {
             using (var connection = new SqlConnection(_connectionString))
             {
