@@ -33,7 +33,7 @@ namespace HRProject.DAL
             }
         }
 
-        public void AddDepartment(string name, string description, bool isDeleted)
+        public void AddDepartment(DepartmentDTO departmentDTO)
         {
             using (var connection = new SqlConnection(_connectionString))
             {
@@ -43,15 +43,15 @@ namespace HRProject.DAL
                     StoredProcedures.Department_Add,
                     param: new
                     {
-                        Name=name,
-                        Description=description,
-                        isDeleted=isDeleted
+                        Name=departmentDTO.Name,
+                        Description= departmentDTO.Description,
+                        isDeleted= departmentDTO.IsDeleted
                     },
                     commandType: System.Data.CommandType.StoredProcedure);
             }
         }
 
-        public void UpdateDepartment(int id, string name, string description, bool isDeleted)
+        public void UpdateDepartment(int idDepartment, DepartmentDTO departmentDTO)
         {
             using (var connection = new SqlConnection(_connectionString))
             {
@@ -61,10 +61,10 @@ namespace HRProject.DAL
                     StoredProcedures.Department_Update,
                     param: new
                     {
-                        Id=id,
-                        Name = name,
-                        Description = description,
-                        isDeleted = isDeleted
+                        id=idDepartment,
+                        Name = departmentDTO.Name,
+                        Description = departmentDTO.Description,
+                        isDeleted = departmentDTO.IsDeleted
                     },
                     commandType: System.Data.CommandType.StoredProcedure);
             }
@@ -78,7 +78,7 @@ namespace HRProject.DAL
 
                 connection.QuerySingle(
                     StoredProcedures.Department_Delete,
-                    param: new {Id = id},
+                    param: new {id = id},
                     commandType: System.Data.CommandType.StoredProcedure);
             }
         }

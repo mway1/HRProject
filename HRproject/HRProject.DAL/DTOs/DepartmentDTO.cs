@@ -8,14 +8,14 @@ namespace HRProject.DAL.DTOs
 {
     public class DepartmentDTO
     {
-        public int Id { get; set; }
+        public int id { get; set; }
         public string Name { get; set; }
         public string Description { get; set; } 
         public bool IsDeleted { get; set; }
 
         public override string ToString()
         {
-            return $"Id={Id} Name={Name} Description={Description} IsDeleted={IsDeleted}";
+            return $"id={id} Name={Name} Description={Description} IsDeleted={IsDeleted}";
         }
     }
 
