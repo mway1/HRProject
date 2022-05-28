@@ -15,10 +15,37 @@ namespace HRProject.DAL
             {
                 connection.Open();
 
-                return connection.Query<EmplooyeeRequestAllInfoDTO>(
+                Dictionary<int, EmplooyeeRequestAllInfoDTO> result = new Dictionary<int, EmplooyeeRequestAllInfoDTO>();
+
+                connection.Query<EmplooyeeRequestAllInfoDTO, string, string, string, int?, EmplooyeeRequestAllInfoDTO>(
                     StoredProcedures.EmployeeRequestAllInfo,
-                    commandType: System.Data.CommandType.StoredProcedure)
-                    .ToList();
+                    (EmployeeRequest, PositionName, PositionLevel, SkillName, SkillLevel) =>
+                    {
+                        if (!result.ContainsKey(EmployeeRequest.id))
+                        {
+                            result.Add(EmployeeRequest.id, EmployeeRequest);
+                        }
+
+                        EmplooyeeRequestAllInfoDTO crnt = result[EmployeeRequest.id];
+
+                        if (PositionLevel is not null)
+                        {
+                            crnt.PositionLevel.Add(PositionLevel);
+                        }
+                        if (SkillLevel is not null)
+                        {
+                            crnt.LevelOfSkill.Add(SkillLevel);
+                        }
+
+                        crnt.PositionName.Add(SkillName);
+                        crnt.SkillName.Add(PositionName);
+
+                        return crnt;
+                    },
+                    commandType: System.Data.CommandType.StoredProcedure,
+                    splitOn: "id PositionName PositionLevel SkillName LevelOfSkill");
+
+                return result.Values.ToList();
             }
         }
     }
