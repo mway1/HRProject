@@ -8,6 +8,6 @@ namespace HRProject.DAL.StoredProcedureEnums
 {
     public class StoredProcedures
     {
-        public  static string EmployeeRequestAllInfo = "EmployeeRequest_GetAllInfo";
+        public  const string EmployeeRequestAllInfo = "EmployeeRequest_GetAllInfo";
     }
 }
