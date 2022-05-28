@@ -49,13 +49,13 @@ namespace HRProject.DAL
             }
         }
 
-        public void UpdateEmployeeRequest(int id, int ProjectId, int Quantity)
+        public void UpdateEmployeeRequest(int id, int ProjectId, int Quantity, bool isDeleted)
         {
             using (var connection = new SqlConnection(_connectionString))
             {
                 connection.Open();
 
-                connection.Execute($"{StoredProcedures.UpdateEmployeeRequest} {id}, {ProjectId}, {Quantity}");
+                connection.Execute($"{StoredProcedures.UpdateEmployeeRequest} {id}, {ProjectId}, {Quantity}, {isDeleted}");
             }
         }
     }

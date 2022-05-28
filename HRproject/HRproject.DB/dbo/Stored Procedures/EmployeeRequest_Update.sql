@@ -1,11 +1,13 @@
 ﻿CREATE PROCEDURE dbo.EmployeeRequest_Update
 @Id int,
 @ProjectId int,
-@Quantity int
+@Quantity int,
+@isDeleted bit
 AS
 BEGIN
 UPDATE dbo.EmployeeRequest
 SET ProjectId=@ProjectId,
-Quantity=@Quantity
+Quantity=@Quantity,
+isDeleted=@isDeleted
 WHERE Id = @Id
 END
