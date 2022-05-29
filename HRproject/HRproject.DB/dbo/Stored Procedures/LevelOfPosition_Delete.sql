@@ -1,10 +1,12 @@
 ﻿CREATE PROCEDURE [dbo].[LevelOfPosition_Delete]
-	@Id int
-
+		@id int,
+		@Name varchar(50)
 AS
 BEGIN
 
-DELETE FROM dbo.LevelOfPosition
-WHERE Id=@Id
+UPDATE dbo.LevelOfPosition
+SET	Name=@Name,
+	isDeleted=1
+WHERE Id = @Id
 
 END
