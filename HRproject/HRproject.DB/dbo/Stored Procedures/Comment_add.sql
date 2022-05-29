@@ -1,5 +1,5 @@
 ﻿CREATE PROCEDURE [dbo].[Comment_add]
-	@id int,
+    @id int,
 	@EmployeeId int,
 	@Description text,
 	@IsDeleted bit
@@ -20,5 +20,4 @@ SELECT
 		Description=@Description,
 		IsDeleted=@IsDeleted
 FROM dbo.Comment
-WHERE id=@id
 END
