@@ -1,10 +1,14 @@
 ﻿CREATE PROCEDURE [dbo].[Comment_Delete]
-	@Id int
-
+	@id int,
+	@EmployeeId int,
+	@Description text
 AS
 BEGIN
 
-DELETE FROM dbo.Employee
-WHERE Id=@Id
+UPDATE dbo.Comment
+SET	EmployeeId=@EmployeeId,
+	Description=@Description,
+	IsDeleted=1
+WHERE Id = @Id
 
 END
