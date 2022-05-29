@@ -104,5 +104,9 @@
     <Build Include="dbo\Stored Procedures\Comment_GetAll.sql" />
     <Build Include="dbo\Stored Procedures\Comment_Update.sql" />
     <Build Include="dbo\Stored Procedures\Comment_GetById.sql" />
+    <Build Include="dbo\Stored Procedures\LevelOfPosition_Add.sql" />
+    <Build Include="dbo\Stored Procedures\LevelOfPosition_Delete.sql" />
+    <Build Include="dbo\Stored Procedures\LevelOfPosition_Get.sql" />
+    <Build Include="dbo\Stored Procedures\LevelOfPosition_Update.sql" />
   </ItemGroup>
 </Project>
