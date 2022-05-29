@@ -4,7 +4,7 @@
     [SecondName]     VARCHAR (50) NOT NULL,
     [LastName]     VARCHAR (50) ,
     [BirthDate]    DATE         NOT NULL,
-    [email]        VARCHAR (50) NOT NULL,
+    [Email]        VARCHAR (50) NOT NULL,
     [PhoneNumber]  DECIMAL (18) NOT NULL,
     [StatusId]     INT          NOT NULL,
     [DepartmentId] INT          NOT NULL,
