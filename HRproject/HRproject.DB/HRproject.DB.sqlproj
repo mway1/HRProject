@@ -99,5 +99,10 @@
     <Build Include="dbo\Stored Procedures\EmployeeHistory_GetAll.sql" />
     <Build Include="dbo\Stored Procedures\EmployeeHistory_GetById.sql" />
     <Build Include="dbo\Stored Procedures\EmployeeHistory_Update.sql" />
+    <Build Include="dbo\Stored Procedures\Comment_add.sql" />
+    <Build Include="dbo\Stored Procedures\Comment_Delete.sql" />
+    <Build Include="dbo\Stored Procedures\Comment_GetAll.sql" />
+    <Build Include="dbo\Stored Procedures\Comment_Update.sql" />
+    <Build Include="dbo\Stored Procedures\Comment_GetById.sql" />
   </ItemGroup>
 </Project>
