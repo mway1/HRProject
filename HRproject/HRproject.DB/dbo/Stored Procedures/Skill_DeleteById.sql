@@ -1,6 +1,7 @@
 ﻿CREATE PROCEDURE [dbo].[Skill_DeleteById]
 	  @Id int
 AS
-	delete [dbo].[Skill]
-	
+	update [dbo].[Skill]
+	set 
+	[isDeleted] = 1
 	Where Id = @Id

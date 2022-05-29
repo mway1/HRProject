@@ -1,11 +1,11 @@
 ﻿CREATE PROC [dbo].[Skill_Add]
-	@SkillName nvarchar(50),
+	@Name nvarchar(50),
 	@LevelOfSkillId int,
 	@IsDeleted bit
 AS
 BEGIN
-	insert into dbo.Skill (SkillName, LevelOfSkillid,IsDeleted)
-	values (@SkillName ,
+	insert into dbo.Skill ([Name], LevelOfSkillid,IsDeleted)
+	values (@Name ,
 	@LevelOfSkillId,
 	@IsDeleted )
 END

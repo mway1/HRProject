@@ -4,7 +4,7 @@ AS
 BEGIN
 	SELECT 
 	s.Id,
-	s.SkillName,
+	s.[Name],
 	s.LevelOfSkillId,
 	s.IsDeleted
 	from dbo.Skill s
