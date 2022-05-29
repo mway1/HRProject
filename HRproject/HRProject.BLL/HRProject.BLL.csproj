@@ -11,4 +11,8 @@
     <Folder Include="OutputModels\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\HRProject.UI\HRProject.IL.csproj" />
+  </ItemGroup>
+
 </Project>

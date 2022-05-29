@@ -3,6 +3,8 @@ using HRProject.DAL.StoredProcedureEnums;
 using Dapper;
 using HRProject.DAL.DTOs;
 using System.Data.SqlClient;
+using HRProject.BLL.InputModels;
+
 namespace HRProject.DAL
 {
     public class EmployeeRequestManager
@@ -49,13 +51,20 @@ namespace HRProject.DAL
             }
         }
 
-        public void UpdateEmployeeRequest(int id, int ProjectId, int Quantity, bool isDeleted)
+        public void UpdateEmployeeRequest(EmployeeRequestInputUpdateModel input)
         {
             using (var connection = new SqlConnection(_connectionString))
             {
                 connection.Open();
 
-                connection.Execute($"{StoredProcedures.UpdateEmployeeRequest} {id}, {ProjectId}, {Quantity}, {isDeleted}");
+                connection.QuerySingle(StoredProcedures.UpdateEmployeeRequest, param: new
+                {
+                    Id = input.Id,
+                    ProjectId = input.ProjectId,
+                    Quantity = input.Quantity,
+                    IsDeleted = input.IsDeleted
+                },
+                commandType: System.Data.CommandType.StoredProcedure);
             }
         }
     }
