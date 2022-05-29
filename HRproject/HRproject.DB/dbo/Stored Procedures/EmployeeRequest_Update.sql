@@ -1,4 +1,4 @@
-﻿CREATE PROCEDURE dbo.EmployeeRequest_Update
+﻿CREATE PROCEDURE dbo.EmployeeRequest_UpdateById
 @Id int,
 @ProjectId int,
 @Quantity int,
