@@ -58,5 +58,29 @@ namespace HRProject.DAL.Managers
                     commandType: System.Data.CommandType.StoredProcedure);
             }
         }
+
+        public void UpdateEmployeeById(EmployeeDTO newEmployee)
+        {
+            using (var connection = new SqlConnection(ServerSettings._connectionString))
+            {
+                connection.Open();
+                connection.QuerySingleOrDefault<EmployeeDTO>(
+                    StoredProcedures.Employee_Update,
+                    param: new
+                    {
+                        newEmployee.id,
+                        newEmployee.FirstName,
+                        newEmployee.SecondName,
+                        newEmployee.LastName,
+                        newEmployee.BirthDate,
+                        newEmployee.Email,
+                        newEmployee.PhonrNumber,
+                        newEmployee.StatusId,
+                        newEmployee.DepartmentId,
+                        newEmployee.isDeleted
+                    },
+                    commandType: System.Data.CommandType.StoredProcedure);
+            }
+        }
     }
 }
