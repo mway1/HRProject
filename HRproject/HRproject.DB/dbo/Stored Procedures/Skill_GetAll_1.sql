@@ -2,6 +2,6 @@
 	AS
 BEGIN
 	
-	SELECT Id, SkillName, LevelOfSkillId, IsDeleted
+	SELECT Id, [Name], LevelOfSkillId, IsDeleted
 	from dbo.Skill
 END

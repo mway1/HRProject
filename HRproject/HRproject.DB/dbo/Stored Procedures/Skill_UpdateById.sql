@@ -1,12 +1,12 @@
 ﻿CREATE PROCEDURE [dbo].[Skill_UpdateById]
-	 @SkillName nvarchar(50),
+	 @Name nvarchar(50),
 	@LevelOfSkillId int,
 	@IsDeleted bit,
     @Id int
 AS
 	update [dbo].[Skill]
 	set 
-	[SkillName] = @SkillName,
+	[Name] = @Name,
 	[LevelOfSkillId] = @LevelOfSkillId,
 	[IsDeleted] = @IsDeleted
 	
