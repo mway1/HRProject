@@ -4,8 +4,8 @@ AS
 BEGIN
 	SELECT 
 	p.Id,
-	p.PositionName,
-	lop.LevelOfPositionName,
+	p.[Name] as PositionName,
+	lop.[Name] as PositionLevel,
 	p.IsDeleted
 	from dbo.Position p
 	left join [LevelOfPosition] lop on lop.Id = p.LevelOfPositionId

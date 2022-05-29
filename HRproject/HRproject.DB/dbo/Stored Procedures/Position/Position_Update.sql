@@ -5,7 +5,7 @@
 AS
 	update [dbo].[Position]
 	set 
-	[PositionName] = @PositionName,
+	[Name] = @PositionName,
 	[LevelOfPositionId] = @LevelOfPositionId
 	
 	Where Id = @Id

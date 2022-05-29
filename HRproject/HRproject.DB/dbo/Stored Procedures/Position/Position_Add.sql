@@ -5,6 +5,6 @@
 	
 AS
 BEGIN
-	INSERT INTO dbo.Position (PositionName,LevelOfPositionId)
+	INSERT INTO dbo.Position ([Name],LevelOfPositionId)
 	VALUES (@PositionName,@LevelOfPositionId)
 END
