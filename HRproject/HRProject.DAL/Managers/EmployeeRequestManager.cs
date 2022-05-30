@@ -1,10 +1,11 @@
-﻿using HRProject.DAL.StoredProcedureEnums;
+﻿using HRProject.DAL.Managers;
+using HRProject.DAL.StoredProcedureStorage;
 using Dapper;
 using HRProject.DAL.DTOs;
 using System.Data.SqlClient;
 using HRProject.BLL.InputModels;
 
-namespace HRProject.DAL
+namespace HRProject.DAL.Managers
 {
     public class EmployeeRequestManager
     {
@@ -19,7 +20,7 @@ namespace HRProject.DAL
                 Dictionary<int, EmplooyeeRequestAllInfoDTO> result = new Dictionary<int, EmplooyeeRequestAllInfoDTO>();
 
                 connection.Query<EmplooyeeRequestAllInfoDTO, string, string, string, int?, EmplooyeeRequestAllInfoDTO>(
-                    StoredProcedures.GetEmployeeRequestAllInfo,
+                    EmployeeRequestStoredProcedures.GetEmployeeRequestAllInfo,
                     (EmployeeRequest, PositionName, PositionLevel, SkillName, SkillLevel) =>
                     {
                         if (!result.ContainsKey(EmployeeRequest.id))
@@ -56,10 +57,10 @@ namespace HRProject.DAL
             {
                 connection.Open();
 
-               EmplooyeeRequestAllInfoDTO result = new EmplooyeeRequestAllInfoDTO();
+                EmplooyeeRequestAllInfoDTO result = new EmplooyeeRequestAllInfoDTO();
 
                 connection.Query<EmplooyeeRequestAllInfoDTO, string, string, string, int?, EmplooyeeRequestAllInfoDTO>(
-                    StoredProcedures.GetEmployeeRequestAllInfo,
+                    EmployeeRequestStoredProcedures.GetEmployeeRequestAllInfo,
                     (EmployeeRequest, PositionName, PositionLevel, SkillName, SkillLevel) =>
                     {
                         EmplooyeeRequestAllInfoDTO crnt = result;
@@ -91,14 +92,14 @@ namespace HRProject.DAL
             {
                 connection.Open();
 
-                connection.QuerySingle(StoredProcedures.UpdateEmployeeRequestById, 
+                connection.QuerySingle(EmployeeRequestStoredProcedures.UpdateEmployeeRequestById,
                     param: new
-                {
-                    Id = input.Id,
-                    ProjectId = input.ProjectId,
-                    Quantity = input.Quantity,
-                    IsDeleted = input.IsDeleted
-                },
+                    {
+                        input.Id,
+                        input.ProjectId,
+                        input.Quantity,
+                        input.IsDeleted
+                    },
                 commandType: System.Data.CommandType.StoredProcedure);
             }
         }
@@ -109,13 +110,13 @@ namespace HRProject.DAL
             {
                 connection.Open();
 
-                connection.QuerySingle(StoredProcedures.DeleteEmployeeRequestById, 
+                connection.QuerySingle(EmployeeRequestStoredProcedures.DeleteEmployeeRequestById,
                     param: new
-                {
-                    Id = input.Id,
-                    ProjectId = input.ProjectId,
-                    Quantity = input.Quantity
-                },
+                    {
+                        input.Id,
+                        input.ProjectId,
+                        input.Quantity
+                    },
                 commandType: System.Data.CommandType.StoredProcedure);
             }
         }
@@ -126,12 +127,12 @@ namespace HRProject.DAL
             {
                 connection.Open();
 
-                connection.QuerySingle(StoredProcedures.CreateEmployeeRequest, 
+                connection.QuerySingle(EmployeeRequestStoredProcedures.CreateEmployeeRequest,
                     param: new
-                {
-                    ProjectId = input.ProjectId,
-                    Quantity = input.Quantity
-                },
+                    {
+                        input.ProjectId,
+                        input.Quantity
+                    },
                 commandType: System.Data.CommandType.StoredProcedure);
             }
         }

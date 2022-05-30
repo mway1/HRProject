@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace HRProject.DAL
+namespace HRProject.DAL.StoredProcedureStorage
 {
-    public class StoredProcedures
+    public class EmployeeStoredProcedures
     {
         public const string Employee_Add = "Employee_Add";
         public const string Employee_Delete = "Employee_Delete";

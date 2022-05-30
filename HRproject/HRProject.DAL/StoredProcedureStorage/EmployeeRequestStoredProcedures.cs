@@ -1,6 +1,6 @@
-﻿namespace HRProject.DAL.StoredProcedureEnums
+﻿namespace HRProject.DAL.StoredProcedureStorage
 {
-    public class StoredProcedures
+    public class EmployeeRequestStoredProcedures
     {
         public const string GetEmployeeRequestAllInfo = "EmployeeRequest_GetAllInfo";
 

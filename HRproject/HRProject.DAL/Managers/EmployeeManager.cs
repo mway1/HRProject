@@ -1,11 +1,12 @@
-﻿using System;
+﻿using HRProject.DAL.DTOs;
+using HRProject.DAL.StoredProcedureStorage;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Dapper;
 using System.Data.SqlClient;
-using HRProject.DAL.DTOs;
 
 namespace HRProject.DAL.Managers
 {
@@ -18,7 +19,7 @@ namespace HRProject.DAL.Managers
                 connection.Open();
                 
                 return connection.Query<EmployeeDTO>(
-                    StoredProcedures.Employee_GetAll,
+                    EmployeeStoredProcedures.Employee_GetAll,
                     commandType: System.Data.CommandType.StoredProcedure)
                     .ToList();
             }
@@ -30,7 +31,7 @@ namespace HRProject.DAL.Managers
                 connection.Open();
 
                 connection.QuerySingle<EmployeeDTO>(
-                    StoredProcedures.Employee_Add,
+                    EmployeeStoredProcedures.Employee_Add,
                     param: new
                     {
                         newEmployee.FirstName,
@@ -53,7 +54,7 @@ namespace HRProject.DAL.Managers
                 connection.Open();
 
                 connection.QuerySingleOrDefault<EmployeeDTO>(
-                    StoredProcedures.Employee_Delete,
+                    EmployeeStoredProcedures.Employee_Delete,
                     param: new { id = employeeId },
                     commandType: System.Data.CommandType.StoredProcedure);
             }
@@ -65,7 +66,7 @@ namespace HRProject.DAL.Managers
             {
                 connection.Open();
                 connection.QuerySingleOrDefault<EmployeeDTO>(
-                    StoredProcedures.Employee_Update,
+                    EmployeeStoredProcedures.Employee_Update,
                     param: new
                     {
                         newEmployee.id,
@@ -89,7 +90,7 @@ namespace HRProject.DAL.Managers
                 connection.Open();
 
                 return connection.QuerySingle<EmployeeDTO>(
-                    StoredProcedures.Employee_GetById,
+                    EmployeeStoredProcedures.Employee_GetById,
                     param: new { id = employeeId },
                     commandType: System.Data.CommandType.StoredProcedure);
             }
