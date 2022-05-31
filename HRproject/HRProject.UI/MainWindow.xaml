@@ -15,10 +15,37 @@
                         <ColumnDefinition Width="0*"/>
                         <ColumnDefinition Width="145*"/>
                     </Grid.ColumnDefinitions>
-                    <TreeView Margin="0,0,283,0"/>
-                    <TabControl HorizontalAlignment="Left" Height="406" Margin="221,0,0,0" VerticalAlignment="Center" Width="573" Grid.ColumnSpan="3">
+                    <TreeView HorizontalAlignment="Left" Width="221"/>
+                    <TabControl HorizontalAlignment="Left" Height="406" VerticalAlignment="Center" Width="573" Grid.ColumnSpan="3" Margin="221,0,0,0">
                         <TabItem Header="Общее">
-                            <Grid Background="#FFE5E5E5"/>
+                            <Grid Background="#FFE5E5E5" HorizontalAlignment="Left" Width="567">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="89*"/>
+                                    <ColumnDefinition Width="100*"/>
+                                </Grid.ColumnDefinitions>
+                                <Label x:Name="Label_FirstName" Content="Имя" HorizontalAlignment="Left" Height="26" Margin="18,34,0,0" VerticalAlignment="Top" Width="84"/>
+                                <Label x:Name="Label_LastName" Content="Фамилия " HorizontalAlignment="Left" Height="26" Margin="18,65,0,0" VerticalAlignment="Top" Width="84"/>
+                                <Label Content="Emaill" HorizontalAlignment="Left" Height="26" Margin="18,96,0,0" VerticalAlignment="Top" Width="84"/>
+                                <Label Content="Телефон" HorizontalAlignment="Left" Height="25" Margin="18,127,0,0" VerticalAlignment="Top" Width="87"/>
+                                <Rectangle Grid.ColumnSpan="2" HorizontalAlignment="Left" Margin="10,21,0,212" Stroke="Black" Width="418"/>
+                                <TextBox Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="20" Margin="107,40,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="162"/>
+                                <TextBox Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="20" Margin="107,68,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="162"/>
+                                <TextBox Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="20" Margin="107,96,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="162"/>
+                                <TextBox Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="20" Margin="107,127,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="162"/>
+                                <Rectangle Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="92" Margin="10,178,0,0" Stroke="Black" VerticalAlignment="Top" Width="547"/>
+                                <Rectangle Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="81" Margin="10,287,0,0" Stroke="Black" VerticalAlignment="Top" Width="547"/>
+                                <Label x:Name="Label_FirstName_Copy" Content="Должность" HorizontalAlignment="Left" Height="26" Margin="18,189,0,0" VerticalAlignment="Top" Width="84"/>
+                                <Label x:Name="Label_FirstName_Copy1" Content="Уровень" HorizontalAlignment="Left" Height="26" Margin="18,224,0,0" VerticalAlignment="Top" Width="84"/>
+                                <Label x:Name="Label_FirstName_Copy2" Content="Компетенции" HorizontalAlignment="Left" Height="26" Margin="24,191,0,0" VerticalAlignment="Top" Width="84" Grid.Column="1"/>
+                                <TextBox HorizontalAlignment="Left" Height="20" Margin="107,194,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="162" Grid.ColumnSpan="2"/>
+                                <TextBox HorizontalAlignment="Left" Height="20" Margin="107,227,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="162" Grid.ColumnSpan="2"/>
+                                <Image Grid.Column="1" HorizontalAlignment="Left" Height="125" Margin="176,34,0,0" VerticalAlignment="Top" Width="113">
+                                    <Image.OpacityMask>
+                                        <ImageBrush Stretch="None"/>
+                                    </Image.OpacityMask>
+                                </Image>
+                                <Image Margin="161,28,9,231" Source="/1614560341_16-p-ikonki-na-belom-fone-18.png" Stretch="Fill" Grid.Column="1"/>
+                            </Grid>
                         </TabItem>
                         <TabItem Header="Опыт">
                             <Grid Background="#FFE5E5E5">
