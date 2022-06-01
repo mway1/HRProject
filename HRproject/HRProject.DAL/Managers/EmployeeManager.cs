@@ -39,7 +39,7 @@ namespace HRProject.DAL.Managers
                         newEmployee.LastName,
                         newEmployee.BirthDate,
                         newEmployee.Email,
-                        newEmployee.PhonrNumber,
+                        newEmployee.PhoneNumber,
                         newEmployee.StatusId,
                         newEmployee.DepartmentId,
                         newEmployee.isDeleted
@@ -75,7 +75,7 @@ namespace HRProject.DAL.Managers
                         newEmployee.LastName,
                         newEmployee.BirthDate,
                         newEmployee.Email,
-                        newEmployee.PhonrNumber,
+                        newEmployee.PhoneNumber,
                         newEmployee.StatusId,
                         newEmployee.DepartmentId,
                         newEmployee.isDeleted
