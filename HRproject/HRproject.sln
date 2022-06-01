@@ -11,8 +11,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HRProject.DAL", "HRProject.
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HRProject.IL", "HRProject.UI\HRProject.IL.csproj", "{46E0E298-1C19-4FC7-9C1B-CA58D841C303}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Run", "Run\Run.csproj", "{35697415-7E67-4260-95FE-344C627882F2}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -37,10 +35,6 @@ Global
 		{46E0E298-1C19-4FC7-9C1B-CA58D841C303}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{46E0E298-1C19-4FC7-9C1B-CA58D841C303}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{46E0E298-1C19-4FC7-9C1B-CA58D841C303}.Release|Any CPU.Build.0 = Release|Any CPU
-		{35697415-7E67-4260-95FE-344C627882F2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{35697415-7E67-4260-95FE-344C627882F2}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{35697415-7E67-4260-95FE-344C627882F2}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{35697415-7E67-4260-95FE-344C627882F2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
