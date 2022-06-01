@@ -3,7 +3,7 @@
 //using Dapper;
 //using HRProject.DAL.DTOs;
 //using System.Data.SqlClient;
-//using HRProject.BLL.InputModels;
+
 
 //namespace HRProject.DAL.Managers
 //{

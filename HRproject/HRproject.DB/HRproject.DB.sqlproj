@@ -120,6 +120,9 @@
     <Build Include="dbo\Stored Procedures\LevelOfPosition_Update.sql" />
     <Build Include="dbo\Stored Procedures\EmployeeRequest_Create.sql" />
     <Build Include="dbo\Stored Procedures\EmployeeRequest_DeleteById.sql" />
+    <Build Include="dbo\Stored Procedures\Project_StoredProcedures\project_getAllFull.sql" />
+    <Build Include="dbo\Stored Procedures\Project_StoredProcedures\project_getAll.sql" />
+    <Build Include="dbo\Stored Procedures\Project_StoredProcedures\project_getAllNotFull.sql" />
   </ItemGroup>
   <ItemGroup>
     <RefactorLog Include="HRproject.DB.refactorlog" />

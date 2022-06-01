@@ -1,6 +1,6 @@
-﻿namespace HRProject.DAL.DTOs
+﻿namespace HRProject.BLL.OutputModels
 {
-    public class EmplooyeeRequestAllInfoDTO
+    public class EmployeeRequestModel
     {
         public int id { get; set; }
         public int Quantity { get; set; }
@@ -9,13 +9,5 @@
         public List<string> PositionLevel { get; set; }
         public List<string> SkillName { get; set; }
         public List<int?> LevelOfSkill { get; set; }
-
-        public EmplooyeeRequestAllInfoDTO()
-        {
-            PositionName = new List<string>();
-            PositionLevel = new List<string>();
-            SkillName = new List<string>();
-            LevelOfSkill = new List<int?>();
-        }
     }
 }

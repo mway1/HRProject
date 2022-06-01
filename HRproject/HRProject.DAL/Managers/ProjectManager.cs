@@ -35,21 +35,26 @@ namespace HRProject.DAL
                 connection.Open();
 
                 List<ProjectDTO> projects = connection.Query<ProjectDTO>(
-                    ProjectStoredProcedures.Project_GetAll,                    
+                    ProjectStoredProcedures.Project_GetAll,
                     commandType: System.Data.CommandType.StoredProcedure)
                     .ToList();
                 return projects;
             }
         }
 
-        public ProjectDTO? UpdateProject(int id, string name, string decsription)
+        public ProjectDTO GetAllProjectById()
+        {
+            throw new NotImplementedException();
+        }
+
+        public ProjectDTO? UpdateProject(int id, ProjectDTO project)
         {
             using (var connection = new SqlConnection(_connectionString))
             {
                 connection.Open();
                 List<ProjectDTO> projects = connection.Query<ProjectDTO>(
                                  ProjectStoredProcedures.Project_Update,
-                                  param: new { id = id, name = name, description = decsription },
+                                  param: new { id = project.Id, name = project.Name, description = project.Description, isFull = project.IsFull },
                                   commandType: System.Data.CommandType.StoredProcedure)
                                   .ToList();
 
@@ -61,14 +66,14 @@ namespace HRProject.DAL
             }
         }
 
-        public ProjectDTO? AddProject(int id, string name, string decsription)
+        public ProjectDTO? AddProject(ProjectDTO project)
         {
             using (var connection = new SqlConnection(_connectionString))
             {
                 connection.Open();
                 List<ProjectDTO> projects = connection.Query<ProjectDTO>(
                                   ProjectStoredProcedures.Project_Add,
-                                  param: new { id = id, name = name, description = decsription },
+                                  param: new { id = project.Id, name = project.Name, description = project.Description, isFull = project.IsFull },
                                   commandType: System.Data.CommandType.StoredProcedure)
                                   .ToList();
 
@@ -93,7 +98,7 @@ namespace HRProject.DAL
                 return projects;
             }
         }
-        
+
         public List<ProjectDTO> GetAllNotFullProjects()
         {
             using (var connection = new SqlConnection(_connectionString))

@@ -1,11 +1,6 @@
-﻿using HRProject.DAL.DTOs;
+﻿using Dapper;
+using HRProject.DAL.DTOs;
 using HRProject.DAL.StoredProcedureStorage;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Dapper;
 using System.Data.SqlClient;
 
 namespace HRProject.DAL.Managers
@@ -17,7 +12,7 @@ namespace HRProject.DAL.Managers
             using (var connection = new SqlConnection(ServerSettings._connectionString))
             {
                 connection.Open();
-                
+
                 return connection.Query<EmployeeDTO>(
                     EmployeeStoredProcedures.Employee_GetAll,
                     commandType: System.Data.CommandType.StoredProcedure)
@@ -39,7 +34,7 @@ namespace HRProject.DAL.Managers
                         newEmployee.LastName,
                         newEmployee.BirthDate,
                         newEmployee.Email,
-                        newEmployee.PhonrNumber,
+                        newEmployee.PhoneNumber,
                         newEmployee.StatusId,
                         newEmployee.DepartmentId,
                         newEmployee.isDeleted
@@ -75,7 +70,7 @@ namespace HRProject.DAL.Managers
                         newEmployee.LastName,
                         newEmployee.BirthDate,
                         newEmployee.Email,
-                        newEmployee.PhonrNumber,
+                        newEmployee.PhoneNumber,
                         newEmployee.StatusId,
                         newEmployee.DepartmentId,
                         newEmployee.isDeleted
