@@ -1,4 +1,4 @@
-﻿using AutoMapper;
+using AutoMapper;
 using HRProject.BLL.Models;
 using HRProject.BLL.OutputModels;
 using HRProject.DAL;
@@ -50,7 +50,8 @@ namespace HRProject.BLL
                 .ForMember("SkillName", opt => opt.MapFrom(c => $"{c.SkillName}"))
                 .ForMember("LevelOfSkill", opt => opt.MapFrom(c => $"{c.LevelOfSkill}"));
 
-                cfg.CreateMap<ProjectDTO,ProjectOutputModel>
+                cfg.CreateMap<ProjectDTO, ProjectOutputModel>();
+                cfg.CreateMap<ProjectOutputModel, ProjectDTO>();
             }));
         }
     }
