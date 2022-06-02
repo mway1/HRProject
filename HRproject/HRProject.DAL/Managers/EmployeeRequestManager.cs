@@ -3,18 +3,19 @@ using HRProject.DAL.DTOs;
 using System.Data.SqlClient;
 using Dapper;
 
+namespace HRProject.DAL.Managers
+{
+    public class EmployeeRequestManager
+    {
+        public string _connectionString = @"Server=.\SQLEXPRESS;Database=....;Trusted_Connection=True;";
 
-//namespace HRProject.DAL.Managers
-//{
-//    public class EmployeeRequestManager
-//    {
-//        public string _connectionString = @"Server=.\SQLEXPRESS;Database=....;Trusted_Connection=True;";
+        public List<EmplooyeeRequestAllInfoDTO> GetEmployeeRequestAllInfo()
+        {
+            using (var connection = new SqlConnection(_connectionString))
+            {
+                connection.Open();
 
-//        public List<EmplooyeeRequestAllInfoDTO> GetEmployeeRequestAllInfo()
-//        {
-//            using (var connection = new SqlConnection(_connectionString))
-//            {
-//                connection.Open();
+                Dictionary<int, EmplooyeeRequestAllInfoDTO> result = new Dictionary<int, EmplooyeeRequestAllInfoDTO>();
 
                 connection.Query<
                     EmplooyeeRequestAllInfoDTO,
@@ -33,14 +34,7 @@ using Dapper;
                             result.Add(EmployeeRequest.id, EmployeeRequest);
                         }
 
-//                connection.Query<EmplooyeeRequestAllInfoDTO, string, string, string, int?, EmplooyeeRequestAllInfoDTO>(
-//                    EmployeeRequestStoredProcedures.GetEmployeeRequestAllInfo,
-//                    (EmployeeRequest, PositionName, PositionLevel, SkillName, SkillLevel) =>
-//                    {
-//                        if (!result.ContainsKey(EmployeeRequest.id))
-//                        {
-//                            result.Add(EmployeeRequest.id, EmployeeRequest);
-//                        }
+                        EmplooyeeRequestAllInfoDTO crnt = result[EmployeeRequest.id];
 
                         if (Project is not null)
                         {
@@ -58,7 +52,7 @@ using Dapper;
                             Position.PositionLevel = PositionLevel;
                             crnt.Positions!.Add(Position);
                         }
-                        
+
                         if (crnt.Skills is null && Skill is not null)
                         {
                             crnt.Skills = new List<SkillDTO>();
@@ -76,10 +70,9 @@ using Dapper;
                     commandType: System.Data.CommandType.StoredProcedure,
                     splitOn: "id");
 
-//                        return crnt;
-//                    },
-//                    commandType: System.Data.CommandType.StoredProcedure,
-//                    splitOn: "id PositionName PositionLevel SkillName LevelOfSkill");
+                return result.Values.ToList();
+            }
+        }
 
         public EmplooyeeRequestAllInfoDTO GetEmployeeRequestAllInfoById(int employeeRequestId)
         {
@@ -134,12 +127,11 @@ using Dapper;
                     },
                     commandType: System.Data.CommandType.StoredProcedure,
                     splitOn: "id",
-                    param: new {employeeRequestId});
+                    param: new { employeeRequestId });
 
-//                        return crnt;
-//                    },
-//                    commandType: System.Data.CommandType.StoredProcedure,
-//                    splitOn: "id PositionName PositionLevel SkillName LevelOfSkill");
+                return result;
+            }
+        }
 
         public void UpdateEmployeeRequest(EmployeeRequestDTO input)
         {
@@ -147,11 +139,17 @@ using Dapper;
             {
                 connection.Open();
 
-//        public void UpdateEmployeeRequest(EmployeeRequestInputUpdateModel input)
-//        {
-//            using (var connection = new SqlConnection(_connectionString))
-//            {
-//                connection.Open();
+                connection.QuerySingle(EmployeeRequestStoredProcedures.UpdateEmployeeRequestById,
+                    param: new
+                    {
+                        input.Id,
+                        input.ProjectId,
+                        input.Quantity,
+                        input.IsDeleted
+                    },
+                commandType: System.Data.CommandType.StoredProcedure);
+            }
+        }
 
         public void DeleteEmployeeRequestById(EmployeeRequestDTO input)
         {
@@ -159,11 +157,16 @@ using Dapper;
             {
                 connection.Open();
 
-//        public void DeleteEmployeeRequestById(DeleteEmployeeRequestByIdInputModel input)
-//        {
-//            using (var connection = new SqlConnection(_connectionString))
-//            {
-//                connection.Open();
+                connection.QuerySingle(EmployeeRequestStoredProcedures.DeleteEmployeeRequestById,
+                    param: new
+                    {
+                        input.Id,
+                        input.ProjectId,
+                        input.Quantity
+                    },
+                commandType: System.Data.CommandType.StoredProcedure);
+            }
+        }
 
         public void CreateEmployeeRequest(EmployeeRequestDTO input)
         {
@@ -171,20 +174,14 @@ using Dapper;
             {
                 connection.Open();
 
-//        public void CreateEmployeeRequest(EmployeeRequestCreateInputModel input)
-//        {
-//            using (var connection = new SqlConnection(_connectionString))
-//            {
-//                connection.Open();
-
-//                connection.QuerySingle(EmployeeRequestStoredProcedures.CreateEmployeeRequest,
-//                    param: new
-//                    {
-//                        input.ProjectId,
-//                        input.Quantity
-//                    },
-//                commandType: System.Data.CommandType.StoredProcedure);
-//            }
-//        }
-//    }
-//}
+                connection.QuerySingle(EmployeeRequestStoredProcedures.CreateEmployeeRequest,
+                    param: new
+                    {
+                        input.ProjectId,
+                        input.Quantity
+                    },
+                commandType: System.Data.CommandType.StoredProcedure);
+            }
+        }
+    }
+}
