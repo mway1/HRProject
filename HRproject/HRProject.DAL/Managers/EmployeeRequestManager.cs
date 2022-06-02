@@ -1,6 +1,7 @@
 ﻿using HRProject.DAL.StoredProcedureStorage;
 using HRProject.DAL.DTOs;
-
+using System.Data.SqlClient;
+using Dapper;
 
 namespace HRProject.DAL.Managers
 {
@@ -42,34 +43,26 @@ namespace HRProject.DAL.Managers
 
                         if (crnt.Positions is null && Position is not null)
                         {
-                            crnt.Positions = new Dictionary<PositionDTO, List<LevelOfPositionDTO>>();
-                            crnt.Positions.Add(Position, new List<LevelOfPositionDTO>());
-                            crnt.Positions[Position].Add(PositionLevel);
+                            crnt.Positions = new List<PositionDTO>();
+                            Position.PositionLevel = PositionLevel;
+                            crnt.Positions.Add(Position);
                         }
-                        if (crnt.Positions.ContainsKey(Position))
+                        else if (Position is not null)
                         {
-                            crnt.Positions[Position].Add(PositionLevel);
+                            Position.PositionLevel = PositionLevel;
+                            crnt.Positions!.Add(Position);
                         }
-                        else
-                        {
-                            crnt.Positions.Add(Position, new List<LevelOfPositionDTO>());
-                            crnt.Positions[Position].Add(PositionLevel);
-                        }
-
+                        
                         if (crnt.Skills is null && Skill is not null)
                         {
-                            crnt.Skills = new Dictionary<PositionDTO, List<LevelOfPositionDTO>>();
-                            crnt.Skills.Add(Skill, new List<LevelOfPositionDTO>());
-                            crnt.Skills[Skill].Add(SkillLevel);
+                            crnt.Skills = new List<SkillDTO>();
+                            Skill.SkillLevel = SkillLevel;
+                            crnt.Skills.Add(Skill);
                         }
-                        if (crnt.Skills.ContainsKey(Skill))
+                        else if (Skill is not null)
                         {
-                            crnt.Skills[Skill].Add(SkillLevel);
-                        }
-                        else
-                        {
-                            crnt.Skills.Add(Position, new List<LevelOfPositionDTO>());
-                            crnt.Skills[Skill].Add(SkillLevel);
+                            Skill.SkillLevel = SkillLevel;
+                            crnt.Skills!.Add(Skill);
                         }
 
                         return crnt;
@@ -83,10 +76,11 @@ namespace HRProject.DAL.Managers
 
         public EmplooyeeRequestAllInfoDTO GetEmployeeRequestAllInfoById(int employeeRequestId)
         {
+            EmplooyeeRequestAllInfoDTO result = new EmplooyeeRequestAllInfoDTO();
+
             using (var connection = new SqlConnection(_connectionString))
             {
-
-                return connection.Query<
+                connection.Query<
                     EmplooyeeRequestAllInfoDTO,
                     ProjectDTO,
                     PositionDTO,
@@ -95,54 +89,51 @@ namespace HRProject.DAL.Managers
                     EmployeeRequestSkillDTO,
                     EmplooyeeRequestAllInfoDTO
                     >
-                    (EmployeeRequestStoredProcedures.GetEmployeeRequestAllInfo,
+                    (EmployeeRequestStoredProcedures.GetEmployeeRequestAllInfoById,
                     (EmployeeRequest, Project, Position, PositionLevel, Skill, SkillLevel) =>
                     {
+                        result = EmployeeRequest;
+
                         if (Project is not null)
                         {
-                            EmployeeRequest.Project = Project;
+                            result.Project = Project;
                         }
 
-                        if (EmployeeRequest.Positions is null && Position is not null)
+                        if (result.Positions is null && Position is not null)
                         {
-                            EmployeeRequest.Positions = new Dictionary<PositionDTO, List<LevelOfPositionDTO>>();
-                            EmployeeRequest.Positions.Add(Position, new List<LevelOfPositionDTO>());
-                            EmployeeRequest.Positions[Position].Add(PositionLevel);
+                            result.Positions = new List<PositionDTO>();
+                            Position.PositionLevel = PositionLevel;
+                            result.Positions.Add(Position);
                         }
-                        if (EmployeeRequest.Positions.ContainsKey(Position))
+                        else if (Position is not null)
                         {
-                            EmployeeRequest.Positions[Position].Add(PositionLevel);
-                        }
-                        else
-                        {
-                            EmployeeRequest.Positions.Add(Position, new List<LevelOfPositionDTO>());
-                            EmployeeRequest.Positions[Position].Add(PositionLevel);
+                            Position.PositionLevel = PositionLevel;
+                            result.Positions!.Add(Position);
                         }
 
                         if (EmployeeRequest.Skills is null && Skill is not null)
                         {
-                            EmployeeRequest.Skills = new Dictionary<PositionDTO, List<LevelOfPositionDTO>>();
-                            EmployeeRequest.Skills.Add(Skill, new List<LevelOfPositionDTO>());
-                            EmployeeRequest.Skills[Skill].Add(SkillLevel);
+                            result.Skills = new List<SkillDTO>();
+                            Skill.SkillLevel = SkillLevel;
+                            result.Skills.Add(Skill);
                         }
-                        if (EmployeeRequest.Skills.ContainsKey(Skill))
+                        else if (Skill is not null)
                         {
-                            EmployeeRequest.Skills[Skill].Add(SkillLevel);
-                        }
-                        else
-                        {
-                            EmployeeRequest.Skills.Add(Position, new List<LevelOfPositionDTO>());
-                            EmployeeRequest.Skills[Skill].Add(SkillLevel);
+                            Skill.SkillLevel = SkillLevel;
+                            result.Skills!.Add(Skill);
                         }
 
                         return EmployeeRequest;
                     },
                     commandType: System.Data.CommandType.StoredProcedure,
-                    splitOn: "id");
+                    splitOn: "id",
+                    param: new {employeeRequestId});
+
+                return result;
             }
         }
 
-        public void UpdateEmployeeRequest(EmployeeRequestInputUpdateModel input)
+        public void UpdateEmployeeRequest(EmployeeRequestDTO input)
         {
             using (var connection = new SqlConnection(_connectionString))
             {
@@ -160,7 +151,7 @@ namespace HRProject.DAL.Managers
             }
         }
 
-        public void DeleteEmployeeRequestById(DeleteEmployeeRequestByIdInputModel input)
+        public void DeleteEmployeeRequestById(EmployeeRequestDTO input)
         {
             using (var connection = new SqlConnection(_connectionString))
             {
@@ -177,7 +168,7 @@ namespace HRProject.DAL.Managers
             }
         }
 
-        public void CreateEmployeeRequest(EmployeeRequestCreateInputModel input)
+        public void CreateEmployeeRequest(EmployeeRequestDTO input)
         {
             using (var connection = new SqlConnection(_connectionString))
             {
