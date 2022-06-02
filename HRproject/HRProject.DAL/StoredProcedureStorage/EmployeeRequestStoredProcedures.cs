@@ -11,5 +11,7 @@
         public const string CreateEmployeeRequest = "EmployeeRequest_Create";
 
         public const string GetEmployeeRequestAllInfoById = "EmployeeRequest_GetAllInfoById";
+
+        public const string GetEmployeeRequestAllInfoByProjectId = "EmployeeRequest_GetAllInfoByProjectId";
     }
 }
