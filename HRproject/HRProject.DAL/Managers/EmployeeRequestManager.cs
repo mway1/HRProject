@@ -74,6 +74,72 @@ namespace HRProject.DAL.Managers
             }
         }
 
+        public List<EmplooyeeRequestAllInfoDTO> GetEmployeeRequestAllInfoByProjectId(int projectId)
+        {
+            using (var connection = new SqlConnection(_connectionString))
+            {
+                connection.Open();
+
+                Dictionary<int, EmplooyeeRequestAllInfoDTO> result = new Dictionary<int, EmplooyeeRequestAllInfoDTO>();
+
+                connection.Query<
+                    EmplooyeeRequestAllInfoDTO,
+                    ProjectDTO,
+                    PositionDTO,
+                    LevelOfPositionDTO,
+                    SkillDTO,
+                    EmployeeRequestSkillDTO,
+                    EmplooyeeRequestAllInfoDTO
+                    >
+                    (EmployeeRequestStoredProcedures.GetEmployeeRequestAllInfoByProjectId,
+                    (EmployeeRequest, Project, Position, PositionLevel, Skill, SkillLevel) =>
+                    {
+                        if (!result.ContainsKey(EmployeeRequest.id))
+                        {
+                            result.Add(EmployeeRequest.id, EmployeeRequest);
+                        }
+
+                        EmplooyeeRequestAllInfoDTO crnt = result[EmployeeRequest.id];
+
+                        if (Project is not null)
+                        {
+                            crnt.Project = Project;
+                        }
+
+                        if (crnt.Positions is null && Position is not null)
+                        {
+                            crnt.Positions = new List<PositionDTO>();
+                            Position.PositionLevel = PositionLevel;
+                            crnt.Positions.Add(Position);
+                        }
+                        else if (Position is not null)
+                        {
+                            Position.PositionLevel = PositionLevel;
+                            crnt.Positions!.Add(Position);
+                        }
+
+                        if (crnt.Skills is null && Skill is not null)
+                        {
+                            crnt.Skills = new List<SkillDTO>();
+                            Skill.SkillLevel = SkillLevel;
+                            crnt.Skills.Add(Skill);
+                        }
+                        else if (Skill is not null)
+                        {
+                            Skill.SkillLevel = SkillLevel;
+                            crnt.Skills!.Add(Skill);
+                        }
+
+                        return crnt;
+                    },
+                    commandType: System.Data.CommandType.StoredProcedure,
+                    param: new {projectId},
+                    splitOn: "id");
+
+                return result.Values.ToList();
+            }
+        }
+
         public EmplooyeeRequestAllInfoDTO GetEmployeeRequestAllInfoById(int employeeRequestId)
         {
             EmplooyeeRequestAllInfoDTO result = new EmplooyeeRequestAllInfoDTO();

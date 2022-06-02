@@ -9,25 +9,34 @@ namespace HRProject.BLL
     {
         private Mapper mapper = MapperConfigStorage.GetInstance();
 
-        public List<EmployeeRequestModel> GetEmployeeRequestAllInfo()
+        public List<EmployeeRequestAllInfoModel> GetEmployeeRequestAllInfo()
         {            
             EmployeeRequestManager manager = new EmployeeRequestManager();
             List<EmplooyeeRequestAllInfoDTO> employeeRequests = manager.GetEmployeeRequestAllInfo();
-            List<EmployeeRequestModel> viewEmployeeRequests = new List<EmployeeRequestModel>();
+            List<EmployeeRequestAllInfoModel> viewEmployeeRequests = new List<EmployeeRequestAllInfoModel>();
 
             return mapper.Map(employeeRequests, viewEmployeeRequests);
         }
 
-        public EmployeeRequestModel GetEmployeeRequestAllInfoById(int id)
+        public List<EmployeeRequestAllInfoModel> GetEmployeeRequestAllInfoByProjectId(int projectId)
+        {
+            EmployeeRequestManager manager = new EmployeeRequestManager();
+            List<EmplooyeeRequestAllInfoDTO> employeeRequests = manager.GetEmployeeRequestAllInfoByProjectId(projectId);
+            List<EmployeeRequestAllInfoModel> viewEmployeeRequests = new List<EmployeeRequestAllInfoModel>();
+
+            return mapper.Map(employeeRequests, viewEmployeeRequests);
+        }
+
+        public EmployeeRequestAllInfoModel GetEmployeeRequestAllInfoById(int id)
         {
             EmployeeRequestManager manager = new EmployeeRequestManager();
             EmplooyeeRequestAllInfoDTO employeeRequest = manager.GetEmployeeRequestAllInfoById(id);
-            EmployeeRequestModel viewEmployeeRequest = new EmployeeRequestModel();
+            EmployeeRequestAllInfoModel viewEmployeeRequest = new EmployeeRequestAllInfoModel();
 
             return mapper.Map(employeeRequest, viewEmployeeRequest);
         }
 
-        public void DeleteEmployeeRequestById(EmployeeRequestModel input)
+        public void DeleteEmployeeRequestById(EmployeeRequestAllInfoModel input)
         {
             EmployeeRequestManager manager = new EmployeeRequestManager();
             EmployeeRequestDTO employeeRequest = new EmployeeRequestDTO();
@@ -35,7 +44,7 @@ namespace HRProject.BLL
             manager.DeleteEmployeeRequestById(selectedRequest);
         }
 
-        public void CreateEmployeeRequest(EmployeeRequestModel input)
+        public void CreateEmployeeRequest(EmployeeRequestAllInfoModel input)
         {
             EmployeeRequestManager manager = new EmployeeRequestManager();
             EmployeeRequestDTO employeeRequest = new EmployeeRequestDTO();

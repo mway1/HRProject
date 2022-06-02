@@ -1,6 +1,6 @@
 ﻿namespace HRProject.BLL.OutputModels
 {
-    public class EmployeeRequestModel
+    public class EmployeeRequestAllInfoModel
     {
         public int Id { get; private set; }
         public int? Quantity { get; private set; }
