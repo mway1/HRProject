@@ -1,19 +1,52 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace HRProject.BLL.OutputModels
+﻿namespace HRProject.BLL.OutputModels
 {
     public class EmployeeRequestModel
     {
-        public int id { get; set; }
-        public int Quantity { get; set; }
-        public string ProjectName { get; set; }
-        public List<string> PositionName { get; set; }
-        public List<string> PositionLevel { get; set; }
-        public List<string> SkillName { get; set; }
-        public List<int?> LevelOfSkill { get; set; }
+        public int id { get; private set; }
+        public int? Quantity { get; private set; }
+        public ProjectModel? Project { get; private set; }
+        public List<PositionModel> Positions { get; private set; }
+        public List<SkillModel> Skills { get; private set; }
+
+        public void DelleteAllSkills()
+        {
+            Skills.Clear();
+        }
+
+        public void DelleteAllPositions()
+        {
+            Positions.Clear();  
+        }
+
+        public void DeleteProject()
+        {
+            Project = null;
+        }
+
+        public void DeleteSkillById(int id)
+        {
+            for (int i = 0; i < Skills.Count; i++)
+            {
+                var skill = Skills[i];
+
+                if (skill.Id == id)
+                {
+                    Skills.RemoveAt(id);
+                }            
+            }
+        }
+
+        public void DeletePositionById(int id)
+        {
+            for (int i = 0; i < Positions.Count; i++)
+            {
+                var position = Positions[i];
+
+                if (position.Id == id)
+                {
+                    Positions.RemoveAt(id);
+                }
+            }
+        }
     }
 }
