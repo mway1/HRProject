@@ -7,7 +7,7 @@ namespace HRProject.DAL.Managers
 {
     public class EmployeeRequestManager
     {
-        public string _connectionString = @"Server=.\SQLEXPRESS;Database=....;Trusted_Connection=True;";
+        public string _connectionString = ServerSettings._connectionString;
 
         public List<EmplooyeeRequestAllInfoDTO> GetEmployeeRequestAllInfo()
         {

@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using AutoMapper;
+﻿using AutoMapper;
 using HRProject.DAL.DTOs;
 using HRProject.BLL.OutputModels;
 
@@ -64,6 +59,12 @@ namespace HRProject.BLL
                 .ForMember("Project", opt => opt.MapFrom(c => c.Project))
                 .ForMember("Positions", opt => opt.MapFrom(c => c.Positions))
                 .ForMember("Skills", opt => opt.MapFrom(c => c.Skills));
+
+                cfg.CreateMap<EmployeeRequestDTO, EmployeeRequestModel>()
+                .ForMember("Id", opt => opt.MapFrom(c => c.Id))
+                .ForMember("ProjectId", opt => opt.MapFrom(c => c.ProjectId))
+                .ForMember("Quantity", opt => opt.MapFrom(c => c.Quantity))
+                .ForMember("IsDeleted", opt => opt.MapFrom(c => c.IsDeleted));
 
             }));
         }
