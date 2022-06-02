@@ -1,5 +1,5 @@
-﻿using HRProject.DAL.DTOs;
-using Dapper;
+﻿using Dapper;
+using HRProject.DAL.DTOs;
 using System.Data.SqlClient;
 
 namespace HRProject.DAL
@@ -7,15 +7,15 @@ namespace HRProject.DAL
     public class DepartmentManager
     {
         public string _connectionString = @"Server=.\SQLEXPRESS01;Database=HRProject.DB;Trusted_Connection=True;";
-        public DepartmentDTO GetByIdDpeartment(int id) 
+        public DepartmentDTO GetByIdDpeartment(int id)
         {
             using (var connection = new SqlConnection(_connectionString))
             {
                 connection.Open();
 
                 return connection.QuerySingle<DepartmentDTO>(
-                    StoredProcedures.Department_GetById, 
-                    param: new {id=id},
+                    StoredProcedures.Department_GetById,
+                    param: new { id = id },
                     commandType: System.Data.CommandType.StoredProcedure);
             }
         }
@@ -43,9 +43,9 @@ namespace HRProject.DAL
                     StoredProcedures.Department_Add,
                     param: new
                     {
-                        Name=departmentDTO.Name,
-                        Description= departmentDTO.Description,
-                        isDeleted= departmentDTO.IsDeleted
+                        Name = departmentDTO.Name,
+                        Description = departmentDTO.Description,
+                        isDeleted = departmentDTO.IsDeleted
                     },
                     commandType: System.Data.CommandType.StoredProcedure);
             }
@@ -61,7 +61,7 @@ namespace HRProject.DAL
                     StoredProcedures.Department_Update,
                     param: new
                     {
-                        id=idDepartment,
+                        id = idDepartment,
                         Name = departmentDTO.Name,
                         Description = departmentDTO.Description,
                         isDeleted = departmentDTO.IsDeleted
@@ -78,7 +78,7 @@ namespace HRProject.DAL
 
                 connection.QuerySingle(
                     StoredProcedures.Department_Delete,
-                    param: new {id = id},
+                    param: new { id = id },
                     commandType: System.Data.CommandType.StoredProcedure);
             }
         }

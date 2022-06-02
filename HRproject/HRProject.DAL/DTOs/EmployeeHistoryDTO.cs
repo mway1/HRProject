@@ -1,12 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace HRProject.DAL.DTOs
+﻿namespace HRProject.DAL.DTOs
 {
-    public  class EmployeeHistoryDTO
+    public class EmployeeHistoryDTO
     {
         public int id { get; set; }
         public int EmployeeId { get; set; }
@@ -16,7 +10,7 @@ namespace HRProject.DAL.DTOs
 
         public override string ToString()
         {
-            return $"id={id} EmployeeId={EmployeeId} Date ={Date} StatusId={StatusId} IsDeleted={IsDeleted}"  ;
+            return $"id={id} EmployeeId={EmployeeId} Date ={Date} StatusId={StatusId} IsDeleted={IsDeleted}";
         }
     }
 }

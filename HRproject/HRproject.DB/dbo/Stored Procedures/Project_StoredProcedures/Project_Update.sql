@@ -1,13 +1,11 @@
 ﻿CREATE PROCEDURE[dbo].[Project_update] @id          INT, 
                                 @name        VARCHAR(64), 
-                                @description VARCHAR(128), 
-                                @isDeleted   TINYINT 
+                                @description VARCHAR(128)
 AS 
   BEGIN 
       UPDATE project 
-      SET    NAME = @name, 
-             description = @description, 
-             isDeleted = @isDeleted 
+      SET    name = @name, 
+             description = @description
       WHERE  id = @id; 
   END; 
  
