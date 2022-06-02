@@ -99,6 +99,11 @@
     <Build Include="dbo\Stored Procedures\EmployeeHistory_GetAll.sql" />
     <Build Include="dbo\Stored Procedures\EmployeeHistory_GetById.sql" />
     <Build Include="dbo\Stored Procedures\EmployeeHistory_Update.sql" />
+    <Build Include="dbo\Stored Procedures\Department_Add.sql" />
+    <Build Include="dbo\Stored Procedures\Department_Delete.sql" />
+    <Build Include="dbo\Stored Procedures\Department_GetAll.sql" />
+    <Build Include="dbo\Stored Procedures\Department_GetById.sql" />
+    <Build Include="dbo\Stored Procedures\Department_Update.sql" />
     <Build Include="dbo\Stored Procedures\Position\Position_Add.sql" />
     <Build Include="dbo\Stored Procedures\Position\Position_DeleteById.sql" />
     <Build Include="dbo\Stored Procedures\Position\Position_Update.sql" />
