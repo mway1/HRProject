@@ -19,6 +19,8 @@ namespace HRProject.UI
             this.DataContext = this;
             projectService = ProjectService.GetInstance();
 
+            ComboBoxProject.ItemsSource = ProjectTypes.Types;
+
             projects = new ObservableCollection<ProjectOutputModel>(
                 projectService.GetAllProjects()
             );
@@ -35,6 +37,11 @@ namespace HRProject.UI
                 }
                 return projects;
             }
+        }
+
+        private void ComboBoxProject_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
+        {
+
         }
     }
 }

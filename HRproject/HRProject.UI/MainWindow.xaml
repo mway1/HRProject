@@ -7,7 +7,11 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        <TabControl HorizontalAlignment="Center" Height="434" VerticalAlignment="Center" Width="800">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="59*"/>
+            <ColumnDefinition Width="141*"/>
+        </Grid.ColumnDefinitions>
+        <TabControl HorizontalAlignment="Left" Height="434" VerticalAlignment="Center" Width="800" Grid.ColumnSpan="2">
             <TabItem Header="Сотрудники">
                 <Grid Background="#FFE5E5E5">
                     <Grid.ColumnDefinitions>
@@ -28,9 +32,9 @@
                     </TabControl>
                 </Grid>
             </TabItem>
-            <TabItem Header="Проекты" Height="22" Margin="-2,-2,-2,0" VerticalAlignment="Top">
+            <TabItem Header="Проекты" Height="22" Margin="-2,-2,2,0" VerticalAlignment="Top">
                 <Grid Background="#FFE5E5E5">
-                    <ComboBox HorizontalAlignment="Left" Margin="10,26,0,0" VerticalAlignment="Top" Width="120"/>
+                    <ComboBox x:Name="ComboBoxProject" HorizontalAlignment="Left" Margin="10,26,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="ComboBoxProject_SelectionChanged"/>
                     <ListBox HorizontalAlignment="Left" Height="300" Margin="7,59,0,0" VerticalAlignment="Top" Width="123" ItemsSource="{Binding Projects, Mode=OneWay}" IsSynchronizedWithCurrentItem="True"/>
                     <Label Content="Label" HorizontalAlignment="Left" Margin="249,19,0,0" VerticalAlignment="Top" Width="331"/>
                     <ListBox HorizontalAlignment="Left" Height="114" Margin="249,70,0,0" VerticalAlignment="Top" Width="331" d:ItemsSource="{d:SampleData ItemCount=5}"/>
