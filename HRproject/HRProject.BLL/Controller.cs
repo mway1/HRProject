@@ -7,49 +7,45 @@ namespace HRProject.BLL
 {
     public class Controller
     {
-        private Mapper mapper = MapperConfigStorage.GetInstance();
+        private Mapper _mapper = MapperConfigStorage.GetInstance();
+        private ManagerStorage _manager = new ManagerStorage();
 
         public List<EmployeeRequestAllInfoModel> GetEmployeeRequestAllInfo()
         {            
-            EmployeeRequestManager manager = new EmployeeRequestManager();
-            List<EmplooyeeRequestAllInfoDTO> employeeRequests = manager.GetEmployeeRequestAllInfo();
+            List<EmplooyeeRequestAllInfoDTO> employeeRequests = _manager.EmployeeRequestManager.GetEmployeeRequestAllInfo();
             List<EmployeeRequestAllInfoModel> viewEmployeeRequests = new List<EmployeeRequestAllInfoModel>();
 
-            return mapper.Map(employeeRequests, viewEmployeeRequests);
+            return _mapper.Map(employeeRequests, viewEmployeeRequests);
         }
 
         public List<EmployeeRequestAllInfoModel> GetEmployeeRequestAllInfoByProjectId(int projectId)
         {
-            EmployeeRequestManager manager = new EmployeeRequestManager();
-            List<EmplooyeeRequestAllInfoDTO> employeeRequests = manager.GetEmployeeRequestAllInfoByProjectId(projectId);
+            List<EmplooyeeRequestAllInfoDTO> employeeRequests = _manager.EmployeeRequestManager.GetEmployeeRequestAllInfoByProjectId(projectId);
             List<EmployeeRequestAllInfoModel> viewEmployeeRequests = new List<EmployeeRequestAllInfoModel>();
 
-            return mapper.Map(employeeRequests, viewEmployeeRequests);
+            return _mapper.Map(employeeRequests, viewEmployeeRequests);
         }
 
         public EmployeeRequestAllInfoModel GetEmployeeRequestAllInfoById(int id)
         {
-            EmployeeRequestManager manager = new EmployeeRequestManager();
-            EmplooyeeRequestAllInfoDTO employeeRequest = manager.GetEmployeeRequestAllInfoById(id);
+            EmplooyeeRequestAllInfoDTO employeeRequest = _manager.EmployeeRequestManager.GetEmployeeRequestAllInfoById(id);
             EmployeeRequestAllInfoModel viewEmployeeRequest = new EmployeeRequestAllInfoModel();
 
-            return mapper.Map(employeeRequest, viewEmployeeRequest);
+            return _mapper.Map(employeeRequest, viewEmployeeRequest);
         }
 
         public void DeleteEmployeeRequestById(EmployeeRequestAllInfoModel input)
         {
-            EmployeeRequestManager manager = new EmployeeRequestManager();
             EmployeeRequestDTO employeeRequest = new EmployeeRequestDTO();
-            var selectedRequest = mapper.Map(input, employeeRequest);
-            manager.DeleteEmployeeRequestById(selectedRequest);
+            var selectedRequest = _mapper.Map(input, employeeRequest);
+            _manager.EmployeeRequestManager.DeleteEmployeeRequestById(selectedRequest);
         }
 
         public void CreateEmployeeRequest(EmployeeRequestAllInfoModel input)
         {
-            EmployeeRequestManager manager = new EmployeeRequestManager();
             EmployeeRequestDTO employeeRequest = new EmployeeRequestDTO();
-            var selectedRequest = mapper.Map(input, employeeRequest);
-            manager.CreateEmployeeRequest(selectedRequest);
+            var selectedRequest = _mapper.Map(input, employeeRequest);
+            _manager.EmployeeRequestManager.CreateEmployeeRequest(selectedRequest);
         }
     }
 }
