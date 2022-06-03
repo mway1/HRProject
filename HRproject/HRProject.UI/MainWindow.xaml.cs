@@ -1,10 +1,9 @@
-﻿using AutoMapper;
-using HRProject.BLL;
+﻿using HRProject.BLL;
 using HRProject.BLL.Models;
 using HRProject.BLL.Services;
-using HRProject.DAL;
-using System.Collections.ObjectModel;
 using System.Windows;
+using System.Collections.ObjectModel;
+
 
 namespace HRProject.UI
 {
@@ -18,16 +17,12 @@ namespace HRProject.UI
         {
             InitializeComponent();
             this.DataContext = this;
+            projectService = ProjectService.GetInstance();
 
-            Mapper mapper = MapperConfigStorage.GetInstance();
-            ProjectManager projectManager = new ProjectManager();
-
-            projectService = new ProjectService(mapper, projectManager);
             projects = new ObservableCollection<ProjectOutputModel>(
                 projectService.GetAllProjects()
             );
         }
-
 
         private ObservableCollection<ProjectOutputModel> projects;
         public ObservableCollection<ProjectOutputModel> Projects

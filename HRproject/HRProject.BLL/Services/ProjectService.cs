@@ -2,6 +2,8 @@
 using HRProject.BLL.InputModels;
 using HRProject.BLL.Models;
 using HRProject.DAL;
+using System.Collections.ObjectModel;
+
 
 namespace HRProject.BLL.Services
 {
@@ -51,5 +53,16 @@ namespace HRProject.BLL.Services
             List<ProjectDTO> project = _projectManager.GetAllNotFullProjects();
             return _mapper.Map<List<ProjectOutputModel>>(project);
         }
+
+
+        private ObservableCollection<ProjectOutputModel> Projects;
+
+        public static ProjectService GetInstance()
+        {
+            Mapper mapper = MapperConfigStorage.GetInstance();
+            ProjectManager projectManager = new ProjectManager();
+            return new ProjectService(mapper, projectManager);
+        }
     }
+
 }

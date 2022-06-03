@@ -1,6 +1,8 @@
 ﻿CREATE PROCEDURE [dbo].[project_getAllNotFull]
-	AS
-SELECT * FROM Project
+AS
+SELECT P.[id], P.[Description], P.[Name], P.isDeleted
+FROM Project as P
+left join dbo.EmployeeRequest as ER on (P.id = ER.ProjectID)
 WHERE
-isDeleted=0 and IsFull=0;
+P.isDeleted=0 and Er.ProjectID is not null;
 RETURN 0
