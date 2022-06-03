@@ -5,20 +5,75 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:HRProject.UI"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="450" Width="800" >
     <Grid>
-        <TabControl HorizontalAlignment="Center" Height="434" VerticalAlignment="Center" Width="800">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="152*"/>
+            <RowDefinition Height="65*"/>
+        </Grid.RowDefinitions>
+        <TabControl HorizontalAlignment="Center" Height="434" VerticalAlignment="Top" Width="800" Grid.RowSpan="2" FontWeight="Medium" FontFamily="Roboto">
             <TabItem Header="Сотрудники">
+                <TabItem.Background>
+                    <LinearGradientBrush EndPoint="0,1">
+                        <GradientStop Color="#FF2D2E8E"/>
+                        <GradientStop Color="#FF5EBFE8" Offset="1"/>
+                    </LinearGradientBrush>
+                </TabItem.Background>
                 <Grid Background="#FFE5E5E5">
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="252*"/>
+                        <ColumnDefinition Width="21*"/>
+                        <ColumnDefinition Width="231*"/>
                         <ColumnDefinition Width="0*"/>
                         <ColumnDefinition Width="145*"/>
                     </Grid.ColumnDefinitions>
-                    <TreeView Margin="0,0,283,0"/>
-                    <TabControl HorizontalAlignment="Left" Height="406" Margin="221,0,0,0" VerticalAlignment="Center" Width="573" Grid.ColumnSpan="3">
+                    <TreeView HorizontalAlignment="Left" Width="221" Grid.ColumnSpan="2" Background="#FF89B7D4" Margin="0,0,0,157" FontWeight="Medium" FontFamily="Roboto"/>
+                    <TabControl HorizontalAlignment="Left" Height="406" VerticalAlignment="Center" Width="573" Grid.ColumnSpan="3" Margin="179,0,0,0" SelectionChanged="TabControl_SelectionChanged" Grid.Column="1" FontWeight="Medium" FontFamily="Roboto">
                         <TabItem Header="Общее">
-                            <Grid Background="#FFE5E5E5"/>
+                            <Grid Background="#FFC3E8FF" HorizontalAlignment="Left" Width="573">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="89*"/>
+                                    <ColumnDefinition Width="100*"/>
+                                </Grid.ColumnDefinitions>
+                                <Label x:Name="Label_FirstName" Content="Имя" HorizontalAlignment="Left" Height="26" Margin="18,18,0,0" VerticalAlignment="Top" Width="84"/>
+                                <Label x:Name="Label_LastName" Content="Фамилия " HorizontalAlignment="Left" Height="26" Margin="18,72,0,0" VerticalAlignment="Top" Width="84"/>
+                                <Label x:Name="Label_Email" Content="Email" HorizontalAlignment="Left" Height="26" Margin="18,131,0,0" VerticalAlignment="Top" Width="84"/>
+                                <Label x:Name="Label_PhoneNumber" Content="Телефон" HorizontalAlignment="Left" Height="25" Margin="18,159,0,0" VerticalAlignment="Top" Width="87"/>
+                                <TextBox x:Name="TextBox_FirstName" HorizontalAlignment="Left" Height="20" Margin="152,18,0,0" TextWrapping="Wrap" Text="Иван" VerticalAlignment="Top" Width="162" Foreground="#FFA3A3A3" Grid.ColumnSpan="2"/>
+                                <TextBox Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="20" Margin="152,76,0,0" TextWrapping="Wrap" Text="Иванов" VerticalAlignment="Top" Width="162" Foreground="#FFA3A3A3"/>
+                                <TextBox Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="20" Margin="153,134,0,0" TextWrapping="Wrap" Text="ivanov@mail.ru" VerticalAlignment="Top" Width="162" Foreground="#FFA3A3A3"/>
+                                <TextBox x:Name="TextBox_PhoneNumber" Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="20" Margin="153,162,0,0" TextWrapping="Wrap" Text="+7 999 999 99 99" VerticalAlignment="Top" Width="162" Foreground="#FFA3A3A3"/>
+                                <Label x:Name="Label_Position" Content="Должность" HorizontalAlignment="Left" Height="26" Margin="18,209,0,0" VerticalAlignment="Top" Width="87"/>
+                                <Label x:Name="Label_Level" Content="Уровень" HorizontalAlignment="Left" Height="26" Margin="18,235,0,0" VerticalAlignment="Top" Width="84"/>
+                                <Label x:Name="Label_FirstName_Copy2" Content="Компетенции" HorizontalAlignment="Left" Height="26" Margin="93,203,0,0" VerticalAlignment="Top" Width="100" Grid.Column="1"/>
+                                <TextBox x:Name="TextBox_Position" HorizontalAlignment="Left" Height="20" Margin="153,209,0,0" TextWrapping="Wrap" Text="Разработчик" VerticalAlignment="Top" Width="162" Foreground="#FFA3A3A3" Grid.ColumnSpan="2"/>
+                                <TextBox x:Name="TextBox_Level" HorizontalAlignment="Left" Height="20" Margin="153,238,0,0" TextWrapping="Wrap" Text="Джуниор" VerticalAlignment="Top" Width="162" Foreground="#FFA3A3A3" Grid.ColumnSpan="2"/>
+                                <Image Grid.Column="1" HorizontalAlignment="Left" Height="125" Margin="176,34,0,0" VerticalAlignment="Top" Width="113">
+                                    <Image.OpacityMask>
+                                        <ImageBrush Stretch="None"/>
+                                    </Image.OpacityMask>
+                                </Image>
+                                <Image Margin="93,18,44,200" Source="/1614560341_16-p-ikonki-na-belom-fone-18.png" Stretch="Fill" Grid.Column="1"/>
+                                <TextBox x:Name="TextBox_SecondName" HorizontalAlignment="Left" Height="20" Margin="152,47,0,0" TextWrapping="Wrap" Text="Иванович" VerticalAlignment="Top" Width="162" Grid.ColumnSpan="2" Foreground="#FFA3A3A3"/>
+                                <Label x:Name="Label_SecondName" Content="Отчество" HorizontalAlignment="Left" Height="26" Margin="18,44,0,0" VerticalAlignment="Top" Width="84"/>
+                                <TextBox x:Name="TextBox_BirthDate" HorizontalAlignment="Left" Height="20" Margin="152,105,0,0" TextWrapping="Wrap" Text="01.01.2001" VerticalAlignment="Top" Width="162" Foreground="#FFA3A3A3" Grid.ColumnSpan="2"/>
+                                <Label x:Name="Label_BirthDate" Content="Дата рождения" HorizontalAlignment="Left" Height="25" Margin="18,102,0,0" VerticalAlignment="Top" Width="117"/>
+                                <Label x:Name="Label_Project" Content="Проект" HorizontalAlignment="Left" Height="26" Margin="18,281,0,0" VerticalAlignment="Top" Width="84"/>
+                                <Label x:Name="Label_Status" Content="Статус" HorizontalAlignment="Left" Height="26" Margin="18,309,0,0" VerticalAlignment="Top" Width="84"/>
+                                <TextBox x:Name="TextBox_Project" HorizontalAlignment="Left" Height="20" Margin="153,284,0,0" TextWrapping="Wrap" Text="Чат-бот &quot;Опросник&quot;" VerticalAlignment="Top" Width="162" Foreground="#FFA3A3A3" Grid.ColumnSpan="2"/>
+                                <ComboBox Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="20" Margin="152,312,0,0" VerticalAlignment="Top" Width="163" BorderBrush="White">
+                                    <ComboBox.Background>
+                                        <LinearGradientBrush EndPoint="0,1">
+                                            <GradientStop Color="#FFF0F0F0"/>
+                                            <GradientStop Color="White" Offset="1"/>
+                                        </LinearGradientBrush>
+                                    </ComboBox.Background>
+                                    <ComboBoxItem Content="Уволен"/>
+                                    <ComboBoxItem Content="В отпуске"/>
+                                    <ComboBoxItem Content="Свободен"/>
+                                    <ComboBoxItem Content="Работает"/>
+                                </ComboBox>
+                                <ListBox Grid.Column="1" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="93,229,20,48"/>
+                            </Grid>
                         </TabItem>
                         <TabItem Header="Опыт">
                             <Grid Background="#FFE5E5E5">
@@ -26,15 +81,33 @@
                             </Grid>
                         </TabItem>
                     </TabControl>
+                    <Label x:Name="Label_DepartmentDescription" Content="Описание отдела" HorizontalAlignment="Left" Margin="0,251,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2" FontWeight="Medium" FontFamily="Roboto"/>
+                    <ListBox d:ItemsSource="{d:SampleData ItemCount=5}" Margin="0,275,283,45" Grid.ColumnSpan="2" FontWeight="Medium" FontFamily="Roboto"/>
+                    <TextBox x:Name="TextBox_ChangeNameOfDepartment" HorizontalAlignment="Left" Margin="0,368,0,0" TextWrapping="Wrap" Text="Введите новое название" VerticalAlignment="Top" Height="17" Width="144
+                             " Grid.ColumnSpan="2" Foreground="#FFA3A3A3" VerticalContentAlignment="Center" FontSize="10" FontWeight="Medium" FontFamily="Roboto"/>
+                    <Button x:Name="Button_ChangeNameOfDepartment" Grid.Column="1" Content="Изменить имя" HorizontalAlignment="Left" Margin="105,368,0,0" VerticalAlignment="Top" Height="17" Width="73" FontSize="10" FontWeight="Medium" FontFamily="Roboto"/>
+                    <Button x:Name="Button_ChangeDescriptionOfDepartment" Content="Изменить описание" HorizontalAlignment="Left" Margin="0,389,0,0" VerticalAlignment="Top" Height="17" Width="109
+                            " FontSize="10" FontWeight="Medium" FontFamily="Roboto" Grid.ColumnSpan="2"/>
+                    <Button x:Name="Button_DeleteDepartment" Content="Удалить отдел" HorizontalAlignment="Left" Margin="70,389,0,0" VerticalAlignment="Top" Height="17" Width="109" FontSize="10" FontWeight="Medium" FontFamily="Roboto" Grid.Column="1"/>
                 </Grid>
             </TabItem>
             <TabItem Header="Проекты">
-                <Grid Background="#FFE5E5E5">
-                    <ComboBox HorizontalAlignment="Left" Margin="10,26,0,0" VerticalAlignment="Top" Width="120"/>
-                    <ListBox HorizontalAlignment="Left" Height="300" Margin="7,59,0,0" VerticalAlignment="Top" Width="123" d:ItemsSource="{d:SampleData ItemCount=5}"/>
-                    <Label Content="Label" HorizontalAlignment="Left" Margin="249,19,0,0" VerticalAlignment="Top" Width="331"/>
-                    <ListBox HorizontalAlignment="Left" Height="114" Margin="249,70,0,0" VerticalAlignment="Top" Width="331" d:ItemsSource="{d:SampleData ItemCount=5}"/>
-                    <ListBox HorizontalAlignment="Left" Height="144" Margin="249,215,0,0" VerticalAlignment="Top" Width="331" d:ItemsSource="{d:SampleData ItemCount=5}"/>
+                <TabItem.Background>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="#FF2916B1"/>
+                        <GradientStop Color="#FF61A8DE" Offset="1"/>
+                    </LinearGradientBrush>
+                </TabItem.Background>
+                <Grid Background="#FF5F90AF">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="33*"/>
+                        <ColumnDefinition Width="761*"/>
+                    </Grid.ColumnDefinitions>
+                    <ComboBox HorizontalAlignment="Left" Margin="10,26,0,0" VerticalAlignment="Top" Width="120" Grid.ColumnSpan="2" Background="#FF233B84"/>
+                    <ListBox HorizontalAlignment="Left" Height="300" Margin="7,59,0,0" VerticalAlignment="Top" Width="123" d:ItemsSource="{d:SampleData ItemCount=5}" Grid.ColumnSpan="2" SelectionChanged="ListBox_SelectionChanged" Background="#FFD4EBF9"/>
+                    <Label Content="Label" HorizontalAlignment="Center" Margin="0,19,0,0" VerticalAlignment="Top" Width="331" Grid.Column="1"/>
+                    <ListBox HorizontalAlignment="Center" Height="114" Margin="0,70,0,0" VerticalAlignment="Top" Width="331" d:ItemsSource="{d:SampleData ItemCount=5}" Grid.Column="1"/>
+                    <ListBox HorizontalAlignment="Center" Height="144" Margin="0,215,0,0" VerticalAlignment="Top" Width="331" d:ItemsSource="{d:SampleData ItemCount=5}" Grid.Column="1"/>
                 </Grid>
             </TabItem>
             <TreeView/>
