@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using AutoMapper;
+﻿using AutoMapper;
 using HRProject.DAL.DTOs;
 using HRProject.BLL.OutputModels;
 
@@ -44,14 +39,33 @@ namespace HRProject.BLL
                 .ForMember("StatusId", opt => opt.MapFrom(c => $"{c.StatusId}"))
                 .ForMember("IsDeleted", opt => opt.MapFrom(c => $"{c.IsDeleted}"));
 
+                cfg.CreateMap<ProjectDTO, ProjectModel>()
+                .ForMember("Id", opt => opt.MapFrom(c => c.Id))
+                .ForMember("Name", opt => opt.MapFrom(c => c.Name));
 
-                cfg.CreateMap<EmplooyeeRequestAllInfoDTO, EmployeeRequestModel>()
-                .ForMember("Quantity", opt=> opt.MapFrom(c=> $"{c.Quantity}"))
-                .ForMember("ProjectName", opt=> opt.MapFrom(c=> $"{c.ProjectName}"))
-                .ForMember("PositionName", opt=> opt.MapFrom(c=> $"{c.PositionName}"))
-                .ForMember("PositionLevel", opt=> opt.MapFrom(c=> $"{c.PositionLevel}"))
-                .ForMember("SkillName", opt=> opt.MapFrom(c=> $"{c.SkillName}"))
-                .ForMember("LevelOfSkill", opt=> opt.MapFrom(c=> $"{c.LevelOfSkill}"));
+                cfg.CreateMap<PositionDTO, PositionModel>()
+                .ForMember("Id", opt => opt.MapFrom(c => c.Id))
+                .ForMember("Name", opt => opt.MapFrom(c => c.Name))
+                .ForMember("PositionLevel", opt => opt.MapFrom(c => c.PositionLevel.Name));
+
+                cfg.CreateMap<SkillDTO, SkillModel>()
+                .ForMember("Id", opt => opt.MapFrom(c => c.Id))
+                .ForMember("Name", opt => opt.MapFrom(c => c.Name))
+                .ForMember("SkillLevel", opt => opt.MapFrom(c => c.SkillLevel.LevelOfSkill));
+
+                cfg.CreateMap<EmplooyeeRequestAllInfoDTO, EmployeeRequestAllInfoModel>()
+                .ForMember("Id", opt => opt.MapFrom(c => c.id))
+                .ForMember("Quantity", opt => opt.MapFrom(c => c.Quantity))
+                .ForMember("Project", opt => opt.MapFrom(c => c.Project))
+                .ForMember("Positions", opt => opt.MapFrom(c => c.Positions))
+                .ForMember("Skills", opt => opt.MapFrom(c => c.Skills));
+
+                cfg.CreateMap<EmployeeRequestDTO, EmployeeRequestAllInfoModel>()
+                .ForMember("Id", opt => opt.MapFrom(c => c.Id))
+                .ForMember("ProjectId", opt => opt.MapFrom(c => c.ProjectId))
+                .ForMember("Quantity", opt => opt.MapFrom(c => c.Quantity))
+                .ForMember("IsDeleted", opt => opt.MapFrom(c => c.IsDeleted));
+
             }));
         }
     }
