@@ -25,6 +25,5 @@ namespace HRProject.UI
             InitializeComponent();
         }
 
-       
     }
 }
