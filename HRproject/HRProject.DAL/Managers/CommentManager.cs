@@ -69,5 +69,18 @@ namespace HRProject.DAL.Managers
                      commandType: System.Data.CommandType.StoredProcedure);
             }
         }
+
+        public CommentDTO GetCommentById(int commentId)
+        {
+            using (var connection = new SqlConnection(ServerSettings._connectionString))
+            {
+                connection.Open();
+
+                return connection.QuerySingle<CommentDTO>(
+                    CommentStoredProcedures.Comment_GetById,
+                    param: new { id = commentId },
+                    commandType: System.Data.CommandType.StoredProcedure);
+            }
+        }
     }
 }
