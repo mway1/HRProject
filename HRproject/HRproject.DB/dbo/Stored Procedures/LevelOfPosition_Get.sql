@@ -1,5 +1,5 @@
 ﻿CREATE PROCEDURE [dbo].[LevelOfPosition_Get]
-AS
+AS 
 BEGIN
 	SELECT *
 	FROM dbo.LevelOfPosition
