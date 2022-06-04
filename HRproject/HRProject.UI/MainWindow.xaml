@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:HRProject.UI"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800" >
+        Title="MainWindow" Height="450" Width="800" Initialized="Window_Initialized" >
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="152*"/>
@@ -104,10 +104,10 @@
                         <ColumnDefinition Width="761*"/>
                     </Grid.ColumnDefinitions>
                     <ComboBox HorizontalAlignment="Left" Margin="10,26,0,0" VerticalAlignment="Top" Width="120" Grid.ColumnSpan="2" Background="#FF233B84"/>
-                    <ListBox HorizontalAlignment="Left" Height="300" Margin="7,59,0,0" VerticalAlignment="Top" Width="123" d:ItemsSource="{d:SampleData ItemCount=5}" Grid.ColumnSpan="2" SelectionChanged="ListBox_SelectionChanged" Background="#FFD4EBF9"/>
+                    <ListBox x:Name="ListBoxProjects" HorizontalAlignment="Left" Height="300" Margin="7,59,0,0" VerticalAlignment="Top" Width="123" d:ItemsSource="{d:SampleData ItemCount=5}" Grid.ColumnSpan="2" SelectionChanged="ListBox_SelectionChanged" Background="#FFD4EBF9"/>
                     <Label Content="Label" HorizontalAlignment="Center" Margin="0,19,0,0" VerticalAlignment="Top" Width="331" Grid.Column="1"/>
                     <ListBox HorizontalAlignment="Center" Height="114" Margin="0,70,0,0" VerticalAlignment="Top" Width="331" d:ItemsSource="{d:SampleData ItemCount=5}" Grid.Column="1"/>
-                    <ListBox HorizontalAlignment="Center" Height="144" Margin="0,215,0,0" VerticalAlignment="Top" Width="331" d:ItemsSource="{d:SampleData ItemCount=5}" Grid.Column="1"/>
+                    <ListBox x:Name="ListBoxEmployeeRequests" HorizontalAlignment="Center" Height="144" Margin="0,215,0,0" VerticalAlignment="Top" Width="331" d:ItemsSource="{d:SampleData ItemCount=5}" Grid.Column="1"/>
                 </Grid>
             </TabItem>
             <TreeView/>

@@ -12,6 +12,9 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using HRProject.BLL.OutputModels;
+using HRProject.BLL.InputModels;
+using HRProject.BLL;
 
 namespace HRProject.UI
 {
@@ -20,10 +23,23 @@ namespace HRProject.UI
     /// </summary>
     public partial class MainWindow : Window
     {
+        Controller _controller;
+
         public MainWindow()
         {
             InitializeComponent();
         }
 
+        private void Window_Initialized(object sender, EventArgs e)
+        {
+            _controller = new Controller();
+        }
+
+        private void ListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            var selectedProject = (ProjectModel)ListBoxProjects.SelectedItem;
+            var choosenEmployeeRequests = _controller.GetEmployeeRequestAllInfoByProjectId(selectedProject.Id);
+            ListBoxEmployeeRequests.ItemsSource = choosenEmployeeRequests;
+        }
     }
 }
