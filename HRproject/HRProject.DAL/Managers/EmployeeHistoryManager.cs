@@ -38,14 +38,14 @@ namespace HRProject.DAL
             }
         }
         
-        public void AddEmployeeHistory(int employeeId, string date, string statusId)
+        public void AddEmployeeHistory(EmployeeHistoryDTO employeeHistoryDTO)
         {
             using (var connection = new SqlConnection(_connectionString))
             {
                 connection.Open();
                 connection.QuerySingle(
                     StoredProcedures.EmployeeHistory_Add,
-                    param: new { EmployeeId = employeeId, Date = date, StatusId = statusId },
+                    param: new { EmployeeId = employeeHistoryDTO.EmployeeId, Date = employeeHistoryDTO.Date, StatusId = employeeHistoryDTO.StatusId},
                     commandType: System.Data.CommandType.StoredProcedure);
             }
         }
@@ -54,7 +54,7 @@ namespace HRProject.DAL
             using (var connection = new SqlConnection(_connectionString))
             {
                 connection.Open();
-                connection.QueryFirstOrDefault(
+                connection.QuerySingle(
                     StoredProcedures.EmployeeHistory_Update,
                     param: new
                     {
@@ -68,15 +68,19 @@ namespace HRProject.DAL
             );
             }
         }
-        public void DeleteEmployeeHistory(int id)
+        public void DeleteEmployeeHistory(EmployeeHistoryDTO input)
 
         {
             using (var connection = new SqlConnection(_connectionString))
             {
                 connection.Open();
-                connection.QueryFirstOrDefault<EmployeeHistoryDTO>(
+                connection.QuerySingle(
                     StoredProcedures.EmployeeHistory_Delete,
-                    param: new { id = id },
+                    param: new { 
+                        input.id, 
+                        input.StatusId,
+                        input.EmployeeId
+                    },
                     commandType: System.Data.CommandType.StoredProcedure);
             }
         }
