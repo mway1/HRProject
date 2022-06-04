@@ -1,140 +1,253 @@
-﻿//using HRProject.DAL.Managers;
-//using HRProject.DAL.StoredProcedureStorage;
-//using Dapper;
-//using HRProject.DAL.DTOs;
-//using System.Data.SqlClient;
+﻿using HRProject.DAL.StoredProcedureStorage;
+using HRProject.DAL.DTOs;
+using System.Data.SqlClient;
+using Dapper;
 
+namespace HRProject.DAL.Managers
+{
+    public class EmployeeRequestManager
+    {
+        public string _connectionString = ServerSettings._connectionString;
 
-//namespace HRProject.DAL.Managers
-//{
-//    public class EmployeeRequestManager
-//    {
-//        public string _connectionString = @"Server=.\SQLEXPRESS;Database=....;Trusted_Connection=True;";
+        public List<EmplooyeeRequestAllInfoDTO> GetEmployeeRequestAllInfo()
+        {
+            using (var connection = new SqlConnection(_connectionString))
+            {
+                connection.Open();
 
-//        public List<EmplooyeeRequestAllInfoDTO> GetEmployeeRequestAllInfo()
-//        {
-//            using (var connection = new SqlConnection(_connectionString))
-//            {
-//                connection.Open();
+                Dictionary<int, EmplooyeeRequestAllInfoDTO> result = new Dictionary<int, EmplooyeeRequestAllInfoDTO>();
 
-//                Dictionary<int, EmplooyeeRequestAllInfoDTO> result = new Dictionary<int, EmplooyeeRequestAllInfoDTO>();
+                connection.Query<
+                    EmplooyeeRequestAllInfoDTO,
+                    ProjectDTO,
+                    PositionDTO,
+                    LevelOfPositionDTO,
+                    SkillDTO,
+                    EmployeeRequestSkillDTO,
+                    EmplooyeeRequestAllInfoDTO
+                    >
+                    (EmployeeRequestStoredProcedures.GetEmployeeRequestAllInfo,
+                    (EmployeeRequest, Project, Position, PositionLevel, Skill, SkillLevel) =>
+                    {
+                        if (!result.ContainsKey(EmployeeRequest.id))
+                        {
+                            result.Add(EmployeeRequest.id, EmployeeRequest);
+                        }
 
-//                connection.Query<EmplooyeeRequestAllInfoDTO, string, string, string, int?, EmplooyeeRequestAllInfoDTO>(
-//                    EmployeeRequestStoredProcedures.GetEmployeeRequestAllInfo,
-//                    (EmployeeRequest, PositionName, PositionLevel, SkillName, SkillLevel) =>
-//                    {
-//                        if (!result.ContainsKey(EmployeeRequest.id))
-//                        {
-//                            result.Add(EmployeeRequest.id, EmployeeRequest);
-//                        }
+                        EmplooyeeRequestAllInfoDTO crnt = result[EmployeeRequest.id];
 
-//                        EmplooyeeRequestAllInfoDTO crnt = result[EmployeeRequest.id];
+                        if (Project is not null)
+                        {
+                            crnt.Project = Project;
+                        }
 
-//                        if (PositionLevel is not null)
-//                        {
-//                            crnt.PositionLevel.Add(PositionLevel);
-//                        }
-//                        if (SkillLevel is not null)
-//                        {
-//                            crnt.LevelOfSkill.Add(SkillLevel);
-//                        }
+                        if (crnt.Positions is null && Position is not null)
+                        {
+                            crnt.Positions = new List<PositionDTO>();
+                            Position.PositionLevel = PositionLevel;
+                            crnt.Positions.Add(Position);
+                        }
+                        else if (Position is not null)
+                        {
+                            Position.PositionLevel = PositionLevel;
+                            crnt.Positions!.Add(Position);
+                        }
 
-//                        crnt.PositionName.Add(SkillName);
-//                        crnt.SkillName.Add(PositionName);
+                        if (crnt.Skills is null && Skill is not null)
+                        {
+                            crnt.Skills = new List<SkillDTO>();
+                            Skill.SkillLevel = SkillLevel;
+                            crnt.Skills.Add(Skill);
+                        }
+                        else if (Skill is not null)
+                        {
+                            Skill.SkillLevel = SkillLevel;
+                            crnt.Skills!.Add(Skill);
+                        }
 
-//                        return crnt;
-//                    },
-//                    commandType: System.Data.CommandType.StoredProcedure,
-//                    splitOn: "id PositionName PositionLevel SkillName LevelOfSkill");
+                        return crnt;
+                    },
+                    commandType: System.Data.CommandType.StoredProcedure,
+                    splitOn: "id");
 
-//                return result.Values.ToList();
-//            }
-//        }
+                return result.Values.ToList();
+            }
+        }
 
-//        public EmplooyeeRequestAllInfoDTO GetEmployeeRequestAllInfoById(int employeeRequestId)
-//        {
-//            using (var connection = new SqlConnection(_connectionString))
-//            {
-//                connection.Open();
+        public List<EmplooyeeRequestAllInfoDTO> GetEmployeeRequestAllInfoByProjectId(int projectId)
+        {
+            using (var connection = new SqlConnection(_connectionString))
+            {
+                connection.Open();
 
-//                EmplooyeeRequestAllInfoDTO result = new EmplooyeeRequestAllInfoDTO();
+                Dictionary<int, EmplooyeeRequestAllInfoDTO> result = new Dictionary<int, EmplooyeeRequestAllInfoDTO>();
 
-//                connection.Query<EmplooyeeRequestAllInfoDTO, string, string, string, int?, EmplooyeeRequestAllInfoDTO>(
-//                    EmployeeRequestStoredProcedures.GetEmployeeRequestAllInfo,
-//                    (EmployeeRequest, PositionName, PositionLevel, SkillName, SkillLevel) =>
-//                    {
-//                        EmplooyeeRequestAllInfoDTO crnt = result;
+                connection.Query<
+                    EmplooyeeRequestAllInfoDTO,
+                    ProjectDTO,
+                    PositionDTO,
+                    LevelOfPositionDTO,
+                    SkillDTO,
+                    EmployeeRequestSkillDTO,
+                    EmplooyeeRequestAllInfoDTO
+                    >
+                    (EmployeeRequestStoredProcedures.GetEmployeeRequestAllInfoByProjectId,
+                    (EmployeeRequest, Project, Position, PositionLevel, Skill, SkillLevel) =>
+                    {
+                        if (!result.ContainsKey(EmployeeRequest.id))
+                        {
+                            result.Add(EmployeeRequest.id, EmployeeRequest);
+                        }
 
-//                        if (PositionLevel is not null)
-//                        {
-//                            crnt.PositionLevel.Add(PositionLevel);
-//                        }
-//                        if (SkillLevel is not null)
-//                        {
-//                            crnt.LevelOfSkill.Add(SkillLevel);
-//                        }
+                        EmplooyeeRequestAllInfoDTO crnt = result[EmployeeRequest.id];
 
-//                        crnt.PositionName.Add(SkillName);
-//                        crnt.SkillName.Add(PositionName);
+                        if (Project is not null)
+                        {
+                            crnt.Project = Project;
+                        }
 
-//                        return crnt;
-//                    },
-//                    commandType: System.Data.CommandType.StoredProcedure,
-//                    splitOn: "id PositionName PositionLevel SkillName LevelOfSkill");
+                        if (crnt.Positions is null && Position is not null)
+                        {
+                            crnt.Positions = new List<PositionDTO>();
+                            Position.PositionLevel = PositionLevel;
+                            crnt.Positions.Add(Position);
+                        }
+                        else if (Position is not null)
+                        {
+                            Position.PositionLevel = PositionLevel;
+                            crnt.Positions!.Add(Position);
+                        }
 
-//                return result;
-//            }
-//        }
+                        if (crnt.Skills is null && Skill is not null)
+                        {
+                            crnt.Skills = new List<SkillDTO>();
+                            Skill.SkillLevel = SkillLevel;
+                            crnt.Skills.Add(Skill);
+                        }
+                        else if (Skill is not null)
+                        {
+                            Skill.SkillLevel = SkillLevel;
+                            crnt.Skills!.Add(Skill);
+                        }
 
-//        public void UpdateEmployeeRequest(EmployeeRequestInputUpdateModel input)
-//        {
-//            using (var connection = new SqlConnection(_connectionString))
-//            {
-//                connection.Open();
+                        return crnt;
+                    },
+                    commandType: System.Data.CommandType.StoredProcedure,
+                    param: new {projectId},
+                    splitOn: "id");
 
-//                connection.QuerySingle(EmployeeRequestStoredProcedures.UpdateEmployeeRequestById,
-//                    param: new
-//                    {
-//                        input.Id,
-//                        input.ProjectId,
-//                        input.Quantity,
-//                        input.IsDeleted
-//                    },
-//                commandType: System.Data.CommandType.StoredProcedure);
-//            }
-//        }
+                return result.Values.ToList();
+            }
+        }
 
-//        public void DeleteEmployeeRequestById(DeleteEmployeeRequestByIdInputModel input)
-//        {
-//            using (var connection = new SqlConnection(_connectionString))
-//            {
-//                connection.Open();
+        public EmplooyeeRequestAllInfoDTO GetEmployeeRequestAllInfoById(int employeeRequestId)
+        {
+            EmplooyeeRequestAllInfoDTO result = new EmplooyeeRequestAllInfoDTO();
 
-//                connection.QuerySingle(EmployeeRequestStoredProcedures.DeleteEmployeeRequestById,
-//                    param: new
-//                    {
-//                        input.Id,
-//                        input.ProjectId,
-//                        input.Quantity
-//                    },
-//                commandType: System.Data.CommandType.StoredProcedure);
-//            }
-//        }
+            using (var connection = new SqlConnection(_connectionString))
+            {
+                connection.Query<
+                    EmplooyeeRequestAllInfoDTO,
+                    ProjectDTO,
+                    PositionDTO,
+                    LevelOfPositionDTO,
+                    SkillDTO,
+                    EmployeeRequestSkillDTO,
+                    EmplooyeeRequestAllInfoDTO
+                    >
+                    (EmployeeRequestStoredProcedures.GetEmployeeRequestAllInfoById,
+                    (EmployeeRequest, Project, Position, PositionLevel, Skill, SkillLevel) =>
+                    {
+                        result = EmployeeRequest;
 
-//        public void CreateEmployeeRequest(EmployeeRequestCreateInputModel input)
-//        {
-//            using (var connection = new SqlConnection(_connectionString))
-//            {
-//                connection.Open();
+                        if (Project is not null)
+                        {
+                            result.Project = Project;
+                        }
 
-//                connection.QuerySingle(EmployeeRequestStoredProcedures.CreateEmployeeRequest,
-//                    param: new
-//                    {
-//                        input.ProjectId,
-//                        input.Quantity
-//                    },
-//                commandType: System.Data.CommandType.StoredProcedure);
-//            }
-//        }
-//    }
-//}
+                        if (result.Positions is null && Position is not null)
+                        {
+                            result.Positions = new List<PositionDTO>();
+                            Position.PositionLevel = PositionLevel;
+                            result.Positions.Add(Position);
+                        }
+                        else if (Position is not null)
+                        {
+                            Position.PositionLevel = PositionLevel;
+                            result.Positions!.Add(Position);
+                        }
+
+                        if (EmployeeRequest.Skills is null && Skill is not null)
+                        {
+                            result.Skills = new List<SkillDTO>();
+                            Skill.SkillLevel = SkillLevel;
+                            result.Skills.Add(Skill);
+                        }
+                        else if (Skill is not null)
+                        {
+                            Skill.SkillLevel = SkillLevel;
+                            result.Skills!.Add(Skill);
+                        }
+
+                        return EmployeeRequest;
+                    },
+                    commandType: System.Data.CommandType.StoredProcedure,
+                    splitOn: "id",
+                    param: new { employeeRequestId });
+
+                return result;
+            }
+        }
+
+        public void UpdateEmployeeRequest(EmployeeRequestDTO input)
+        {
+            using (var connection = new SqlConnection(_connectionString))
+            {
+                connection.Open();
+
+                connection.QuerySingle(EmployeeRequestStoredProcedures.UpdateEmployeeRequestById,
+                    param: new
+                    {
+                        input.Id,
+                        input.ProjectId,
+                        input.Quantity,
+                        input.IsDeleted
+                    },
+                commandType: System.Data.CommandType.StoredProcedure);
+            }
+        }
+
+        public void DeleteEmployeeRequestById(EmployeeRequestDTO input)
+        {
+            using (var connection = new SqlConnection(_connectionString))
+            {
+                connection.Open();
+
+                connection.QuerySingle(EmployeeRequestStoredProcedures.DeleteEmployeeRequestById,
+                    param: new
+                    {
+                        input.Id,
+                        input.ProjectId,
+                        input.Quantity
+                    },
+                commandType: System.Data.CommandType.StoredProcedure);
+            }
+        }
+
+        public void CreateEmployeeRequest(EmployeeRequestDTO input)
+        {
+            using (var connection = new SqlConnection(_connectionString))
+            {
+                connection.Open();
+
+                connection.QuerySingle(EmployeeRequestStoredProcedures.CreateEmployeeRequest,
+                    param: new
+                    {
+                        input.ProjectId,
+                        input.Quantity
+                    },
+                commandType: System.Data.CommandType.StoredProcedure);
+            }
+        }
+    }
+}
