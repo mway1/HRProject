@@ -51,5 +51,23 @@ namespace HRProject.DAL.Managers
                     param: new { id = commentId },
                     commandType: System.Data.CommandType.StoredProcedure);
             }
+        }
+        public void UpdateComment(CommentDTO newComment)
+        {
+            using (var connection = new SqlConnection(ServerSettings._connectionString))
+            {
+                connection.Open();
+
+                connection.QuerySingleOrDefault<CommentDTO>(
+                     CommentStoredProcedures.Comment_Update,
+                     param: new
+                     {
+                         newComment.Description,
+                         newComment.EmployeeId,
+                         newComment.isDeleted
+                     },
+                     commandType: System.Data.CommandType.StoredProcedure);
+            }
+        }
     }
 }
