@@ -8,8 +8,8 @@
         Title="MainWindow" Height="450" Width="800" >
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="152*"/>
-            <RowDefinition Height="65*"/>
+            <RowDefinition Height="27*"/>
+            <RowDefinition Height="407*"/>
         </Grid.RowDefinitions>
         <TabControl HorizontalAlignment="Center" Height="434" VerticalAlignment="Top" Width="800" Grid.RowSpan="2" FontWeight="Medium" FontFamily="Roboto">
             <TabItem Header="Сотрудники">
