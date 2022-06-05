@@ -24,6 +24,21 @@ namespace HRProject.DAL.Managers
                     .ToList();
             }
         }
+        public void AddLevelOfPosition(LevelOfPositionDTO LevelOfPositionDTO)
+        {
+            using (var connection = new SqlConnection(ServerSettings._connectionString))
+            {
+                connection.Open();
 
+                connection.QuerySingle<LevelOfPositionDTO>(
+                     LevelOfPositionStoredProcedures.LevelOfPosition_Add,
+                     param: new
+                     {
+                         LevelOfPositionDTO.Name,
+                         LevelOfPositionDTO.isDeleted
+                     },
+                     commandType: System.Data.CommandType.StoredProcedure);
+            }
+        }
     }
 }
