@@ -63,6 +63,24 @@ namespace HRProject.BLL.Services
             ProjectManager projectManager = new ProjectManager();
             return new ProjectService(mapper, projectManager);
         }
+
+        public List<ProjectOutputModel> GetAllProjects(string type)
+        {
+            List<ProjectOutputModel> result= new List<ProjectOutputModel>();
+            if (type == ProjectTypes.AllProjects)
+            {
+                result = GetAllProjects();
+            }
+            else if (type == ProjectTypes.FullProjects)
+            {
+                result = GetAllFullProjects();
+            }
+            else if (type == ProjectTypes.PartuallyFull)
+            {
+                result = GetAllNotFullProjects();
+            }
+            return result;
+        }
     }
 
 }

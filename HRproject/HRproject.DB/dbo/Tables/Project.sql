@@ -3,7 +3,6 @@
     [Name]        VARCHAR (50) NOT NULL,
     [Description] TEXT         NOT NULL,
     [isDeleted]   BIT          NOT NULL,
-    [IsFull] BIT NOT NULL, 
     PRIMARY KEY CLUSTERED ([id] ASC)
 );
 

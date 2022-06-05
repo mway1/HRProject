@@ -54,7 +54,7 @@ namespace HRProject.DAL
                 connection.Open();
                 List<ProjectDTO> projects = connection.Query<ProjectDTO>(
                                  ProjectStoredProcedures.Project_Update,
-                                  param: new { id = project.Id, name = project.Name, description = project.Description, isFull = project.IsFull },
+                                  param: new { id = project.Id, name = project.Name, description = project.Description},
                                   commandType: System.Data.CommandType.StoredProcedure)
                                   .ToList();
 
@@ -73,7 +73,7 @@ namespace HRProject.DAL
                 connection.Open();
                 List<ProjectDTO> projects = connection.Query<ProjectDTO>(
                                   ProjectStoredProcedures.Project_Add,
-                                  param: new { id = project.Id, name = project.Name, description = project.Description, isFull = project.IsFull },
+                                  param: new { id = project.Id, name = project.Name, description = project.Description },
                                   commandType: System.Data.CommandType.StoredProcedure)
                                   .ToList();
 

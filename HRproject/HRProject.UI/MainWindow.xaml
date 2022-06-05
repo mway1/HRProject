@@ -35,7 +35,7 @@
             <TabItem Header="Проекты" Height="22" Margin="-2,-2,2,0" VerticalAlignment="Top">
                 <Grid Background="#FFE5E5E5">
                     <ComboBox x:Name="ComboBoxProject" HorizontalAlignment="Left" Margin="10,26,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="ComboBoxProject_SelectionChanged"/>
-                    <ListBox HorizontalAlignment="Left" Height="300" Margin="7,59,0,0" VerticalAlignment="Top" Width="123" ItemsSource="{Binding Projects, Mode=OneWay}" IsSynchronizedWithCurrentItem="True"/>
+                    <ListBox x:Name="ListBoxProjects" HorizontalAlignment="Left" Height="300" Margin="7,59,0,0" VerticalAlignment="Top" Width="123" ItemsSource="{Binding Projects, Mode=OneWay}" IsSynchronizedWithCurrentItem="True" SelectionChanged="ListBoxProjects_SelectionChanged"/>
                     <Label Content="Label" HorizontalAlignment="Left" Margin="249,19,0,0" VerticalAlignment="Top" Width="331"/>
                     <ListBox HorizontalAlignment="Left" Height="114" Margin="249,70,0,0" VerticalAlignment="Top" Width="331" d:ItemsSource="{d:SampleData ItemCount=5}"/>
                     <ListBox HorizontalAlignment="Left" Height="144" Margin="249,215,0,0" VerticalAlignment="Top" Width="331" d:ItemsSource="{d:SampleData ItemCount=5}"/>
