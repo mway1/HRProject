@@ -105,7 +105,7 @@
     <Build Include="dbo\Stored Procedures\Department_GetById.sql" />
     <Build Include="dbo\Stored Procedures\Department_Update.sql" />
     <Build Include="dbo\Stored Procedures\Position\Position_Add.sql" />
-    <Build Include="dbo\Stored Procedures\Position\Position_DeleteById.sql" />
+    <Build Include="dbo\Stored Procedures\Position\Position_Delete.sql" />
     <Build Include="dbo\Stored Procedures\Position\Position_Update.sql" />
     <Build Include="dbo\Stored Procedures\Position\Position_GetById.sql" />
     <Build Include="dbo\Stored Procedures\Position\Position_GetAll.sql" />
