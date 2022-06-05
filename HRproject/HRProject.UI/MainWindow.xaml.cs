@@ -1,6 +1,5 @@
 ﻿using HRProject.BLL;
 using HRProject.BLL.Models;
-using HRProject.BLL.Services;
 using System.Windows;
 using System.Collections.ObjectModel;
 using System;
@@ -13,23 +12,22 @@ namespace HRProject.UI
     /// </summary>
     public partial class MainWindow : Window
     {
-        ProjectService projectService;
+
+        private Controller controller = new Controller();
+        private ObservableCollection<ProjectOutputModel> Projects = new ObservableCollection<ProjectOutputModel>();
+
         public MainWindow()
         {
-            projectService = ProjectService.GetInstance();
-
             this.Initialized += Window_Initialized;
             InitializeComponent();
         }
-
-        private ObservableCollection<ProjectOutputModel> Projects = new ObservableCollection<ProjectOutputModel>();
 
         public void Window_Initialized(object? sender, EventArgs e)
         {
             ComboBoxProject.ItemsSource = ProjectTypes.Types;
             ListBoxProjects.ItemsSource = Projects;
 
-            LoadProjectList(projectService.GetAllProjects());
+            LoadProjectList(controller.GetAllProjects());
         }
 
         private void LoadProjectList(List<ProjectOutputModel> projects)
@@ -44,7 +42,7 @@ namespace HRProject.UI
         private void ComboBoxProject_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
         {
             LoadProjectList(
-                projectService.GetAllProjects(ComboBoxProject.SelectedItem.ToString()!)
+                controller.GetAllProjects(ComboBoxProject.SelectedItem.ToString()!)
             );
         }
 
