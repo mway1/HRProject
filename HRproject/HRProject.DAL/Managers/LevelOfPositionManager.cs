@@ -51,6 +51,22 @@ namespace HRProject.DAL.Managers
                     commandType: System.Data.CommandType.StoredProcedure);
             }
         }
+        public void UpdateLevelOfPosition(LevelOfPositionDTO newLevelOfPosition)
+        {
+            using (var connection = new SqlConnection(ServerSettings._connectionString))
+            {
+                connection.Open();
+
+                connection.QuerySingleOrDefault<LevelOfPositionDTO>(
+                     LevelOfPositionStoredProcedures.LevelOfPosition_Update,
+                     param: new
+                     {
+                         newLevelOfPosition.Name,
+                         newLevelOfPosition.isDeleted
+                     },
+                     commandType: System.Data.CommandType.StoredProcedure);
+            }
+        }
 
     }
 }
