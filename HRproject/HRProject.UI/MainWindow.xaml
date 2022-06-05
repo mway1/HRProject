@@ -107,7 +107,7 @@
                     <ListBox HorizontalAlignment="Center" Height="114" Margin="0,70,0,0" VerticalAlignment="Top" Width="331" d:ItemsSource="{d:SampleData ItemCount=5}" Grid.Column="1"/>
                     <ListBox HorizontalAlignment="Center" Height="144" Margin="0,215,0,0" VerticalAlignment="Top" Width="331" d:ItemsSource="{d:SampleData ItemCount=5}" Grid.Column="1"/>
                     <ComboBox x:Name="ComboBoxProject" HorizontalAlignment="Right" Margin="0,26,664,0" VerticalAlignment="Top" Width="120" SelectionChanged="ComboBoxProject_SelectionChanged" Grid.ColumnSpan="2"/>
-                    <ListBox x:Name="ListBoxProjects" Height="300" Margin="0,59,664,0" VerticalAlignment="Top" ItemsSource="{Binding Projects, Mode=OneWay}" IsSynchronizedWithCurrentItem="True" SelectionChanged="ListBoxProjects_SelectionChanged" Grid.ColumnSpan="2" HorizontalAlignment="Right" Width="123"/>
+                    <ListBox x:Name="ListBoxProjects" Height="300" Margin="0,59,664,0" VerticalAlignment="Top" IsSynchronizedWithCurrentItem="True" SelectionChanged="ListBoxProjects_SelectionChanged" Grid.ColumnSpan="2" HorizontalAlignment="Right" Width="123"/>
                 </Grid>
             </TabItem>
             <TreeView/>

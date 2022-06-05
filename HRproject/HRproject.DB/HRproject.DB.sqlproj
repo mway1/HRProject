@@ -61,7 +61,6 @@
     <Folder Include="dbo\" />
     <Folder Include="dbo\Tables\" />
     <Folder Include="dbo\Stored Procedures\" />
-    <Folder Include="dbo\Stored Procedures\Project_StoredProcedures" />
     <Folder Include="dbo\Stored Procedures\Position" />
   </ItemGroup>
   <ItemGroup>
@@ -91,9 +90,6 @@
     <Build Include="dbo\Tables\Position_LevelOfPosition.sql" />
     <Build Include="dbo\Tables\EmployeeRequest_Skill.sql" />
     <Build Include="dbo\Tables\EmployeeRequest_Position.sql" />
-    <Build Include="dbo\Stored Procedures\Project_StoredProcedures\Project_Add.sql" />
-    <Build Include="dbo\Stored Procedures\Project_StoredProcedures\Project_Update.sql" />
-    <Build Include="dbo\Stored Procedures\Project_StoredProcedures\Project_Get.sql" />
     <Build Include="dbo\Stored Procedures\EmployeeHistory_Add.sql" />
     <Build Include="dbo\Stored Procedures\EmployeeHistory_Delete.sql" />
     <Build Include="dbo\Stored Procedures\EmployeeHistory_GetAll.sql" />
@@ -120,10 +116,13 @@
     <Build Include="dbo\Stored Procedures\LevelOfPosition_Update.sql" />
     <Build Include="dbo\Stored Procedures\EmployeeRequest_Create.sql" />
     <Build Include="dbo\Stored Procedures\EmployeeRequest_DeleteById.sql" />
-    <Build Include="dbo\Stored Procedures\Project_StoredProcedures\project_getAllFull.sql" />
-    <Build Include="dbo\Stored Procedures\Project_StoredProcedures\project_getAll.sql" />
-    <Build Include="dbo\Stored Procedures\Project_StoredProcedures\project_getAllNotFull.sql" />
     <Build Include="dbo\Stored Procedures\EmployeeRequestGetAllInfoByProjectid.sql" />
+    <Build Include="dbo\Stored Procedures\Project_Add.sql" />
+    <Build Include="dbo\Stored Procedures\Project_Get.sql" />
+    <Build Include="dbo\Stored Procedures\project_getAll.sql" />
+    <Build Include="dbo\Stored Procedures\project_getAllFull.sql" />
+    <Build Include="dbo\Stored Procedures\project_getAllNotFull.sql" />
+    <Build Include="dbo\Stored Procedures\Project_Update.sql" />
   </ItemGroup>
   <ItemGroup>
     <RefactorLog Include="HRproject.DB.refactorlog" />

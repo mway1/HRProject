@@ -3,6 +3,7 @@ using HRProject.DAL.DTOs;
 using HRProject.BLL.Models;
 using HRProject.BLL.OutputModels;
 using HRProject.DAL;
+using HRProject.BLL.InputModels;
 
 namespace HRProject.BLL
 {
@@ -67,7 +68,7 @@ namespace HRProject.BLL
                 .ForMember("Quantity", opt => opt.MapFrom(c => c.Quantity));
 
                 cfg.CreateMap<ProjectDTO, ProjectOutputModel>();
-                cfg.CreateMap<ProjectOutputModel, ProjectDTO>();
+                cfg.CreateMap<ProjectInputModel, ProjectDTO>();
             }));
         }
     }
