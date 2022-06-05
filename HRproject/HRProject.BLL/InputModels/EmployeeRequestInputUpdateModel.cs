@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace HRProject.BLL.InputModels
+﻿namespace HRProject.BLL.InputModels
 {
     public class EmployeeRequestInputUpdateModel
     {
@@ -20,5 +14,5 @@ namespace HRProject.BLL.InputModels
             Quantity = quantity;
             IsDeleted = isDeleted;
         }
-    }    
+    }
 }

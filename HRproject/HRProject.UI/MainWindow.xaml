@@ -27,7 +27,7 @@
                         <ColumnDefinition Width="145*"/>
                     </Grid.ColumnDefinitions>
                     <TreeView HorizontalAlignment="Left" Width="221" Grid.ColumnSpan="2" Background="#FF89B7D4" Margin="0,0,0,157" FontWeight="Medium" FontFamily="Roboto"/>
-                    <TabControl HorizontalAlignment="Left" Height="406" VerticalAlignment="Center" Width="573" Grid.ColumnSpan="3" Margin="179,0,0,0" SelectionChanged="TabControl_SelectionChanged" Grid.Column="1" FontWeight="Medium" FontFamily="Roboto">
+                    <TabControl HorizontalAlignment="Left" Height="406" VerticalAlignment="Center" Width="573" Grid.ColumnSpan="3" Margin="179,0,0,0" Grid.Column="1" FontWeight="Medium" FontFamily="Roboto">
                         <TabItem Header="Общее">
                             <Grid Background="#FFC3E8FF" HorizontalAlignment="Left" Width="573">
                                 <Grid.ColumnDefinitions>
@@ -104,9 +104,12 @@
                         <ColumnDefinition Width="761*"/>
                     </Grid.ColumnDefinitions>
                     <ComboBox HorizontalAlignment="Left" Margin="10,26,0,0" VerticalAlignment="Top" Width="120" Grid.ColumnSpan="2" Background="#FF233B84"/>
-                    <ListBox x:Name="ListBoxProjects" HorizontalAlignment="Left" Height="300" Margin="7,59,0,0" VerticalAlignment="Top" Width="123" d:ItemsSource="{d:SampleData ItemCount=5}" Grid.ColumnSpan="2" SelectionChanged="ListBox_SelectionChanged" Background="#FFD4EBF9"/>
+                    <ListBox HorizontalAlignment="Left" Height="300" Margin="7,59,0,0" VerticalAlignment="Top" Width="123" d:ItemsSource="{d:SampleData ItemCount=5}" Grid.ColumnSpan="2" SelectionChanged="ListBox_SelectionChanged" Background="#FFD4EBF9"/>
                     <Label Content="Label" HorizontalAlignment="Center" Margin="0,19,0,0" VerticalAlignment="Top" Width="331" Grid.Column="1"/>
                     <ListBox HorizontalAlignment="Center" Height="114" Margin="0,70,0,0" VerticalAlignment="Top" Width="331" d:ItemsSource="{d:SampleData ItemCount=5}" Grid.Column="1"/>
+                    <ListBox HorizontalAlignment="Center" Height="144" Margin="0,215,0,0" VerticalAlignment="Top" Width="331" d:ItemsSource="{d:SampleData ItemCount=5}" Grid.Column="1"/>
+                    <ComboBox x:Name="ComboBoxProject" HorizontalAlignment="Right" Margin="0,26,664,0" VerticalAlignment="Top" Width="120" SelectionChanged="ComboBoxProject_SelectionChanged" Grid.ColumnSpan="2"/>
+                    <ListBox x:Name="ListBoxProjects" Height="300" Margin="0,59,664,0" VerticalAlignment="Top" IsSynchronizedWithCurrentItem="True" SelectionChanged="ListBoxProjects_SelectionChanged" Grid.ColumnSpan="2" HorizontalAlignment="Right" Width="123"/>
                     <ListBox x:Name="ListBoxEmployeeRequests" HorizontalAlignment="Center" Height="144" Margin="0,215,0,0" VerticalAlignment="Top" Width="331" d:ItemsSource="{d:SampleData ItemCount=5}" Grid.Column="1"/>
                 </Grid>
             </TabItem>
