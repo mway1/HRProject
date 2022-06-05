@@ -8,6 +8,7 @@ namespace HRProject.DAL.Managers
         public EmployeeHistoryManager EmployeeHistoryManager { get; private set;}
         public EmployeeManager EmployeeManager { get; private set;}
         public EmployeeRequestManager EmployeeRequestManager { get; private set;}
+        public PositionManager PositionManager { get; private set;}
 
         public ManagerStorage()
         {
@@ -15,6 +16,7 @@ namespace HRProject.DAL.Managers
             EmployeeHistoryManager = new EmployeeHistoryManager();
             EmployeeRequestManager = new EmployeeRequestManager();
             EmployeeManager = new EmployeeManager();
+            PositionManager = new PositionManager();
         }
     }
 }
