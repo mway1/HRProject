@@ -3,7 +3,6 @@ using HRProject.DAL.DTOs;
 using HRProject.BLL.Models;
 using HRProject.BLL.OutputModels;
 using HRProject.DAL;
-using HRProject.DAL.DTOs;
 
 namespace HRProject.BLL
 {
@@ -65,9 +64,7 @@ namespace HRProject.BLL
 
                 cfg.CreateMap<EmployeeRequestDTO, EmployeeRequestAllInfoModel>()
                 .ForMember("Id", opt => opt.MapFrom(c => c.Id))
-                .ForMember("ProjectId", opt => opt.MapFrom(c => c.ProjectId))
-                .ForMember("Quantity", opt => opt.MapFrom(c => c.Quantity))
-                .ForMember("IsDeleted", opt => opt.MapFrom(c => c.IsDeleted));
+                .ForMember("Quantity", opt => opt.MapFrom(c => c.Quantity));
 
                 cfg.CreateMap<ProjectDTO, ProjectOutputModel>();
                 cfg.CreateMap<ProjectOutputModel, ProjectDTO>();
