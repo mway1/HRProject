@@ -1,4 +1,5 @@
-﻿using System;
+﻿using HRProject.BLL;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,10 +21,13 @@ namespace HRProject.UI
     /// </summary>
     public partial class MainWindow : Window
     {
+        Controller _controller;
         public MainWindow()
         {
             InitializeComponent();
         }
+
+
 
     }
 }
