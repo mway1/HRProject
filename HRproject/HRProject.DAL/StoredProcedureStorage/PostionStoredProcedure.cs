@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace HRProject.DAL.StoredProcedureStorage
+namespace HRProject.DAL
 {
     public class PostionStoredProcedure
     {
