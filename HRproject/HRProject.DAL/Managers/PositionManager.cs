@@ -49,7 +49,7 @@ namespace HRProject.DAL
             }
         }
 
-        public void UpdatePosition(int positionId, PositionDTO positionDTO)
+        public void UpdatePosition(PositionDTO positionDTO)
         {
             using (var connection = new SqlConnection(ServerSettings._connectionString))
             {
@@ -59,7 +59,7 @@ namespace HRProject.DAL
                     PostionStoredProcedure.Position_Update,
                     param: new
                     {
-                        Id = positionId,
+                        Id = positionDTO.Id,
                         Name = positionDTO.Name,
                         LevelOfPositionId = positionDTO.PositionLevel.Id
 
