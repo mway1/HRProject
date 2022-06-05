@@ -1,10 +1,10 @@
 ﻿namespace HRProject.DAL.DTOs
 {
-    public class ProjectDTO
+    public class EmployeeRequestDTO
     {
         public int Id { get; set; }
-        public string Name { get; set; }
-        public string Description { get; set; }
+        public int? ProjectId { get; set; }
+        public int? Quantity { get; set; }
         public bool IsDeleted { get; set; }
     }
 }

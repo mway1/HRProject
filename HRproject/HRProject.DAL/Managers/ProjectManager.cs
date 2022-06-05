@@ -1,4 +1,5 @@
 ﻿using Dapper;
+using HRProject.DAL.DTOs;
 using HRProject.DAL.StoredProcedureStorage;
 using System.Data.SqlClient;
 

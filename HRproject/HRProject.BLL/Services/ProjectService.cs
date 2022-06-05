@@ -2,6 +2,7 @@
 using HRProject.BLL.InputModels;
 using HRProject.BLL.Models;
 using HRProject.DAL;
+using HRProject.DAL.DTOs;
 using System.Collections.ObjectModel;
 
 
