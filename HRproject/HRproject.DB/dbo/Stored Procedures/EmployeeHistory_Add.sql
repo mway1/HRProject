@@ -1,5 +1,5 @@
 ﻿CREATE PROCEDURE [dbo].[EmployeeHistory_Add]
-	@id int,
+
 	@EmployeeId int,
 	@Date timestamp,
 	@StatusId int,
@@ -19,14 +19,7 @@ VALUES(
 @StatusId,
 @isDeleted
 )
-	SELECT 
-	EmployeeId=@EmployeeId,
-	[Date]=@Date,
-	StatusId=@StatusId,
-	isDeleted=@isDeleted
-
-	FROM dbo.EmployeeHistory
-	WHERE id=@id
+	
 	END
 	
 
