@@ -16,6 +16,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\HRProject.BLL\HRProject.BLL.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Resource Include="1614560341_16-p-ikonki-na-belom-fone-18.png" />
   </ItemGroup>
 
