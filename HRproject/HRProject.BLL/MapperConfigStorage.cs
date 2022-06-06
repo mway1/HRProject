@@ -44,7 +44,7 @@ namespace HRProject.BLL
                 .ForMember("Name", opt => opt.MapFrom(c => c.Name));
 
                 cfg.CreateMap<PositionDTO, PositionModel>()
-                .ForMember("Id", opt => opt.MapFrom(c => c.Id))
+                .ForMember("Id", opt => opt.MapFrom(c => c.id))
                 .ForMember("Name", opt => opt.MapFrom(c => c.Name))
                 .ForMember("PositionLevel", opt => opt.MapFrom(c => c.PositionLevel.Name));
 

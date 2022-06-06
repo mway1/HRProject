@@ -42,7 +42,7 @@ namespace HRProject.DAL
                     param: new
                     {
                         Name = positionDTO.Name,
-                        LevelOfPositionId = positionDTO.PositionLevel.Id
+                        LevelOfPositionId = positionDTO.PositionLevel.id
 
                     },
                     commandType: System.Data.CommandType.StoredProcedure);
@@ -59,9 +59,9 @@ namespace HRProject.DAL
                     PostionStoredProcedure.Position_Update,
                     param: new
                     {
-                        Id = positionDTO.Id,
+                        Id = positionDTO.id,
                         Name = positionDTO.Name,
-                        LevelOfPositionId = positionDTO.PositionLevel.Id
+                        LevelOfPositionId = positionDTO.PositionLevel.id
 
                     },
                     commandType: System.Data.CommandType.StoredProcedure);
