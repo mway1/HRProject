@@ -1,18 +1,7 @@
 ﻿using HRProject.BLL;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace HRProject.UI
 {
@@ -24,10 +13,23 @@ namespace HRProject.UI
         Controller _controller;
         public MainWindow()
         {
+            _controller = new Controller();
             InitializeComponent();
+
+            Button_ChangeNameOfDepartment.IsEnabled = false;
+
         }
 
+        private void Button_ChangeNameOfDepartment_Click(object sender, RoutedEventArgs e)
+        {
 
+        }
+
+        private void TreeView_Department_Initialized(object sender, EventArgs e)
+        {
+            TextBlock newItem = new TextBlock() { Text = "Best of the best" };
+            TreeView_Department.Items.Add(newItem);
+        }
 
     }
 }

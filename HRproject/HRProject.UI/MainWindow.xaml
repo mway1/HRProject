@@ -26,8 +26,16 @@
                         <ColumnDefinition Width="0*"/>
                         <ColumnDefinition Width="145*"/>
                     </Grid.ColumnDefinitions>
-                    <TreeView HorizontalAlignment="Left" Width="221" Grid.ColumnSpan="2" Background="#FF89B7D4" Margin="0,0,0,157" FontWeight="Medium" FontFamily="Roboto"/>
-                    <TabControl HorizontalAlignment="Left" Height="406" VerticalAlignment="Center" Width="573" Grid.ColumnSpan="3" Margin="179,0,0,0" SelectionChanged="TabControl_SelectionChanged" Grid.Column="1" FontWeight="Medium" FontFamily="Roboto">
+                    <TreeView x:Name="TreeView_Department" HorizontalAlignment="Left" Width="221" Grid.ColumnSpan="2" Background="#FF89B7D4" Margin="0,0,0,157" FontWeight="Medium" FontFamily="Roboto" Initialized="TreeView_Department_Initialized">
+                        <TreeView.Items>
+                            <TreeViewItem Header="Воображаемый отдел">
+                                <TreeViewItem.Items>
+                                    <TextBlock>Воображаемый сотрудник</TextBlock>
+                                </TreeViewItem.Items>
+                            </TreeViewItem>
+                        </TreeView.Items>
+                    </TreeView>
+                        <TabControl HorizontalAlignment="Left" Height="406" VerticalAlignment="Center" Width="573" Grid.ColumnSpan="3" Margin="179,0,0,0" Grid.Column="1" FontWeight="Medium" FontFamily="Roboto">
                         <TabItem Header="Общее">
                             <Grid Background="#FFC3E8FF" HorizontalAlignment="Left" Width="573">
                                 <Grid.ColumnDefinitions>
@@ -85,7 +93,7 @@
                     <ListBox d:ItemsSource="{d:SampleData ItemCount=5}" Margin="0,275,283,45" Grid.ColumnSpan="2" FontWeight="Medium" FontFamily="Roboto"/>
                     <TextBox x:Name="TextBox_ChangeNameOfDepartment" HorizontalAlignment="Left" Margin="0,368,0,0" TextWrapping="Wrap" Text="Введите новое название" VerticalAlignment="Top" Height="17" Width="144
                              " Grid.ColumnSpan="2" Foreground="#FFA3A3A3" VerticalContentAlignment="Center" FontSize="10" FontWeight="Medium" FontFamily="Roboto"/>
-                    <Button x:Name="Button_ChangeNameOfDepartment" Grid.Column="1" Content="Изменить имя" HorizontalAlignment="Left" Margin="105,368,0,0" VerticalAlignment="Top" Height="17" Width="73" FontSize="10" FontWeight="Medium" FontFamily="Roboto"/>
+                    <Button x:Name="Button_ChangeNameOfDepartment" Grid.Column="1" Content="Изменить имя" HorizontalAlignment="Left" Margin="105,368,0,0" VerticalAlignment="Top" Height="17" Width="73" FontSize="10" FontWeight="Medium" FontFamily="Roboto" Click="Button_ChangeNameOfDepartment_Click" IsEnabled="False"/>
                     <Button x:Name="Button_ChangeDescriptionOfDepartment" Content="Изменить описание" HorizontalAlignment="Left" Margin="0,389,0,0" VerticalAlignment="Top" Height="17" Width="109
                             " FontSize="10" FontWeight="Medium" FontFamily="Roboto" Grid.ColumnSpan="2"/>
                     <Button x:Name="Button_DeleteDepartment" Content="Удалить отдел" HorizontalAlignment="Left" Margin="70,389,0,0" VerticalAlignment="Top" Height="17" Width="109" FontSize="10" FontWeight="Medium" FontFamily="Roboto" Grid.Column="1"/>
@@ -104,7 +112,7 @@
                         <ColumnDefinition Width="761*"/>
                     </Grid.ColumnDefinitions>
                     <ComboBox HorizontalAlignment="Left" Margin="10,26,0,0" VerticalAlignment="Top" Width="120" Grid.ColumnSpan="2" Background="#FF233B84"/>
-                    <ListBox HorizontalAlignment="Left" Height="300" Margin="7,59,0,0" VerticalAlignment="Top" Width="123" d:ItemsSource="{d:SampleData ItemCount=5}" Grid.ColumnSpan="2" SelectionChanged="ListBox_SelectionChanged" Background="#FFD4EBF9"/>
+                    <ListBox HorizontalAlignment="Left" Height="300" Margin="7,59,0,0" VerticalAlignment="Top" Width="123" d:ItemsSource="{d:SampleData ItemCount=5}" Grid.ColumnSpan="2" Background="#FFD4EBF9"/>
                     <Label Content="Label" HorizontalAlignment="Center" Margin="0,19,0,0" VerticalAlignment="Top" Width="331" Grid.Column="1"/>
                     <ListBox HorizontalAlignment="Center" Height="114" Margin="0,70,0,0" VerticalAlignment="Top" Width="331" d:ItemsSource="{d:SampleData ItemCount=5}" Grid.Column="1"/>
                     <ListBox HorizontalAlignment="Center" Height="144" Margin="0,215,0,0" VerticalAlignment="Top" Width="331" d:ItemsSource="{d:SampleData ItemCount=5}" Grid.Column="1"/>
