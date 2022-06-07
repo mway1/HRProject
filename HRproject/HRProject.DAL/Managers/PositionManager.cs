@@ -18,7 +18,7 @@ namespace HRProject.DAL
                     commandType: System.Data.CommandType.StoredProcedure);
             }
         }
-        public List<PositionDTO> GetAllPositon(int positionId)
+        public List<PositionDTO> GetAllPositon()
         {
             using (var connection = new SqlConnection(ServerSettings._connectionString))
             {
@@ -26,7 +26,6 @@ namespace HRProject.DAL
 
                 return connection.Query<PositionDTO>(
                     PostionStoredProcedure.Position_GetAll,
-                    param: new { id = positionId },
                     commandType: System.Data.CommandType.StoredProcedure)
                     .ToList();
             }
