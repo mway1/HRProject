@@ -1,6 +1,9 @@
 ﻿using AutoMapper;
 using HRProject.DAL.DTOs;
+using HRProject.BLL.Models;
 using HRProject.BLL.OutputModels;
+using HRProject.DAL;
+using HRProject.BLL.InputModels;
 
 namespace HRProject.BLL
 {
@@ -21,16 +24,16 @@ namespace HRProject.BLL
             {
                 cfg.CreateMap<EmployeeDTO, EmployeeModel>()
                 .ForMember("Name", opt => opt.MapFrom(c => $"{c.FirstName} {c.SecondName} {c.LastName} "))
-                .ForMember("BirthDate", opt=> opt.MapFrom(c=> $"{c.BirthDate}"))
-                .ForMember("Email", opt=> opt.MapFrom(c=> $"{c.Email}"))
-                .ForMember("PhoneNumber", opt=> opt.MapFrom(c=> $"{c.PhoneNumber}"))
-                .ForMember("StatusId", opt=> opt.MapFrom(c=> $"{c.StatusId}"))
-                .ForMember("DepartmentId", opt=> opt.MapFrom(c=> $"{c.DepartmentId}"))
-                .ForMember("isDeleted", opt=> opt.MapFrom(c=> $"{c.isDeleted}"));
+                .ForMember("BirthDate", opt => opt.MapFrom(c => $"{c.BirthDate}"))
+                .ForMember("Email", opt => opt.MapFrom(c => $"{c.Email}"))
+                .ForMember("PhoneNumber", opt => opt.MapFrom(c => $"{c.PhoneNumber}"))
+                .ForMember("StatusId", opt => opt.MapFrom(c => $"{c.StatusId}"))
+                .ForMember("DepartmentId", opt => opt.MapFrom(c => $"{c.DepartmentId}"))
+                .ForMember("isDeleted", opt => opt.MapFrom(c => $"{c.isDeleted}"));
 
                 cfg.CreateMap<DepartmentDTO, DepartmentModel>()
-                .ForMember("Name", opt=> opt.MapFrom(c=> $"{c.Name}" ))
-                .ForMember("Description", opt=> opt.MapFrom(c=> $"{c.Description}"))
+                .ForMember("Name", opt => opt.MapFrom(c => $"{c.Name}"))
+                .ForMember("Description", opt => opt.MapFrom(c => $"{c.Description}"))
                 .ForMember("IsDeleted", opt => opt.MapFrom(c => $"{c.IsDeleted}"));
 
                 cfg.CreateMap<EmployeeHistoryDTO, EmployeeHistoryModel>()
@@ -62,10 +65,10 @@ namespace HRProject.BLL
 
                 cfg.CreateMap<EmployeeRequestDTO, EmployeeRequestAllInfoModel>()
                 .ForMember("Id", opt => opt.MapFrom(c => c.Id))
-                .ForMember("ProjectId", opt => opt.MapFrom(c => c.ProjectId))
-                .ForMember("Quantity", opt => opt.MapFrom(c => c.Quantity))
-                .ForMember("IsDeleted", opt => opt.MapFrom(c => c.IsDeleted));
+                .ForMember("Quantity", opt => opt.MapFrom(c => c.Quantity));
 
+                cfg.CreateMap<ProjectDTO, ProjectOutputModel>();
+                cfg.CreateMap<ProjectInputModel, ProjectDTO>();
             }));
         }
     }

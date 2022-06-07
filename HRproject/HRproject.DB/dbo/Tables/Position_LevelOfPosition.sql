@@ -6,3 +6,4 @@
 	FOREIGN KEY ([LevelOfPositionId]) REFERENCES [dbo].[LevelOfPosition] ([id]),
 	FOREIGN KEY ([PositionId]) REFERENCES [dbo].[Position] ([id])
 )
+

@@ -10,8 +10,8 @@ Po.[id],
 Po.[Name] as [PositionName],
 LOP.[id],
 LOP.[Name] as [PositionLevel],
-S.[id].
-S.[name] as [SkillName],
+S.[id],
+S.[Name] as [SkillName],
 ES.[id],
 ES.[LevelOfSkill]
 FROM dbo.EmployeeRequest as E

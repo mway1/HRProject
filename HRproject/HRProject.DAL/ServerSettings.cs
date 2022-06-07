@@ -2,6 +2,6 @@
 {
     public class ServerSettings
     {
-        public const string _connectionString = @"Server=.;Database=HRProject.DB;Trusted_Connection=True;";
+        public const string _connectionString = @"Data Source=80.78.240.16;Initial Catalog = HRproject.DB;Persist Security Info=True;User ID = student;Password=qwe!23;";
     }
 }
