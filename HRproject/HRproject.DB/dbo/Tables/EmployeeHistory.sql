@@ -1,7 +1,7 @@
 ﻿CREATE TABLE [dbo].[EmployeeHistory] (
     [id]         INT        IDENTITY (1, 1) NOT NULL,
     [EmployeeId] INT        NOT NULL,
-    [Date]       ROWVERSION NOT NULL,
+    [Date]       TIMESTAMP NOT NULL,
     [StatusId]   INT        NOT NULL,
     [isDeleted]  BIT        NULL,
     PRIMARY KEY CLUSTERED ([id] ASC),
