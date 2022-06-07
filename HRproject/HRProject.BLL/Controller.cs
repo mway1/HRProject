@@ -47,5 +47,50 @@ namespace HRProject.BLL
             var selectedRequest = _mapper.Map(input, employeeRequest);
             _manager.EmployeeRequestManager.CreateEmployeeRequest(selectedRequest);
         }
+
+
+
+
+
+        public List <EmployeeHistoryModel> GetAllEmployeeHistory()
+        { 
+            List<EmployeeHistoryDTO> employeeHistories = _manager.EmployeeHistoryManager.GetAllEmployeeHistory();
+            List<EmployeeHistoryModel> viewEmployeeHistories = new List<EmployeeHistoryModel>();
+            return _mapper.Map(employeeHistories, viewEmployeeHistories);
+        }
+
+        public EmployeeHistoryModel GetByIdEmployeeHistory (int id)
+        {
+            EmployeeHistoryDTO employeeHistory = _manager.EmployeeHistoryManager.GetByIdEmployeeHistory(id);
+            EmployeeHistoryModel viewEmployeeHistory = new EmployeeHistoryModel();
+            return _mapper.Map(employeeHistory, viewEmployeeHistory);
+        }
+
+        public void DeleteEmployeeHistory(EmployeeHistoryModel input)
+        {
+            EmployeeHistoryDTO employeeHistory = new EmployeeHistoryDTO();
+            var selectedHistory = _mapper.Map(input, employeeHistory);
+            _manager.EmployeeHistoryManager.DeleteEmployeeHistory(selectedHistory);
+        }
+        //public void DeleteEmployeeHistory (int id)
+        //{
+        //    EmployeeHistoryDTO employeeHistory = _manager.EmployeeHistoryManager.DeleteEmployeeHistory(id);
+        //    EmployeeHistoryModel viewEmployeeHistory = new EmployeeHistoryModel();
+        //    _mapper.Map(employeeHistory, viewEmployeeHistory);
+        //}
+
+        public void AddEmployeeHistory (EmployeeHistoryModel input)
+        {
+            EmployeeHistoryDTO employeeHistory = new EmployeeHistoryDTO();
+            var selectedHistory = _mapper.Map(input, employeeHistory);
+            _manager.EmployeeHistoryManager.AddEmployeeHistory(selectedHistory);
+        }
+
+        public void UpdateEmployeeHistory (EmployeeHistoryModel input, int id)
+        {
+            EmployeeHistoryDTO employeeHistoryDTO = new EmployeeHistoryDTO();
+            var selectedHistory = _mapper.Map(input, employeeHistoryDTO);
+            _manager.EmployeeHistoryManager.UpdateEmployeeHistory(selectedHistory, id);
+        }
     }
 }
