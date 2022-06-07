@@ -7,11 +7,9 @@ namespace HRProject.DAL
 {
     public class ProjectManager
     {
-        public string _connectionString = @"Server=DESKTOP-THG88DI;Database=pets;Trusted_Connection=True;";
-
         public ProjectDTO? GetProjectById(int id)
         {
-            using (var connection = new SqlConnection(_connectionString))
+            using (var connection = new SqlConnection(ServerSettings._connectionString))
             {
                 connection.Open();
 
@@ -31,7 +29,7 @@ namespace HRProject.DAL
 
         public List<ProjectDTO> GetAllProjects()
         {
-            using (var connection = new SqlConnection(_connectionString))
+            using (var connection = new SqlConnection(ServerSettings._connectionString))
             {
                 connection.Open();
 
@@ -50,7 +48,7 @@ namespace HRProject.DAL
 
         public ProjectDTO? UpdateProject(int id, ProjectDTO project)
         {
-            using (var connection = new SqlConnection(_connectionString))
+            using (var connection = new SqlConnection(ServerSettings._connectionString))
             {
                 connection.Open();
                 List<ProjectDTO> projects = connection.Query<ProjectDTO>(
@@ -69,7 +67,7 @@ namespace HRProject.DAL
 
         public ProjectDTO? AddProject(ProjectDTO project)
         {
-            using (var connection = new SqlConnection(_connectionString))
+            using (var connection = new SqlConnection(ServerSettings._connectionString))
             {
                 connection.Open();
                 List<ProjectDTO> projects = connection.Query<ProjectDTO>(
@@ -88,7 +86,7 @@ namespace HRProject.DAL
 
         public List<ProjectDTO> GetAllFullProjects()
         {
-            using (var connection = new SqlConnection(_connectionString))
+            using (var connection = new SqlConnection(ServerSettings._connectionString))
             {
                 connection.Open();
 
@@ -102,7 +100,7 @@ namespace HRProject.DAL
 
         public List<ProjectDTO> GetAllNotFullProjects()
         {
-            using (var connection = new SqlConnection(_connectionString))
+            using (var connection = new SqlConnection(ServerSettings._connectionString))
             {
                 connection.Open();
 

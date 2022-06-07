@@ -28,10 +28,10 @@ namespace HRProject.UI
         {
             ComboBoxProjects.ItemsSource = ProjectTypes.Types;
             ListBoxProjects.ItemsSource = Projects;
+            _controller = new Controller();
 
             LoadProjectList(_controller.GetAllProjects());
 
-            _controller = new Controller();
         }
 
         private void LoadProjectList(List<ProjectOutputModel> projects)
@@ -42,18 +42,18 @@ namespace HRProject.UI
                 Projects.Add(project);
             }
         }
-
-        private void ListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            var selectedProject = (ProjectModel)ListBoxProjects.SelectedItem;
-            var choosenEmployeeRequests = _controller.GetEmployeeRequestAllInfoByProjectId(selectedProject.Id);
-            ListBoxEmployeeRequests.ItemsSource = choosenEmployeeRequests;
-        }
         private void ComboBoxProject_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
         {
             LoadProjectList(
                 _controller.GetAllProjects(ComboBoxProjects.SelectedItem.ToString()!)
             );
+        }
+
+        private void ListBoxProjects_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            var selectedProject = (ProjectModel)ListBoxProjects.SelectedItem;
+            var choosenEmployeeRequests = _controller.GetEmployeeRequestAllInfoByProjectId(selectedProject.Id);
+            ListBoxEmployeeRequests.ItemsSource = choosenEmployeeRequests;
         }
     }
 }
