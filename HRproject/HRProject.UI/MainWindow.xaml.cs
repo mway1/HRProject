@@ -26,7 +26,7 @@ namespace HRProject.UI
 
         public void Window_Initialized(object? sender, EventArgs e)
         {
-            ComboBoxProject.ItemsSource = ProjectTypes.Types;
+            ComboBoxProjects.ItemsSource = ProjectTypes.Types;
             ListBoxProjects.ItemsSource = Projects;
 
             LoadProjectList(_controller.GetAllProjects());
@@ -52,7 +52,7 @@ namespace HRProject.UI
         private void ComboBoxProject_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
         {
             LoadProjectList(
-                _controller.GetAllProjects(ComboBoxProject.SelectedItem.ToString()!)
+                _controller.GetAllProjects(ComboBoxProjects.SelectedItem.ToString()!)
             );
         }
     }
