@@ -1,10 +1,5 @@
-﻿using HRProject.DAL.DTOs;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Dapper;
+﻿using Dapper;
+using HRProject.DAL.DTOs;
 using System.Data.SqlClient;
 
 namespace HRProject.DAL
@@ -19,7 +14,7 @@ namespace HRProject.DAL
                 connection.Open();
 
                 return connection.Query<EmployeeHistoryDTO>(
-                    StoredProcedures.EmployeeHistory_GetAll, 
+                    StoredProcedures.EmployeeHistory_GetAll,
                     commandType: System.Data.CommandType.StoredProcedure)
                     .ToList();
 
@@ -32,7 +27,7 @@ namespace HRProject.DAL
                 connection.Open();
                 return connection.QuerySingle<EmployeeHistoryDTO>(
                     StoredProcedures.EmployeeHistory_GetById,
-                    param: new { id=id },
+                    param: new { id = id },
                     commandType: System.Data.CommandType.StoredProcedure
                     );
             }
