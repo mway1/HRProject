@@ -4,9 +4,10 @@
     {
         public int id { get; set; }
         public int EmployeeId { get; set; }
-        public string Date { get; set; }
+        public DateTime Date { get; set; }
         public string StatusId { get; set; }
         public bool IsDeleted { get; set; }
+        public string StatusName { get; set; }
 
         public override string ToString()
         {

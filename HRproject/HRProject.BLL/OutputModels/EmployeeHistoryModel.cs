@@ -7,7 +7,6 @@
         public string Date { get; set; }
         public string StatusId { get; set; }
         public bool IsDeleted { get; set; }
-
-        
+        public string StatusName { get; set; }
     }
 }
