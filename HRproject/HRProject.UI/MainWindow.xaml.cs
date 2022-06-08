@@ -79,20 +79,14 @@ namespace HRProject.UI
 
         private void ComboBox_Departments_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            //List <DepartmentModel> departmentModels = new List <DepartmentModel>();
-            //var departmentModels = _controller.GetAllDepartment();
-            //ComboBox_Departments.ItemsSource = departmentModels;
+            var i = ComboBox_Departments.SelectedItem;
         }
 
         private void ComboBox_Departments_Initialazed(object sender, EventArgs e)
         {
             var departmentModels = _controller.GetAllDepartment();
-            foreach (var i in departmentModels)
-            {
-                
-                ComboBox_Departments.ItemsSource += i.Name ;
-            }
-            
+            ComboBox_Departments.ItemsSource = departmentModels;
+
         }
     }
 }
