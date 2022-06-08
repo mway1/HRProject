@@ -64,5 +64,10 @@ namespace HRProject.UI
             DataGrid_EmployeeHistory.ItemsSource = historyModels;
 
         }
+
+        private void Employees_General_TabIItem_Loaded(object sender, RoutedEventArgs e)
+        {
+            var chooseEmployeeAllInfo = _controller.GetEmployeeById(_employeeId);
+        }
     }
 }
