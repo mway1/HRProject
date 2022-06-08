@@ -16,7 +16,7 @@ namespace HRProject.UI
     {
 
         private ObservableCollection<ProjectOutputModel> Projects = new ObservableCollection<ProjectOutputModel>();
-        private Controller _controller;
+        private Controller _controller = new Controller();
 
         private int _employeeId = 2;
 
