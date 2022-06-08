@@ -64,10 +64,10 @@ namespace HRProject.UI
 
         }
 
-        private void TreeView_Department_Initialized(object sender, EventArgs e)
+        private void TreeView_Department_Initialized(object sender, RoutedEventArgs e)
         {
             var departments = _controller.GetAllDepartment();
-            TreeView_Department.ItemsSource = departments[1].Name;
+            TreeView_Department.ItemsSource = departments;
         }
 
         private void DataGrid_EmployeeHistory_Loaded(object sender, RoutedEventArgs e)
