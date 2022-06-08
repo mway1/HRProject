@@ -55,5 +55,7 @@ namespace HRProject.UI
             var choosenEmployeeRequests = _controller.GetEmployeeRequestAllInfoByProjectId(selectedProject.Id);
             ListBoxEmployeeRequests.ItemsSource = choosenEmployeeRequests;
         }
+
+        
     }
 }

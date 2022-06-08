@@ -147,5 +147,30 @@ namespace HRProject.BLL
             var selectedHistory = _mapper.Map(input, employeeHistoryDTO);
             _manager.EmployeeHistoryManager.UpdateEmployeeHistory(selectedHistory, id);
         }
+
+        public void AddPosition(PositionModel input)
+        {
+            PositionDTO position = _mapper.Map<PositionDTO>(input);
+            _manager.PositionManager.AddPosition(position);
+        }
+        public void UpdatePosition(PositionModel input)
+        {
+            PositionDTO position = _mapper.Map<PositionDTO>(input);
+            _manager.PositionManager.UpdatePosition(position);
+
+        }
+
+        public List<PositionModel> GetAllPosition()
+        {           
+            return _mapper.Map<List<PositionModel>>(_manager.PositionManager.GetAllPositon());
+        }
+        public PositionModel GetAllPosition(int id)
+        {
+            return _mapper.Map<PositionModel>(_manager.PositionManager.GetPositonById(id));
+        }
+        public void DeletePosition(int id)
+        {
+            _manager.PositionManager.DeletePosition(id);
+        }
     }
 }
