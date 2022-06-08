@@ -192,6 +192,10 @@ namespace HRProject.BLL
         {
             return _mapper.Map<List<EmployeeModel>>(_manager.EmployeeManager.GetEmployeeById(id));
         }
-
+        public void UpdateEmployee(EmployeeModel input)
+        {
+            EmployeeDTO employee = _mapper.Map<EmployeeDTO>(input);
+            _manager.EmployeeManager.UpdateEmployeeById(employee);
+        }
     }
 }
