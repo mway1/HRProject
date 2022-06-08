@@ -90,5 +90,17 @@ namespace HRProject.DAL.Managers
                     commandType: System.Data.CommandType.StoredProcedure);
             }
         }
+        public EmployeeDTO GetEmployeeByDepartmentId(int departmentId)
+        {
+            using (var connection = new SqlConnection(ServerSettings._connectionString))
+            {
+                connection.Open();
+
+                return connection.QuerySingle<EmployeeDTO>(
+                    EmployeeStoredProcedures.Employee_GetByDepartmentId,
+                    param: new { DepartmentId = departmentId },
+                    commandType: System.Data.CommandType.StoredProcedure);
+            }
+        }
     }
 }

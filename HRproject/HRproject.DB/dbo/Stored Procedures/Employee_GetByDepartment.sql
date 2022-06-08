@@ -1,4 +1,4 @@
-﻿CREATE PROCEDURE [dbo].[Employee_GetByDepartment]
+﻿CREATE PROCEDURE [dbo].[Employee_GetByDepartmentId]
 	@DepartmentId int
 AS
 BEGIN
