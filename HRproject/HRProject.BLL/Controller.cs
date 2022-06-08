@@ -223,9 +223,9 @@ namespace HRProject.BLL
         {
             return _mapper.Map<EmployeeModel>(_manager.EmployeeManager.GetEmployeeById(id));
         }
-        public EmployeeModel GetEmployeeByDepartmentId(int id)
+        public List<EmployeeModel> GetEmployeeByDepartmentId(int id)
         {
-            return _mapper.Map<EmployeeModel>(_manager.EmployeeManager.GetEmployeeByDepartmentId(id));
+            return _mapper.Map<List<EmployeeModel>>(_manager.EmployeeManager.GetEmployeeByDepartmentId(id));
         }
         public void UpdateEmployee(EmployeeModel input)
         {

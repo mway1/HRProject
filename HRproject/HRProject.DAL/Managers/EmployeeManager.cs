@@ -98,7 +98,7 @@ namespace HRProject.DAL.Managers
 
                 return connection.QuerySingle<EmployeeDTO>(
                     EmployeeStoredProcedures.Employee_GetByDepartmentId,
-                    param: new { DepartmentId = departmentId },
+                    param: new { DepartmentId= departmentId },
                     commandType: System.Data.CommandType.StoredProcedure);
             }
         }

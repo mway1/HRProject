@@ -96,9 +96,9 @@ namespace HRProject.UI
 
         private void ComboBox_Departments_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            var i = (DepartmentModel)ComboBox_Departments.SelectedItem;
-            var chooseEmployeeByDepartment = _controller.GetEmployeeByDepartmentId(i.id);
-            ListBox_Employees.Items.Add(chooseEmployeeByDepartment);
+            var department = (DepartmentModel)ComboBox_Departments.SelectedItem;
+            var chooseEmployeeByDepartments = _controller.GetEmployeeByDepartmentId(department.id);
+            ListBox_Employees.ItemsSource=chooseEmployeeByDepartments;
         }
 
         private void ComboBox_Departments_Initialazed(object sender, EventArgs e)

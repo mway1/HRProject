@@ -23,6 +23,7 @@ namespace HRProject.BLL
             _instance = new Mapper(new MapperConfiguration(cfg =>
             {
                 cfg.CreateMap<EmployeeDTO, EmployeeModel>()
+                //.ForMember("Name", opt => opt.MapFrom(c => $"{c.FirstName}{c.SecondName}{c.LastName}"))
                 .ForMember("FirstName", opt => opt.MapFrom(c => $"{c.FirstName}"))
                 .ForMember("SecondName", opt => opt.MapFrom(c => $"{c.SecondName}"))
                 .ForMember("LastName", opt => opt.MapFrom(c => $"{c.LastName} "))
