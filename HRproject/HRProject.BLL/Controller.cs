@@ -150,8 +150,10 @@ namespace HRProject.BLL
         public List<DepartmentModel> GetAllDepartment()
         {
             List<DepartmentDTO> department = _manager.DepartmentManager.GetAllDepartment();
-            List<DepartmentModel> viewDepartment = new List<DepartmentModel>();
-            return _mapper.Map(department, viewDepartment);
+            return _mapper.Map<List<DepartmentModel>>(department);
+            //List<DepartmentDTO> department = _manager.DepartmentManager.();
+            //List<DepartmentModel> viewDepartment = new List<DepartmentModel>();
+            //return _mapper.Map(department, viewDepartment);
         }
 
         public DepartmentModel GetByIdDepartment (int id)

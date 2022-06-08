@@ -27,13 +27,11 @@
                         <ColumnDefinition Width="145*"/>
                     </Grid.ColumnDefinitions>
                     <TreeView x:Name="TreeView_Department" HorizontalAlignment="Left" Width="221" Grid.ColumnSpan="2" Background="#FF89B7D4" Margin="0,0,0,157" FontWeight="Medium" FontFamily="Roboto" Initialized="TreeView_Department_Initialized">
-                        <TreeView.Items>
-                            <TreeViewItem Header="Воображаемый отдел">
-                                <TreeViewItem.Items>
-                                    <TextBlock>Воображаемый сотрудник</TextBlock>
-                                </TreeViewItem.Items>
-                            </TreeViewItem>
-                        </TreeView.Items>
+                        <TreeView.ItemTemplate>
+                            <HierarchicalDataTemplate ItemsSource="{Binding Items}">
+                                <Label Content="{}Binding Content"/>
+                            </HierarchicalDataTemplate>
+                        </TreeView.ItemTemplate>
                     </TreeView>
                         <TabControl HorizontalAlignment="Left" Height="406" VerticalAlignment="Center" Width="573" Grid.ColumnSpan="3" Margin="179,0,0,0" Grid.Column="1" FontWeight="Medium" FontFamily="Roboto">
                         <TabItem Header="Общее">

@@ -16,6 +16,7 @@ namespace HRProject.UI
     {
         Controller _controller;
         private ObservableCollection<ProjectOutputModel> Projects = new ObservableCollection<ProjectOutputModel>();
+
         public MainWindow()
         {
             this.Initialized += Window_Initialized;
@@ -63,8 +64,8 @@ namespace HRProject.UI
 
         private void TreeView_Department_Initialized(object sender, EventArgs e)
         {
-            TextBlock newItem = new TextBlock() { Text = "Best of the best" };
-            TreeView_Department.Items.Add(newItem);
+            var departments = _controller.GetAllDepartment();
+            TreeView_Department.ItemsSource = departments[1].Name;
         }
 
     }
