@@ -173,6 +173,7 @@ namespace HRProject.BLL
             _manager.PositionManager.DeletePosition(id);
         }
 
+
         public void AddEmployee(EmployeeModel input)
         {
             EmployeeDTO employee = _mapper.Map<EmployeeDTO>(input);
@@ -186,6 +187,10 @@ namespace HRProject.BLL
         public List<EmployeeModel> GetAllEmployee()
         {
             return _mapper.Map<List<EmployeeModel>>(_manager.EmployeeManager.GetAllEmployee());
+        }
+        public List<EmployeeModel> GetEmployeeById(int id)
+        {
+            return _mapper.Map<List<EmployeeModel>>(_manager.EmployeeManager.GetEmployeeById(id));
         }
 
     }
