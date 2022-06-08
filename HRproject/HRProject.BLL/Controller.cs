@@ -215,5 +215,10 @@ namespace HRProject.BLL
         {
             return _mapper.Map<List<CommentModel>>(_manager.CommentManager.GetCommentById(id));
         }
+        public void UpdateComment(CommentModel input)
+        {
+            CommentDTO comment=_mapper.Map<CommentDTO>(input);
+            _manager.CommentManager.UpdateComment(comment);
+        }
     }
 }
