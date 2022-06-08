@@ -17,6 +17,9 @@ namespace HRProject.UI
 
         private Controller controller = new Controller();
         private ObservableCollection<ProjectOutputModel> Projects = new ObservableCollection<ProjectOutputModel>();
+        private Controller _controller = new Controller();
+
+        private int _employeeId = 2;
 
         public MainWindow()
         {
@@ -54,8 +57,11 @@ namespace HRProject.UI
 
         }
 
-        private void DataGrid_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
+        private void DataGrid_EmployeeHistory_Loaded(object sender, RoutedEventArgs e)
         {
+            var historyModels = _controller.GetAllEmployeeHistory(_employeeId);
+
+            DataGrid_EmployeeHistory.ItemsSource = historyModels;
 
         }
 

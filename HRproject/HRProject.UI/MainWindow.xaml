@@ -29,7 +29,7 @@
                     </Grid.ColumnDefinitions>
                     <TreeView HorizontalAlignment="Left" Width="221" Grid.ColumnSpan="3" Background="#FF89B7D4" Margin="0,0,0,157" FontWeight="Medium" FontFamily="Roboto"/>
                     <TabControl HorizontalAlignment="Left" Height="406" VerticalAlignment="Center" Width="573" Grid.ColumnSpan="3" Margin="126,0,0,0" Grid.Column="2" FontWeight="Medium" FontFamily="Roboto">
-                        <TabItem Header="Общее">
+                        <TabItem x:Name="Employees_General_TabIItem" Header="Общее">
                             <Grid Background="#FFC3E8FF" HorizontalAlignment="Left" Width="573">
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="73*"/>
@@ -77,14 +77,10 @@
                                 <ComboBox x:Name="ComboBox_Project_Tab1" Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="20" Margin="81,284,0,0" VerticalAlignment="Top" Width="161" Grid.Column="1"/>
                             </Grid>
                         </TabItem>
-                        <TabItem Header="Опыт" HorizontalAlignment="Left" Margin="-2,-2,0,0" Width="47">
+                        <TabItem Header="Опыт">
                             <Grid Background="#FFE5E5E5">
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="6*"/>
-                                    <ColumnDefinition Width="14*"/>
-                                    <ColumnDefinition Width="547*"/>
-                                </Grid.ColumnDefinitions>
-                                <DataGrid d:ItemsSource="{d:SampleData ItemCount=5}" SelectionChanged="DataGrid_SelectionChanged" Grid.ColumnSpan="3" />
+                                <DataGrid x:Name="DataGrid_EmployeeHistory" AutoGenerateColumns="True" Loaded="DataGrid_EmployeeHistory_Loaded" />
+                                
                             </Grid>
                         </TabItem>
                         <TabItem Header="Новый сотрудник">
@@ -165,8 +161,7 @@
                     <Label x:Name="Label_ProjectName" Content="Название проекта" HorizontalAlignment="Left" Margin="231,7,0,0" VerticalAlignment="Top" Width="118" Grid.Column="1" Height="26"/>
                     <ListBox x:Name="ListBox_EmployeesOnProject" HorizontalAlignment="Left" Height="223" Margin="231,143,0,0" VerticalAlignment="Top" Width="203" Grid.Column="1" >
                     </ListBox>
-                    <ListBox x:Name="ListBoxEmployeeRequests" HorizontalAlignment="Left" Height="223" Margin="527,143,0,0" VerticalAlignment="Top" Width="204"  Grid.Column="1">
-                    </ListBox>
+                    <ListBox x:Name="ListBoxEmployeeRequests" HorizontalAlignment="Left" Height="223" Margin="527,143,0,0" VerticalAlignment="Top" Width="204"  Grid.Column="1"/>
                     <Label x:Name="Label_DescriptionProject" Content="Описание проекта" HorizontalAlignment="Left" Margin="410,7,0,0" VerticalAlignment="Top" Width="118" Grid.Column="1" Height="26" RenderTransformOrigin="2.592,0.475"/>
                     <TextBox x:Name="TextBox_ProjectName" Grid.Column="1" HorizontalAlignment="Left" Height="24" Margin="231,38,0,0" TextWrapping="Wrap" Text="CRM-система" VerticalAlignment="Top" Width="120" Foreground="#FFAFAFAF"/>
                     <TextBox x:Name="TextBox_DescriptionProject" Grid.Column="1" HorizontalAlignment="Left" Height="52" Margin="410,38,0,0" TextWrapping="Wrap" Text="Главная функция CRM заключается в оптимизации работы отдела продаж, направленной на повышение качества сервиса и конечной прибыли компании. Программа внедряется для того, чтобы стандартизировать работу сотрудников, наладить продажи предприятия и предотвратить потерю лидов и новых сделок." VerticalAlignment="Top" Width="357" Foreground="#FFBBB4B4" FontSize="9"/>
