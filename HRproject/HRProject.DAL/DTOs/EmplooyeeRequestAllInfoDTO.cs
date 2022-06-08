@@ -4,8 +4,8 @@
     {
         public int id { get; set; }
         public int? Quantity { get; set; }
-        public ProjectDTO Project { get; set; }
-        public List<PositionDTO> Positions { get; set; }
-        public List<SkillDTO> Skills { get; set; }
+        public RequestProjectDTO Project { get; set; }
+        public List<RequestPositionDTO> Positions { get; set; }
+        public List<RequestSkillDTO> Skills { get; set; }
     }
 }

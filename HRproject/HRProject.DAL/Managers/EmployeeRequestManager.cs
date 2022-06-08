@@ -19,11 +19,11 @@ namespace HRProject.DAL.Managers
 
                 connection.Query<
                     EmplooyeeRequestAllInfoDTO,
-                    ProjectDTO,
-                    PositionDTO,
-                    LevelOfPositionDTO,
-                    SkillDTO,
-                    EmployeeRequestSkillDTO,
+                    RequestProjectDTO,
+                    RequestPositionDTO,
+                    RequestLevelOfPositionDTO,
+                    RequestSkillDTO,
+                    RequestEmployeeRequestSkillDTO,
                     EmplooyeeRequestAllInfoDTO
                     >
                     (EmployeeRequestStoredProcedures.GetEmployeeRequestAllInfo,
@@ -43,7 +43,7 @@ namespace HRProject.DAL.Managers
 
                         if (crnt.Positions is null && Position is not null)
                         {
-                            crnt.Positions = new List<PositionDTO>();
+                            crnt.Positions = new List<RequestPositionDTO>();
                             Position.PositionLevel = PositionLevel;
                             crnt.Positions.Add(Position);
                         }
@@ -55,7 +55,7 @@ namespace HRProject.DAL.Managers
 
                         if (crnt.Skills is null && Skill is not null)
                         {
-                            crnt.Skills = new List<SkillDTO>();
+                            crnt.Skills = new List<RequestSkillDTO>();
                             Skill.SkillLevel = SkillLevel;
                             crnt.Skills.Add(Skill);
                         }
@@ -84,11 +84,11 @@ namespace HRProject.DAL.Managers
 
                 connection.Query<
                     EmplooyeeRequestAllInfoDTO,
-                    ProjectDTO,
-                    PositionDTO,
-                    LevelOfPositionDTO,
-                    SkillDTO,
-                    EmployeeRequestSkillDTO,
+                    RequestProjectDTO,
+                    RequestPositionDTO,
+                    RequestLevelOfPositionDTO,
+                    RequestSkillDTO,
+                    RequestEmployeeRequestSkillDTO,
                     EmplooyeeRequestAllInfoDTO
                     >
                     (EmployeeRequestStoredProcedures.GetEmployeeRequestAllInfoByProjectId,
@@ -108,7 +108,7 @@ namespace HRProject.DAL.Managers
 
                         if (crnt.Positions is null && Position is not null)
                         {
-                            crnt.Positions = new List<PositionDTO>();
+                            crnt.Positions = new List<RequestPositionDTO>();
                             Position.PositionLevel = PositionLevel;
                             crnt.Positions.Add(Position);
                         }
@@ -120,7 +120,7 @@ namespace HRProject.DAL.Managers
 
                         if (crnt.Skills is null && Skill is not null)
                         {
-                            crnt.Skills = new List<SkillDTO>();
+                            crnt.Skills = new List<RequestSkillDTO>();
                             Skill.SkillLevel = SkillLevel;
                             crnt.Skills.Add(Skill);
                         }
@@ -148,11 +148,11 @@ namespace HRProject.DAL.Managers
             {
                 connection.Query<
                     EmplooyeeRequestAllInfoDTO,
-                    ProjectDTO,
-                    PositionDTO,
-                    LevelOfPositionDTO,
-                    SkillDTO,
-                    EmployeeRequestSkillDTO,
+                    RequestProjectDTO,
+                    RequestPositionDTO,
+                    RequestLevelOfPositionDTO,
+                    RequestSkillDTO,
+                    RequestEmployeeRequestSkillDTO,
                     EmplooyeeRequestAllInfoDTO
                     >
                     (EmployeeRequestStoredProcedures.GetEmployeeRequestAllInfoById,
@@ -167,7 +167,7 @@ namespace HRProject.DAL.Managers
 
                         if (result.Positions is null && Position is not null)
                         {
-                            result.Positions = new List<PositionDTO>();
+                            result.Positions = new List<RequestPositionDTO>();
                             Position.PositionLevel = PositionLevel;
                             result.Positions.Add(Position);
                         }
@@ -179,7 +179,7 @@ namespace HRProject.DAL.Managers
 
                         if (EmployeeRequest.Skills is null && Skill is not null)
                         {
-                            result.Skills = new List<SkillDTO>();
+                            result.Skills = new List<RequestSkillDTO>();
                             Skill.SkillLevel = SkillLevel;
                             result.Skills.Add(Skill);
                         }
