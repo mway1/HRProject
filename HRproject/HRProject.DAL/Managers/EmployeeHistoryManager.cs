@@ -6,7 +6,7 @@ namespace HRProject.DAL
 {
     public class EmployeeHistoryManager
     {
-        public string _connectionString = @"Server=.\SQLEXPRESS01;Database=HRProject.DB;Trusted_Connection=True;";
+        public string _connectionString = ServerSettings._connectionString;
         public List<EmployeeHistoryDTO> GetAllEmployeeHistory()
         {
             using (var connection = new SqlConnection(_connectionString))
@@ -14,7 +14,8 @@ namespace HRProject.DAL
                 connection.Open();
 
                 return connection.Query<EmployeeHistoryDTO>(
-                    StoredProcedures.EmployeeHistory_GetAll,
+                    StoredProcedures.EmployeeHistory_GetAll,
+
                     commandType: System.Data.CommandType.StoredProcedure)
                     .ToList();
 
