@@ -14,7 +14,7 @@ namespace HRProject.UI
     /// </summary>
     public partial class MainWindow : Window
     {
-        Controller _controller;
+        Controller _controller = new Controller();
         private ObservableCollection<ProjectOutputModel> Projects = new ObservableCollection<ProjectOutputModel>();
 
         private int _employeeId = 2;
