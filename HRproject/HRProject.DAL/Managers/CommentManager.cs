@@ -36,7 +36,7 @@ namespace HRProject.DAL.Managers
                      {
                          newComment.Description,
                          newComment.EmployeeId,
-                         newComment.isDeleted
+                         newComment.IsDeleted
                      },
                      commandType: System.Data.CommandType.StoredProcedure);
             }
@@ -64,7 +64,7 @@ namespace HRProject.DAL.Managers
                      {
                          newComment.Description,
                          newComment.EmployeeId,
-                         newComment.isDeleted
+                         newComment.IsDeleted
                      },
                      commandType: System.Data.CommandType.StoredProcedure);
             }

@@ -7,7 +7,7 @@ namespace HRProject.DAL
     public class EmployeeHistoryManager
     {
         public string _connectionString = ServerSettings._connectionString;
-        public List<EmployeeHistoryDTO> GetAllEmployeeHistory()
+        public List<EmployeeHistoryDTO> GetAllEmployeeHistory(int employeeId)
         {
             using (var connection = new SqlConnection(_connectionString))
             {
@@ -15,7 +15,7 @@ namespace HRProject.DAL
 
                 return connection.Query<EmployeeHistoryDTO>(
                     StoredProcedures.EmployeeHistory_GetAll,
-
+                    param: new { employeeId = employeeId },
                     commandType: System.Data.CommandType.StoredProcedure)
                     .ToList();
 

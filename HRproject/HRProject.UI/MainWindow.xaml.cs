@@ -17,6 +17,8 @@ namespace HRProject.UI
         Controller _controller;
         private ObservableCollection<ProjectOutputModel> Projects = new ObservableCollection<ProjectOutputModel>();
 
+        private int _employeeId = 2;
+
         public MainWindow()
         {
             this.Initialized += Window_Initialized;
@@ -68,5 +70,11 @@ namespace HRProject.UI
             TreeView_Department.ItemsSource = departments[1].Name;
         }
 
+        private void DataGrid_EmployeeHistory_Loaded(object sender, RoutedEventArgs e)
+        {
+            var historyModels = _controller.GetAllEmployeeHistory(_employeeId);
+            DataGrid_EmployeeHistory.ItemsSource = historyModels;
+
+        }
     }
 }
