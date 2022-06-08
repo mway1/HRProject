@@ -107,6 +107,7 @@ namespace HRProject.UI
         private void ComboBox_Project_Tab1Create_TextChanged(object sender, TextChangedEventArgs e)
         {
             (sender as ComboBox).ItemsSource = controller.SearchProjects(name: ComboBox_Project_Tab1Create.Text, limit: 5);
+            (sender as ComboBox).IsDropDownOpen = true;
         }
 
         private void ComboBox_Project_Tab1Create_GotFocus(object sender, RoutedEventArgs e)
