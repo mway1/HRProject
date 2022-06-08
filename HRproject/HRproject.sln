@@ -5,11 +5,11 @@ VisualStudioVersion = 17.1.32319.34
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "HRproject.DB", "HRproject.DB\HRproject.DB.sqlproj", "{BD17A763-8ACA-4ABD-B13E-F332F4E6290E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HRProject.BLL", "HRProject.BLL\HRProject.BLL.csproj", "{140AFF47-E3FD-43E3-9E60-6BF007A2003C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HRProject.BLL", "HRProject.BLL\HRProject.BLL.csproj", "{140AFF47-E3FD-43E3-9E60-6BF007A2003C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HRProject.DAL", "HRProject.DAL\HRProject.DAL.csproj", "{2E167C7A-C572-4F14-ABDD-E05E8835A5F4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HRProject.DAL", "HRProject.DAL\HRProject.DAL.csproj", "{2E167C7A-C572-4F14-ABDD-E05E8835A5F4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HRProject.IL", "HRProject.UI\HRProject.IL.csproj", "{46E0E298-1C19-4FC7-9C1B-CA58D841C303}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HRProject.IL", "HRProject.UI\HRProject.IL.csproj", "{46E0E298-1C19-4FC7-9C1B-CA58D841C303}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

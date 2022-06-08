@@ -1,7 +1,11 @@
 ﻿using HRProject.BLL;
-using System;
+using HRProject.BLL.Models;
 using System.Windows;
+using System.Collections.ObjectModel;
+using System;
+using System.Collections.Generic;
 using System.Windows.Controls;
+using HRProject.BLL.OutputModels;
 
 namespace HRProject.UI
 {
@@ -11,15 +15,47 @@ namespace HRProject.UI
     public partial class MainWindow : Window
     {
         Controller _controller;
+        private ObservableCollection<ProjectOutputModel> Projects = new ObservableCollection<ProjectOutputModel>();
         public MainWindow()
         {
-            _controller = new Controller();
+            this.Initialized += Window_Initialized;
             InitializeComponent();
 
             Button_ChangeNameOfDepartment.IsEnabled = false;
 
         }
 
+        public void Window_Initialized(object? sender, EventArgs e)
+        {
+            ComboBoxProjects.ItemsSource = ProjectTypes.Types;
+            ListBoxProjects.ItemsSource = Projects;
+            _controller = new Controller();
+
+            LoadProjectList(_controller.GetAllProjects());
+
+        }
+
+        private void LoadProjectList(List<ProjectOutputModel> projects)
+        {
+            Projects.Clear();
+            foreach (ProjectOutputModel project in projects)
+            {
+                Projects.Add(project);
+            }
+        }
+        private void ComboBoxProject_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
+        {
+            LoadProjectList(
+                _controller.GetAllProjects(ComboBoxProjects.SelectedItem.ToString()!)
+            );
+        }
+
+        private void ListBoxProjects_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            var selectedProject = (ProjectModel)ListBoxProjects.SelectedItem;
+            var choosenEmployeeRequests = _controller.GetEmployeeRequestAllInfoByProjectId(selectedProject.Id);
+            ListBoxEmployeeRequests.ItemsSource = choosenEmployeeRequests;
+        }
         private void Button_ChangeNameOfDepartment_Click(object sender, RoutedEventArgs e)
         {
 

@@ -1,17 +1,16 @@
 ﻿
 CREATE PROCEDURE [dbo].[Project_Add] @id          INT, 
                                      @name        VARCHAR(64), 
-                                     @description VARCHAR (128), 
-                                    @isDeleted   TINYINT 
+                                     @description VARCHAR (128)                                   
 AS 
   BEGIN 
       INSERT INTO project 
                   (id, 
                    NAME, 
-                   description, 
-                   isdeleted) 
+                   description
+                   ) 
       VALUES      (@id, 
                    @name, 
-                   @description, 
-                   @isDeleted); 
+                   @description
+                   ); 
   END; 
