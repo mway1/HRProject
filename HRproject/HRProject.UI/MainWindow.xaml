@@ -109,12 +109,12 @@
                     <Label x:Name="Label_ProjectName" Content="Название проекта" HorizontalAlignment="Left" Margin="231,7,0,0" VerticalAlignment="Top" Width="118" Grid.Column="1" Height="26"/>
                     <ListBox x:Name="ListBox_EmployeesOnProject" HorizontalAlignment="Left" Height="223" Margin="231,143,0,0" VerticalAlignment="Top" Width="203" Grid.Column="1" >
                     </ListBox>
-                    <ListBox x:Name="ListBoxEmployeeRequests" HorizontalAlignment="Left" Height="223" Margin="527,143,0,0" VerticalAlignment="Top" Width="204"  Grid.Column="1"/>
                     <Label x:Name="Label_DescriptionProject" Content="Описание проекта" HorizontalAlignment="Left" Margin="410,7,0,0" VerticalAlignment="Top" Width="118" Grid.Column="1" Height="26" RenderTransformOrigin="2.592,0.475"/>
                     <TextBox x:Name="TextBox_ProjectName" Grid.Column="1" HorizontalAlignment="Left" Height="24" Margin="231,38,0,0" TextWrapping="Wrap" Text="CRM-система" VerticalAlignment="Top" Width="120" Foreground="#FFAFAFAF"/>
                     <TextBox x:Name="TextBox_DescriptionProject" Grid.Column="1" HorizontalAlignment="Left" Height="52" Margin="410,38,0,0" TextWrapping="Wrap" Text="Главная функция CRM заключается в оптимизации работы отдела продаж, направленной на повышение качества сервиса и конечной прибыли компании. Программа внедряется для того, чтобы стандартизировать работу сотрудников, наладить продажи предприятия и предотвратить потерю лидов и новых сделок." VerticalAlignment="Top" Width="357" Foreground="#FFBBB4B4" FontSize="9"/>
                     <Label x:Name="Label_Employee" Grid.Column="1" Content="Сотрудники на проекте" HorizontalAlignment="Left" Height="25" Margin="231,106,0,0" VerticalAlignment="Top" Width="184"/>
                     <Label x:Name="Label_Request" Grid.Column="1" Content="Требуются" HorizontalAlignment="Left" Height="25" Margin="527,106,0,0" VerticalAlignment="Top" Width="184"/>
+                    <DataGrid x:Name="DataGridRequests" Grid.Column="1" HorizontalAlignment="Left" Height="216" Margin="490,143,0,0" VerticalAlignment="Top" Width="258" d:ItemsSource="{d:SampleData ItemCount=5}"/>
                 </Grid>
             </TabItem>
             <TreeView/>

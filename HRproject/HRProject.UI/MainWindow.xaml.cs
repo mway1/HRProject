@@ -51,9 +51,9 @@ namespace HRProject.UI
 
         private void ListBoxProjects_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            var selectedProject = (ProjectModel)ListBoxProjects.SelectedItem;
+            var selectedProject = (ProjectOutputModel)ListBoxProjects.SelectedItem;
             var choosenEmployeeRequests = _controller.GetEmployeeRequestAllInfoByProjectId(selectedProject.Id);
-            ListBoxEmployeeRequests.ItemsSource = choosenEmployeeRequests;
+            DataGridRequests.ItemsSource = choosenEmployeeRequests;
         }
 
         

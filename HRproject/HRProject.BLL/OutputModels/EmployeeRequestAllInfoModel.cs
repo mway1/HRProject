@@ -4,9 +4,9 @@
     {
         public int Id { get; private set; }
         public int? Quantity { get; private set; }
-        public ProjectModel? Project { get; private set; }
-        public List<PositionModel> Positions { get; private set; }
-        public List<SkillModel> Skills { get; private set; }
+        public string Project { get; private set; }
+        public List<string> Positions { get; private set; }
+        public List<string> Skills { get; private set; }
 
         public void DelleteAllSkills()
         {
