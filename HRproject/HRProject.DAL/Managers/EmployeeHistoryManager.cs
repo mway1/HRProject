@@ -6,7 +6,7 @@ namespace HRProject.DAL
 {
     public class EmployeeHistoryManager
     {
-        public string _connectionString = @"Server=.\DESKTOP-PMA057A;Database=HRproject.DB;Trusted_Connection=True;";
+        public string _connectionString = ServerSettings._connectionString;
         public List<EmployeeHistoryDTO> GetAllEmployeeHistory()
         {
             using (var connection = new SqlConnection(_connectionString))

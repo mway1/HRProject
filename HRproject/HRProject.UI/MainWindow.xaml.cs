@@ -56,6 +56,13 @@ namespace HRProject.UI
             ListBoxEmployeeRequests.ItemsSource = choosenEmployeeRequests;
         }
 
-        
+        private void DataGrid_EmployeeHistory_Loaded(object sender, RoutedEventArgs e)
+        {
+
+            List<EmployeeHistoryModel> historyModels = new List<EmployeeHistoryModel>();
+            historyModels = _controller.GetAllEmployeeHistory();
+            DataGrid_EmployeeHistory.ItemsSource = historyModels;
+
+        }
     }
 }
