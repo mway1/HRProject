@@ -28,7 +28,7 @@
                     </Grid.ColumnDefinitions>
                     <TreeView HorizontalAlignment="Left" Width="221" Grid.ColumnSpan="2" Background="#FF89B7D4" Margin="0,0,0,157" FontWeight="Medium" FontFamily="Roboto"/>
                     <TabControl HorizontalAlignment="Left" Height="406" VerticalAlignment="Center" Width="573" Grid.ColumnSpan="3" Margin="179,0,0,0" Grid.Column="1" FontWeight="Medium" FontFamily="Roboto">
-                        <TabItem x:Name="Employees_General_TabIItem" Header="Общее" Loaded="Employees_General_TabIItem_Loaded">
+                        <TabItem Header="Общее">
                             <Grid Background="#FFC3E8FF" HorizontalAlignment="Left" Width="573">
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="89*"/>
@@ -38,8 +38,8 @@
                                 <Label x:Name="Label_LastName" Content="Фамилия " HorizontalAlignment="Left" Height="26" Margin="18,72,0,0" VerticalAlignment="Top" Width="84"/>
                                 <Label x:Name="Label_Email" Content="Email" HorizontalAlignment="Left" Height="26" Margin="18,131,0,0" VerticalAlignment="Top" Width="84"/>
                                 <Label x:Name="Label_PhoneNumber" Content="Телефон" HorizontalAlignment="Left" Height="25" Margin="18,159,0,0" VerticalAlignment="Top" Width="87"/>
-                                <TextBox x:Name="TextBox_FirstName" HorizontalAlignment="Left" Height="20" Margin="152,18,0,0" TextWrapping="Wrap" Text="Иван" VerticalAlignment="Top" Width="162" Foreground="#FFA3A3A3" Grid.ColumnSpan="2"/>
-                                <TextBox x:Name="TextBox_Familiay" Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="20" Margin="152,76,0,0" TextWrapping="Wrap" Text="Иванов" VerticalAlignment="Top" Width="162" Foreground="#FFA3A3A3"/>
+                                <TextBox x:Name="TextBox_FirstName" HorizontalAlignment="Left" Height="20" Margin="152,18,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="162" Foreground="#FFA3A3A3" Grid.ColumnSpan="2"/>
+                                <TextBox x:Name="TextBox_SecondName" Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="20" Margin="152,76,0,0" TextWrapping="Wrap" Text="Иванов" VerticalAlignment="Top" Width="162" Foreground="#FFA3A3A3"/>
                                 <TextBox x:Name="TextBox_Email" Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="20" Margin="153,134,0,0" TextWrapping="Wrap" Text="ivanov@mail.ru" VerticalAlignment="Top" Width="162" Foreground="#FFA3A3A3"/>
                                 <TextBox x:Name="TextBox_PhoneNumber" Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="20" Margin="153,162,0,0" TextWrapping="Wrap" Text="+7 999 999 99 99" VerticalAlignment="Top" Width="162" Foreground="#FFA3A3A3"/>
                                 <Label x:Name="Label_Position" Content="Должность" HorizontalAlignment="Left" Height="26" Margin="18,209,0,0" VerticalAlignment="Top" Width="87"/>
@@ -53,7 +53,7 @@
                                     </Image.OpacityMask>
                                 </Image>
                                 <Image Margin="93,18,44,200" Source="/1614560341_16-p-ikonki-na-belom-fone-18.png" Stretch="Fill" Grid.Column="1"/>
-                                <TextBox x:Name="TextBox_SecondName" HorizontalAlignment="Left" Height="20" Margin="152,47,0,0" TextWrapping="Wrap" Text="Иванович" VerticalAlignment="Top" Width="162" Grid.ColumnSpan="2" Foreground="#FFA3A3A3"/>
+                                <TextBox x:Name="TextBox_LastName" HorizontalAlignment="Left" Height="20" Margin="152,47,0,0" TextWrapping="Wrap" Text="Иванович" VerticalAlignment="Top" Width="162" Grid.ColumnSpan="2" Foreground="#FFA3A3A3"/>
                                 <Label x:Name="Label_SecondName" Content="Отчество" HorizontalAlignment="Left" Height="26" Margin="18,44,0,0" VerticalAlignment="Top" Width="84"/>
                                 <TextBox x:Name="TextBox_BirthDate" HorizontalAlignment="Left" Height="20" Margin="152,105,0,0" TextWrapping="Wrap" Text="01.01.2001" VerticalAlignment="Top" Width="162" Foreground="#FFA3A3A3" Grid.ColumnSpan="2"/>
                                 <Label x:Name="Label_BirthDate" Content="Дата рождения" HorizontalAlignment="Left" Height="25" Margin="18,102,0,0" VerticalAlignment="Top" Width="117"/>

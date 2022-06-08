@@ -24,6 +24,13 @@ namespace HRProject.UI
         {
             this.Initialized += Window_Initialized;
             InitializeComponent();
+            var chooseEmployeeAllInfo = _controller.GetEmployeeById(_employeeId);
+            TextBox_FirstName.Text = chooseEmployeeAllInfo.FirstName;
+            TextBox_LastName.Text = chooseEmployeeAllInfo.LastName;
+            TextBox_SecondName.Text = chooseEmployeeAllInfo.SecondName;
+            TextBox_BirthDate.Text = chooseEmployeeAllInfo.BirthDate.ToString();
+            TextBox_Email.Text = chooseEmployeeAllInfo.Email;
+            TextBox_PhoneNumber.Text = chooseEmployeeAllInfo.PhoneNumber.ToString();
         }
 
         public void Window_Initialized(object? sender, EventArgs e)
@@ -67,7 +74,6 @@ namespace HRProject.UI
 
         private void Employees_General_TabIItem_Loaded(object sender, RoutedEventArgs e)
         {
-            var chooseEmployeeAllInfo = _controller.GetEmployeeById(_employeeId);
         }
     }
 }
