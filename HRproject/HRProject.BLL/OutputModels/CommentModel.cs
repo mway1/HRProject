@@ -4,18 +4,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace HRProject.DAL.DTOs
+namespace HRProject.BLL.OutputModels
 {
-    public class CommentDTO
+    public class CommentModel
     {
-        public int id { get; set; }
+        public int Id { get; set; }
         public string Description { get; set; }
         public int EmployeeId { get; set; }
         public bool IsDeleted { get; set; }
-        public override string ToString()
-        {
-            return $"id={id} Description={Description} EmployeeId={EmployeeId} isDeleted={IsDeleted}";
-        }
+
 
     }
 }
