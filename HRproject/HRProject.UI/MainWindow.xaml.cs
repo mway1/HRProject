@@ -14,7 +14,6 @@ namespace HRProject.UI
     /// </summary>
     public partial class MainWindow : Window
     {
-
         private ObservableCollection<ProjectOutputModel> Projects = new ObservableCollection<ProjectOutputModel>();
         private Controller _controller = new Controller();
 
@@ -24,6 +23,9 @@ namespace HRProject.UI
         {
             this.Initialized += Window_Initialized;
             InitializeComponent();
+
+            Button_ChangeNameOfDepartment.IsEnabled = false;
+
         }
 
         public void Window_Initialized(object? sender, EventArgs e)
@@ -57,11 +59,33 @@ namespace HRProject.UI
             var choosenEmployeeRequests = _controller.GetEmployeeRequestAllInfoByProjectId(selectedProject.Id);
             ListBoxEmployeeRequests.ItemsSource = choosenEmployeeRequests;
         }
+        private void Button_ChangeNameOfDepartment_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        //private void TreeView_Department_Initialized(object sender, RoutedEventArgs e)
+        //{
+        //    var departments = _controller.GetAllDepartment();
+        //    TreeView_Department.ItemsSource = departments;
+        //}
 
         private void DataGrid_EmployeeHistory_Loaded(object sender, RoutedEventArgs e)
         {
             var historyModels = _controller.GetAllEmployeeHistory(_employeeId);
             DataGrid_EmployeeHistory.ItemsSource = historyModels;
+
+        }
+
+        private void ComboBox_Departments_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            var i = ComboBox_Departments.SelectedItem;
+        }
+
+        private void ComboBox_Departments_Initialazed(object sender, EventArgs e)
+        {
+            var departmentModels = _controller.GetAllDepartment();
+            ComboBox_Departments.ItemsSource = departmentModels;
 
         }
     }
