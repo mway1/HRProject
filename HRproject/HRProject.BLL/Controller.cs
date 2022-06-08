@@ -198,5 +198,18 @@ namespace HRProject.BLL
             _manager.EmployeeManager.UpdateEmployeeById(employee);
         }
 
+        public void AddComment(CommentModel input)
+        {
+            CommentDTO comment = _mapper.Map<CommentDTO>(input);
+            _manager.CommentManager.AddComment(comment);
+        }
+        public void DeleteComment(int id)
+        {
+            _manager.CommentManager.DeleteCommentById(id);
+        }
+        public List<CommentModel> GetAllComments()
+        {
+            return _mapper.Map<List<CommentModel>>(_manager.CommentManager.GetAllComment());
+        }
     }
 }
