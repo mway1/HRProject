@@ -77,7 +77,8 @@
                         </TabItem>
                         <TabItem Header="Опыт">
                             <Grid Background="#FFE5E5E5">
-                                <DataGrid d:ItemsSource="{d:SampleData ItemCount=5}"/>
+                                <DataGrid x:Name="DataGrid_EmployeeHistory" AutoGenerateColumns="True" Loaded="DataGrid_EmployeeHistory_Loaded" />
+                                
                             </Grid>
                         </TabItem>
                     </TabControl>

@@ -38,7 +38,7 @@ namespace HRProject.BLL
 
                 cfg.CreateMap<EmployeeHistoryDTO, EmployeeHistoryModel>()
                 .ForMember("EmployeeId", opt => opt.MapFrom(c => $"{c.EmployeeId}"))
-                .ForMember("Date", opt => opt.MapFrom(c => $"{c.Date}"))
+                .ForMember("Date", opt => opt.MapFrom(c => c.Date.ToString("yyyy-MM-dd")))
                 .ForMember("StatusId", opt => opt.MapFrom(c => $"{c.StatusId}"))
                 .ForMember("IsDeleted", opt => opt.MapFrom(c => $"{c.IsDeleted}"));
 

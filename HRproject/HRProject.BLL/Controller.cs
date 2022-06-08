@@ -103,13 +103,9 @@ namespace HRProject.BLL
             return _mapper.Map<List<ProjectOutputModel>>(project);
         }
 
-
-
-
-
-        public List <EmployeeHistoryModel> GetAllEmployeeHistory()
+        public List <EmployeeHistoryModel> GetAllEmployeeHistory(int employeeId)
         { 
-            List<EmployeeHistoryDTO> employeeHistories = _manager.EmployeeHistoryManager.GetAllEmployeeHistory();
+            List<EmployeeHistoryDTO> employeeHistories = _manager.EmployeeHistoryManager.GetAllEmployeeHistory(employeeId);
             List<EmployeeHistoryModel> viewEmployeeHistories = new List<EmployeeHistoryModel>();
             return _mapper.Map(employeeHistories, viewEmployeeHistories);
         }
