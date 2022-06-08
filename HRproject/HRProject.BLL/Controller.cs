@@ -68,6 +68,12 @@ namespace HRProject.BLL
             return _mapper.Map<ProjectOutputModel>(project);
         }
 
+        public List<ProjectOutputModel> SearchProjects(string name, int limit)
+        {
+            List<ProjectDTO> project = _manager.ProjectManager.SearchProjects(name, limit);
+            return _mapper.Map<List<ProjectOutputModel>>(project);
+        }
+
         public List<ProjectOutputModel> GetAllProjects()
         {
             List<ProjectDTO> project = _manager.ProjectManager.GetAllProjects();
@@ -84,7 +90,7 @@ namespace HRProject.BLL
             {
                 result = GetAllFullProjects();
             }
-            else if (type == ProjectTypes.PartuallyFull)
+            else if (type == ProjectTypes.PartiallyFullProjects)
             {
                 result = GetAllNotFullProjects();
             }

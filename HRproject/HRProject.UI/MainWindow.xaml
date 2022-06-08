@@ -32,35 +32,36 @@
                         <TabItem Header="Общее">
                             <Grid Background="#FFC3E8FF" HorizontalAlignment="Left" Width="573">
                                 <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="89*"/>
-                                    <ColumnDefinition Width="100*"/>
+                                    <ColumnDefinition Width="73*"/>
+                                    <ColumnDefinition Width="197*"/>
+                                    <ColumnDefinition Width="303*"/>
                                 </Grid.ColumnDefinitions>
-                                <Label x:Name="Label_FirstName" Content="Имя" HorizontalAlignment="Left" Height="26" Margin="18,18,0,0" VerticalAlignment="Top" Width="84"/>
-                                <Label x:Name="Label_LastName" Content="Фамилия " HorizontalAlignment="Left" Height="26" Margin="18,72,0,0" VerticalAlignment="Top" Width="84"/>
-                                <Label x:Name="Label_Email" Content="Email" HorizontalAlignment="Left" Height="26" Margin="18,131,0,0" VerticalAlignment="Top" Width="84"/>
-                                <Label x:Name="Label_PhoneNumber" Content="Телефон" HorizontalAlignment="Left" Height="25" Margin="18,159,0,0" VerticalAlignment="Top" Width="87"/>
-                                <TextBox x:Name="TextBox_FirstName" HorizontalAlignment="Left" Height="20" Margin="152,18,0,0" TextWrapping="Wrap" Text="Иван" VerticalAlignment="Top" Width="162" Foreground="#FFA3A3A3" Grid.ColumnSpan="2"/>
-                                <TextBox x:Name="TextBox_Familiay" Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="20" Margin="152,76,0,0" TextWrapping="Wrap" Text="Иванов" VerticalAlignment="Top" Width="162" Foreground="#FFA3A3A3"/>
-                                <TextBox x:Name="TextBox_Email" Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="20" Margin="153,134,0,0" TextWrapping="Wrap" Text="ivanov@mail.ru" VerticalAlignment="Top" Width="162" Foreground="#FFA3A3A3"/>
-                                <TextBox x:Name="TextBox_PhoneNumber" Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="20" Margin="153,162,0,0" TextWrapping="Wrap" Text="+7 999 999 99 99" VerticalAlignment="Top" Width="162" Foreground="#FFA3A3A3"/>
-                                <Label x:Name="Label_Position" Content="Должность" HorizontalAlignment="Left" Height="26" Margin="18,209,0,0" VerticalAlignment="Top" Width="87"/>
-                                <Label x:Name="Label_Level" Content="Уровень" HorizontalAlignment="Left" Height="26" Margin="18,235,0,0" VerticalAlignment="Top" Width="84"/>
-                                <Label x:Name="Label_FirstName_Copy2" Content="Компетенции" HorizontalAlignment="Left" Height="26" Margin="93,203,0,0" VerticalAlignment="Top" Width="100" Grid.Column="1"/>
-                                <TextBox x:Name="TextBox_Position" HorizontalAlignment="Left" Height="20" Margin="153,209,0,0" TextWrapping="Wrap" Text="Разработчик" VerticalAlignment="Top" Width="162" Foreground="#FFA3A3A3" Grid.ColumnSpan="2"/>
-                                <TextBox x:Name="TextBox_Level" HorizontalAlignment="Left" Height="20" Margin="153,238,0,0" TextWrapping="Wrap" Text="Джуниор" VerticalAlignment="Top" Width="162" Foreground="#FFA3A3A3" Grid.ColumnSpan="2"/>
-                                <Image Grid.Column="1" HorizontalAlignment="Left" Height="125" Margin="176,34,0,0" VerticalAlignment="Top" Width="113">
+                                <Label x:Name="Label_FirstName" Content="Имя" HorizontalAlignment="Left" Height="26" Margin="18,18,0,0" VerticalAlignment="Top" Width="84" Grid.ColumnSpan="2"/>
+                                <Label x:Name="Label_LastName" Content="Фамилия " HorizontalAlignment="Left" Height="26" Margin="18,72,0,0" VerticalAlignment="Top" Width="84" Grid.ColumnSpan="2"/>
+                                <Label x:Name="Label_Email" Content="Email" HorizontalAlignment="Left" Height="26" Margin="18,131,0,0" VerticalAlignment="Top" Width="84" Grid.ColumnSpan="2"/>
+                                <Label x:Name="Label_PhoneNumber" Content="Телефон" HorizontalAlignment="Left" Height="25" Margin="18,159,0,0" VerticalAlignment="Top" Width="87" Grid.ColumnSpan="2"/>
+                                <TextBox x:Name="TextBox_FirstName" HorizontalAlignment="Left" Height="20" Margin="79,18,0,0" TextWrapping="Wrap" Text="Иван" VerticalAlignment="Top" Width="162" Foreground="#FFA3A3A3" Grid.ColumnSpan="2" Grid.Column="1"/>
+                                <TextBox x:Name="TextBox_Familiay" Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="20" Margin="79,76,0,0" TextWrapping="Wrap" Text="Иванов" VerticalAlignment="Top" Width="162" Foreground="#FFA3A3A3" Grid.Column="1"/>
+                                <TextBox x:Name="TextBox_Email" Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="20" Margin="80,134,0,0" TextWrapping="Wrap" Text="ivanov@mail.ru" VerticalAlignment="Top" Width="162" Foreground="#FFA3A3A3" Grid.Column="1"/>
+                                <TextBox x:Name="TextBox_PhoneNumber" Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="20" Margin="80,162,0,0" TextWrapping="Wrap" Text="+7 999 999 99 99" VerticalAlignment="Top" Width="162" Foreground="#FFA3A3A3" Grid.Column="1"/>
+                                <Label x:Name="Label_Position" Content="Должность" HorizontalAlignment="Left" Height="26" Margin="18,209,0,0" VerticalAlignment="Top" Width="87" Grid.ColumnSpan="2"/>
+                                <Label x:Name="Label_Level" Content="Уровень" HorizontalAlignment="Left" Height="26" Margin="18,235,0,0" VerticalAlignment="Top" Width="84" Grid.ColumnSpan="2"/>
+                                <Label x:Name="Label_FirstName_Copy2" Content="Компетенции" HorizontalAlignment="Left" Height="26" Margin="93,203,0,0" VerticalAlignment="Top" Width="100" Grid.Column="2"/>
+                                <TextBox x:Name="TextBox_Position" HorizontalAlignment="Left" Height="20" Margin="80,209,0,0" TextWrapping="Wrap" Text="Разработчик" VerticalAlignment="Top" Width="162" Foreground="#FFA3A3A3" Grid.ColumnSpan="2" Grid.Column="1"/>
+                                <TextBox x:Name="TextBox_Level" HorizontalAlignment="Left" Height="20" Margin="80,238,0,0" TextWrapping="Wrap" Text="Джуниор" VerticalAlignment="Top" Width="162" Foreground="#FFA3A3A3" Grid.ColumnSpan="2" Grid.Column="1"/>
+                                <Image Grid.Column="2" HorizontalAlignment="Left" Height="125" Margin="176,34,0,0" VerticalAlignment="Top" Width="113">
                                     <Image.OpacityMask>
                                         <ImageBrush Stretch="None"/>
                                     </Image.OpacityMask>
                                 </Image>
-                                <Image Margin="93,18,44,200" Source="/1614560341_16-p-ikonki-na-belom-fone-18.png" Stretch="Fill" Grid.Column="1"/>
-                                <TextBox x:Name="TextBox_SecondName" HorizontalAlignment="Left" Height="20" Margin="152,47,0,0" TextWrapping="Wrap" Text="Иванович" VerticalAlignment="Top" Width="162" Grid.ColumnSpan="2" Foreground="#FFA3A3A3"/>
-                                <Label x:Name="Label_SecondName" Content="Отчество" HorizontalAlignment="Left" Height="26" Margin="18,44,0,0" VerticalAlignment="Top" Width="84"/>
-                                <TextBox x:Name="TextBox_BirthDate" HorizontalAlignment="Left" Height="20" Margin="152,105,0,0" TextWrapping="Wrap" Text="01.01.2001" VerticalAlignment="Top" Width="162" Foreground="#FFA3A3A3" Grid.ColumnSpan="2"/>
-                                <Label x:Name="Label_BirthDate" Content="Дата рождения" HorizontalAlignment="Left" Height="25" Margin="18,102,0,0" VerticalAlignment="Top" Width="117"/>
-                                <Label x:Name="Label_Project" Content="Проект" HorizontalAlignment="Left" Height="26" Margin="18,281,0,0" VerticalAlignment="Top" Width="84"/>
-                                <Label x:Name="Label_Status" Content="Статус" HorizontalAlignment="Left" Height="26" Margin="18,309,0,0" VerticalAlignment="Top" Width="84"/>
-                                <ComboBox x:Name="ComboBox_Status_Tab1" Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="20" Margin="152,312,0,0" VerticalAlignment="Top" Width="163" BorderBrush="White">
+                                <Image Margin="93,18,44,200" Source="/1614560341_16-p-ikonki-na-belom-fone-18.png" Stretch="Fill" Grid.Column="2"/>
+                                <TextBox x:Name="TextBox_SecondName" HorizontalAlignment="Left" Height="20" Margin="79,47,0,0" TextWrapping="Wrap" Text="Иванович" VerticalAlignment="Top" Width="162" Grid.ColumnSpan="2" Foreground="#FFA3A3A3" Grid.Column="1"/>
+                                <Label x:Name="Label_SecondName" Content="Отчество" HorizontalAlignment="Left" Height="26" Margin="18,44,0,0" VerticalAlignment="Top" Width="84" Grid.ColumnSpan="2"/>
+                                <TextBox x:Name="TextBox_BirthDate" HorizontalAlignment="Left" Height="20" Margin="79,105,0,0" TextWrapping="Wrap" Text="01.01.2001" VerticalAlignment="Top" Width="162" Foreground="#FFA3A3A3" Grid.ColumnSpan="2" Grid.Column="1"/>
+                                <Label x:Name="Label_BirthDate" Content="Дата рождения" HorizontalAlignment="Left" Height="25" Margin="18,102,0,0" VerticalAlignment="Top" Width="117" Grid.ColumnSpan="2"/>
+                                <Label x:Name="Label_Project" Content="Проект" HorizontalAlignment="Left" Height="26" Margin="18,281,0,0" VerticalAlignment="Top" Width="84" Grid.ColumnSpan="2"/>
+                                <Label x:Name="Label_Status" Content="Статус" HorizontalAlignment="Left" Height="26" Margin="18,309,0,0" VerticalAlignment="Top" Width="84" Grid.ColumnSpan="2"/>
+                                <ComboBox x:Name="ComboBox_Status_Tab1" Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="20" Margin="81,312,0,0" VerticalAlignment="Top" Width="161" BorderBrush="White" Grid.Column="1">
                                     <ComboBox.Background>
                                         <LinearGradientBrush EndPoint="0,1">
                                             <GradientStop Color="#FFF0F0F0"/>
@@ -72,11 +73,11 @@
                                     <ComboBoxItem Content="Свободен"/>
                                     <ComboBoxItem Content="Работает"/>
                                 </ComboBox>
-                                <ListBox x:Name="ListBox_Skills" Grid.Column="1" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="93,229,20,48"/>
-                                <ComboBox x:Name="ComboBox_Project_Tab1" Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="20" Margin="154,284,0,0" VerticalAlignment="Top" Width="161"/>
+                                <ListBox x:Name="ListBox_Skills" Grid.Column="2" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="93,229,20,48"/>
+                                <ComboBox x:Name="ComboBox_Project_Tab1" Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="20" Margin="81,284,0,0" VerticalAlignment="Top" Width="161" Grid.Column="1"/>
                             </Grid>
                         </TabItem>
-                        <TabItem Header="Опыт">
+                        <TabItem Header="Опыт" HorizontalAlignment="Left" Margin="-2,-2,0,0" Width="47">
                             <Grid Background="#FFE5E5E5">
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="6*"/>
@@ -86,6 +87,55 @@
                                 <DataGrid d:ItemsSource="{d:SampleData ItemCount=5}" SelectionChanged="DataGrid_SelectionChanged" Grid.ColumnSpan="3" />
                             </Grid>
                         </TabItem>
+                        <TabItem Header="Новый сотрудник">
+                            <Grid Background="#FFC3E8FF" HorizontalAlignment="Left" Width="573">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="8*"/>
+                                    <ColumnDefinition Width="82*"/>
+                                    <ColumnDefinition Width="101*"/>
+                                </Grid.ColumnDefinitions>
+                                <Label x:Name="Label_FirstNameCreate" Content="Имя" HorizontalAlignment="Left" Height="26" Margin="18,18,0,0" VerticalAlignment="Top" Width="84" Grid.ColumnSpan="2"/>
+                                <Label x:Name="Label_LastNameCreate" Content="Фамилия " HorizontalAlignment="Left" Height="26" Margin="18,72,0,0" VerticalAlignment="Top" Width="84" Grid.ColumnSpan="2"/>
+                                <Label x:Name="Label_EmailCreate" Content="Email" HorizontalAlignment="Left" Height="26" Margin="18,131,0,0" VerticalAlignment="Top" Width="84" Grid.ColumnSpan="2"/>
+                                <Label x:Name="Label_PhoneNumberCreate" Content="Телефон" HorizontalAlignment="Left" Height="25" Margin="18,159,0,0" VerticalAlignment="Top" Width="87" Grid.ColumnSpan="2"/>
+                                <TextBox  x:Name="TextBox_FirstNameCreate" HorizontalAlignment="Left" Height="20" Margin="128,18,0,0" TextWrapping="Wrap" Text="Иван" VerticalAlignment="Top" Width="162" Foreground="#FFA3A3A3" Grid.ColumnSpan="2" PreviewMouseLeftButtonDown="TextBox_FirstNameCreate_PreviewMouseLeftButtonDown" Grid.Column="1"/>
+                                <TextBox x:Name="TextBox_FamiliayCreate" Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="20" Margin="128,76,0,0" TextWrapping="Wrap" Text="Иванов" VerticalAlignment="Top" Width="162" Foreground="#FFA3A3A3" PreviewMouseLeftButtonDown="TextBox_FamiliayCreate_PreviewMouseLeftButtonDown" Grid.Column="1"/>
+                                <TextBox x:Name="TextBox_EmailCreate" Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="20" Margin="129,134,0,0" TextWrapping="Wrap" Text="ivanov@mail.ru" VerticalAlignment="Top" Width="162" Foreground="#FFA3A3A3" PreviewMouseLeftButtonDown="TextBox_EmailCreate_PreviewMouseLeftButtonDown" Grid.Column="1"/>
+                                <TextBox x:Name="TextBox_PhoneNumberCreate" Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="20" Margin="129,162,0,0" TextWrapping="Wrap" Text="+7 999 999 99 99" VerticalAlignment="Top" Width="162" Foreground="#FFA3A3A3" PreviewMouseLeftButtonDown="TextBox_PhoneNumberCreate_PreviewMouseLeftButtonDown" Grid.Column="1"/>
+                                <Label x:Name="Label_PositionCreate" Content="Должность" HorizontalAlignment="Left" Height="26" Margin="18,209,0,0" VerticalAlignment="Top" Width="87" Grid.ColumnSpan="2"/>
+                                <Label x:Name="Label_FirstName_Copy2Create" Content="Компетенции" HorizontalAlignment="Left" Height="26" Margin="93,203,0,0" VerticalAlignment="Top" Width="100" Grid.Column="2"/>
+                                <TextBox x:Name="TextBox_PositionCreate" HorizontalAlignment="Left" Height="20" Margin="129,209,0,0" TextWrapping="Wrap" Text="Разработчик" VerticalAlignment="Top" Width="162" Foreground="#FFA3A3A3" Grid.ColumnSpan="2" Grid.Column="1"/>
+                                <TextBox x:Name="TextBox_LevelCreate" HorizontalAlignment="Left" Height="20" Margin="129,238,0,0" TextWrapping="Wrap" Text="Джуниор" VerticalAlignment="Top" Width="162" Foreground="#FFA3A3A3" Grid.ColumnSpan="2" Grid.Column="1"/>
+                                <Image Grid.Column="2" HorizontalAlignment="Left" Height="125" Margin="176,34,0,0" VerticalAlignment="Top" Width="113">
+                                    <Image.OpacityMask>
+                                        <ImageBrush Stretch="None"/>
+                                    </Image.OpacityMask>
+                                </Image>
+                                <Image Margin="93,18,44,200" Source="/1614560341_16-p-ikonki-na-belom-fone-18.png" Stretch="Fill" Grid.Column="2"/>
+                                <TextBox x:Name="TextBox_SecondNameCreate" HorizontalAlignment="Left" Height="20" Margin="128,47,0,0" TextWrapping="Wrap" Text="Иванович" VerticalAlignment="Top" Width="162" Grid.ColumnSpan="2" Foreground="#FFA3A3A3" PreviewMouseLeftButtonDown="TextBox_SecondNameCreate_PreviewMouseLeftButtonDown" Grid.Column="1"/>
+                                <Label x:Name="Label_SecondNameCreate" Content="Отчество" HorizontalAlignment="Left" Height="26" Margin="18,44,0,0" VerticalAlignment="Top" Width="84" Grid.ColumnSpan="2"/>
+                                <DatePicker x:Name="DatePicker_BirthDateCreate" HorizontalAlignment="Left" Margin="130,103,0,254" Grid.ColumnSpan="2" Width="160" Grid.Column="1"/>
+                                <Label x:Name="Label_BirthDateCreate" Content="Дата рождения" HorizontalAlignment="Left" Height="25" Margin="18,102,0,0" VerticalAlignment="Top" Width="117" Grid.ColumnSpan="2"/>
+                                <Label x:Name="Label_ProjectCreate" Content="Проект" HorizontalAlignment="Left" Height="26" Margin="18,281,0,0" VerticalAlignment="Top" Width="84" Grid.ColumnSpan="2"/>
+                                <Label x:Name="Label_StatusCreate" Content="Статус" HorizontalAlignment="Left" Height="26" Margin="18,309,0,0" VerticalAlignment="Top" Width="84" Grid.ColumnSpan="2"/>
+                                <ComboBox x:Name="ComboBox_Status_Tab1Create" Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="20" Margin="130,312,0,0" VerticalAlignment="Top" Width="161" BorderBrush="White" Grid.Column="1">
+                                    <ComboBox.Background>
+                                        <LinearGradientBrush EndPoint="0,1">
+                                            <GradientStop Color="#FFF0F0F0"/>
+                                            <GradientStop Color="White" Offset="1"/>
+                                        </LinearGradientBrush>
+                                    </ComboBox.Background>
+                                    <ComboBoxItem Content="Уволен"/>
+                                    <ComboBoxItem Content="В отпуске"/>
+                                    <ComboBoxItem Content="Свободен"/>
+                                    <ComboBoxItem Content="Работает"/>
+                                </ComboBox>
+                                <ListBox x:Name="ListBox_SkillsCreate" Grid.Column="2" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="93,229,20,48"/>
+                                <ComboBox x:Name="ComboBox_Project_Tab1Create" IsEditable="True" IsTextSearchEnabled="False" Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="20" Margin="130,281,0,0" StaysOpenOnEdit="True" VerticalAlignment="Top" Width="161" Grid.Column="1" TextBoxBase.TextChanged="ComboBox_Project_Tab1Create_TextChanged" GotFocus="ComboBox_Project_Tab1Create_GotFocus"/>
+                                <Button Content="" x:Name="CreateButton" Margin="171,350,303,10" Grid.ColumnSpan="2" Click="CreateButton_Click" Grid.Column="1"/>
+                            </Grid>
+                        </TabItem>
+
                     </TabControl>
                     <Label x:Name="Label_DepartmentDescription" Content="Описание отдела" HorizontalAlignment="Left" Margin="0,251,0,0" VerticalAlignment="Top" Grid.ColumnSpan="3" FontWeight="Medium" FontFamily="Roboto"/>
                     <ListBox d:ItemsSource="{d:SampleData ItemCount=5}" Margin="0,275,283,45" Grid.ColumnSpan="3" FontWeight="Medium" FontFamily="Roboto"/>

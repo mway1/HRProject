@@ -4,6 +4,8 @@ using System.Windows;
 using System.Collections.ObjectModel;
 using System;
 using System.Collections.Generic;
+using HRProject.BLL.InputModels;
+using System.Windows.Controls;
 
 namespace HRProject.UI
 {
@@ -26,6 +28,7 @@ namespace HRProject.UI
         {
             ComboBoxProjects.ItemsSource = ProjectTypes.Types;
             ListBoxProjects.ItemsSource = Projects;
+            ComboBox_Project_Tab1Create.ItemsSource = Projects;
 
             LoadProjectList(controller.GetAllProjects());
         }
@@ -54,6 +57,55 @@ namespace HRProject.UI
         private void DataGrid_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
         {
 
+        }
+
+        private void TextBox_FirstNameCreate_PreviewMouseLeftButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        {
+            TextBox_FirstNameCreate.Clear();
+        }
+
+        private void TextBox_FamiliayCreate_PreviewMouseLeftButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        {
+            TextBox_FamiliayCreate.Clear();
+        }
+
+        private void TextBox_EmailCreate_PreviewMouseLeftButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        {
+            TextBox_EmailCreate.Clear();
+        }
+
+        private void TextBox_PhoneNumberCreate_PreviewMouseLeftButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        {
+            TextBox_PhoneNumberCreate.Clear();
+        }
+
+        private void TextBox_SecondNameCreate_PreviewMouseLeftButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        {
+            TextBox_SecondNameCreate.Clear();
+        }
+
+        private void CreateButton_Click(object sender, RoutedEventArgs e)
+        {
+            EmployeeInputModel employee = new EmployeeInputModel
+            {
+                FirstName = TextBox_FirstNameCreate.Text,
+                SecondName = TextBox_SecondNameCreate.Text,
+                BirthDate = DatePicker_BirthDateCreate.DisplayDate,
+                Email = TextBox_EmailCreate.Text,
+                PhoneNumber = TextBox_PhoneNumberCreate.Text,
+                //StatusId = 
+                //DepartmentId = 
+            };
+        }
+
+        private void ComboBox_Project_Tab1Create_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            (sender as ComboBox).ItemsSource = controller.SearchProjects(name: ComboBox_Project_Tab1Create.Text, limit: 5);
+        }
+
+        private void ComboBox_Project_Tab1Create_GotFocus(object sender, RoutedEventArgs e)
+        {
+            (sender as ComboBox).IsDropDownOpen = true;
         }
     }
 }

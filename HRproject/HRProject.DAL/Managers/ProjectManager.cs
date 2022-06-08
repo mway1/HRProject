@@ -98,6 +98,21 @@ namespace HRProject.DAL
             }
         }
 
+        public List<ProjectDTO> SearchProjects(string name, int limit = 5)
+        {
+            using (var connection = new SqlConnection(ServerSettings._connectionString))
+            {
+                connection.Open();
+
+                List<ProjectDTO> projects = connection.Query<ProjectDTO>(
+                    ProjectStoredProcedures.Project_Search,
+                    param: new { Name = name, Limit = limit },
+                    commandType: System.Data.CommandType.StoredProcedure)
+                    .ToList();
+                return projects;
+            }
+        }
+
         public List<ProjectDTO> GetAllNotFullProjects()
         {
             using (var connection = new SqlConnection(ServerSettings._connectionString))
