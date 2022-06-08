@@ -172,5 +172,53 @@ namespace HRProject.BLL
         {
             _manager.PositionManager.DeletePosition(id);
         }
+
+
+        public void AddEmployee(EmployeeModel input)
+        {
+            EmployeeDTO employee = _mapper.Map<EmployeeDTO>(input);
+            _manager.EmployeeManager.AddEmployee(employee);
+        }
+        public void DeleteEmployee(int id)
+        {
+            _manager.EmployeeManager.DeleteEmployeeById(id);
+        }
+
+        public List<EmployeeModel> GetAllEmployee()
+        {
+            return _mapper.Map<List<EmployeeModel>>(_manager.EmployeeManager.GetAllEmployee());
+        }
+        public List<EmployeeModel> GetEmployeeById(int id)
+        {
+            return _mapper.Map<List<EmployeeModel>>(_manager.EmployeeManager.GetEmployeeById(id));
+        }
+        public void UpdateEmployee(EmployeeModel input)
+        {
+            EmployeeDTO employee = _mapper.Map<EmployeeDTO>(input);
+            _manager.EmployeeManager.UpdateEmployeeById(employee);
+        }
+
+        public void AddComment(CommentModel input)
+        {
+            CommentDTO comment = _mapper.Map<CommentDTO>(input);
+            _manager.CommentManager.AddComment(comment);
+        }
+        public void DeleteComment(int id)
+        {
+            _manager.CommentManager.DeleteCommentById(id);
+        }
+        public List<CommentModel> GetAllComments()
+        {
+            return _mapper.Map<List<CommentModel>>(_manager.CommentManager.GetAllComment());
+        }
+        public List<CommentModel> GetCommentById(int id)
+        {
+            return _mapper.Map<List<CommentModel>>(_manager.CommentManager.GetCommentById(id));
+        }
+        public void UpdateComment(CommentModel input)
+        {
+            CommentDTO comment=_mapper.Map<CommentDTO>(input);
+            _manager.CommentManager.UpdateComment(comment);
+        }
     }
 }
