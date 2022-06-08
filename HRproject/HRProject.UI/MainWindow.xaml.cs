@@ -64,17 +64,35 @@ namespace HRProject.UI
 
         }
 
-        private void TreeView_Department_Initialized(object sender, RoutedEventArgs e)
-        {
-            var departments = _controller.GetAllDepartment();
-            TreeView_Department.ItemsSource = departments;
-        }
+        //private void TreeView_Department_Initialized(object sender, RoutedEventArgs e)
+        //{
+        //    var departments = _controller.GetAllDepartment();
+        //    TreeView_Department.ItemsSource = departments;
+        //}
 
         private void DataGrid_EmployeeHistory_Loaded(object sender, RoutedEventArgs e)
         {
             var historyModels = _controller.GetAllEmployeeHistory(_employeeId);
             DataGrid_EmployeeHistory.ItemsSource = historyModels;
 
+        }
+
+        private void ComboBox_Departments_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            //List <DepartmentModel> departmentModels = new List <DepartmentModel>();
+            //var departmentModels = _controller.GetAllDepartment();
+            //ComboBox_Departments.ItemsSource = departmentModels;
+        }
+
+        private void ComboBox_Departments_Initialazed(object sender, EventArgs e)
+        {
+            var departmentModels = _controller.GetAllDepartment();
+            foreach (var i in departmentModels)
+            {
+                
+                ComboBox_Departments.ItemsSource += i.Name ;
+            }
+            
         }
     }
 }
