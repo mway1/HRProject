@@ -4,6 +4,8 @@ using System.Windows;
 using System.Collections.ObjectModel;
 using System;
 using System.Collections.Generic;
+using System.Windows.Controls;
+using HRProject.BLL.OutputModels;
 
 namespace HRProject.UI
 {
@@ -13,8 +15,8 @@ namespace HRProject.UI
     public partial class MainWindow : Window
     {
 
-        private Controller controller = new Controller();
         private ObservableCollection<ProjectOutputModel> Projects = new ObservableCollection<ProjectOutputModel>();
+        private Controller _controller;
 
         public MainWindow()
         {
@@ -24,10 +26,12 @@ namespace HRProject.UI
 
         public void Window_Initialized(object? sender, EventArgs e)
         {
-            ComboBoxProject.ItemsSource = ProjectTypes.Types;
+            ComboBoxProjects.ItemsSource = ProjectTypes.Types;
             ListBoxProjects.ItemsSource = Projects;
+            _controller = new Controller();
 
-            LoadProjectList(controller.GetAllProjects());
+            LoadProjectList(_controller.GetAllProjects());
+
         }
 
         private void LoadProjectList(List<ProjectOutputModel> projects)
@@ -38,17 +42,20 @@ namespace HRProject.UI
                 Projects.Add(project);
             }
         }
-
         private void ComboBoxProject_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
         {
             LoadProjectList(
-                controller.GetAllProjects(ComboBoxProject.SelectedItem.ToString()!)
+                _controller.GetAllProjects(ComboBoxProjects.SelectedItem.ToString()!)
             );
         }
 
-        private void ListBoxProjects_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
+        private void ListBoxProjects_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-
+            var selectedProject = (ProjectModel)ListBoxProjects.SelectedItem;
+            var choosenEmployeeRequests = _controller.GetEmployeeRequestAllInfoByProjectId(selectedProject.Id);
+            ListBoxEmployeeRequests.ItemsSource = choosenEmployeeRequests;
         }
+
+        
     }
 }
