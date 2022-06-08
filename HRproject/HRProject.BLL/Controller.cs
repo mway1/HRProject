@@ -211,5 +211,9 @@ namespace HRProject.BLL
         {
             return _mapper.Map<List<CommentModel>>(_manager.CommentManager.GetAllComment());
         }
+        public List<CommentModel> GetCommentById(int id)
+        {
+            return _mapper.Map<List<CommentModel>>(_manager.CommentManager.GetCommentById(id));
+        }
     }
 }
