@@ -28,7 +28,7 @@
                     </Grid.ColumnDefinitions>
                     <TreeView HorizontalAlignment="Left" Width="221" Grid.ColumnSpan="2" Background="#FF89B7D4" Margin="0,0,0,157" FontWeight="Medium" FontFamily="Roboto"/>
                     <TabControl HorizontalAlignment="Left" Height="406" VerticalAlignment="Center" Width="573" Grid.ColumnSpan="3" Margin="179,0,0,0" Grid.Column="1" FontWeight="Medium" FontFamily="Roboto">
-                        <TabItem Header="Общее">
+                        <TabItem x:Name="Employees_General_TabIItem" Header="Общее">
                             <Grid Background="#FFC3E8FF" HorizontalAlignment="Left" Width="573">
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="89*"/>
