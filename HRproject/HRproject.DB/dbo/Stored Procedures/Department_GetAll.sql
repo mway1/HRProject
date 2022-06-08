@@ -1,7 +1,6 @@
 ﻿CREATE PROCEDURE [dbo].[Department_GetAll]
-	
 AS
 BEGIN
-SELECT id, [Name], [Description], isDeleted
-FROM dbo.Department
+SELECT * FROM Department
+WHERE isDeleted=0
 END

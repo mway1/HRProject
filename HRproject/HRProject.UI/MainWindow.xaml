@@ -26,7 +26,6 @@
                         <ColumnDefinition Width="0*"/>
                         <ColumnDefinition Width="145*"/>
                     </Grid.ColumnDefinitions>
-                    <TreeView HorizontalAlignment="Left" Width="221" Grid.ColumnSpan="2" Background="#FF89B7D4" Margin="0,0,0,157" FontWeight="Medium" FontFamily="Roboto"/>
                     <TabControl HorizontalAlignment="Left" Height="406" VerticalAlignment="Center" Width="573" Grid.ColumnSpan="3" Margin="179,0,0,0" Grid.Column="1" FontWeight="Medium" FontFamily="Roboto">
                         <TabItem x:Name="Employees_General_TabIItem" Header="Общее" Initialized="Employees_General_TabIItem_Initialized">
                             <Grid Background="#FFC3E8FF" HorizontalAlignment="Left" Width="573">
@@ -78,7 +77,7 @@
                         <TabItem Header="Опыт">
                             <Grid Background="#FFE5E5E5">
                                 <DataGrid x:Name="DataGrid_EmployeeHistory" AutoGenerateColumns="True" Loaded="DataGrid_EmployeeHistory_Loaded" />
-                                
+
                             </Grid>
                         </TabItem>
                     </TabControl>
@@ -86,10 +85,12 @@
                     <ListBox d:ItemsSource="{d:SampleData ItemCount=5}" Margin="0,275,283,45" Grid.ColumnSpan="2" FontWeight="Medium" FontFamily="Roboto"/>
                     <TextBox x:Name="TextBox_ChangeNameOfDepartment" HorizontalAlignment="Left" Margin="0,368,0,0" TextWrapping="Wrap" Text="Введите новое название" VerticalAlignment="Top" Height="17" Width="144
                              " Grid.ColumnSpan="2" Foreground="#FFA3A3A3" VerticalContentAlignment="Center" FontSize="10" FontWeight="Medium" FontFamily="Roboto"/>
-                    <Button x:Name="Button_ChangeNameOfDepartment" Grid.Column="1" Content="Изменить имя" HorizontalAlignment="Left" Margin="105,368,0,0" VerticalAlignment="Top" Height="17" Width="73" FontSize="10" FontWeight="Medium" FontFamily="Roboto"/>
+                    <Button x:Name="Button_ChangeNameOfDepartment" Grid.Column="1" Content="Изменить имя" HorizontalAlignment="Left" Margin="105,368,0,0" VerticalAlignment="Top" Height="17" Width="73" FontSize="10" FontWeight="Medium" FontFamily="Roboto" Click="Button_ChangeNameOfDepartment_Click" IsEnabled="False"/>
                     <Button x:Name="Button_ChangeDescriptionOfDepartment" Content="Изменить описание" HorizontalAlignment="Left" Margin="0,389,0,0" VerticalAlignment="Top" Height="17" Width="109
                             " FontSize="10" FontWeight="Medium" FontFamily="Roboto" Grid.ColumnSpan="2"/>
                     <Button x:Name="Button_DeleteDepartment" Content="Удалить отдел" HorizontalAlignment="Left" Margin="70,389,0,0" VerticalAlignment="Top" Height="17" Width="109" FontSize="10" FontWeight="Medium" FontFamily="Roboto" Grid.Column="1"/>
+                    <ComboBox x:Name="ComboBox_Departments" ItemsSource="{Binding PLUS}" DisplayMemberPath="Name"  Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="26" Margin="9,10,0,0" VerticalAlignment="Top" Width="203" Initialized="ComboBox_Departments_Initialazed" SelectionChanged="ComboBox_Departments_SelectionChanged"/>
+                    <ListBox x:Name="ListBox_Employees" Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="178" Margin="7,54,0,0" VerticalAlignment="Top" Width="205" d:ItemsSource="{d:SampleData ItemCount=5}"/>
                 </Grid>
             </TabItem>
             <TabItem Header="Проекты">
