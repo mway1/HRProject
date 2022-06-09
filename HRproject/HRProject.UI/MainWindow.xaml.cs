@@ -54,6 +54,9 @@ namespace HRProject.UI
             var selectedProject = (ProjectOutputModel)ListBoxProjects.SelectedItem;
             var choosenEmployeeRequests = _controller.GetEmployeeRequestAllInfoByProjectId(selectedProject.Id);
             DataGridRequests.ItemsSource = choosenEmployeeRequests;
+
+            var choosenEmployeesOnProject = _controller.GetEmployeeRequestAllInfoByProjectId(selectedProject.Id);
+            ListBox_EmployeesOnProject.ItemsSource = choosenEmployeesOnProject;
         }
 
         
