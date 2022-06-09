@@ -122,6 +122,9 @@ namespace HRProject.UI
             department.Description = TextBox_DepartmentDescription.Text;
             department.isDeleted = false;
             _controller.AddDepartment(department);
+            TextBox_NameOfNewDepartment.Clear();
+            TextBox_DepartmentDescription.Clear();
+            ComboBox_Departments.Items.Refresh();
         }
 
 
