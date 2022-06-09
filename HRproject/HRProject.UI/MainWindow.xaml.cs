@@ -6,6 +6,7 @@ using System;
 using System.Collections.Generic;
 using HRProject.BLL.InputModels;
 using System.Windows.Controls;
+using HRProject.BLL.OutputModels;
 
 namespace HRProject.UI
 {
@@ -70,15 +71,24 @@ namespace HRProject.UI
 
         private void DataGrid_EmployeeHistory_Loaded(object sender, RoutedEventArgs e)
         {
-            var historyModels = _controller.GetAllEmployeeHistory(_employeeId);
 
-            DataGrid_EmployeeHistory.ItemsSource = historyModels;
+        }
+
+        private void Employees_General_TabIItem_Loaded(object sender, RoutedEventArgs e)
+        {
+        }
+
+        private void Employees_General_TabIItem_Initialized(object sender, EventArgs e)
+        {
+
 
         }
 
         private void ComboBox_Departments_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            var i = ComboBox_Departments.SelectedItem;
+            var department = (DepartmentModel)ComboBox_Departments.SelectedItem;
+            var chooseEmployeeByDepartments = _controller.GetEmployeeByDepartmentId(department.id);
+            ListBox_Employees.ItemsSource = chooseEmployeeByDepartments;
         }
 
         private void ComboBox_Departments_Initialazed(object sender, EventArgs e)
@@ -86,6 +96,24 @@ namespace HRProject.UI
             var departmentModels = _controller.GetAllDepartment();
             ComboBox_Departments.ItemsSource = departmentModels;
 
+        }
+
+        private void ListBox_Employees_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            var selectedEmployee = (EmployeeModel)ListBox_Employees.SelectedItem;
+            if (selectedEmployee != null)
+            {
+            var chooseEmployeeAllInfo = _controller.GetEmployeeById(selectedEmployee.id);
+            TextBox_FirstName.Text = chooseEmployeeAllInfo.FirstName;
+            TextBox_LastName.Text = chooseEmployeeAllInfo.SecondName;
+            TextBox_SecondName.Text = chooseEmployeeAllInfo.LastName;
+            TextBox_BirthDate.Text = chooseEmployeeAllInfo.BirthDate.ToString();
+            TextBox_Email.Text = chooseEmployeeAllInfo.Email;
+            TextBox_PhoneNumber.Text = chooseEmployeeAllInfo.PhoneNumber.ToString();
+            ComboBox_Status_Tab1.SelectedIndex = chooseEmployeeAllInfo.StatusId;
+            var historyModels = _controller.GetAllEmployeeHistory(selectedEmployee.id);
+            DataGrid_EmployeeHistory.ItemsSource = historyModels;
+            }
         }
 
         private void TextBox_FirstNameCreate_PreviewMouseLeftButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
