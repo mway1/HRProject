@@ -13,6 +13,7 @@ namespace HRProject.DAL.Managers
         public PositionManager PositionManager { get; private set;}
         public CommentManager CommentManager { get; private set; }
         public StatusManager StatusManager { get; private set; }
+        public Employee_PositionManager Employee_PositionManager { get; private set; }
 
         public ManagerStorage()
         {
@@ -25,6 +26,7 @@ namespace HRProject.DAL.Managers
             CommentManager = new CommentManager();
             LevelOfPositionManager = new LevelOfPositionManager();
             StatusManager = new StatusManager();
+            Employee_PositionManager = new Employee_PositionManager();
         }
     }
 }

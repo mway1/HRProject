@@ -118,16 +118,17 @@ namespace HRProject.UI
             var selectedEmployee = (EmployeeModel)ListBox_Employees.SelectedItem;
             if (selectedEmployee != null)
             {
-                var chooseEmployeeAllInfo = _controller.GetEmployeeById(selectedEmployee.id);
-                TextBox_FirstName.Text = chooseEmployeeAllInfo.FirstName;
-                TextBox_LastName.Text = chooseEmployeeAllInfo.SecondName;
-                TextBox_SecondName.Text = chooseEmployeeAllInfo.LastName;
-                TextBox_BirthDate.Text = chooseEmployeeAllInfo.BirthDate.ToString();
-                TextBox_Email.Text = chooseEmployeeAllInfo.Email;
-                TextBox_PhoneNumber.Text = chooseEmployeeAllInfo.PhoneNumber.ToString();
-                ComboBox_Status_Tab1.SelectedIndex = chooseEmployeeAllInfo.StatusId;
-                var historyModels = _controller.GetAllEmployeeHistory(selectedEmployee.id);
-                DataGrid_EmployeeHistory.ItemsSource = historyModels;
+            var chooseEmployeeAllInfo = _controller.GetEmployeeById(selectedEmployee.id);
+            TextBox_FirstName.Text = chooseEmployeeAllInfo.FirstName;
+            TextBox_LastName.Text = chooseEmployeeAllInfo.SecondName;
+            TextBox_SecondName.Text = chooseEmployeeAllInfo.LastName;
+            TextBox_BirthDate.Text = chooseEmployeeAllInfo.BirthDate.ToString();
+            TextBox_Email.Text = chooseEmployeeAllInfo.Email;
+            TextBox_PhoneNumber.Text = chooseEmployeeAllInfo.PhoneNumber.ToString();
+            ComboBox_Status_Tab1.SelectedIndex = chooseEmployeeAllInfo.StatusId;
+            var historyModels = _controller.GetAllEmployeeHistory(selectedEmployee.id);
+            DataGrid_EmployeeHistory.ItemsSource = historyModels;
+                TextBox_Position.Text = _controller.GetEmployee_PostionById(selectedEmployee.id).Name;
             }
         }
 
