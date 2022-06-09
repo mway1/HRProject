@@ -71,9 +71,6 @@ namespace HRProject.UI
 
         private void DataGrid_EmployeeHistory_Loaded(object sender, RoutedEventArgs e)
         {
-            var historyModels = _controller.GetAllEmployeeHistory(_employeeId);
-
-            DataGrid_EmployeeHistory.ItemsSource = historyModels;
 
         }
 
@@ -114,6 +111,8 @@ namespace HRProject.UI
             TextBox_Email.Text = chooseEmployeeAllInfo.Email;
             TextBox_PhoneNumber.Text = chooseEmployeeAllInfo.PhoneNumber.ToString();
             ComboBox_Status_Tab1.SelectedIndex = chooseEmployeeAllInfo.StatusId;
+            var historyModels = _controller.GetAllEmployeeHistory(selectedEmployee.id);
+            DataGrid_EmployeeHistory.ItemsSource = historyModels;
             }
         }
 
