@@ -89,6 +89,7 @@ namespace HRProject.UI
             var department = (DepartmentModel)ComboBox_Departments.SelectedItem;
             var chooseEmployeeByDepartments = _controller.GetEmployeeByDepartmentId(department.id);
             ListBox_Employees.ItemsSource = chooseEmployeeByDepartments;
+            TextBox_DepartmentDescription.Text = department.Description;
         }
 
         private void ComboBox_Departments_Initialazed(object sender, EventArgs e)
@@ -97,6 +98,7 @@ namespace HRProject.UI
             ComboBox_Departments.ItemsSource = departmentModels;
 
         }
+
 
         private void ListBox_Employees_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
@@ -176,5 +178,7 @@ namespace HRProject.UI
         {
             (sender as ComboBox).IsDropDownOpen = true;
         }
+
+        
     }
 }
