@@ -275,5 +275,7 @@ namespace HRProject.BLL
             CommentDTO comment = _mapper.Map<CommentDTO>(input);
             _manager.CommentManager.UpdateComment(comment);
         }
+
+        public void AddEmployee_Positio
     }
 }
