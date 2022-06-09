@@ -108,8 +108,8 @@ namespace HRProject.UI
             {
             var chooseEmployeeAllInfo = _controller.GetEmployeeById(selectedEmployee.id);
             TextBox_FirstName.Text = chooseEmployeeAllInfo.FirstName;
-            TextBox_LastName.Text = chooseEmployeeAllInfo.LastName;
-            TextBox_SecondName.Text = chooseEmployeeAllInfo.SecondName;
+            TextBox_LastName.Text = chooseEmployeeAllInfo.SecondName;
+            TextBox_SecondName.Text = chooseEmployeeAllInfo.LastName;
             TextBox_BirthDate.Text = chooseEmployeeAllInfo.BirthDate.ToString();
             TextBox_Email.Text = chooseEmployeeAllInfo.Email;
             TextBox_PhoneNumber.Text = chooseEmployeeAllInfo.PhoneNumber.ToString();
