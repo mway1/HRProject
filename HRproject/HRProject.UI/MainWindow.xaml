@@ -46,8 +46,8 @@
                                 <Label x:Name="Label_Position" Content="Должность" HorizontalAlignment="Left" Height="26" Margin="18,209,0,0" VerticalAlignment="Top" Width="87" Grid.ColumnSpan="2"/>
                                 <Label x:Name="Label_Level" Content="Уровень" HorizontalAlignment="Left" Height="26" Margin="18,235,0,0" VerticalAlignment="Top" Width="84" Grid.ColumnSpan="3"/>
                                 <Label x:Name="Label_FirstName_Copy2" Content="Компетенции" HorizontalAlignment="Left" Height="26" Margin="93,203,0,0" VerticalAlignment="Top" Width="100" Grid.Column="3"/>
-                                <TextBox x:Name="TextBox_Position" HorizontalAlignment="Left" Height="20" Margin="153,209,0,0" TextWrapping="Wrap" Text="Разработчик" VerticalAlignment="Top" Width="162" Foreground="#FFA3A3A3" Grid.ColumnSpan="3"/>
-                                <TextBox x:Name="TextBox_Level" HorizontalAlignment="Left" Height="20" Margin="153,238,0,0" TextWrapping="Wrap" Text="Джуниор" VerticalAlignment="Top" Width="162" Foreground="#FFA3A3A3" Grid.ColumnSpan="3"/>
+                                <TextBox x:Name="TextBox_Position" HorizontalAlignment="Left" Height="20" Margin="153,209,0,0" TextWrapping="Wrap" Text="Разработчик" VerticalAlignment="Top" Width="162"  Grid.ColumnSpan="3"/>
+                                <TextBox x:Name="TextBox_Level" HorizontalAlignment="Left" Height="20" Margin="153,238,0,0" TextWrapping="Wrap" Text="Джуниор" VerticalAlignment="Top" Width="162" Grid.ColumnSpan="3"/>
                                 <Image Grid.Column="1" HorizontalAlignment="Left" Height="125" Margin="176,34,0,0" VerticalAlignment="Top" Width="113">
                                     <Image.OpacityMask>
                                         <ImageBrush Stretch="None"/>
@@ -72,7 +72,7 @@
                                     <ComboBoxItem Content="Свободен"/>
                                     <ComboBoxItem Content="Работает"/>
                                 </ComboBox>
-                                <ListBox x:Name="ListBox_Skills" Grid.Column="2" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="93,229,20,48"/>
+                                <ListBox x:Name="ListBox_Skills" Grid.Column="2" d:ItemsSource="{d:SampleData ItemCount=5}" DisplayMemberPath="SkillName" Margin="93,229,20,48"/>
                                 <ComboBox x:Name="ComboBox_Project_Tab1" Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="20" Margin="81,284,0,0" VerticalAlignment="Top" Width="161" Grid.Column="1"/>
                             </Grid>
                         </TabItem>

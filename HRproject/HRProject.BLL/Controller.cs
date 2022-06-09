@@ -312,5 +312,20 @@ namespace HRProject.BLL
         {
             return _mapper.Map<Employee_PostionModel>(_manager.Employee_PositionManager.GetEmployee_PositionById(employeeId));
         }
+        public void AddEmployee_Skill(Employee_SkillModel input)
+        {
+            Employee_SkillDTO employee_skill = _mapper.Map<Employee_SkillDTO>(input);
+            _manager.Employee_SkillManager.AddEmployee_Skill(employee_skill);
+        }
+        public void DeleteEmployee_Skill(Employee_SkillDTO input)
+        {
+            Employee_SkillDTO employee_skill = new Employee_SkillDTO();
+            var selectedEmployee_Skill = _mapper.Map(input, employee_skill);
+            _manager.Employee_SkillManager.DeleteEmployee_Skill(selectedEmployee_Skill);
+        }
+        public List<Employee_SkillModel> GetEmployee_SkillById(int employeeId)
+        {
+            return _mapper.Map<List<Employee_SkillModel>>(_manager.Employee_SkillManager.GetEmployee_SkillById(employeeId));
+        }
     }
 }

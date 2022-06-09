@@ -7,5 +7,6 @@
         public int PositionId { get; set; }
         public string Name { get; set; }
         public int LevelOfPositionID { get; set; }
+        public string LevelOfPositionName { get; set; }
     }
 }

@@ -120,7 +120,7 @@ namespace HRProject.UI
             var selectedEmployee = (EmployeeModel)ListBox_Employees.SelectedItem;
             if (selectedEmployee != null)
             {
-            var chooseEmployeeAllInfo = _controller.GetEmployeeById(selectedEmployee.id);
+                var chooseEmployeeAllInfo = _controller.GetEmployeeById(selectedEmployee.id);
             TextBox_FirstName.Text = chooseEmployeeAllInfo.FirstName;
             TextBox_LastName.Text = chooseEmployeeAllInfo.SecondName;
             TextBox_SecondName.Text = chooseEmployeeAllInfo.LastName;
@@ -130,7 +130,9 @@ namespace HRProject.UI
             ComboBox_Status_Tab1.SelectedIndex = chooseEmployeeAllInfo.StatusId;
             var historyModels = _controller.GetAllEmployeeHistory(selectedEmployee.id);
             DataGrid_EmployeeHistory.ItemsSource = historyModels;
-                TextBox_Position.Text = _controller.GetEmployee_PostionById(selectedEmployee.id).Name;
+            TextBox_Position.Text = _controller.GetEmployee_PostionById(selectedEmployee.id).Name;
+            TextBox_Level.Text = _controller.GetEmployee_PostionById(selectedEmployee.id).LevelOfPositionName;
+            ListBox_Skills.ItemsSource = _controller.GetEmployee_SkillById(selectedEmployee.id);
             }
         }
 
