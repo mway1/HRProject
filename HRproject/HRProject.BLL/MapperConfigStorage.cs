@@ -88,6 +88,7 @@ namespace HRProject.BLL
                 cfg.CreateMap<Employee_PositionDTO, Employee_PostionModel>()
                 .ForMember("id", opt => opt.MapFrom(c => c.id))
                 .ForMember("Name", opt => opt.MapFrom(c => c.Name))
+                .ForMember("LevelOfPositionName", opt => opt.MapFrom(c => c.LevelOfPositionName))
                 .ForMember("EmployeeId", opt => opt.MapFrom(c => c.EmployeeId))
                 .ForMember("PositionId", opt => opt.MapFrom(c => c.PositionId))
                 .ForMember("LevelOfPositionID", opt => opt.MapFrom(c => c.LevelOfPositionID));
