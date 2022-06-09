@@ -83,14 +83,7 @@ namespace HRProject.UI
 
         private void Employees_General_TabIItem_Initialized(object sender, EventArgs e)
         {
-            var chooseEmployeeAllInfo = _controller.GetEmployeeById(_employeeId);
-            TextBox_FirstName.Text = chooseEmployeeAllInfo.FirstName;
-            TextBox_LastName.Text = chooseEmployeeAllInfo.LastName;
-            TextBox_SecondName.Text = chooseEmployeeAllInfo.SecondName;
-            TextBox_BirthDate.Text = chooseEmployeeAllInfo.BirthDate.ToString();
-            TextBox_Email.Text = chooseEmployeeAllInfo.Email;
-            TextBox_PhoneNumber.Text = chooseEmployeeAllInfo.PhoneNumber.ToString();
-            ComboBox_Status_Tab1.SelectedIndex = chooseEmployeeAllInfo.StatusId;
+            
 
         }
 
@@ -106,6 +99,22 @@ namespace HRProject.UI
             var departmentModels = _controller.GetAllDepartment();
             ComboBox_Departments.ItemsSource = departmentModels;
 
+        }
+
+        private void ListBox_Employees_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            var selectedEmployee = (EmployeeModel)ListBox_Employees.SelectedItem;
+            if(selectedEmployee != null)
+            {
+            var chooseEmployeeAllInfo = _controller.GetEmployeeById(selectedEmployee.id);
+            TextBox_FirstName.Text = chooseEmployeeAllInfo.FirstName;
+            TextBox_LastName.Text = chooseEmployeeAllInfo.LastName;
+            TextBox_SecondName.Text = chooseEmployeeAllInfo.SecondName;
+            TextBox_BirthDate.Text = chooseEmployeeAllInfo.BirthDate.ToString();
+            TextBox_Email.Text = chooseEmployeeAllInfo.Email;
+            TextBox_PhoneNumber.Text = chooseEmployeeAllInfo.PhoneNumber.ToString();
+            ComboBox_Status_Tab1.SelectedIndex = chooseEmployeeAllInfo.StatusId;
+            }
         }
     }
 }

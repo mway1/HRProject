@@ -90,7 +90,7 @@
                             " FontSize="10" FontWeight="Medium" FontFamily="Roboto" Grid.ColumnSpan="2"/>
                     <Button x:Name="Button_DeleteDepartment" Content="Удалить отдел" HorizontalAlignment="Left" Margin="70,389,0,0" VerticalAlignment="Top" Height="17" Width="109" FontSize="10" FontWeight="Medium" FontFamily="Roboto" Grid.Column="1"/>
                     <ComboBox x:Name="ComboBox_Departments"  DisplayMemberPath="Name"  Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="26" Margin="9,10,0,0" VerticalAlignment="Top" Width="203" Initialized="ComboBox_Departments_Initialazed" SelectionChanged="ComboBox_Departments_SelectionChanged"/>
-                    <ListBox x:Name="ListBox_Employees"  DisplayMemberPath="FirstName" Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="178" Margin="7,54,0,0" VerticalAlignment="Top" Width="205" d:ItemsSource="{d:SampleData ItemCount=5}"/>
+                    <ListBox x:Name="ListBox_Employees"  DisplayMemberPath="SecondName" Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="178" Margin="7,54,0,0" VerticalAlignment="Top" Width="205" d:ItemsSource="{d:SampleData ItemCount=5}" SelectionChanged="ListBox_Employees_SelectionChanged"/>
                 </Grid>
             </TabItem>
             <TabItem Header="Проекты">
