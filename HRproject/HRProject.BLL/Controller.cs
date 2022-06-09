@@ -67,6 +67,17 @@ namespace HRProject.BLL
             ProjectDTO project = _manager.ProjectManager.GetProjectById(id);
             return _mapper.Map<ProjectOutputModel>(project);
         }
+        public StatusOutputModel GetStatus(int id)
+        {
+            StatusDTO status = _manager.StatusManager.GetStatus(id);
+            return _mapper.Map<StatusOutputModel>(status);
+        } 
+        
+        public List<StatusOutputModel> GetAllStatus()
+        {
+            List<StatusDTO> status = _manager.StatusManager.GetAllStatuses();
+            return _mapper.Map<List<StatusOutputModel>>(status);
+        }
 
         public List<ProjectOutputModel> SearchProjects(string name, int limit)
         {

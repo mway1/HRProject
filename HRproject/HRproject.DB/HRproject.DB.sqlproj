@@ -126,6 +126,8 @@
     <Build Include="dbo\Stored Procedures\Position_Search.sql" />
     <Build Include="dbo\Stored Procedures\Position_Update.sql" />
     <Build Include="dbo\Stored Procedures\Employee_GetByDepartmentId.sql" />
+    <Build Include="dbo\Stored Procedures\Status_GetAll.sql" />
+    <Build Include="dbo\Stored Procedures\Status_Get.sql" />
   </ItemGroup>
   <ItemGroup>
     <RefactorLog Include="HRproject.DB.refactorlog" />

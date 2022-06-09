@@ -16,6 +16,7 @@ namespace HRProject.UI
     public partial class MainWindow : Window
     {
         private ObservableCollection<ProjectOutputModel> Projects = new ObservableCollection<ProjectOutputModel>();
+        private ObservableCollection<StatusOutputModel> Statuses = new ObservableCollection<StatusOutputModel>();
         private Controller _controller = new Controller();
 
         private int _employeeId = 2;
@@ -33,9 +34,11 @@ namespace HRProject.UI
         {
             ComboBoxProjects.ItemsSource = ProjectTypes.Types;
             ListBoxProjects.ItemsSource = Projects;
+            ComboBox_Status_Tab1Create.ItemsSource = Statuses;
             ComboBox_Project_Tab1Create.ItemsSource = Projects;
 
             LoadProjectList(_controller.GetAllProjects());
+            LoadStatusList(_controller.GetAllStatus());
         }
 
         private void LoadProjectList(List<ProjectOutputModel> projects)
@@ -47,11 +50,23 @@ namespace HRProject.UI
             }
         }
 
+        private void LoadStatusList(List<StatusOutputModel> statuses)
+        {
+            Statuses.Clear();
+            foreach (StatusOutputModel status in statuses)
+            {
+                Statuses.Add(status);
+            }
+        }
+
         private void ComboBoxProjects_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
         {
-            LoadProjectList(
-                _controller.GetAllProjects(ComboBoxProjects.SelectedItem.ToString()!)
-            );
+
+        }
+
+        private void ComboBox_Status_Tab1Create_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
         }
 
         private void ListBoxProjects_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
@@ -103,16 +118,16 @@ namespace HRProject.UI
             var selectedEmployee = (EmployeeModel)ListBox_Employees.SelectedItem;
             if (selectedEmployee != null)
             {
-            var chooseEmployeeAllInfo = _controller.GetEmployeeById(selectedEmployee.id);
-            TextBox_FirstName.Text = chooseEmployeeAllInfo.FirstName;
-            TextBox_LastName.Text = chooseEmployeeAllInfo.SecondName;
-            TextBox_SecondName.Text = chooseEmployeeAllInfo.LastName;
-            TextBox_BirthDate.Text = chooseEmployeeAllInfo.BirthDate.ToString();
-            TextBox_Email.Text = chooseEmployeeAllInfo.Email;
-            TextBox_PhoneNumber.Text = chooseEmployeeAllInfo.PhoneNumber.ToString();
-            ComboBox_Status_Tab1.SelectedIndex = chooseEmployeeAllInfo.StatusId;
-            var historyModels = _controller.GetAllEmployeeHistory(selectedEmployee.id);
-            DataGrid_EmployeeHistory.ItemsSource = historyModels;
+                var chooseEmployeeAllInfo = _controller.GetEmployeeById(selectedEmployee.id);
+                TextBox_FirstName.Text = chooseEmployeeAllInfo.FirstName;
+                //TextBox_LastName.Text = chooseEmployeeAllInfo.SecondName;
+                TextBox_SecondName.Text = chooseEmployeeAllInfo.LastName;
+                TextBox_BirthDate.Text = chooseEmployeeAllInfo.BirthDate.ToString();
+                TextBox_Email.Text = chooseEmployeeAllInfo.Email;
+                TextBox_PhoneNumber.Text = chooseEmployeeAllInfo.PhoneNumber.ToString();
+                ComboBox_Status_Tab1.SelectedIndex = chooseEmployeeAllInfo.StatusId;
+                var historyModels = _controller.GetAllEmployeeHistory(selectedEmployee.id);
+                DataGrid_EmployeeHistory.ItemsSource = historyModels;
             }
         }
 
@@ -143,17 +158,43 @@ namespace HRProject.UI
 
         private void CreateButton_Click(object sender, RoutedEventArgs e)
         {
-            // todo: retrieve valid StatusId
-            // todo: retireve valid DepartmentId
+            DepartmentModel department = (DepartmentModel)ComboBox_Departments.SelectedItem;
+            StatusOutputModel status = (StatusOutputModel)ComboBox_Status_Tab1Create.SelectedItem;
+
+            string cleanPhoneNumber = TextBox_PhoneNumberCreate.Text.Replace(" ", "").Replace("+", "").Replace("-", "");
+            Decimal PhoneNumber;
+
+
+            if (!Decimal.TryParse(cleanPhoneNumber, out PhoneNumber))
+            {
+                MessageBox.Show("Phone number format is invalid");
+                return;
+            }
+            if (status == null)
+            {
+                MessageBox.Show("Choose status first");
+                return;
+            }
+            if (department == null)
+            {
+                MessageBox.Show("Choose department first");
+                return;
+            }
+            if (DatePicker_BirthDateCreate.SelectedDate == null)
+            {
+                MessageBox.Show("Choose birthdate first");
+            }
 
             EmployeeInputModel employee = new EmployeeInputModel
             {
                 FirstName = TextBox_FirstNameCreate.Text,
                 SecondName = TextBox_SecondNameCreate.Text,
+                LastName = TextBox_FamiliayCreate.Text,
                 BirthDate = DatePicker_BirthDateCreate.DisplayDate,
                 Email = TextBox_EmailCreate.Text,
-                PhoneNumber = TextBox_PhoneNumberCreate.Text,
-                StatusId = ComboBox_Status_Tab1Create.SelectedIndex,
+                PhoneNumber = PhoneNumber,
+                StatusId = status.Id,
+                DepartmentId = department.id,
             };
 
             _controller.AddEmployee(employee);
