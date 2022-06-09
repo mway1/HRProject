@@ -3,9 +3,10 @@
     public class EmployeeModel
     {
         public int id { get; set; }
-        public string Name { get; set; }
-        //public string SecondName { get; set; }
-        //public string LastName { get; set; }
+        //public string Name { get; set; }
+        public string FirstName { get; set; }
+        public string SecondName { get; set; }
+        public string LastName { get; set; }
         public DateTime BirthDate { get; set; }
         public string Email { get; set; }
         public decimal PhoneNumber { get; set; }
