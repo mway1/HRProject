@@ -13,7 +13,7 @@ namespace HRProject.DAL.Managers
             {
                 connection.Open();
 
-                connection.QuerySingle<EmployeeDTO>(
+                connection.QuerySingle<Employee_PositionDTO>(
                     Employee_PositionStoredProcedures.Employee_Position_Add,
                     param: new
                     {
@@ -42,4 +42,17 @@ namespace HRProject.DAL.Managers
                     commandType: System.Data.CommandType.StoredProcedure);
             }
         }
+        public Employee_PositionDTO GetEmployee_PositionById(int employeeId)
+        {
+            using (var connection = new SqlConnection(ServerSettings._connectionString))
+            {
+                connection.Open();
+
+                return connection.QuerySingle<Employee_PositionDTO>(
+                    EmployeeStoredProcedures.Employee_GetById,
+                    param: new { EmployeeId = employeeId },
+                    commandType: System.Data.CommandType.StoredProcedure);
+            }
+        }
+    }
 }
