@@ -39,7 +39,7 @@ namespace HRProject.DAL
             {
                 connection.Open();
 
-                connection.QuerySingle<DepartmentDTO>(
+                connection.Query<DepartmentDTO>(
                     StoredProcedures.Department_Add,
                     param: new
                     {
