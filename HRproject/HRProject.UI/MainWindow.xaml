@@ -166,9 +166,9 @@
                     <Label Grid.Column="2" Content="Компетенции" HorizontalAlignment="Left" Margin="654,142,0,0" VerticalAlignment="Top"/>
                     <Button Grid.Column="2" Content=">" HorizontalAlignment="Left" Margin="735,232,0,0" VerticalAlignment="Top" Width="20"/>
                     <Button Grid.Column="2" Content="&lt;" HorizontalAlignment="Left" Margin="437,232,0,0" VerticalAlignment="Top" Width="22"/>
-                    <ListBox x:Name="ListBoxRequestPosition" Grid.Column="2" HorizontalAlignment="Left" Height="60" Margin="520,164,0,0" VerticalAlignment="Top" Width="120" d:ItemsSource="{d:SampleData ItemCount=5}"/>
-                    <ListBox x:Name="ListBoxRequestSkills" Grid.Column="2" HorizontalAlignment="Left" Height="60" Margin="640,164,0,0" VerticalAlignment="Top" Width="115" d:ItemsSource="{d:SampleData ItemCount=5}" />
-                    <ListBox x:Name="ListBoxRequestQuantity" Grid.Column="2" HorizontalAlignment="Left" Height="60" Margin="437,164,0,0" VerticalAlignment="Top" Width="83" d:ItemsSource="{d:SampleData ItemCount=5}" ItemsSource="{Binding Quantity}"/>
+                    <ListBox x:Name="ListBoxRequestPosition" Grid.Column="2" HorizontalAlignment="Left" Height="60" Margin="520,164,0,0" VerticalAlignment="Top" Width="120" d:ItemsSource="{d:SampleData ItemCount=5}" DisplayMemberPath="Positions"/>
+                    <ListBox x:Name="ListBoxRequestSkills" Grid.Column="2" HorizontalAlignment="Left" Height="60" Margin="640,164,0,0" VerticalAlignment="Top" Width="115" d:ItemsSource="{d:SampleData ItemCount=5}" DisplayMemberPath="Skills" />
+                    <ListBox x:Name="ListBoxRequestQuantity" Grid.Column="2" HorizontalAlignment="Left" Height="60" Margin="437,164,0,0" VerticalAlignment="Top" Width="83" d:ItemsSource="{d:SampleData ItemCount=5}" DisplayMemberPath="Quantity"/>
 
                 </Grid>
             </TabItem>
