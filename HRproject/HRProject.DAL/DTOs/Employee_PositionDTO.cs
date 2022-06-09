@@ -12,5 +12,9 @@ namespace HRProject.DAL.DTOs
         public int EmployeeId { get; set; }
         public int PositionId { get; set; }
         public int LevelOfPositionID { get; set; }
+        public override string ToString()
+        {
+            return $"id={id} EmployeeId={EmployeeId} PositionId={PositionId} LevelOfPositionID={LevelOfPositionID}";
+        }
     }
 }

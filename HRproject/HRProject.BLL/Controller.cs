@@ -276,6 +276,20 @@ namespace HRProject.BLL
             _manager.CommentManager.UpdateComment(comment);
         }
 
-        public void AddEmployee_Positio
+        public void AddEmployee_Position(Employee_PostionModel input)
+        {
+            Employee_PositionDTO employee_Position = _mapper.Map<Employee_PositionDTO>(input);
+            _manager.Employee_PositionManager.AddEmployee_Position(employee_Position);
+        }
+        public void DeleteEmployee_Position(Employee_PositionDTO input)
+        {
+            Employee_PositionDTO employee_Position = new Employee_PositionDTO();
+            var selectedEmployee_Position = _mapper.Map(input, employee_Position);
+            _manager.Employee_PositionManager.DeleteEmployee_Position(selectedEmployee_Position);
+        }
+        public Employee_PostionModel GetEmployee_PostionById(int employeeId)
+        {
+            return _mapper.Map<Employee_PostionModel>(_manager.Employee_PositionManager.GetEmployee_PositionById(employeeId);
+        }
     }
 }

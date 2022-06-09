@@ -11,6 +11,7 @@ namespace HRProject.DAL.Managers
         public ProjectManager ProjectManager { get; private set; }
         public PositionManager PositionManager { get; private set;}
         public CommentManager CommentManager { get; private set; }
+        public Employee_PositionManager Employee_PositionManager { get; private set; }
 
         public ManagerStorage()
         {
@@ -21,6 +22,7 @@ namespace HRProject.DAL.Managers
             ProjectManager = new ProjectManager();
             PositionManager = new PositionManager();
             CommentManager = new CommentManager();
+            Employee_PositionManager = new Employee_PositionManager();
         }
     }
 }
