@@ -39,24 +39,24 @@
                                 <Label x:Name="Label_LastName" Content="Фамилия " HorizontalAlignment="Left" Height="26" Margin="18,72,0,0" VerticalAlignment="Top" Width="84"/>
                                 <Label x:Name="Label_Email" Content="Email" HorizontalAlignment="Left" Height="26" Margin="18,131,0,0" VerticalAlignment="Top" Width="84"/>
                                 <Label x:Name="Label_PhoneNumber" Content="Телефон" HorizontalAlignment="Left" Height="25" Margin="18,159,0,0" VerticalAlignment="Top" Width="87"/>
-                                <TextBox x:Name="TextBox_FirstName" HorizontalAlignment="Left" Height="20" Margin="152,18,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="162" Foreground="#FFA3A3A3" Grid.ColumnSpan="3"/>
-                                <TextBox x:Name="TextBox_SecondName" Grid.ColumnSpan="3" HorizontalAlignment="Left" Height="20" Margin="152,76,0,0" TextWrapping="Wrap" Text="Иванов" VerticalAlignment="Top" Width="162" Foreground="#FFA3A3A3"/>
-                                <TextBox x:Name="TextBox_Email" Grid.ColumnSpan="3" HorizontalAlignment="Left" Height="20" Margin="153,134,0,0" TextWrapping="Wrap" Text="ivanov@mail.ru" VerticalAlignment="Top" Width="162" Foreground="#FFA3A3A3"/>
-                                <TextBox x:Name="TextBox_PhoneNumber" Grid.ColumnSpan="3" HorizontalAlignment="Left" Height="20" Margin="153,162,0,0" TextWrapping="Wrap" Text="+7 999 999 99 99" VerticalAlignment="Top" Width="162" Foreground="#FFA3A3A3"/>
+                                <TextBox x:Name="TextBox_FirstName" HorizontalAlignment="Left" Height="20" Margin="152,18,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="162"  Grid.ColumnSpan="3"/>
+                                <TextBox x:Name="TextBox_SecondName" Grid.ColumnSpan="3" HorizontalAlignment="Left" Height="20" Margin="152,76,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="162" />
+                                <TextBox x:Name="TextBox_Email" Grid.ColumnSpan="3" HorizontalAlignment="Left" Height="20" Margin="153,134,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="162"/>
+                                <TextBox x:Name="TextBox_PhoneNumber" Grid.ColumnSpan="3" HorizontalAlignment="Left" Height="20" Margin="153,162,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="162" />
                                 <Label x:Name="Label_Position" Content="Должность" HorizontalAlignment="Left" Height="26" Margin="18,209,0,0" VerticalAlignment="Top" Width="87"/>
                                 <Label x:Name="Label_Level" Content="Уровень" HorizontalAlignment="Left" Height="26" Margin="18,235,0,0" VerticalAlignment="Top" Width="84"/>
                                 <Label x:Name="Label_FirstName_Copy2" Content="Компетенции" HorizontalAlignment="Left" Height="26" Margin="93,203,0,0" VerticalAlignment="Top" Width="100" Grid.Column="1"/>
-                                <TextBox x:Name="TextBox_Position" HorizontalAlignment="Left" Height="20" Margin="153,209,0,0" TextWrapping="Wrap" Text="Разработчик" VerticalAlignment="Top" Width="162" Foreground="#FFA3A3A3" Grid.ColumnSpan="3"/>
-                                <TextBox x:Name="TextBox_Level" HorizontalAlignment="Left" Height="20" Margin="153,238,0,0" TextWrapping="Wrap" Text="Джуниор" VerticalAlignment="Top" Width="162" Foreground="#FFA3A3A3" Grid.ColumnSpan="3"/>
+                                <TextBox x:Name="TextBox_Position" HorizontalAlignment="Left" Height="20" Margin="153,209,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="162"  Grid.ColumnSpan="3"/>
+                                <TextBox x:Name="TextBox_Level" HorizontalAlignment="Left" Height="20" Margin="153,238,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="162" Grid.ColumnSpan="3"/>
                                 <Image Grid.Column="1" HorizontalAlignment="Left" Height="125" Margin="176,34,0,0" VerticalAlignment="Top" Width="113">
                                     <Image.OpacityMask>
                                         <ImageBrush Stretch="None"/>
                                     </Image.OpacityMask>
                                 </Image>
                                 <Image Margin="93,18,44,200" Source="/1614560341_16-p-ikonki-na-belom-fone-18.png" Stretch="Fill" Grid.Column="3"/>
-                                <TextBox x:Name="TextBox_LastName" HorizontalAlignment="Left" Height="20" Margin="152,47,0,0" TextWrapping="Wrap" Text="Иванович" VerticalAlignment="Top" Width="162" Grid.ColumnSpan="3" Foreground="#FFA3A3A3"/>
+                                <TextBox x:Name="TextBox_LastName" HorizontalAlignment="Left" Height="20" Margin="152,47,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="162" Grid.ColumnSpan="3" />
                                 <Label x:Name="Label_SecondName" Content="Отчество" HorizontalAlignment="Left" Height="26" Margin="18,44,0,0" VerticalAlignment="Top" Width="84"/>
-                                <TextBox x:Name="TextBox_BirthDate" HorizontalAlignment="Left" Height="20" Margin="152,105,0,0" TextWrapping="Wrap" Text="01.01.2001" VerticalAlignment="Top" Width="162" Foreground="#FFA3A3A3" Grid.ColumnSpan="3"/>
+                                <TextBox x:Name="TextBox_BirthDate" HorizontalAlignment="Left" Height="20" Margin="152,105,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="162"  Grid.ColumnSpan="3"/>
                                 <Label x:Name="Label_BirthDate" Content="Дата рождения" HorizontalAlignment="Left" Height="25" Margin="18,102,0,0" VerticalAlignment="Top" Width="117"/>
                                 <Label x:Name="Label_Project" Content="Проект" HorizontalAlignment="Left" Height="26" Margin="18,281,0,0" VerticalAlignment="Top" Width="84"/>
                                 <Label x:Name="Label_Status" Content="Статус" HorizontalAlignment="Left" Height="26" Margin="18,309,0,0" VerticalAlignment="Top" Width="84"/>
