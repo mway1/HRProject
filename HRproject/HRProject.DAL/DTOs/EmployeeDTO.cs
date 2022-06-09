@@ -15,7 +15,7 @@
 
         public override string ToString()
         {
-            return $"id={id} FirstName={FirstName} SecondName={FirstName} LastName={LastName} BirthDate={BirthDate} Email={Email}" +
+            return $"id={id} FirstName={FirstName} SecondName={FirstName} BirthDate={BirthDate} Email={Email}" +
                    $"PhonrNumber={PhoneNumber} StatusId={StatusId} DepartmentId={DepartmentId} isDeleted={isDeleted}";
         }
 

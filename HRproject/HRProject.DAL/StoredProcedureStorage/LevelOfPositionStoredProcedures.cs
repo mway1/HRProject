@@ -12,5 +12,6 @@ namespace HRProject.DAL.StoredProcedureStorage
         public const string LevelOfPosition_Delete = "LevelOfPosition_Delete";
         public const string LevelOfPosition_Get = "LevelOfPosition_Get";
         public const string LevelOfPosition_Update = "LevelOfPosition_Update";
+        public const string LevelOfPosition_Search = "LevelOfPosition_Search";
     }
 }
