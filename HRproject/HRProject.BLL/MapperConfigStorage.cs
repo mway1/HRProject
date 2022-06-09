@@ -40,10 +40,10 @@ namespace HRProject.BLL
                 .ForMember("IsDeleted", opt => opt.MapFrom(c => $"{c.IsDeleted}"));
 
                 cfg.CreateMap<EmployeeHistoryDTO, EmployeeHistoryModel>()
-                .ForMember("EmployeeId", opt => opt.MapFrom(c => $"{c.EmployeeId}"))
+                //.ForMember("EmployeeId", opt => opt.MapFrom(c => $"{c.EmployeeId}"))
                 .ForMember("Date", opt => opt.MapFrom(c => c.Date.ToString("yyyy-MM-dd")))
-                .ForMember("StatusId", opt => opt.MapFrom(c => $"{c.StatusId}"))
-                .ForMember("IsDeleted", opt => opt.MapFrom(c => $"{c.IsDeleted}"));
+                //.ForMember("StatusId", opt => opt.MapFrom(c => $"{c.StatusId}"))
+                /*.ForMember("IsDeleted", opt => opt.MapFrom(c => $"{c.IsDeleted}"))*/;
 
                 cfg.CreateMap<ProjectDTO, ProjectModel>()
                 .ForMember("Id", opt => opt.MapFrom(c => c.Id))
