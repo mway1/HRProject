@@ -11,5 +11,6 @@ namespace HRProject.DAL.StoredProcedureStorage
         public const string Employee_Position_Add = "Employee_Position_Add";
         public const string Employee_Position_Delete = "Employee_Position_Delete";
         public const string Employee_Position_GetById = "Employee_Position_GetById";
+        public const string Employee_Position_GetByLevelId = "Employee_Position_GetByLevelId";
     }
 }
