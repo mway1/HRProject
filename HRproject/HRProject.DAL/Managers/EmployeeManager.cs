@@ -29,15 +29,14 @@ namespace HRProject.DAL.Managers
                     EmployeeStoredProcedures.Employee_Add,
                     param: new
                     {
-                        newEmployee.FirstName,
-                        newEmployee.SecondName,
-                        newEmployee.LastName,
-                        newEmployee.BirthDate,
-                        newEmployee.Email,
-                        newEmployee.PhoneNumber,
-                        newEmployee.StatusId,
-                        newEmployee.DepartmentId,
-                        newEmployee.isDeleted
+                        FirstName = newEmployee.FirstName,
+                        SecondName = newEmployee.SecondName,
+                        LastName = newEmployee.LastName,
+                        BirthDate = newEmployee.BirthDate,
+                        Email = newEmployee.Email,
+                        PhoneNumber = newEmployee.PhoneNumber,
+                        StatusId = newEmployee.StatusId,
+                        DepartmentId = newEmployee.DepartmentId,
                     },
                     commandType: System.Data.CommandType.StoredProcedure);
             }
@@ -67,7 +66,6 @@ namespace HRProject.DAL.Managers
                         newEmployee.id,
                         newEmployee.FirstName,
                         newEmployee.SecondName,
-                        newEmployee.LastName,
                         newEmployee.BirthDate,
                         newEmployee.Email,
                         newEmployee.PhoneNumber,
@@ -88,6 +86,19 @@ namespace HRProject.DAL.Managers
                     EmployeeStoredProcedures.Employee_GetById,
                     param: new { id = employeeId },
                     commandType: System.Data.CommandType.StoredProcedure);
+            }
+        }
+        public List<EmployeeDTO> GetEmployeeByDepartmentId(int departmentId)
+        {
+            using (var connection = new SqlConnection(ServerSettings._connectionString))
+            {
+                connection.Open();
+
+                return connection.Query<EmployeeDTO>(
+                    EmployeeStoredProcedures.Employee_GetByDepartmentId,
+                    param: new { DepartmentId= departmentId },
+                    commandType: System.Data.CommandType.StoredProcedure)
+                    .ToList();
             }
         }
     }

@@ -3,6 +3,11 @@
     public class ProjectInputModel
     {
         public string Name { get; set; }
-        public string Description { get; set; }
+        public DateTime BirthDate { get; set; }
+        public string Email { get; set; }
+        public decimal PhoneNumber { get; set; }
+        public int StatusId { get; set; }
+        public int DepartmentId { get; set; }
+        public bool isDeleted { get; set; }
     }
 }

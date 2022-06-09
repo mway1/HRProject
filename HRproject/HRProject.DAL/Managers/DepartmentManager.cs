@@ -6,7 +6,7 @@ namespace HRProject.DAL
 {
     public class DepartmentManager
     {
-        public string _connectionString = @"Server=.\SQLEXPRESS01;Database=HRProject.DB;Trusted_Connection=True;";
+        public string _connectionString = ServerSettings._connectionString;
         public DepartmentDTO GetByIdDpeartment(int id)
         {
             using (var connection = new SqlConnection(_connectionString))

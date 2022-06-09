@@ -10,5 +10,6 @@ namespace HRProject.DAL.StoredProcedureStorage
         public const string Project_Add = "Project_Add";
         public const string Project_GetAllNotFull = "Project_GetAllNotFull";
         public const string Project_GetAllFull = "Project_GetAllFull";
+        public const string Project_Search = "Project_Search";
     }
 }

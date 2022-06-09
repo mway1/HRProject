@@ -61,7 +61,6 @@
     <Folder Include="dbo\" />
     <Folder Include="dbo\Tables\" />
     <Folder Include="dbo\Stored Procedures\" />
-    <Folder Include="dbo\Stored Procedures\Position" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="dbo\Tables\Department.sql" />
@@ -100,11 +99,6 @@
     <Build Include="dbo\Stored Procedures\Department_GetAll.sql" />
     <Build Include="dbo\Stored Procedures\Department_GetById.sql" />
     <Build Include="dbo\Stored Procedures\Department_Update.sql" />
-    <Build Include="dbo\Stored Procedures\Position\Position_Add.sql" />
-    <Build Include="dbo\Stored Procedures\Position\Position_Delete.sql" />
-    <Build Include="dbo\Stored Procedures\Position\Position_Update.sql" />
-    <Build Include="dbo\Stored Procedures\Position\Position_GetById.sql" />
-    <Build Include="dbo\Stored Procedures\Position\Position_GetAll.sql" />
     <Build Include="dbo\Stored Procedures\Comment_add.sql" />
     <Build Include="dbo\Stored Procedures\Comment_Delete.sql" />
     <Build Include="dbo\Stored Procedures\Comment_GetAll.sql" />
@@ -123,6 +117,20 @@
     <Build Include="dbo\Stored Procedures\project_getAllFull.sql" />
     <Build Include="dbo\Stored Procedures\project_getAllNotFull.sql" />
     <Build Include="dbo\Stored Procedures\Project_Update.sql" />
+    <Build Include="dbo\Stored Procedures\Project_Search.sql" />
+    <Build Include="dbo\Stored Procedures\LevelOfPosition_Search.sql" />
+    <Build Include="dbo\Stored Procedures\Position_Add.sql" />
+    <Build Include="dbo\Stored Procedures\Position_Delete.sql" />
+    <Build Include="dbo\Stored Procedures\Position_GetAll.sql" />
+    <Build Include="dbo\Stored Procedures\Position_GetById.sql" />
+    <Build Include="dbo\Stored Procedures\Position_Search.sql" />
+    <Build Include="dbo\Stored Procedures\Position_Update.sql" />
+    <Build Include="dbo\Stored Procedures\Employee_GetByDepartmentId.sql" />
+    <Build Include="dbo\Stored Procedures\Employee_Position_Add.sql" />
+    <Build Include="dbo\Stored Procedures\Employee_Position_Delete.sql" />
+    <Build Include="dbo\Stored Procedures\Employee_Position_GetById.sql" />
+    <Build Include="dbo\Stored Procedures\Status_GetAll.sql" />
+    <Build Include="dbo\Stored Procedures\Status_Get.sql" />
   </ItemGroup>
   <ItemGroup>
     <RefactorLog Include="HRproject.DB.refactorlog" />

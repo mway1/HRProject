@@ -7,6 +7,7 @@
         public const string Employee_GetAll = "Employee_GetAll";
         public const string Employee_GetById = "Employee_GetById";
         public const string Employee_Update = "Employee_Update";
+        public const string Employee_GetByDepartmentId = "Employee_GetByDepartmentId";
 
     }
 }
