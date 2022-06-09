@@ -101,10 +101,11 @@
                                 <Label x:Name="Label_PositionCreate" Content="Должность" HorizontalAlignment="Left" Height="26" Margin="10,209,0,0" VerticalAlignment="Top" Width="87" Grid.ColumnSpan="2" Grid.Column="1"/>
                                 <Label x:Name="Label_Level2" Content="Уровень" HorizontalAlignment="Left" Height="26" Margin="18,235,0,0" VerticalAlignment="Top" Width="84" Grid.ColumnSpan="3"/>
 
+                                <ComboBox IsEditable="True" x:Name="ComboBox_PositionCreate" HorizontalAlignment="Left" Height="20" Margin="129,209,0,0"  Text="Разработчик" VerticalAlignment="Top" Width="162" Foreground="#FFA3A3A3" Grid.ColumnSpan="3" Grid.Column="2" TextBoxBase.TextChanged="ComboBox_PositionCreate_TextChanged"  IsTextSearchEnabled="False" GotFocus="ComboBox_PositionCreate_GotFocus"/>
                                 <Label x:Name="Label_FirstName_Copy2Create" Content="Компетенции" HorizontalAlignment="Left" Height="26" Margin="93,203,0,0" VerticalAlignment="Top" Width="100" Grid.Column="3"/>
-                                <ComboBox IsEditable="True" x:Name="ComboBox_PositionCreate" HorizontalAlignment="Left" Height="20" Margin="129,209,0,0"  Text="Разработчик" VerticalAlignment="Top" Width="162" Foreground="#FFA3A3A3" Grid.ColumnSpan="2" Grid.Column="2" TextBoxBase.TextChanged="ComboBox_PositionCreate_TextChanged" GotFocus="ComboBox_PositionCreate_GotFocus"/>
-                                <TextBox x:Name="TextBox_LevelCreate" HorizontalAlignment="Left" Height="20" Margin="129,238,0,0" TextWrapping="Wrap" Text="Джуниор" VerticalAlignment="Top" Width="162" Foreground="#FFA3A3A3" Grid.ColumnSpan="2" Grid.Column="2"/>
-                                <Image Grid.Column="3" HorizontalAlignment="Left" Height="125" Margin="176,34,0,0" VerticalAlignment="Top" Width="113">
+                                <Label x:Name="Label_LevelCreate" Content="Уровень" HorizontalAlignment="Left" Height="26" Margin="18,235,0,0" VerticalAlignment="Top" Width="84" Grid.ColumnSpan="2"/>
+                                <ComboBox IsEditable="True" x:Name="ComboBox_LevelCreate" HorizontalAlignment="Left" Height="20" Margin="129,238,0,0" Text="Джуниор" VerticalAlignment="Top" Width="162" Foreground="#FFA3A3A3" Grid.ColumnSpan="3" Grid.Column="2" TextBoxBase.TextChanged="ComboBox_LevelCreate_TextChanged" IsTextSearchEnabled="False"  GotFocus="ComboBox_LevelCreate_GotFocus"/>
+                                <Image Grid.Column="2" HorizontalAlignment="Left" Height="125" Margin="176,34,0,0" VerticalAlignment="Top" Width="113">
                                     <Image.OpacityMask>
                                         <ImageBrush Stretch="None"/>
                                     </Image.OpacityMask>
@@ -116,18 +117,7 @@
                                 <Label x:Name="Label_BirthDateCreate" Content="Дата рождения" HorizontalAlignment="Left" Height="25" Margin="10,102,0,0" VerticalAlignment="Top" Width="117" Grid.ColumnSpan="2" Grid.Column="1"/>
                                 <Label x:Name="Label_ProjectCreate" Content="Проект" HorizontalAlignment="Left" Height="26" Margin="10,281,0,0" VerticalAlignment="Top" Width="84" Grid.ColumnSpan="2" Grid.Column="1"/>
                                 <Label x:Name="Label_StatusCreate" Content="Статус" HorizontalAlignment="Left" Height="26" Margin="10,309,0,0" VerticalAlignment="Top" Width="84" Grid.ColumnSpan="2" Grid.Column="1"/>
-                                <ComboBox x:Name="ComboBox_Status_Tab1Create" Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="20" Margin="130,312,0,0" VerticalAlignment="Top" Width="161" BorderBrush="White" Grid.Column="2">
-                                    <ComboBox.Background>
-                                        <LinearGradientBrush EndPoint="0,1">
-                                            <GradientStop Color="#FFF0F0F0"/>
-                                            <GradientStop Color="White" Offset="1"/>
-                                        </LinearGradientBrush>
-                                    </ComboBox.Background>
-                                    <ComboBoxItem Content="Уволен"/>
-                                    <ComboBoxItem Content="В отпуске"/>
-                                    <ComboBoxItem Content="Свободен"/>
-                                    <ComboBoxItem Content="Работает"/>
-                                </ComboBox>
+                                <ComboBox x:Name="ComboBox_Status_Tab1Create" Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="20" Margin="130,312,0,0" VerticalAlignment="Top" Width="161" BorderBrush="White" Grid.Column="2"></ComboBox>
                                 <ListBox x:Name="ListBox_SkillsCreate" Grid.Column="3" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="93,229,20,48" />
                                 <ComboBox x:Name="ComboBox_Project_Tab1Create" IsEditable="True" IsTextSearchEnabled="False" Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="20" Margin="130,281,0,0" StaysOpenOnEdit="True" VerticalAlignment="Top" Width="161" Grid.Column="2" TextBoxBase.TextChanged="ComboBox_Project_Tab1Create_TextChanged" GotFocus="ComboBox_Project_Tab1Create_GotFocus"/>
                                 <Button Content="Создать" x:Name="CreateButton" Margin="171,350,0,10" Click="CreateButton_Click" Grid.Column="2"/>
@@ -174,6 +164,7 @@
                     <Label x:Name="Label_Request" Grid.Column="2" Content="Требуются" HorizontalAlignment="Left" Height="25" Margin="515,106,0,0" VerticalAlignment="Top" Width="184"/>
                 </Grid>
             </TabItem>
+
             <TreeView/>
         </TabControl>
 
