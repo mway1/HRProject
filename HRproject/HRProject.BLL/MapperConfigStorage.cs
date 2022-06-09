@@ -77,7 +77,7 @@ namespace HRProject.BLL
                 .ForMember("EmployeeId", opt => opt.MapFrom(c => c.EmployeeId))
                 .ForMember("IsDeleted", opt => opt.MapFrom(c => c.IsDeleted));
                 
-                cfg.CreateMap<Employee_PositionDTO, Employee_PositionDTO>()
+                cfg.CreateMap<Employee_PositionDTO, Employee_PostionModel>()
                 .ForMember("id", opt => opt.MapFrom(c => c.id))
                 .ForMember("EmployeeId", opt => opt.MapFrom(c => c.EmployeeId))
                 .ForMember("PositionId", opt => opt.MapFrom(c => c.PositionId))
