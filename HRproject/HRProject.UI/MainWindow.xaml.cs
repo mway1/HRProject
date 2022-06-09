@@ -267,5 +267,11 @@ namespace HRProject.UI
             List<DepartmentModel> departmentList = _controller.GetAllDepartment();
             ComboBox_Departments.ItemsSource = departmentList;
         }
+
+        private void Button_DeleteEmployee_Click(object sender, RoutedEventArgs e)
+        {
+            EmployeeModel employee = (EmployeeModel)ListBox_Employees.SelectedItem;
+            _controller.DeleteEmployee(employee.id);
+        }
     }
 }
