@@ -93,6 +93,13 @@ namespace HRProject.BLL
                 .ForMember("PositionId", opt => opt.MapFrom(c => c.PositionId))
                 .ForMember("LevelOfPositionID", opt => opt.MapFrom(c => c.LevelOfPositionID));
 
+                cfg.CreateMap<Employee_SkillDTO, Employee_SkillModel>()
+                .ForMember("id", opt => opt.MapFrom(c => c.id))
+                .ForMember("EmployeeId", opt => opt.MapFrom(c => c.EmployeeId))
+                .ForMember("SkillId", opt => opt.MapFrom(c => c.SkillId))
+                .ForMember("SkillName", opt => opt.MapFrom(c => c.SkillName))
+                .ForMember("LevelOfSkill", opt => opt.MapFrom(c => c.LevelOfSkill));
+
 
                 cfg.CreateMap<PositionDTO, PositionOutputModel>();
                 cfg.CreateMap<LevelOfPositionDTO, LevelOfPositionOutputModel>();
