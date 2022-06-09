@@ -67,6 +67,17 @@ namespace HRProject.BLL
             ProjectDTO project = _manager.ProjectManager.GetProjectById(id);
             return _mapper.Map<ProjectOutputModel>(project);
         }
+        public StatusOutputModel GetStatus(int id)
+        {
+            StatusDTO status = _manager.StatusManager.GetStatus(id);
+            return _mapper.Map<StatusOutputModel>(status);
+        } 
+        
+        public List<StatusOutputModel> GetAllStatus()
+        {
+            List<StatusDTO> status = _manager.StatusManager.GetAllStatuses();
+            return _mapper.Map<List<StatusOutputModel>>(status);
+        }
 
         public List<ProjectOutputModel> SearchProjects(string name, int limit)
         {
@@ -219,8 +230,13 @@ namespace HRProject.BLL
             List<PositionDTO> position = _manager.PositionManager.SearchPositions(name, limit);
             return _mapper.Map<List<PositionOutputModel>>(position);
         }
+        public List<LevelOfPositionOutputModel> LevelOfPositionSearch(string name, int limit)
+        {
+            List<LevelOfPositionDTO> levels = _manager.LevelOfPositionManager.SearchLevelOfPosition(name, limit);
+            return _mapper.Map<List<LevelOfPositionOutputModel>>(levels);
+        }
 
-        public void AddEmployee(EmployeeModel input)
+        public void AddEmployee(EmployeeInputModel input)
         {
             EmployeeDTO employee = _mapper.Map<EmployeeDTO>(input);
             _manager.EmployeeManager.AddEmployee(employee);
@@ -275,6 +291,22 @@ namespace HRProject.BLL
         {
             CommentDTO comment = _mapper.Map<CommentDTO>(input);
             _manager.CommentManager.UpdateComment(comment);
+        }
+
+        public void AddEmployee_Position(Employee_PostionModel input)
+        {
+            Employee_PositionDTO employee_Position = _mapper.Map<Employee_PositionDTO>(input);
+            _manager.Employee_PositionManager.AddEmployee_Position(employee_Position);
+        }
+        public void DeleteEmployee_Position(Employee_PositionDTO input)
+        {
+            Employee_PositionDTO employee_Position = new Employee_PositionDTO();
+            var selectedEmployee_Position = _mapper.Map(input, employee_Position);
+            _manager.Employee_PositionManager.DeleteEmployee_Position(selectedEmployee_Position);
+        }
+        public Employee_PostionModel GetEmployee_PostionById(int employeeId)
+        {
+            return _mapper.Map<Employee_PostionModel>(_manager.Employee_PositionManager.GetEmployee_PositionById(employeeId));
         }
     }
 }

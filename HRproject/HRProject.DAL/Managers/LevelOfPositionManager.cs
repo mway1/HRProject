@@ -24,6 +24,7 @@ namespace HRProject.DAL.Managers
                     .ToList();
             }
         }
+
         public void AddLevelOfPosition(LevelOfPositionDTO newLevelOfPosition)
         {
             using (var connection = new SqlConnection(ServerSettings._connectionString))
@@ -40,7 +41,7 @@ namespace HRProject.DAL.Managers
                      commandType: System.Data.CommandType.StoredProcedure);
             }
         }
-        public void DeleteLevelOfPosition (int LevelOfPositionId)
+        public void DeleteLevelOfPosition(int LevelOfPositionId)
         {
             using (var connection = new SqlConnection(ServerSettings._connectionString))
             {
@@ -51,6 +52,22 @@ namespace HRProject.DAL.Managers
                     commandType: System.Data.CommandType.StoredProcedure);
             }
         }
+
+        public List<LevelOfPositionDTO> SearchLevelOfPosition(string name, int limit = 5)
+        {
+            using (var connection = new SqlConnection(ServerSettings._connectionString))
+            {
+                connection.Open();
+
+                List<LevelOfPositionDTO> level = connection.Query<LevelOfPositionDTO>(
+                    LevelOfPositionStoredProcedures.LevelOfPosition_Search,
+                    param: new { Name = name, Limit = limit },
+                    commandType: System.Data.CommandType.StoredProcedure)
+                    .ToList();
+                return level;
+            }
+        }
+
         public void UpdateLevelOfPosition(LevelOfPositionDTO newLevelOfPosition)
         {
             using (var connection = new SqlConnection(ServerSettings._connectionString))

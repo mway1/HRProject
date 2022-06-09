@@ -26,7 +26,6 @@ namespace HRProject.BLL
                 //.ForMember("Name", opt => opt.MapFrom(c => $"{c.FirstName} {c.SecondName}"))
                 .ForMember("FirstName", opt => opt.MapFrom(c => $"{c.FirstName}"))
                 .ForMember("SecondName", opt => opt.MapFrom(c => $"{c.SecondName}"))
-                .ForMember("LastName", opt => opt.MapFrom(c => $"{c.LastName} "))
                 .ForMember("BirthDate", opt => opt.MapFrom(c => $"{c.BirthDate}"))
                 .ForMember("Email", opt => opt.MapFrom(c => $"{c.Email}"))
                 .ForMember("PhoneNumber", opt => opt.MapFrom(c => $"{c.PhoneNumber}"))
@@ -34,16 +33,25 @@ namespace HRProject.BLL
                 .ForMember("DepartmentId", opt => opt.MapFrom(c => $"{c.DepartmentId}"))
                 .ForMember("isDeleted", opt => opt.MapFrom(c => $"{c.isDeleted}"));
 
+                cfg.CreateMap<EmployeeInputModel, EmployeeDTO>()
+                 .ForMember("FirstName", opt => opt.MapFrom(c => $"{c.FirstName}"))
+                 .ForMember("SecondName", opt => opt.MapFrom(c => $"{c.SecondName}"))
+                 .ForMember("BirthDate", opt => opt.MapFrom(c => $"{c.BirthDate}"))
+                 .ForMember("Email", opt => opt.MapFrom(c => $"{c.Email}"))
+                 .ForMember("PhoneNumber", opt => opt.MapFrom(c => $"{c.PhoneNumber}"))
+                 .ForMember("StatusId", opt => opt.MapFrom(c => $"{c.StatusId}"))
+                 .ForMember("DepartmentId", opt => opt.MapFrom(c => $"{c.DepartmentId}"));
+
                 cfg.CreateMap<DepartmentDTO, DepartmentModel>()
                 .ForMember("Name", opt => opt.MapFrom(c => $"{c.Name}"))
                 .ForMember("Description", opt => opt.MapFrom(c => $"{c.Description}"))
                 .ForMember("isDeleted", opt => opt.MapFrom(c => $"{c.isDeleted}"));
 
                 cfg.CreateMap<EmployeeHistoryDTO, EmployeeHistoryModel>()
-                .ForMember("EmployeeId", opt => opt.MapFrom(c => $"{c.EmployeeId}"))
+                //.ForMember("EmployeeId", opt => opt.MapFrom(c => $"{c.EmployeeId}"))
                 .ForMember("Date", opt => opt.MapFrom(c => c.Date.ToString("yyyy-MM-dd")))
-                .ForMember("StatusId", opt => opt.MapFrom(c => $"{c.StatusId}"))
-                .ForMember("IsDeleted", opt => opt.MapFrom(c => $"{c.IsDeleted}"));
+                //.ForMember("StatusId", opt => opt.MapFrom(c => $"{c.StatusId}"))
+                /*.ForMember("IsDeleted", opt => opt.MapFrom(c => $"{c.IsDeleted}"))*/;
 
                 cfg.CreateMap<ProjectDTO, ProjectModel>()
                 .ForMember("Id", opt => opt.MapFrom(c => c.Id))
@@ -76,13 +84,24 @@ namespace HRProject.BLL
                 .ForMember("Description", opt => opt.MapFrom(c => c.Description))
                 .ForMember("EmployeeId", opt => opt.MapFrom(c => c.EmployeeId))
                 .ForMember("IsDeleted", opt => opt.MapFrom(c => c.IsDeleted));
+                
+                cfg.CreateMap<Employee_PositionDTO, Employee_PostionModel>()
+                .ForMember("id", opt => opt.MapFrom(c => c.id))
+                .ForMember("Name", opt => opt.MapFrom(c => c.Name))
+                .ForMember("EmployeeId", opt => opt.MapFrom(c => c.EmployeeId))
+                .ForMember("PositionId", opt => opt.MapFrom(c => c.PositionId))
+                .ForMember("LevelOfPositionID", opt => opt.MapFrom(c => c.LevelOfPositionID));
+
 
                 cfg.CreateMap<PositionDTO, PositionOutputModel>();
+                cfg.CreateMap<LevelOfPositionDTO, LevelOfPositionOutputModel>();
 
                 cfg.CreateMap<ProjectDTO, ProjectOutputModel>();
                 cfg.CreateMap<ProjectInputModel, ProjectDTO>();
 
                 cfg.CreateMap<DepartmentInputModel, DepartmentDTO>();
+
+                cfg.CreateMap<StatusDTO, StatusOutputModel>();
             }));
         }
     }

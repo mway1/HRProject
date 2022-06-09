@@ -16,6 +16,7 @@ namespace HRProject.UI
     public partial class MainWindow : Window
     {
         private ObservableCollection<ProjectOutputModel> Projects = new ObservableCollection<ProjectOutputModel>();
+        private ObservableCollection<StatusOutputModel> Statuses = new ObservableCollection<StatusOutputModel>();
         private Controller _controller = new Controller();
 
         private int _employeeId = 2;
@@ -34,7 +35,12 @@ namespace HRProject.UI
         {
             ComboBoxProjects.ItemsSource = ProjectTypes.Types;
             ListBoxProjects.ItemsSource = Projects;
+            ComboBox_Status_Tab1Create.ItemsSource = Statuses;
             ComboBox_Project_Tab1Create.ItemsSource = Projects;
+
+            LoadProjectList(_controller.GetAllProjects());
+            LoadStatusList(_controller.GetAllStatus());
+        }
 
             LoadProjectList(_controller.GetAllProjects());
         }
@@ -48,11 +54,23 @@ namespace HRProject.UI
             }
         }
 
+        private void LoadStatusList(List<StatusOutputModel> statuses)
+        {
+            Statuses.Clear();
+            foreach (StatusOutputModel status in statuses)
+            {
+                Statuses.Add(status);
+            }
+        }
+
         private void ComboBoxProjects_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
         {
-            LoadProjectList(
-                _controller.GetAllProjects(ComboBoxProjects.SelectedItem.ToString()!)
-            );
+
+        }
+
+        private void ComboBox_Status_Tab1Create_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
         }
 
         private void ListBoxProjects_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
@@ -122,6 +140,7 @@ namespace HRProject.UI
             ComboBox_Status_Tab1.SelectedIndex = chooseEmployeeAllInfo.StatusId;
             var historyModels = _controller.GetAllEmployeeHistory(selectedEmployee.id);
             DataGrid_EmployeeHistory.ItemsSource = historyModels;
+                TextBox_Position.Text = _controller.GetEmployee_PostionById(selectedEmployee.id).Name;
             }
         }
 
@@ -152,16 +171,46 @@ namespace HRProject.UI
 
         private void CreateButton_Click(object sender, RoutedEventArgs e)
         {
+            DepartmentModel department = (DepartmentModel)ComboBox_Departments.SelectedItem;
+            StatusOutputModel status = (StatusOutputModel)ComboBox_Status_Tab1Create.SelectedItem;
+
+            string cleanPhoneNumber = TextBox_PhoneNumberCreate.Text.Replace(" ", "").Replace("+", "").Replace("-", "");
+            Decimal PhoneNumber;
+
+
+            if (!Decimal.TryParse(cleanPhoneNumber, out PhoneNumber))
+            {
+                MessageBox.Show("Phone number format is invalid");
+                return;
+            }
+            if (status == null)
+            {
+                MessageBox.Show("Choose status first");
+                return;
+            }
+            if (department == null)
+            {
+                MessageBox.Show("Choose department first");
+                return;
+            }
+            if (DatePicker_BirthDateCreate.SelectedDate == null)
+            {
+                MessageBox.Show("Choose birthdate first");
+            }
+
             EmployeeInputModel employee = new EmployeeInputModel
             {
                 FirstName = TextBox_FirstNameCreate.Text,
                 SecondName = TextBox_SecondNameCreate.Text,
+                LastName = TextBox_FamiliayCreate.Text,
                 BirthDate = DatePicker_BirthDateCreate.DisplayDate,
                 Email = TextBox_EmailCreate.Text,
-                PhoneNumber = TextBox_PhoneNumberCreate.Text,
-                //StatusId = 
-                //DepartmentId = 
+                PhoneNumber = PhoneNumber,
+                StatusId = status.Id,
+                DepartmentId = department.id,
             };
+
+            _controller.AddEmployee(employee);
         }
 
         private void ComboBox_Project_Tab1Create_TextChanged(object sender, TextChangedEventArgs e)
@@ -186,6 +235,15 @@ namespace HRProject.UI
             (sender as ComboBox).IsDropDownOpen = true;
         }
 
-        
+        private void ComboBox_LevelCreate_GotFocus(object sender, RoutedEventArgs e)
+        {
+            (sender as ComboBox).IsDropDownOpen = true;
+        }
+
+        private void ComboBox_LevelCreate_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            (sender as ComboBox).ItemsSource = _controller.LevelOfPositionSearch(name: ComboBox_LevelCreate.Text, limit: 5);
+            (sender as ComboBox).IsDropDownOpen = true;
+        }
     }
 }
