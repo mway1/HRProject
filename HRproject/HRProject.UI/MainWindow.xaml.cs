@@ -63,7 +63,7 @@ namespace HRProject.UI
         {
             var selectedProject = (ProjectOutputModel)ListBoxProjects.SelectedItem;
             var choosenEmployeeRequests = _controller.GetEmployeeRequestAllInfoByProjectId(selectedProject.Id);
-            DataGridRequests.ItemsSource = choosenEmployeeRequests;
+            
 
             var choosenEmployeesOnProject = _controller.GetEmployeeRequestAllInfoByProjectId(selectedProject.Id);
             ListBox_EmployeesOnProject.ItemsSource = choosenEmployeesOnProject;
@@ -79,7 +79,16 @@ namespace HRProject.UI
 
         private void ListBoxProjects_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
         {
+            ListBoxRequestQuantity.Items.Clear();
+            var selectedProject = (ProjectOutputModel)ListBoxProjects.SelectedItem;
+            var choosenEmployeeRequests = _controller.GetEmployeeRequestAllInfoByProjectId(selectedProject.Id);
+            if (choosenEmployeeRequests.Count != 0)
+            {
+                ListBoxRequestQuantity.Items.Add(choosenEmployeeRequests[0]);
+            }
 
+            TextBox_ProjectName.Text = selectedProject.Name;
+            TextBox_DescriptionProject.Text = selectedProject.Description;
         }
         private void Button_ChangeNameOfDepartment_Click(object sender, RoutedEventArgs e)
         {
