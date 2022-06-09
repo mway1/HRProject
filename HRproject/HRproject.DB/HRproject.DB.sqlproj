@@ -131,6 +131,9 @@
     <Build Include="dbo\Stored Procedures\Employee_Position_GetById.sql" />
     <Build Include="dbo\Stored Procedures\Status_GetAll.sql" />
     <Build Include="dbo\Stored Procedures\Status_Get.sql" />
+    <Build Include="dbo\Stored Procedures\Employee_Skill_Add.sql" />
+    <Build Include="dbo\Stored Procedures\Employee_Skill_Delete.sql" />
+    <Build Include="dbo\Stored Procedures\Employee_Skill_GetById.sql" />
   </ItemGroup>
   <ItemGroup>
     <RefactorLog Include="HRproject.DB.refactorlog" />
