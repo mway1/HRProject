@@ -23,7 +23,10 @@ namespace HRProject.BLL
             _instance = new Mapper(new MapperConfiguration(cfg =>
             {
                 cfg.CreateMap<EmployeeDTO, EmployeeModel>()
-                .ForMember("Name", opt => opt.MapFrom(c => $"{c.FirstName} {c.SecondName} {c.LastName} "))
+                //.ForMember("Name", opt => opt.MapFrom(c => $"{c.FirstName} {c.SecondName}"))
+                .ForMember("FirstName", opt => opt.MapFrom(c => $"{c.FirstName}"))
+                .ForMember("SecondName", opt => opt.MapFrom(c => $"{c.SecondName}"))
+                .ForMember("LastName", opt => opt.MapFrom(c => $"{c.LastName} "))
                 .ForMember("BirthDate", opt => opt.MapFrom(c => $"{c.BirthDate}"))
                 .ForMember("Email", opt => opt.MapFrom(c => $"{c.Email}"))
                 .ForMember("PhoneNumber", opt => opt.MapFrom(c => $"{c.PhoneNumber}"))
@@ -37,10 +40,10 @@ namespace HRProject.BLL
                 .ForMember("IsDeleted", opt => opt.MapFrom(c => $"{c.IsDeleted}"));
 
                 cfg.CreateMap<EmployeeHistoryDTO, EmployeeHistoryModel>()
-                .ForMember("EmployeeId", opt => opt.MapFrom(c => $"{c.EmployeeId}"))
+                //.ForMember("EmployeeId", opt => opt.MapFrom(c => $"{c.EmployeeId}"))
                 .ForMember("Date", opt => opt.MapFrom(c => c.Date.ToString("yyyy-MM-dd")))
-                .ForMember("StatusId", opt => opt.MapFrom(c => $"{c.StatusId}"))
-                .ForMember("IsDeleted", opt => opt.MapFrom(c => $"{c.IsDeleted}"));
+                //.ForMember("StatusId", opt => opt.MapFrom(c => $"{c.StatusId}"))
+                /*.ForMember("IsDeleted", opt => opt.MapFrom(c => $"{c.IsDeleted}"))*/;
 
                 cfg.CreateMap<ProjectDTO, ProjectModel>()
                 .ForMember("Id", opt => opt.MapFrom(c => c.Id))
@@ -75,6 +78,7 @@ namespace HRProject.BLL
                 .ForMember("IsDeleted", opt => opt.MapFrom(c => c.IsDeleted));
 
                 cfg.CreateMap<PositionDTO, PositionOutputModel>();
+                cfg.CreateMap<LevelOfPositionDTO, LevelOfPositionOutputModel>();
 
                 cfg.CreateMap<ProjectDTO, ProjectOutputModel>();
                 cfg.CreateMap<ProjectInputModel, ProjectDTO>();

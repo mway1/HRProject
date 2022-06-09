@@ -115,6 +115,9 @@ namespace HRProject.UI
 
         private void CreateButton_Click(object sender, RoutedEventArgs e)
         {
+            // todo: retrieve valid StatusId
+            // todo: retireve valid DepartmentId
+
             EmployeeInputModel employee = new EmployeeInputModel
             {
                 FirstName = TextBox_FirstNameCreate.Text,
@@ -122,9 +125,10 @@ namespace HRProject.UI
                 BirthDate = DatePicker_BirthDateCreate.DisplayDate,
                 Email = TextBox_EmailCreate.Text,
                 PhoneNumber = TextBox_PhoneNumberCreate.Text,
-                //StatusId = 
-                //DepartmentId = 
+                StatusId = ComboBox_Status_Tab1Create.SelectedIndex,
             };
+
+            _controller.AddEmployee(employee);
         }
 
         private void ComboBox_Project_Tab1Create_TextChanged(object sender, TextChangedEventArgs e)
@@ -146,6 +150,17 @@ namespace HRProject.UI
 
         private void ComboBox_PositionCreate_GotFocus(object sender, RoutedEventArgs e)
         {
+            (sender as ComboBox).IsDropDownOpen = true;
+        }
+
+        private void ComboBox_LevelCreate_GotFocus(object sender, RoutedEventArgs e)
+        {
+            (sender as ComboBox).IsDropDownOpen = true;
+        }
+
+        private void ComboBox_LevelCreate_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            (sender as ComboBox).ItemsSource = _controller.LevelOfPositionSearch(name: ComboBox_LevelCreate.Text, limit: 5);
             (sender as ComboBox).IsDropDownOpen = true;
         }
     }

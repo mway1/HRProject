@@ -218,8 +218,13 @@ namespace HRProject.BLL
             List<PositionDTO> position = _manager.PositionManager.SearchPositions(name, limit);
             return _mapper.Map<List<PositionOutputModel>>(position);
         }
+        public List<LevelOfPositionOutputModel> LevelOfPositionSearch(string name, int limit)
+        {
+            List<LevelOfPositionDTO> levels = _manager.LevelOfPositionManager.SearchLevelOfPosition(name, limit);
+            return _mapper.Map<List<LevelOfPositionOutputModel>>(levels);
+        }
 
-        public void AddEmployee(EmployeeModel input)
+        public void AddEmployee(EmployeeInputModel input)
         {
             EmployeeDTO employee = _mapper.Map<EmployeeDTO>(input);
             _manager.EmployeeManager.AddEmployee(employee);
@@ -235,11 +240,14 @@ namespace HRProject.BLL
             return _mapper.Map<List<EmployeeModel>>(_manager.EmployeeManager.GetAllEmployee());
         }
 
-        public List<EmployeeModel> GetEmployeeById(int id)
+        public EmployeeModel GetEmployeeById(int id)
         {
-            return _mapper.Map<List<EmployeeModel>>(_manager.EmployeeManager.GetEmployeeById(id));
+            return _mapper.Map<EmployeeModel>(_manager.EmployeeManager.GetEmployeeById(id));
         }
-
+        public List<EmployeeModel> GetEmployeeByDepartmentId(int id)
+        {
+            return _mapper.Map<List<EmployeeModel>>(_manager.EmployeeManager.GetEmployeeByDepartmentId(id));
+        }
         public void UpdateEmployee(EmployeeModel input)
         {
             EmployeeDTO employee = _mapper.Map<EmployeeDTO>(input);

@@ -1,4 +1,4 @@
-﻿CREATE PROCEDURE [dbo].[Position_Search]
+﻿CREATE PROCEDURE [dbo].[LevelOfPosition_Search]
 	@Name text,
 	@Limit integer
 AS
@@ -6,11 +6,8 @@ BEGIN
 	SELECT TOP (@Limit)
 		Name
 	FROM
-		Project
+		LevelOfPosition
 	WHERE
 		LOWER(Name) LIKE '%' + LOWER(CONVERT(VARCHAR, @Name)) + '%'
-END;
+END
 GO
-
-
-
