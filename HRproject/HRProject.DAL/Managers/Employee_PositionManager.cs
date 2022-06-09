@@ -54,17 +54,6 @@ namespace HRProject.DAL.Managers
                     commandType: System.Data.CommandType.StoredProcedure);
             }
         }
-        public Employee_PositionDTO GetEmployee_PositionByLevelId(int levelId)
-        {
-            using (var connection = new SqlConnection(ServerSettings._connectionString))
-            {
-                connection.Open();
-
-                return connection.QuerySingle<Employee_PositionDTO>(
-                    Employee_PositionStoredProcedures.Employee_Position_GetByLevelId,
-                    param: new { LevelOfPositionID = levelId },
-                    commandType: System.Data.CommandType.StoredProcedure);
-            }
-        }
+        
     }
 }

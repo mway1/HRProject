@@ -312,9 +312,5 @@ namespace HRProject.BLL
         {
             return _mapper.Map<Employee_PostionModel>(_manager.Employee_PositionManager.GetEmployee_PositionById(employeeId));
         }
-        public Employee_PostionModel GetEmployee_PostionByLevelId(int levelId)
-        {
-            return _mapper.Map<Employee_PostionModel>(_manager.Employee_PositionManager.GetEmployee_PositionByLevelId(levelId));
-        }
     }
 }
