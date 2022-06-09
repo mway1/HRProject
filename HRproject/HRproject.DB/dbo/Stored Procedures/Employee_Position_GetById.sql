@@ -3,7 +3,7 @@
 AS
 BEGIN
 
-	SELECT EPos.id,EPos.EmployeeId,P.Name,EPos.LevelOfPositionID
+	SELECT EPos.id,EPos.EmployeeId,P.[Name],EPos.LevelOfPositionID
 	FROM dbo.Employee_Position as EPos
 	LEFT JOIN dbo.Position as P on(EPos.PositionId=P.id)
 	WHERE EmployeeId=@EmployeeId

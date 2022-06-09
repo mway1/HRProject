@@ -113,6 +113,7 @@ namespace HRProject.UI
             ComboBox_Status_Tab1.SelectedIndex = chooseEmployeeAllInfo.StatusId;
             var historyModels = _controller.GetAllEmployeeHistory(selectedEmployee.id);
             DataGrid_EmployeeHistory.ItemsSource = historyModels;
+                TextBox_Position.Text = _controller.GetEmployee_PostionById(selectedEmployee.id).Name;
             }
         }
 

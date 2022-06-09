@@ -5,6 +5,7 @@
         public int id { get; set; }
         public int EmployeeId { get; set; }
         public int PositionId { get; set; }
+        public string Name { get; set; }
         public int LevelOfPositionID { get; set; }
     }
 }

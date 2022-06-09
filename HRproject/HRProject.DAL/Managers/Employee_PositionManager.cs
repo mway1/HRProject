@@ -49,7 +49,7 @@ namespace HRProject.DAL.Managers
                 connection.Open();
 
                 return connection.QuerySingle<Employee_PositionDTO>(
-                    EmployeeStoredProcedures.Employee_GetById,
+                    Employee_PositionStoredProcedures.Employee_Position_GetById,
                     param: new { EmployeeId = employeeId },
                     commandType: System.Data.CommandType.StoredProcedure);
             }
