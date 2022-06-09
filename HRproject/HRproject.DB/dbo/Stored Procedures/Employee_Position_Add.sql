@@ -2,22 +2,22 @@
 	@id int,
 	@EmployeeId int,
 	@PositionId int,
-	@LevelOfPositionId int
+	@LevelOfPositionID int
 AS
 BEGIN
 INSERT INTO dbo.Employee_Position(
         EmployeeId,
 		PositionId,
-		LevelOfPositionId)
+		LevelOfPositionID)
 VALUES(
 		@EmployeeId,
 		@PositionId,
-		@LevelOfPositionId)
+		@LevelOfPositionID)
 SET @id=SCOPE_IDENTITY()
 
 SELECT
 		EmployeeId=@EmployeeId,
 		PositionId=@PositionId,
-		LevelOfPositionId=@LevelOfPositionId
+		LevelOfPositionID=@LevelOfPositionID
 FROM dbo.Employee_Position
 END
