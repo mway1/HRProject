@@ -135,16 +135,13 @@
                         </TabItem>
 
                     </TabControl>
-                    <Label x:Name="Label_DepartmentDescription" Content="Описание отдела" HorizontalAlignment="Left" Margin="7,247,0,0" VerticalAlignment="Top" Grid.ColumnSpan="3" FontWeight="Medium" FontFamily="Roboto"/>
-                    <TextBox x:Name="TextBox_ChangeNameOfDepartment" HorizontalAlignment="Left" Margin="10,367,0,0" TextWrapping="Wrap" Text="Введите новое название" VerticalAlignment="Top" Height="17" Width="144
-                             " Grid.ColumnSpan="3" Foreground="#FFA3A3A3" VerticalContentAlignment="Center" FontSize="10" FontWeight="Medium" FontFamily="Roboto"/>
-                    <Button x:Name="Button_ChangeNameOfDepartment" Grid.Column="1" Content="Изменить имя" HorizontalAlignment="Left" Margin="105,368,0,0" VerticalAlignment="Top" Height="17" Width="73" FontSize="10" FontWeight="Medium" FontFamily="Roboto" Click="Button_ChangeNameOfDepartment_Click" IsEnabled="False"/>
-                    <Button x:Name="Button_ChangeDescriptionOfDepartment" Content="Изменить описание" HorizontalAlignment="Left" Margin="10,388,0,0" VerticalAlignment="Top" Height="17" Width="109
-                            " FontSize="10" FontWeight="Medium" FontFamily="Roboto" Grid.ColumnSpan="3"/>
-                    <Button x:Name="Button_DeleteDepartment" Content="Удалить отдел" HorizontalAlignment="Left" Margin="70,389,0,0" VerticalAlignment="Top" Height="17" Width="109" FontSize="10" FontWeight="Medium" FontFamily="Roboto" Grid.Column="1"/>
+                    <Label x:Name="Label_DepartmentDescription" Content="Описание отдела" HorizontalAlignment="Left" Margin="7,240,0,0" VerticalAlignment="Top" Grid.ColumnSpan="3" FontWeight="Medium" FontFamily="Roboto"/>
+                    <TextBox x:Name="TextBox_NameOfNewDepartment" HorizontalAlignment="Left" Margin="10,383,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="17" Width="132" Grid.ColumnSpan="3" Foreground="Black" VerticalContentAlignment="Center" FontSize="10" FontWeight="Medium" FontFamily="Roboto"/>
+                    <Button x:Name="Button_AddNewDepartment" Grid.Column="2" Content="Добавить" HorizontalAlignment="Left" Margin="52,383,0,0" VerticalAlignment="Top" Height="17" Width="65" FontSize="10" FontWeight="Medium" FontFamily="Roboto" Click="Button_AddNewDepartment_Click" Foreground="Black" Background="#FFDDDDDD"/>
                     <ComboBox x:Name="ComboBox_Departments"  DisplayMemberPath="Name"  Grid.ColumnSpan="3" HorizontalAlignment="Left" Height="26" Margin="9,10,0,0" VerticalAlignment="Top" Width="203" Initialized="ComboBox_Departments_Initialazed" SelectionChanged="ComboBox_Departments_SelectionChanged"/>
                     <ListBox x:Name="ListBox_Employees"  DisplayMemberPath="SecondName" Grid.ColumnSpan="3" HorizontalAlignment="Left" Height="178" Margin="7,54,0,0" VerticalAlignment="Top" Width="205" d:ItemsSource="{d:SampleData ItemCount=5}" SelectionChanged="ListBox_Employees_SelectionChanged"/>
-                    <TextBox x:Name="TextBox_DepartmentDescription" Grid.ColumnSpan="3" HorizontalAlignment="Left" Margin="9,276,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="203" Height="83"/>
+                    <TextBox x:Name="TextBox_DepartmentDescription" Grid.ColumnSpan="3" HorizontalAlignment="Left" Margin="9,264,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="203" Height="83"/>
+                    <Button x:Name="Button_AddDepartment" Content="Добавить новый отдел" Grid.ColumnSpan="3" HorizontalAlignment="Left" Margin="10,360,0,0" VerticalAlignment="Top" Width="202" Click="Button_AddDepartment_Click"/>
                 </Grid>
             </TabItem>
             <TabItem Header="Проекты">

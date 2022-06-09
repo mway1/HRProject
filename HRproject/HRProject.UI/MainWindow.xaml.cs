@@ -25,7 +25,8 @@ namespace HRProject.UI
             this.Initialized += Window_Initialized;
             InitializeComponent();
 
-            Button_ChangeNameOfDepartment.IsEnabled = false;
+            Button_AddNewDepartment.IsEnabled = false;
+            TextBox_NameOfNewDepartment.IsEnabled = false;
 
         }
 
@@ -58,16 +59,6 @@ namespace HRProject.UI
         {
 
         }
-        private void Button_ChangeNameOfDepartment_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        //private void TreeView_Department_Initialized(object sender, RoutedEventArgs e)
-        //{
-        //    var departments = _controller.GetAllDepartment();
-        //    TreeView_Department.ItemsSource = departments;
-        //}
 
         private void DataGrid_EmployeeHistory_Loaded(object sender, RoutedEventArgs e)
         {
@@ -97,6 +88,19 @@ namespace HRProject.UI
             var departmentModels = _controller.GetAllDepartment();
             ComboBox_Departments.ItemsSource = departmentModels;
 
+        }
+        private void Button_AddDepartment_Click(object sender, RoutedEventArgs e)
+        {
+            Button_AddNewDepartment.IsEnabled = true;
+            TextBox_NameOfNewDepartment.IsEnabled = true;
+        }
+        private void Button_AddNewDepartment_Click(object sender, RoutedEventArgs e)
+        {
+            DepartmentModel department = new DepartmentModel();
+            department.Name = TextBox_NameOfNewDepartment.Text;
+            department.Description = TextBox_DepartmentDescription.Text;
+            department.IsDeleted = false;
+            _controller.AddDepartment(department);
         }
 
 

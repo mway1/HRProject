@@ -81,6 +81,8 @@ namespace HRProject.BLL
 
                 cfg.CreateMap<ProjectDTO, ProjectOutputModel>();
                 cfg.CreateMap<ProjectInputModel, ProjectDTO>();
+
+                cfg.CreateMap<DepartmentInputModel, ProjectDTO>();
             }));
         }
     }
