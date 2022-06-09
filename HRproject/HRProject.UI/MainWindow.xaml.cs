@@ -110,7 +110,18 @@ namespace HRProject.UI
             (sender as ComboBox).IsDropDownOpen = true;
         }
 
+        private void ComboBox_PositionCreate_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            (sender as ComboBox).ItemsSource = controller.SearchPosition(name: ComboBox_PositionCreate.Text, limit: 5);
+            (sender as ComboBox).IsDropDownOpen = true;
+        }
+
         private void ComboBox_Project_Tab1Create_GotFocus(object sender, RoutedEventArgs e)
+        {
+            (sender as ComboBox).IsDropDownOpen = true;
+        }
+
+        private void ComboBox_PositionCreate_GotFocus(object sender, RoutedEventArgs e)
         {
             (sender as ComboBox).IsDropDownOpen = true;
         }

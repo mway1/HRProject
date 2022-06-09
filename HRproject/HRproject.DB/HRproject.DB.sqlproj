@@ -123,7 +123,8 @@
     <Build Include="dbo\Stored Procedures\project_getAllFull.sql" />
     <Build Include="dbo\Stored Procedures\project_getAllNotFull.sql" />
     <Build Include="dbo\Stored Procedures\Project_Update.sql" />
-    <Build Include="dbo\Stored Procedures\Position\Project_Search.sql" />
+    <Build Include="dbo\Stored Procedures\Project_Search.sql" />
+    <Build Include="dbo\Stored Procedures\Position\Position_Search.sql" />
   </ItemGroup>
   <ItemGroup>
     <RefactorLog Include="HRproject.DB.refactorlog" />

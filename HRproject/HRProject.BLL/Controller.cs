@@ -79,6 +79,7 @@ namespace HRProject.BLL
             List<ProjectDTO> project = _manager.ProjectManager.GetAllProjects();
             return _mapper.Map<List<ProjectOutputModel>>(project);
         }
+
         public List<ProjectOutputModel> GetAllProjects(string type)
         {
             List<ProjectOutputModel> result = new List<ProjectOutputModel>();
@@ -109,14 +110,14 @@ namespace HRProject.BLL
             return _mapper.Map<List<ProjectOutputModel>>(project);
         }
 
-        public List <EmployeeHistoryModel> GetAllEmployeeHistory(int employeeId)
-        { 
+        public List<EmployeeHistoryModel> GetAllEmployeeHistory(int employeeId)
+        {
             List<EmployeeHistoryDTO> employeeHistories = _manager.EmployeeHistoryManager.GetAllEmployeeHistory(employeeId);
             List<EmployeeHistoryModel> viewEmployeeHistories = new List<EmployeeHistoryModel>();
             return _mapper.Map(employeeHistories, viewEmployeeHistories);
         }
 
-        public EmployeeHistoryModel GetByIdEmployeeHistory (int id)
+        public EmployeeHistoryModel GetByIdEmployeeHistory(int id)
         {
             EmployeeHistoryDTO employeeHistory = _manager.EmployeeHistoryManager.GetByIdEmployeeHistory(id);
             EmployeeHistoryModel viewEmployeeHistory = new EmployeeHistoryModel();
@@ -136,14 +137,14 @@ namespace HRProject.BLL
         //    _mapper.Map(employeeHistory, viewEmployeeHistory);
         //}
 
-        public void AddEmployeeHistory (EmployeeHistoryModel input)
+        public void AddEmployeeHistory(EmployeeHistoryModel input)
         {
             EmployeeHistoryDTO employeeHistory = new EmployeeHistoryDTO();
             var selectedHistory = _mapper.Map(input, employeeHistory);
             _manager.EmployeeHistoryManager.AddEmployeeHistory(selectedHistory);
         }
 
-        public void UpdateEmployeeHistory (EmployeeHistoryModel input, int id)
+        public void UpdateEmployeeHistory(EmployeeHistoryModel input, int id)
         {
             EmployeeHistoryDTO employeeHistoryDTO = new EmployeeHistoryDTO();
             var selectedHistory = _mapper.Map(input, employeeHistoryDTO);
@@ -155,32 +156,40 @@ namespace HRProject.BLL
             PositionDTO position = _mapper.Map<PositionDTO>(input);
             _manager.PositionManager.AddPosition(position);
         }
+
         public void UpdatePosition(PositionModel input)
         {
             PositionDTO position = _mapper.Map<PositionDTO>(input);
             _manager.PositionManager.UpdatePosition(position);
-
         }
 
         public List<PositionModel> GetAllPosition()
-        {           
+        {
             return _mapper.Map<List<PositionModel>>(_manager.PositionManager.GetAllPositon());
         }
+
         public PositionModel GetAllPosition(int id)
         {
             return _mapper.Map<PositionModel>(_manager.PositionManager.GetPositonById(id));
         }
+
         public void DeletePosition(int id)
         {
             _manager.PositionManager.DeletePosition(id);
         }
 
+        public List<PositionOutputModel> SearchPosition(string name, int limit)
+        {
+            List<PositionDTO> position = _manager.PositionManager.SearchPositions(name, limit);
+            return _mapper.Map<List<PositionOutputModel>>(position);
+        }
 
         public void AddEmployee(EmployeeModel input)
         {
             EmployeeDTO employee = _mapper.Map<EmployeeDTO>(input);
             _manager.EmployeeManager.AddEmployee(employee);
         }
+
         public void DeleteEmployee(int id)
         {
             _manager.EmployeeManager.DeleteEmployeeById(id);
@@ -190,10 +199,12 @@ namespace HRProject.BLL
         {
             return _mapper.Map<List<EmployeeModel>>(_manager.EmployeeManager.GetAllEmployee());
         }
+
         public List<EmployeeModel> GetEmployeeById(int id)
         {
             return _mapper.Map<List<EmployeeModel>>(_manager.EmployeeManager.GetEmployeeById(id));
         }
+
         public void UpdateEmployee(EmployeeModel input)
         {
             EmployeeDTO employee = _mapper.Map<EmployeeDTO>(input);
@@ -205,21 +216,25 @@ namespace HRProject.BLL
             CommentDTO comment = _mapper.Map<CommentDTO>(input);
             _manager.CommentManager.AddComment(comment);
         }
+
         public void DeleteComment(int id)
         {
             _manager.CommentManager.DeleteCommentById(id);
         }
+
         public List<CommentModel> GetAllComments()
         {
             return _mapper.Map<List<CommentModel>>(_manager.CommentManager.GetAllComment());
         }
+
         public List<CommentModel> GetCommentById(int id)
         {
             return _mapper.Map<List<CommentModel>>(_manager.CommentManager.GetCommentById(id));
         }
+
         public void UpdateComment(CommentModel input)
         {
-            CommentDTO comment=_mapper.Map<CommentDTO>(input);
+            CommentDTO comment = _mapper.Map<CommentDTO>(input);
             _manager.CommentManager.UpdateComment(comment);
         }
     }

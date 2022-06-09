@@ -13,9 +13,23 @@ namespace HRProject.DAL
                 connection.Open();
 
                 return connection.QuerySingle<PositionDTO>(
-                    PostionStoredProcedure.Position_GetById,
+                    PositionStoredProcedure.Position_GetById,
                     param: new { id = positionId },
                     commandType: System.Data.CommandType.StoredProcedure);
+            }
+        }
+        public List<PositionDTO> SearchPositions(string name, int limit = 5)
+        {
+            using (var connection = new SqlConnection(ServerSettings._connectionString))
+            {
+                connection.Open();
+
+                List<PositionDTO> positions = connection.Query<PositionDTO>(
+                   PositionStoredProcedure.Position_Search,
+                    param: new { Name = name, Limit = limit },
+                    commandType: System.Data.CommandType.StoredProcedure)
+                    .ToList();
+                return positions;
             }
         }
         public List<PositionDTO> GetAllPositon()
@@ -25,7 +39,7 @@ namespace HRProject.DAL
                 connection.Open();
 
                 return connection.Query<PositionDTO>(
-                    PostionStoredProcedure.Position_GetAll,
+                    PositionStoredProcedure.Position_GetAll,
                     commandType: System.Data.CommandType.StoredProcedure)
                     .ToList();
             }
@@ -37,7 +51,7 @@ namespace HRProject.DAL
                 connection.Open();
 
                 connection.QuerySingle(
-                    PostionStoredProcedure.Position_Add,
+                    PositionStoredProcedure.Position_Add,
                     param: new
                     {
                         Name = positionDTO.Name,
@@ -55,7 +69,7 @@ namespace HRProject.DAL
                 connection.Open();
 
                 connection.QuerySingle(
-                    PostionStoredProcedure.Position_Update,
+                    PositionStoredProcedure.Position_Update,
                     param: new
                     {
                         Id = positionDTO.id,
@@ -74,7 +88,7 @@ namespace HRProject.DAL
                 connection.Open();
 
                 connection.QuerySingle(
-                    PostionStoredProcedure.Position_Delete,
+                    PositionStoredProcedure.Position_Delete,
                     param: new
                     {  Id = positionId  },
                     commandType: System.Data.CommandType.StoredProcedure);

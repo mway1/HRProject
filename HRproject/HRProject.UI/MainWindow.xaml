@@ -100,7 +100,7 @@
                                 <TextBox x:Name="TextBox_PhoneNumberCreate" Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="20" Margin="129,162,0,0" TextWrapping="Wrap" Text="+7 999 999 99 99" VerticalAlignment="Top" Width="162" Foreground="#FFA3A3A3" PreviewMouseLeftButtonDown="TextBox_PhoneNumberCreate_PreviewMouseLeftButtonDown" Grid.Column="1"/>
                                 <Label x:Name="Label_PositionCreate" Content="Должность" HorizontalAlignment="Left" Height="26" Margin="18,209,0,0" VerticalAlignment="Top" Width="87" Grid.ColumnSpan="2"/>
                                 <Label x:Name="Label_FirstName_Copy2Create" Content="Компетенции" HorizontalAlignment="Left" Height="26" Margin="93,203,0,0" VerticalAlignment="Top" Width="100" Grid.Column="2"/>
-                                <TextBox x:Name="TextBox_PositionCreate" HorizontalAlignment="Left" Height="20" Margin="129,209,0,0" TextWrapping="Wrap" Text="Разработчик" VerticalAlignment="Top" Width="162" Foreground="#FFA3A3A3" Grid.ColumnSpan="2" Grid.Column="1"/>
+                                <ComboBox IsEditable="True" x:Name="ComboBox_PositionCreate" HorizontalAlignment="Left" Height="20" Margin="129,209,0,0"  Text="Разработчик" VerticalAlignment="Top" Width="162" Foreground="#FFA3A3A3" Grid.ColumnSpan="2" Grid.Column="1" TextBoxBase.TextChanged="ComboBox_PositionCreate_TextChanged" GotFocus="ComboBox_PositionCreate_GotFocus"/>
                                 <TextBox x:Name="TextBox_LevelCreate" HorizontalAlignment="Left" Height="20" Margin="129,238,0,0" TextWrapping="Wrap" Text="Джуниор" VerticalAlignment="Top" Width="162" Foreground="#FFA3A3A3" Grid.ColumnSpan="2" Grid.Column="1"/>
                                 <Image Grid.Column="2" HorizontalAlignment="Left" Height="125" Margin="176,34,0,0" VerticalAlignment="Top" Width="113">
                                     <Image.OpacityMask>
@@ -126,9 +126,9 @@
                                     <ComboBoxItem Content="Свободен"/>
                                     <ComboBoxItem Content="Работает"/>
                                 </ComboBox>
-                                <ListBox x:Name="ListBox_SkillsCreate" Grid.Column="2" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="93,229,20,48"/>
+                                <ListBox x:Name="ListBox_SkillsCreate" Grid.Column="2" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="93,229,20,48" />
                                 <ComboBox x:Name="ComboBox_Project_Tab1Create" IsEditable="True" IsTextSearchEnabled="False" Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="20" Margin="130,281,0,0" StaysOpenOnEdit="True" VerticalAlignment="Top" Width="161" Grid.Column="1" TextBoxBase.TextChanged="ComboBox_Project_Tab1Create_TextChanged" GotFocus="ComboBox_Project_Tab1Create_GotFocus"/>
-                                <Button Content="" x:Name="CreateButton" Margin="171,350,303,10" Grid.ColumnSpan="2" Click="CreateButton_Click" Grid.Column="1"/>
+                                <Button Content="Создать" x:Name="CreateButton" Margin="171,350,303,10" Grid.ColumnSpan="2" Click="CreateButton_Click" Grid.Column="1"/>
                             </Grid>
                         </TabItem>
 
