@@ -154,9 +154,7 @@ namespace HRProject.BLL
         {
             List<DepartmentDTO> department = _manager.DepartmentManager.GetAllDepartment();
             return _mapper.Map<List<DepartmentModel>>(department);
-            //List<DepartmentDTO> department = _manager.DepartmentManager.();
-            //List<DepartmentModel> viewDepartment = new List<DepartmentModel>();
-            //return _mapper.Map(department, viewDepartment);
+            
         }
 
         public DepartmentModel GetByIdDepartment(int id)
@@ -174,11 +172,14 @@ namespace HRProject.BLL
             _manager.DepartmentManager.UpdateDepartment(idDepartment, selectedDepartment);
         }
 
-        public void AddDepartment(DepartmentModel input)
+        public void AddDepartment(DepartmentInputModel input)
         {
-            DepartmentDTO department = new DepartmentDTO();
-            var selectedDepartment = _mapper.Map(input, department);
-            _manager.DepartmentManager.AddDepartment(selectedDepartment);
+            //DepartmentDTO department = new DepartmentDTO();
+            //var selectedDepartment = _mapper.Map(input, department);
+            //_manager.DepartmentManager.AddDepartment(selectedDepartment);
+            DepartmentDTO department = _mapper.Map<DepartmentDTO>(input);
+            _manager.DepartmentManager.AddDepartment(department);
+
         }
 
         public void DeleteDepartment(int id)

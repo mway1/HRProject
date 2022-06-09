@@ -93,10 +93,13 @@ namespace HRProject.UI
         {
             Button_AddNewDepartment.IsEnabled = true;
             TextBox_NameOfNewDepartment.IsEnabled = true;
+            Button_AddDepartment.IsEnabled = false;
         }
         private void Button_AddNewDepartment_Click(object sender, RoutedEventArgs e)
         {
-            DepartmentModel department = new DepartmentModel();
+            Button_AddDepartment.IsEnabled = true;
+            TextBox_NameOfNewDepartment.IsEnabled = false;
+            DepartmentInputModel department = new DepartmentInputModel();
             department.Name = TextBox_NameOfNewDepartment.Text;
             department.Description = TextBox_DepartmentDescription.Text;
             department.IsDeleted = false;

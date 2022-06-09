@@ -39,13 +39,13 @@ namespace HRProject.DAL
             {
                 connection.Open();
 
-                connection.QuerySingle(
+                connection.QuerySingle<DepartmentDTO>(
                     StoredProcedures.Department_Add,
                     param: new
                     {
-                        Name = departmentDTO.Name,
-                        Description = departmentDTO.Description,
-                        isDeleted = departmentDTO.IsDeleted
+                        departmentDTO.Name,
+                        departmentDTO.Description,
+                        departmentDTO.IsDeleted
                     },
                     commandType: System.Data.CommandType.StoredProcedure);
             }
