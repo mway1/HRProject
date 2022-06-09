@@ -26,7 +26,8 @@ namespace HRProject.UI
             this.Initialized += Window_Initialized;
             InitializeComponent();
 
-            Button_ChangeNameOfDepartment.IsEnabled = false;
+            Button_AddNewDepartment.IsEnabled = false;
+            TextBox_NameOfNewDepartment.IsEnabled = false;
 
         }
 
@@ -39,7 +40,10 @@ namespace HRProject.UI
 
             LoadProjectList(_controller.GetAllProjects());
             LoadStatusList(_controller.GetAllStatus());
+            LoadProjectList(_controller.GetAllProjects());
         }
+
+        
 
         private void LoadProjectList(List<ProjectOutputModel> projects)
         {
@@ -75,16 +79,6 @@ namespace HRProject.UI
         {
 
         }
-        private void Button_ChangeNameOfDepartment_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        //private void TreeView_Department_Initialized(object sender, RoutedEventArgs e)
-        //{
-        //    var departments = _controller.GetAllDepartment();
-        //    TreeView_Department.ItemsSource = departments;
-        //}
 
         private void DataGrid_EmployeeHistory_Loaded(object sender, RoutedEventArgs e)
         {
@@ -103,9 +97,14 @@ namespace HRProject.UI
 
         private void ComboBox_Departments_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            if (ComboBox_Departments.SelectedItem != null)
+            {
             var department = (DepartmentModel)ComboBox_Departments.SelectedItem;
             var chooseEmployeeByDepartments = _controller.GetEmployeeByDepartmentId(department.id);
             ListBox_Employees.ItemsSource = chooseEmployeeByDepartments;
+            TextBox_DepartmentDescription.Text = department.Description;
+            }
+            
         }
 
         private void ComboBox_Departments_Initialazed(object sender, EventArgs e)
@@ -114,6 +113,26 @@ namespace HRProject.UI
             ComboBox_Departments.ItemsSource = departmentModels;
 
         }
+        private void Button_AddDepartment_Click(object sender, RoutedEventArgs e)
+        {
+            Button_AddNewDepartment.IsEnabled = true;
+            TextBox_NameOfNewDepartment.IsEnabled = true;
+            Button_AddDepartment.IsEnabled = false;
+        }
+        private void Button_AddNewDepartment_Click(object sender, RoutedEventArgs e)
+        {
+            Button_AddDepartment.IsEnabled = true;
+            TextBox_NameOfNewDepartment.IsEnabled = false;
+            DepartmentInputModel department = new DepartmentInputModel();
+            department.Name = TextBox_NameOfNewDepartment.Text;
+            department.Description = TextBox_DepartmentDescription.Text;
+            department.isDeleted = false;
+            _controller.AddDepartment(department);
+            TextBox_NameOfNewDepartment.Clear();
+            TextBox_DepartmentDescription.Clear();
+            DepartmentRefresh();
+        }
+
 
         private void ListBox_Employees_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
@@ -266,6 +285,27 @@ namespace HRProject.UI
                 (sender as ComboBox).ItemsSource = _controller.LevelOfPositions_GetAll();
             }
             (sender as ComboBox).IsDropDownOpen = true;
+        }
+
+        private void Button_DeleteDepartment_Click(object sender, RoutedEventArgs e)
+        {
+            DepartmentModel department = (DepartmentModel)ComboBox_Departments.SelectedItem;
+            _controller.DeleteDepartment(department.id);
+            ComboBox_Departments.SelectedIndex=-1;
+            TextBox_DepartmentDescription.Clear();
+            DepartmentRefresh();
+        }
+
+        private void DepartmentRefresh()
+        {
+            List<DepartmentModel> departmentList = _controller.GetAllDepartment();
+            ComboBox_Departments.ItemsSource = departmentList;
+        }
+
+        private void Button_DeleteEmployee_Click(object sender, RoutedEventArgs e)
+        {
+            EmployeeModel employee = (EmployeeModel)ListBox_Employees.SelectedItem;
+            _controller.DeleteEmployee(employee.id);
         }
     }
 }
