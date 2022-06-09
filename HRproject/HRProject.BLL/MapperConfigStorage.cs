@@ -37,7 +37,7 @@ namespace HRProject.BLL
                 cfg.CreateMap<DepartmentDTO, DepartmentModel>()
                 .ForMember("Name", opt => opt.MapFrom(c => $"{c.Name}"))
                 .ForMember("Description", opt => opt.MapFrom(c => $"{c.Description}"))
-                .ForMember("IsDeleted", opt => opt.MapFrom(c => $"{c.IsDeleted}"));
+                .ForMember("isDeleted", opt => opt.MapFrom(c => $"{c.isDeleted}"));
 
                 cfg.CreateMap<EmployeeHistoryDTO, EmployeeHistoryModel>()
                 .ForMember("EmployeeId", opt => opt.MapFrom(c => $"{c.EmployeeId}"))

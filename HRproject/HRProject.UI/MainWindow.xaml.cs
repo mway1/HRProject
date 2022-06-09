@@ -102,7 +102,7 @@ namespace HRProject.UI
             DepartmentInputModel department = new DepartmentInputModel();
             department.Name = TextBox_NameOfNewDepartment.Text;
             department.Description = TextBox_DepartmentDescription.Text;
-            department.IsDeleted = false;
+            department.isDeleted = false;
             _controller.AddDepartment(department);
         }
 

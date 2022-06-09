@@ -45,7 +45,7 @@ namespace HRProject.DAL
                     {
                         departmentDTO.Name,
                         departmentDTO.Description,
-                        departmentDTO.IsDeleted
+                        departmentDTO.isDeleted
                     },
                     commandType: System.Data.CommandType.StoredProcedure);
             }
@@ -64,7 +64,7 @@ namespace HRProject.DAL
                         id = idDepartment,
                         Name = departmentDTO.Name,
                         Description = departmentDTO.Description,
-                        isDeleted = departmentDTO.IsDeleted
+                        isDeleted = departmentDTO.isDeleted
                     },
                     commandType: System.Data.CommandType.StoredProcedure);
             }
