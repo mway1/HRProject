@@ -159,7 +159,7 @@ namespace HRProject.BLL
             //return _mapper.Map(department, viewDepartment);
         }
 
-        public DepartmentModel GetByIdDepartment (int id)
+        public DepartmentModel GetByIdDepartment(int id)
         {
             DepartmentDTO department = _manager.DepartmentManager.GetByIdDpeartment(id);
             DepartmentModel viewDepartment = new DepartmentModel();

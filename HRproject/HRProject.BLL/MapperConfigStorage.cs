@@ -51,6 +51,7 @@ namespace HRProject.BLL
                 .ForMember("Name", opt => opt.MapFrom(c => c.Name))
                 .ForMember("PositionLevel", opt => opt.MapFrom(c => c.PositionLevel.Name));
 
+
                 cfg.CreateMap<SkillDTO, SkillModel>()
                 .ForMember("Id", opt => opt.MapFrom(c => c.Id))
                 .ForMember("Name", opt => opt.MapFrom(c => c.Name))
@@ -72,7 +73,8 @@ namespace HRProject.BLL
                 .ForMember("Description", opt => opt.MapFrom(c => c.Description))
                 .ForMember("EmployeeId", opt => opt.MapFrom(c => c.EmployeeId))
                 .ForMember("IsDeleted", opt => opt.MapFrom(c => c.IsDeleted));
-                
+
+                cfg.CreateMap<PositionDTO, PositionOutputModel>();
 
                 cfg.CreateMap<ProjectDTO, ProjectOutputModel>();
                 cfg.CreateMap<ProjectInputModel, ProjectDTO>();
