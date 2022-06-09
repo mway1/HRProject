@@ -150,6 +150,41 @@ namespace HRProject.BLL
             var selectedHistory = _mapper.Map(input, employeeHistoryDTO);
             _manager.EmployeeHistoryManager.UpdateEmployeeHistory(selectedHistory, id);
         }
+        public List<DepartmentModel> GetAllDepartment()
+        {
+            List<DepartmentDTO> department = _manager.DepartmentManager.GetAllDepartment();
+            return _mapper.Map<List<DepartmentModel>>(department);
+            //List<DepartmentDTO> department = _manager.DepartmentManager.();
+            //List<DepartmentModel> viewDepartment = new List<DepartmentModel>();
+            //return _mapper.Map(department, viewDepartment);
+        }
+
+        public DepartmentModel GetByIdDepartment (int id)
+        {
+            DepartmentDTO department = _manager.DepartmentManager.GetByIdDpeartment(id);
+            DepartmentModel viewDepartment = new DepartmentModel();
+
+            return _mapper.Map(department, viewDepartment);
+        }
+
+        public void UpdateDepartment(int idDepartment, DepartmentModel input)
+        {
+            DepartmentDTO department = new DepartmentDTO();
+            var selectedDepartment = _mapper.Map(input, department);
+            _manager.DepartmentManager.UpdateDepartment(idDepartment, selectedDepartment);
+        }
+
+        public void AddDepartment(DepartmentModel input)
+        {
+            DepartmentDTO department = new DepartmentDTO();
+            var selectedDepartment = _mapper.Map(input, department);
+            _manager.DepartmentManager.AddDepartment(selectedDepartment);
+        }
+
+        public void DeleteDepartment(int id)
+        {
+            _manager.DepartmentManager.DeleteDepartment(id);
+        }
 
         public void AddPosition(PositionModel input)
         {

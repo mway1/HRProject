@@ -1,5 +1,4 @@
 ﻿CREATE PROCEDURE [dbo].[Department_Add]
-	@id int,
 	@Name varchar(50),
 	@Description text,
 	@isDeleted bit
@@ -15,12 +14,5 @@ VALUES(
 	@Description,
 	@isDeleted
 )
-
-SELECT
-	[Name]=@Name,
-	[Description]=@Description,
-	isDeleted=@isDeleted
-FROM dbo.Department
-WHERE id=@id
 END
 

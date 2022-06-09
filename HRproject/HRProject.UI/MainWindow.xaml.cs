@@ -14,8 +14,6 @@ namespace HRProject.UI
     /// </summary>
     public partial class MainWindow : Window
     {
-
-        private Controller controller = new Controller();
         private ObservableCollection<ProjectOutputModel> Projects = new ObservableCollection<ProjectOutputModel>();
         private Controller _controller = new Controller();
 
@@ -25,6 +23,9 @@ namespace HRProject.UI
         {
             this.Initialized += Window_Initialized;
             InitializeComponent();
+
+            Button_ChangeNameOfDepartment.IsEnabled = false;
+
         }
 
         public void Window_Initialized(object? sender, EventArgs e)
@@ -33,7 +34,7 @@ namespace HRProject.UI
             ListBoxProjects.ItemsSource = Projects;
             ComboBox_Project_Tab1Create.ItemsSource = Projects;
 
-            LoadProjectList(controller.GetAllProjects());
+            LoadProjectList(_controller.GetAllProjects());
         }
 
         private void LoadProjectList(List<ProjectOutputModel> projects)
@@ -48,7 +49,7 @@ namespace HRProject.UI
         private void ComboBoxProjects_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
         {
             LoadProjectList(
-                controller.GetAllProjects(ComboBoxProjects.SelectedItem.ToString()!)
+                _controller.GetAllProjects(ComboBoxProjects.SelectedItem.ToString()!)
             );
         }
 
@@ -56,12 +57,34 @@ namespace HRProject.UI
         {
 
         }
+        private void Button_ChangeNameOfDepartment_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        //private void TreeView_Department_Initialized(object sender, RoutedEventArgs e)
+        //{
+        //    var departments = _controller.GetAllDepartment();
+        //    TreeView_Department.ItemsSource = departments;
+        //}
 
         private void DataGrid_EmployeeHistory_Loaded(object sender, RoutedEventArgs e)
         {
             var historyModels = _controller.GetAllEmployeeHistory(_employeeId);
 
             DataGrid_EmployeeHistory.ItemsSource = historyModels;
+
+        }
+
+        private void ComboBox_Departments_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            var i = ComboBox_Departments.SelectedItem;
+        }
+
+        private void ComboBox_Departments_Initialazed(object sender, EventArgs e)
+        {
+            var departmentModels = _controller.GetAllDepartment();
+            ComboBox_Departments.ItemsSource = departmentModels;
 
         }
 
@@ -106,13 +129,13 @@ namespace HRProject.UI
 
         private void ComboBox_Project_Tab1Create_TextChanged(object sender, TextChangedEventArgs e)
         {
-            (sender as ComboBox).ItemsSource = controller.SearchProjects(name: ComboBox_Project_Tab1Create.Text, limit: 5);
+            (sender as ComboBox).ItemsSource = _controller.SearchProjects(name: ComboBox_Project_Tab1Create.Text, limit: 5);
             (sender as ComboBox).IsDropDownOpen = true;
         }
 
         private void ComboBox_PositionCreate_TextChanged(object sender, TextChangedEventArgs e)
         {
-            (sender as ComboBox).ItemsSource = controller.SearchPosition(name: ComboBox_PositionCreate.Text, limit: 5);
+            (sender as ComboBox).ItemsSource = _controller.SearchPosition(name: ComboBox_PositionCreate.Text, limit: 5);
             (sender as ComboBox).IsDropDownOpen = true;
         }
 
