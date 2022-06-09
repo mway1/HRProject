@@ -57,6 +57,9 @@ namespace HRProject.UI
 
             var choosenEmployeesOnProject = _controller.GetEmployeeRequestAllInfoByProjectId(selectedProject.Id);
             ListBox_EmployeesOnProject.ItemsSource = choosenEmployeesOnProject;
+
+            TextBox_ProjectName.Text = selectedProject.Name;
+            TextBox_DescriptionProject.Text = selectedProject.Description;
         }
 
         
