@@ -208,7 +208,14 @@ namespace HRProject.UI
 
         private void ComboBox_PositionCreate_TextChanged(object sender, TextChangedEventArgs e)
         {
-            (sender as ComboBox).ItemsSource = _controller.SearchPosition(name: ComboBox_PositionCreate.Text, limit: 5);
+            if (ComboBox_PositionCreate.Text != "")
+            {
+                (sender as ComboBox).ItemsSource = _controller.SearchPosition(name: ComboBox_PositionCreate.Text, limit: 5);
+            }
+            else
+            {
+                (sender as ComboBox).ItemsSource = _controller.GetAllPosition();
+            }
             (sender as ComboBox).IsDropDownOpen = true;
         }
 
@@ -219,17 +226,40 @@ namespace HRProject.UI
 
         private void ComboBox_PositionCreate_GotFocus(object sender, RoutedEventArgs e)
         {
+            if (ComboBox_PositionCreate.Text != "")
+            {
+                (sender as ComboBox).ItemsSource = _controller.SearchPosition(name: ComboBox_PositionCreate.Text, limit: 5);
+            }
+            else
+            {
+                (sender as ComboBox).ItemsSource = _controller.GetAllPosition();
+            }
             (sender as ComboBox).IsDropDownOpen = true;
         }
 
         private void ComboBox_LevelCreate_GotFocus(object sender, RoutedEventArgs e)
         {
+            if (ComboBox_LevelCreate.Text != "")
+            {
+                (sender as ComboBox).IsDropDownOpen = true;
+            }
+            else
+            {
+                (sender as ComboBox).ItemsSource = _controller.LevelOfPositions_GetAll();
+            }
             (sender as ComboBox).IsDropDownOpen = true;
         }
 
         private void ComboBox_LevelCreate_TextChanged(object sender, TextChangedEventArgs e)
         {
-            (sender as ComboBox).ItemsSource = _controller.LevelOfPositionSearch(name: ComboBox_LevelCreate.Text, limit: 5);
+            if (ComboBox_LevelCreate.Text != "")
+            {
+                (sender as ComboBox).IsDropDownOpen = true;
+            }
+            else
+            {
+                (sender as ComboBox).ItemsSource = _controller.LevelOfPositions_GetAll();
+            }
             (sender as ComboBox).IsDropDownOpen = true;
         }
     }

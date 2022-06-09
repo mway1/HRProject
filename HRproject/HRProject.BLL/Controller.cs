@@ -94,15 +94,15 @@ namespace HRProject.BLL
         public List<ProjectOutputModel> GetAllProjects(string type)
         {
             List<ProjectOutputModel> result = new List<ProjectOutputModel>();
-            if (type == ProjectTypes.AllProjects)
+            if (type == ProjectTypes.ВсеПроекты)
             {
                 result = GetAllProjects();
             }
-            else if (type == ProjectTypes.FullProjects)
+            else if (type == ProjectTypes.ЗаполненныеПроекты)
             {
                 result = GetAllFullProjects();
             }
-            else if (type == ProjectTypes.PartiallyFullProjects)
+            else if (type == ProjectTypes.НеЗаполненныеПроекты)
             {
                 result = GetAllNotFullProjects();
             }
@@ -209,12 +209,12 @@ namespace HRProject.BLL
             _manager.PositionManager.UpdatePosition(position);
         }
 
-        public List<PositionModel> GetAllPosition()
+        public List<PositionOutputModel> GetAllPosition()
         {
-            return _mapper.Map<List<PositionModel>>(_manager.PositionManager.GetAllPositon());
+            return _mapper.Map<List<PositionOutputModel>>(_manager.PositionManager.GetAllPositon());
         }
 
-        public PositionModel GetAllPosition(int id)
+        public PositionModel GetPositionById(int id)
         {
             return _mapper.Map<PositionModel>(_manager.PositionManager.GetPositonById(id));
         }
@@ -249,6 +249,11 @@ namespace HRProject.BLL
         public List<EmployeeModel> GetAllEmployee()
         {
             return _mapper.Map<List<EmployeeModel>>(_manager.EmployeeManager.GetAllEmployee());
+        }
+
+        public List<LevelOfPositionOutputModel> LevelOfPositions_GetAll()
+        {
+            return _mapper.Map<List<LevelOfPositionOutputModel>>(_manager.LevelOfPositionManager.GetAllLevelOfPosition());
         }
 
         public EmployeeModel GetEmployeeById(int id)
