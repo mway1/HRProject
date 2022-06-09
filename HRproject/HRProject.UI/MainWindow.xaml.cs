@@ -95,10 +95,14 @@ namespace HRProject.UI
 
         private void ComboBox_Departments_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            if (ComboBox_Departments.SelectedItem != null)
+            {
             var department = (DepartmentModel)ComboBox_Departments.SelectedItem;
             var chooseEmployeeByDepartments = _controller.GetEmployeeByDepartmentId(department.id);
             ListBox_Employees.ItemsSource = chooseEmployeeByDepartments;
             TextBox_DepartmentDescription.Text = department.Description;
+            }
+            
         }
 
         private void ComboBox_Departments_Initialazed(object sender, EventArgs e)
@@ -124,7 +128,7 @@ namespace HRProject.UI
             _controller.AddDepartment(department);
             TextBox_NameOfNewDepartment.Clear();
             TextBox_DepartmentDescription.Clear();
-            ComboBox_Departments.Items.Refresh();
+            DepartmentRefresh();
         }
 
 
@@ -247,6 +251,21 @@ namespace HRProject.UI
         {
             (sender as ComboBox).ItemsSource = _controller.LevelOfPositionSearch(name: ComboBox_LevelCreate.Text, limit: 5);
             (sender as ComboBox).IsDropDownOpen = true;
+        }
+
+        private void Button_DeleteDepartment_Click(object sender, RoutedEventArgs e)
+        {
+            DepartmentModel department = (DepartmentModel)ComboBox_Departments.SelectedItem;
+            _controller.DeleteDepartment(department.id);
+            ComboBox_Departments.SelectedIndex=-1;
+            TextBox_DepartmentDescription.Clear();
+            DepartmentRefresh();
+        }
+
+        private void DepartmentRefresh()
+        {
+            List<DepartmentModel> departmentList = _controller.GetAllDepartment();
+            ComboBox_Departments.ItemsSource = departmentList;
         }
     }
 }

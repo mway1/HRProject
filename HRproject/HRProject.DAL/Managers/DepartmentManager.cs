@@ -76,7 +76,7 @@ namespace HRProject.DAL
             {
                 connection.Open();
 
-                connection.QuerySingle(
+                connection.Query(
                     StoredProcedures.Department_Delete,
                     param: new { id = id },
                     commandType: System.Data.CommandType.StoredProcedure);
