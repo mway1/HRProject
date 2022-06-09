@@ -1,10 +1,11 @@
 ﻿CREATE PROCEDURE [dbo].[Employee_Position_GetById]
-@Id int
+@EmployeeId int
 AS
 BEGIN
 
-	SELECT id,EmployeeId,PositionId,LevelOfPositionID
-	FROM dbo.Employee_Position
-	WHERE Id=@Id
+	SELECT EPos.id,EPos.EmployeeId,P.Name,EPos.LevelOfPositionID
+	FROM dbo.Employee_Position as EPos
+	LEFT JOIN dbo.Position as P on(EPos.PositionId=P.id)
+	WHERE EmployeeId=@EmployeeId
 
 END
