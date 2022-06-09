@@ -4,6 +4,7 @@ using System.Windows;
 using System.Collections.ObjectModel;
 using System;
 using System.Collections.Generic;
+using HRProject.BLL.InputModels;
 using System.Windows.Controls;
 using HRProject.BLL.OutputModels;
 
@@ -32,10 +33,9 @@ namespace HRProject.UI
         {
             ComboBoxProjects.ItemsSource = ProjectTypes.Types;
             ListBoxProjects.ItemsSource = Projects;
-            _controller = new Controller();
+            ComboBox_Project_Tab1Create.ItemsSource = Projects;
 
             LoadProjectList(_controller.GetAllProjects());
-
         }
 
         private void LoadProjectList(List<ProjectOutputModel> projects)
@@ -46,18 +46,17 @@ namespace HRProject.UI
                 Projects.Add(project);
             }
         }
-        private void ComboBoxProject_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
+
+        private void ComboBoxProjects_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
         {
             LoadProjectList(
                 _controller.GetAllProjects(ComboBoxProjects.SelectedItem.ToString()!)
             );
         }
 
-        private void ListBoxProjects_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void ListBoxProjects_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
         {
-            var selectedProject = (ProjectModel)ListBoxProjects.SelectedItem;
-            var choosenEmployeeRequests = _controller.GetEmployeeRequestAllInfoByProjectId(selectedProject.Id);
-            ListBoxEmployeeRequests.ItemsSource = choosenEmployeeRequests;
+
         }
         private void Button_ChangeNameOfDepartment_Click(object sender, RoutedEventArgs e)
         {
@@ -73,6 +72,7 @@ namespace HRProject.UI
         private void DataGrid_EmployeeHistory_Loaded(object sender, RoutedEventArgs e)
         {
             var historyModels = _controller.GetAllEmployeeHistory(_employeeId);
+
             DataGrid_EmployeeHistory.ItemsSource = historyModels;
 
         }
@@ -83,7 +83,7 @@ namespace HRProject.UI
 
         private void Employees_General_TabIItem_Initialized(object sender, EventArgs e)
         {
-            
+
 
         }
 
@@ -91,7 +91,7 @@ namespace HRProject.UI
         {
             var department = (DepartmentModel)ComboBox_Departments.SelectedItem;
             var chooseEmployeeByDepartments = _controller.GetEmployeeByDepartmentId(department.id);
-            ListBox_Employees.ItemsSource=chooseEmployeeByDepartments;
+            ListBox_Employees.ItemsSource = chooseEmployeeByDepartments;
         }
 
         private void ComboBox_Departments_Initialazed(object sender, EventArgs e)
@@ -104,17 +104,78 @@ namespace HRProject.UI
         private void ListBox_Employees_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             var selectedEmployee = (EmployeeModel)ListBox_Employees.SelectedItem;
-            if(selectedEmployee != null)
+            if (selectedEmployee != null)
             {
-            var chooseEmployeeAllInfo = _controller.GetEmployeeById(selectedEmployee.id);
-            TextBox_FirstName.Text = chooseEmployeeAllInfo.FirstName;
-            TextBox_LastName.Text = chooseEmployeeAllInfo.LastName;
-            TextBox_SecondName.Text = chooseEmployeeAllInfo.SecondName;
-            TextBox_BirthDate.Text = chooseEmployeeAllInfo.BirthDate.ToString();
-            TextBox_Email.Text = chooseEmployeeAllInfo.Email;
-            TextBox_PhoneNumber.Text = chooseEmployeeAllInfo.PhoneNumber.ToString();
-            ComboBox_Status_Tab1.SelectedIndex = chooseEmployeeAllInfo.StatusId;
+                var chooseEmployeeAllInfo = _controller.GetEmployeeById(selectedEmployee.id);
+                TextBox_FirstName.Text = chooseEmployeeAllInfo.FirstName;
+                TextBox_LastName.Text = chooseEmployeeAllInfo.LastName;
+                TextBox_SecondName.Text = chooseEmployeeAllInfo.SecondName;
+                TextBox_BirthDate.Text = chooseEmployeeAllInfo.BirthDate.ToString();
+                TextBox_Email.Text = chooseEmployeeAllInfo.Email;
+                TextBox_PhoneNumber.Text = chooseEmployeeAllInfo.PhoneNumber.ToString();
+                ComboBox_Status_Tab1.SelectedIndex = chooseEmployeeAllInfo.StatusId;
             }
+        }
+
+        private void TextBox_FirstNameCreate_PreviewMouseLeftButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        {
+            TextBox_FirstNameCreate.Clear();
+        }
+
+        private void TextBox_FamiliayCreate_PreviewMouseLeftButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        {
+            TextBox_FamiliayCreate.Clear();
+        }
+
+        private void TextBox_EmailCreate_PreviewMouseLeftButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        {
+            TextBox_EmailCreate.Clear();
+        }
+
+        private void TextBox_PhoneNumberCreate_PreviewMouseLeftButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        {
+            TextBox_PhoneNumberCreate.Clear();
+        }
+
+        private void TextBox_SecondNameCreate_PreviewMouseLeftButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        {
+            TextBox_SecondNameCreate.Clear();
+        }
+
+        private void CreateButton_Click(object sender, RoutedEventArgs e)
+        {
+            EmployeeInputModel employee = new EmployeeInputModel
+            {
+                FirstName = TextBox_FirstNameCreate.Text,
+                SecondName = TextBox_SecondNameCreate.Text,
+                BirthDate = DatePicker_BirthDateCreate.DisplayDate,
+                Email = TextBox_EmailCreate.Text,
+                PhoneNumber = TextBox_PhoneNumberCreate.Text,
+                //StatusId = 
+                //DepartmentId = 
+            };
+        }
+
+        private void ComboBox_Project_Tab1Create_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            (sender as ComboBox).ItemsSource = _controller.SearchProjects(name: ComboBox_Project_Tab1Create.Text, limit: 5);
+            (sender as ComboBox).IsDropDownOpen = true;
+        }
+
+        private void ComboBox_PositionCreate_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            (sender as ComboBox).ItemsSource = _controller.SearchPosition(name: ComboBox_PositionCreate.Text, limit: 5);
+            (sender as ComboBox).IsDropDownOpen = true;
+        }
+
+        private void ComboBox_Project_Tab1Create_GotFocus(object sender, RoutedEventArgs e)
+        {
+            (sender as ComboBox).IsDropDownOpen = true;
+        }
+
+        private void ComboBox_PositionCreate_GotFocus(object sender, RoutedEventArgs e)
+        {
+            (sender as ComboBox).IsDropDownOpen = true;
         }
     }
 }

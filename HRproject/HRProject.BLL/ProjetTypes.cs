@@ -11,13 +11,13 @@ namespace HRProject.BLL
     {
         public const string AllProjects = "All projects";
         public const string FullProjects = "Full projects";
-        public const string PartuallyFull = "Partually full projects";
+        public const string PartiallyFullProjects = "Partially full projects";
 
         public static List<string> Types
         {
             get
             {
-                return new List<string> { AllProjects, FullProjects, PartuallyFull };
+                return new List<string> { AllProjects, FullProjects, PartiallyFullProjects };
             }
         }
     }
