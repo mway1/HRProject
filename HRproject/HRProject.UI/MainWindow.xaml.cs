@@ -40,10 +40,10 @@ namespace HRProject.UI
 
             LoadProjectList(_controller.GetAllProjects());
             LoadStatusList(_controller.GetAllStatus());
-        }
-
             LoadProjectList(_controller.GetAllProjects());
         }
+
+        
 
         private void LoadProjectList(List<ProjectOutputModel> projects)
         {
