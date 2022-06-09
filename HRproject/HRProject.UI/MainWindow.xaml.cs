@@ -132,6 +132,7 @@ namespace HRProject.UI
             DataGrid_EmployeeHistory.ItemsSource = historyModels;
             TextBox_Position.Text = _controller.GetEmployee_PostionById(selectedEmployee.id).Name;
             TextBox_Level.Text = _controller.GetEmployee_PostionById(selectedEmployee.id).LevelOfPositionName;
+            ListBox_Skills.ItemsSource = _controller.GetEmployee_SkillById(selectedEmployee.id);
             }
         }
 

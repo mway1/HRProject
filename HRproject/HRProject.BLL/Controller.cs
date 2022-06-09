@@ -323,9 +323,9 @@ namespace HRProject.BLL
             var selectedEmployee_Skill = _mapper.Map(input, employee_skill);
             _manager.Employee_SkillManager.DeleteEmployee_Skill(selectedEmployee_Skill);
         }
-        public Employee_SkillModel GetEmployee_SkillById(int employeeId)
+        public List<Employee_SkillModel> GetEmployee_SkillById(int employeeId)
         {
-            return _mapper.Map<Employee_SkillModel>(_manager.Employee_SkillManager.GetEmployee_SkillById(employeeId));
+            return _mapper.Map<List<Employee_SkillModel>>(_manager.Employee_SkillManager.GetEmployee_SkillById(employeeId));
         }
     }
 }

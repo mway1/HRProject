@@ -42,16 +42,16 @@ namespace HRProject.DAL.Managers
                     commandType: System.Data.CommandType.StoredProcedure);
             }
         }
-        public Employee_SkillDTO GetEmployee_SkillById(int employeeId)
+        public List<Employee_SkillDTO> GetEmployee_SkillById(int employeeId)
         {
             using (var connection = new SqlConnection(ServerSettings._connectionString))
             {
                 connection.Open();
 
-                return connection.QuerySingle<Employee_SkillDTO>(
+                return connection.Query<Employee_SkillDTO>(
                     Employee_SkillStoredProcedures.Employee_Skill_GetById,
                     param: new { EmployeeId = employeeId },
-                    commandType: System.Data.CommandType.StoredProcedure);
+                    commandType: System.Data.CommandType.StoredProcedure).ToList();
             }
         }
 
