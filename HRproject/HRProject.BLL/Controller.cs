@@ -94,15 +94,15 @@ namespace HRProject.BLL
         public List<ProjectOutputModel> GetAllProjects(string type)
         {
             List<ProjectOutputModel> result = new List<ProjectOutputModel>();
-            if (type == ProjectTypes.AllProjects)
+            if (type == ProjectTypes.ВсеПроекты)
             {
                 result = GetAllProjects();
             }
-            else if (type == ProjectTypes.FullProjects)
+            else if (type == ProjectTypes.ЗаполненныеПроекты)
             {
                 result = GetAllFullProjects();
             }
-            else if (type == ProjectTypes.PartiallyFullProjects)
+            else if (type == ProjectTypes.НеЗаполненныеПроекты)
             {
                 result = GetAllNotFullProjects();
             }
@@ -165,9 +165,7 @@ namespace HRProject.BLL
         {
             List<DepartmentDTO> department = _manager.DepartmentManager.GetAllDepartment();
             return _mapper.Map<List<DepartmentModel>>(department);
-            //List<DepartmentDTO> department = _manager.DepartmentManager.();
-            //List<DepartmentModel> viewDepartment = new List<DepartmentModel>();
-            //return _mapper.Map(department, viewDepartment);
+            
         }
 
         public DepartmentModel GetByIdDepartment(int id)
@@ -185,11 +183,14 @@ namespace HRProject.BLL
             _manager.DepartmentManager.UpdateDepartment(idDepartment, selectedDepartment);
         }
 
-        public void AddDepartment(DepartmentModel input)
+        public void AddDepartment(DepartmentInputModel input)
         {
-            DepartmentDTO department = new DepartmentDTO();
-            var selectedDepartment = _mapper.Map(input, department);
-            _manager.DepartmentManager.AddDepartment(selectedDepartment);
+            //DepartmentDTO department = new DepartmentDTO();
+            //var selectedDepartment = _mapper.Map(input, department);
+            //_manager.DepartmentManager.AddDepartment(selectedDepartment);
+            DepartmentDTO department = _mapper.Map<DepartmentDTO>(input);
+            _manager.DepartmentManager.AddDepartment(department);
+
         }
 
         public void DeleteDepartment(int id)
@@ -209,12 +210,12 @@ namespace HRProject.BLL
             _manager.PositionManager.UpdatePosition(position);
         }
 
-        public List<PositionModel> GetAllPosition()
+        public List<PositionOutputModel> GetAllPosition()
         {
-            return _mapper.Map<List<PositionModel>>(_manager.PositionManager.GetAllPositon());
+            return _mapper.Map<List<PositionOutputModel>>(_manager.PositionManager.GetAllPositon());
         }
 
-        public PositionModel GetAllPosition(int id)
+        public PositionModel GetPositionById(int id)
         {
             return _mapper.Map<PositionModel>(_manager.PositionManager.GetPositonById(id));
         }
@@ -249,6 +250,11 @@ namespace HRProject.BLL
         public List<EmployeeModel> GetAllEmployee()
         {
             return _mapper.Map<List<EmployeeModel>>(_manager.EmployeeManager.GetAllEmployee());
+        }
+
+        public List<LevelOfPositionOutputModel> LevelOfPositions_GetAll()
+        {
+            return _mapper.Map<List<LevelOfPositionOutputModel>>(_manager.LevelOfPositionManager.GetAllLevelOfPosition());
         }
 
         public EmployeeModel GetEmployeeById(int id)
@@ -306,6 +312,21 @@ namespace HRProject.BLL
         public Employee_PostionModel GetEmployee_PostionById(int employeeId)
         {
             return _mapper.Map<Employee_PostionModel>(_manager.Employee_PositionManager.GetEmployee_PositionById(employeeId));
+        }
+        public void AddEmployee_Skill(Employee_SkillModel input)
+        {
+            Employee_SkillDTO employee_skill = _mapper.Map<Employee_SkillDTO>(input);
+            _manager.Employee_SkillManager.AddEmployee_Skill(employee_skill);
+        }
+        public void DeleteEmployee_Skill(Employee_SkillDTO input)
+        {
+            Employee_SkillDTO employee_skill = new Employee_SkillDTO();
+            var selectedEmployee_Skill = _mapper.Map(input, employee_skill);
+            _manager.Employee_SkillManager.DeleteEmployee_Skill(selectedEmployee_Skill);
+        }
+        public List<Employee_SkillModel> GetEmployee_SkillById(int employeeId)
+        {
+            return _mapper.Map<List<Employee_SkillModel>>(_manager.Employee_SkillManager.GetEmployee_SkillById(employeeId));
         }
     }
 }

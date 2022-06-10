@@ -46,8 +46,8 @@
                                 <Label x:Name="Label_Position" Content="Должность" HorizontalAlignment="Left" Height="26" Margin="18,209,0,0" VerticalAlignment="Top" Width="87" Grid.ColumnSpan="2"/>
                                 <Label x:Name="Label_Level" Content="Уровень" HorizontalAlignment="Left" Height="26" Margin="18,235,0,0" VerticalAlignment="Top" Width="84" Grid.ColumnSpan="3"/>
                                 <Label x:Name="Label_FirstName_Copy2" Content="Компетенции" HorizontalAlignment="Left" Height="26" Margin="93,203,0,0" VerticalAlignment="Top" Width="100" Grid.Column="3"/>
-                                <TextBox x:Name="TextBox_Position" HorizontalAlignment="Left" Height="20" Margin="153,209,0,0" TextWrapping="Wrap" Text="Разработчик" VerticalAlignment="Top" Width="162" Foreground="#FFA3A3A3" Grid.ColumnSpan="3"/>
-                                <TextBox x:Name="TextBox_Level" HorizontalAlignment="Left" Height="20" Margin="153,238,0,0" TextWrapping="Wrap" Text="Джуниор" VerticalAlignment="Top" Width="162" Foreground="#FFA3A3A3" Grid.ColumnSpan="3"/>
+                                <TextBox x:Name="TextBox_Position" HorizontalAlignment="Left" Height="20" Margin="153,209,0,0" TextWrapping="Wrap" Text="Разработчик" VerticalAlignment="Top" Width="162"  Grid.ColumnSpan="3"/>
+                                <TextBox x:Name="TextBox_Level" HorizontalAlignment="Left" Height="20" Margin="153,238,0,0" TextWrapping="Wrap" Text="Джуниор" VerticalAlignment="Top" Width="162" Grid.ColumnSpan="3"/>
                                 <Image Grid.Column="1" HorizontalAlignment="Left" Height="125" Margin="176,34,0,0" VerticalAlignment="Top" Width="113">
                                     <Image.OpacityMask>
                                         <ImageBrush Stretch="None"/>
@@ -72,7 +72,7 @@
                                     <ComboBoxItem Content="Свободен"/>
                                     <ComboBoxItem Content="Работает"/>
                                 </ComboBox>
-                                <ListBox x:Name="ListBox_Skills" Grid.Column="2" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="93,229,20,48"/>
+                                <ListBox x:Name="ListBox_Skills" Grid.Column="2" d:ItemsSource="{d:SampleData ItemCount=5}" DisplayMemberPath="SkillName" Margin="93,229,20,48"/>
                                 <ComboBox x:Name="ComboBox_Project_Tab1" Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="20" Margin="81,284,0,0" VerticalAlignment="Top" Width="161" Grid.Column="1"/>
                             </Grid>
                         </TabItem>
@@ -101,10 +101,10 @@
                                 <Label x:Name="Label_PositionCreate" Content="Должность" HorizontalAlignment="Left" Height="26" Margin="10,209,0,0" VerticalAlignment="Top" Width="87" Grid.ColumnSpan="2" Grid.Column="1"/>
                                 <Label x:Name="Label_Level2" Content="Уровень" HorizontalAlignment="Left" Height="26" Margin="18,235,0,0" VerticalAlignment="Top" Width="84" Grid.ColumnSpan="3"/>
 
-                                <ComboBox IsEditable="True" x:Name="ComboBox_PositionCreate" HorizontalAlignment="Left" Height="20" Margin="129,209,0,0"  Text="Разработчик" VerticalAlignment="Top" Width="162" Foreground="#FFA3A3A3" Grid.ColumnSpan="3" Grid.Column="2" TextBoxBase.TextChanged="ComboBox_PositionCreate_TextChanged"  IsTextSearchEnabled="False" GotFocus="ComboBox_PositionCreate_GotFocus"/>
+                                <ComboBox IsEditable="True" x:Name="ComboBox_PositionCreate" HorizontalAlignment="Left" Height="20" Margin="129,209,0,0"  VerticalAlignment="Top" Width="162" Foreground="#FFA3A3A3" Grid.ColumnSpan="3" Grid.Column="2" TextBoxBase.TextChanged="ComboBox_PositionCreate_TextChanged"  IsTextSearchEnabled="False" GotFocus="ComboBox_PositionCreate_GotFocus"/>
                                 <Label x:Name="Label_FirstName_Copy2Create" Content="Компетенции" HorizontalAlignment="Left" Height="26" Margin="93,203,0,0" VerticalAlignment="Top" Width="100" Grid.Column="3"/>
                                 <Label x:Name="Label_LevelCreate" Content="Уровень" HorizontalAlignment="Left" Height="26" Margin="18,235,0,0" VerticalAlignment="Top" Width="84" Grid.ColumnSpan="2"/>
-                                <ComboBox IsEditable="True" x:Name="ComboBox_LevelCreate" HorizontalAlignment="Left" Height="20" Margin="129,238,0,0" Text="Джуниор" VerticalAlignment="Top" Width="162" Foreground="#FFA3A3A3" Grid.ColumnSpan="3" Grid.Column="2" TextBoxBase.TextChanged="ComboBox_LevelCreate_TextChanged" IsTextSearchEnabled="False"  GotFocus="ComboBox_LevelCreate_GotFocus"/>
+                                <ComboBox IsEditable="True" x:Name="ComboBox_LevelCreate" HorizontalAlignment="Left" Height="20" Margin="129,238,0,0"  VerticalAlignment="Top" Width="162" Foreground="#FFA3A3A3" Grid.ColumnSpan="3" Grid.Column="2" TextBoxBase.TextChanged="ComboBox_LevelCreate_TextChanged" IsTextSearchEnabled="False"  GotFocus="ComboBox_LevelCreate_GotFocus"/>
                                 <Image Grid.Column="2" HorizontalAlignment="Left" Height="125" Margin="176,34,0,0" VerticalAlignment="Top" Width="113">
                                     <Image.OpacityMask>
                                         <ImageBrush Stretch="None"/>
@@ -125,16 +125,15 @@
                         </TabItem>
 
                     </TabControl>
-                    <Label x:Name="Label_DepartmentDescription" Content="Описание отдела" HorizontalAlignment="Left" Margin="0,251,0,0" VerticalAlignment="Top" Grid.ColumnSpan="3" FontWeight="Medium" FontFamily="Roboto"/>
-                    <ListBox d:ItemsSource="{d:SampleData ItemCount=5}" Margin="0,275,283,45" Grid.ColumnSpan="3" FontWeight="Medium" FontFamily="Roboto"/>
-                    <TextBox x:Name="TextBox_ChangeNameOfDepartment" HorizontalAlignment="Left" Margin="0,368,0,0" TextWrapping="Wrap" Text="Введите новое название" VerticalAlignment="Top" Height="17" Width="144
-                             " Grid.ColumnSpan="3" Foreground="#FFA3A3A3" VerticalContentAlignment="Center" FontSize="10" FontWeight="Medium" FontFamily="Roboto"/>
-                    <Button x:Name="Button_ChangeNameOfDepartment" Grid.Column="1" Content="Изменить имя" HorizontalAlignment="Left" Margin="105,368,0,0" VerticalAlignment="Top" Height="17" Width="73" FontSize="10" FontWeight="Medium" FontFamily="Roboto" Click="Button_ChangeNameOfDepartment_Click" IsEnabled="False"/>
-                    <Button x:Name="Button_ChangeDescriptionOfDepartment" Content="Изменить описание" HorizontalAlignment="Left" Margin="0,389,0,0" VerticalAlignment="Top" Height="17" Width="109
-                            " FontSize="10" FontWeight="Medium" FontFamily="Roboto" Grid.ColumnSpan="3"/>
-                    <Button x:Name="Button_DeleteDepartment" Content="Удалить отдел" HorizontalAlignment="Left" Margin="70,389,0,0" VerticalAlignment="Top" Height="17" Width="109" FontSize="10" FontWeight="Medium" FontFamily="Roboto" Grid.Column="1"/>
-                    <ComboBox x:Name="ComboBox_Departments"  DisplayMemberPath="Name"  Grid.ColumnSpan="3" HorizontalAlignment="Left" Height="26" Margin="9,10,0,0" VerticalAlignment="Top" Width="203" Initialized="ComboBox_Departments_Initialazed" SelectionChanged="ComboBox_Departments_SelectionChanged"/>
-                    <ListBox x:Name="ListBox_Employees"  DisplayMemberPath="SecondName" Grid.ColumnSpan="3" HorizontalAlignment="Left" Height="178" Margin="7,54,0,0" VerticalAlignment="Top" Width="205" d:ItemsSource="{d:SampleData ItemCount=5}" SelectionChanged="ListBox_Employees_SelectionChanged"/>
+                    <Label x:Name="Label_DepartmentDescription" Content="Описание отдела" HorizontalAlignment="Left" Margin="7,243,0,0" VerticalAlignment="Top" Grid.ColumnSpan="3" FontWeight="Medium" FontFamily="Roboto"/>
+                    <TextBox x:Name="TextBox_NameOfNewDepartment" HorizontalAlignment="Left" Margin="10,383,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="17" Width="132" Grid.ColumnSpan="3" Foreground="Black" VerticalContentAlignment="Center" FontSize="10" FontWeight="Medium" FontFamily="Roboto"/>
+                    <Button x:Name="Button_AddNewDepartment" Grid.Column="2" Content="Добавить" HorizontalAlignment="Left" Margin="52,383,0,0" VerticalAlignment="Top" Height="17" Width="65" FontSize="10" FontWeight="Medium" FontFamily="Roboto" Click="Button_AddNewDepartment_Click" Foreground="Black" Background="#FFDDDDDD"/>
+                    <ComboBox x:Name="ComboBox_Departments"  DisplayMemberPath="Name"  Grid.ColumnSpan="3" HorizontalAlignment="Left" Height="26" Margin="10,21,0,0" VerticalAlignment="Top" Width="203" Initialized="ComboBox_Departments_Initialazed" SelectionChanged="ComboBox_Departments_SelectionChanged"/>
+                    <ListBox x:Name="ListBox_Employees"  DisplayMemberPath="SecondName" Grid.ColumnSpan="3" HorizontalAlignment="Left" Height="173" Margin="7,54,0,0" VerticalAlignment="Top" Width="205" d:ItemsSource="{d:SampleData ItemCount=5}" SelectionChanged="ListBox_Employees_SelectionChanged"/>
+                    <TextBox x:Name="TextBox_DepartmentDescription" Grid.ColumnSpan="3" HorizontalAlignment="Left" Margin="9,264,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="203" Height="83"/>
+                    <Button x:Name="Button_AddDepartment" Content="Добавить новый отдел" Grid.ColumnSpan="3" HorizontalAlignment="Left" Margin="10,360,0,0" VerticalAlignment="Top" Width="202" Click="Button_AddDepartment_Click"/>
+                    <Button x:Name="Button_DeleteDepartment" Content="✕" HorizontalAlignment="Left" Height="16" Margin="101,5,0,0" VerticalAlignment="Top" Width="16" RenderTransformOrigin="0.396,-0.476" IsCancel="True" Foreground="#FFEC0E0E" Click="Button_DeleteDepartment_Click" Grid.Column="2"/>
+                    <Button x:Name="Button_DeleteEmployee" Content="Удалить сотрудника ✘" HorizontalAlignment="Left" Height="16" Margin="7,227,0,0" VerticalAlignment="Top" Width="120" RenderTransformOrigin="0.507,0.009" Grid.ColumnSpan="3" BorderBrush="#FF710202" Foreground="#FF710E0E" Click="Button_DeleteEmployee_Click"/>
                 </Grid>
             </TabItem>
             <TabItem Header="Проекты">

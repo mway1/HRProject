@@ -45,7 +45,7 @@ namespace HRProject.BLL
                 cfg.CreateMap<DepartmentDTO, DepartmentModel>()
                 .ForMember("Name", opt => opt.MapFrom(c => $"{c.Name}"))
                 .ForMember("Description", opt => opt.MapFrom(c => $"{c.Description}"))
-                .ForMember("IsDeleted", opt => opt.MapFrom(c => $"{c.IsDeleted}"));
+                .ForMember("isDeleted", opt => opt.MapFrom(c => $"{c.isDeleted}"));
 
                 cfg.CreateMap<EmployeeHistoryDTO, EmployeeHistoryModel>()
                 //.ForMember("EmployeeId", opt => opt.MapFrom(c => $"{c.EmployeeId}"))
@@ -103,9 +103,17 @@ namespace HRProject.BLL
                 cfg.CreateMap<Employee_PositionDTO, Employee_PostionModel>()
                 .ForMember("id", opt => opt.MapFrom(c => c.id))
                 .ForMember("Name", opt => opt.MapFrom(c => c.Name))
+                .ForMember("LevelOfPositionName", opt => opt.MapFrom(c => c.LevelOfPositionName))
                 .ForMember("EmployeeId", opt => opt.MapFrom(c => c.EmployeeId))
                 .ForMember("PositionId", opt => opt.MapFrom(c => c.PositionId))
                 .ForMember("LevelOfPositionID", opt => opt.MapFrom(c => c.LevelOfPositionID));
+
+                cfg.CreateMap<Employee_SkillDTO, Employee_SkillModel>()
+                .ForMember("id", opt => opt.MapFrom(c => c.id))
+                .ForMember("EmployeeId", opt => opt.MapFrom(c => c.EmployeeId))
+                .ForMember("SkillId", opt => opt.MapFrom(c => c.SkillId))
+                .ForMember("SkillName", opt => opt.MapFrom(c => c.SkillName))
+                .ForMember("LevelOfSkill", opt => opt.MapFrom(c => c.LevelOfSkill));
 
 
                 cfg.CreateMap<PositionDTO, PositionOutputModel>();
@@ -113,6 +121,8 @@ namespace HRProject.BLL
 
                 cfg.CreateMap<ProjectDTO, ProjectOutputModel>();
                 cfg.CreateMap<ProjectInputModel, ProjectDTO>();
+
+                cfg.CreateMap<DepartmentInputModel, DepartmentDTO>();
 
                 cfg.CreateMap<StatusDTO, StatusOutputModel>();
             }));

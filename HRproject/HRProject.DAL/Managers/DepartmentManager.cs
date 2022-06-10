@@ -39,13 +39,13 @@ namespace HRProject.DAL
             {
                 connection.Open();
 
-                connection.QuerySingle(
+                connection.Query<DepartmentDTO>(
                     StoredProcedures.Department_Add,
                     param: new
                     {
-                        Name = departmentDTO.Name,
-                        Description = departmentDTO.Description,
-                        isDeleted = departmentDTO.IsDeleted
+                        departmentDTO.Name,
+                        departmentDTO.Description,
+                        departmentDTO.isDeleted
                     },
                     commandType: System.Data.CommandType.StoredProcedure);
             }
@@ -64,7 +64,7 @@ namespace HRProject.DAL
                         id = idDepartment,
                         Name = departmentDTO.Name,
                         Description = departmentDTO.Description,
-                        isDeleted = departmentDTO.IsDeleted
+                        isDeleted = departmentDTO.isDeleted
                     },
                     commandType: System.Data.CommandType.StoredProcedure);
             }
@@ -76,7 +76,7 @@ namespace HRProject.DAL
             {
                 connection.Open();
 
-                connection.QuerySingle(
+                connection.Query(
                     StoredProcedures.Department_Delete,
                     param: new { id = id },
                     commandType: System.Data.CommandType.StoredProcedure);

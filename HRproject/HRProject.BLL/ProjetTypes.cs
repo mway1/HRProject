@@ -9,15 +9,15 @@ namespace HRProject.BLL
 
     public class ProjectTypes
     {
-        public const string AllProjects = "All projects";
-        public const string FullProjects = "Full projects";
-        public const string PartiallyFullProjects = "Partially full projects";
+        public const string ВсеПроекты = "Все проекты";
+        public const string ЗаполненныеПроекты = "Заполненные проекты";
+        public const string НеЗаполненныеПроекты = "Не заполненные проекты";
 
         public static List<string> Types
         {
             get
             {
-                return new List<string> { AllProjects, FullProjects, PartiallyFullProjects };
+                return new List<string> { ВсеПроекты, ЗаполненныеПроекты, НеЗаполненныеПроекты };
             }
         }
     }

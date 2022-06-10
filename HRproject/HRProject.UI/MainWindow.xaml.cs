@@ -27,7 +27,8 @@ namespace HRProject.UI
             this.Initialized += Window_Initialized;
             InitializeComponent();
 
-            Button_ChangeNameOfDepartment.IsEnabled = false;
+            Button_AddNewDepartment.IsEnabled = false;
+            TextBox_NameOfNewDepartment.IsEnabled = false;
 
         }
 
@@ -40,7 +41,10 @@ namespace HRProject.UI
 
             LoadProjectList(_controller.GetAllProjects());
             LoadStatusList(_controller.GetAllStatus());
+            LoadProjectList(_controller.GetAllProjects());
         }
+
+        
 
         private void LoadProjectList(List<ProjectOutputModel> projects)
         {
@@ -62,15 +66,9 @@ namespace HRProject.UI
 
         private void ComboBoxProjects_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
         {
-            var selectedProject = (ProjectOutputModel)ListBoxProjects.SelectedItem;
-            var choosenEmployeeRequests = _controller.GetEmployeeRequestAllInfoByProjectId(selectedProject.Id);
-            
-
-            var choosenEmployeesOnProject = _controller.GetEmployeeRequestAllInfoByProjectId(selectedProject.Id);
-            ListBox_EmployeesOnProject.ItemsSource = choosenEmployeesOnProject;
-
-            TextBox_ProjectName.Text = selectedProject.Name;
-            TextBox_DescriptionProject.Text = selectedProject.Description;
+            LoadProjectList(
+                _controller.GetAllProjects(ComboBoxProjects.SelectedItem.ToString()!)
+            );
         }
 
         private void ButtonNextRequest_Click(object sender, RoutedEventArgs e)
@@ -139,16 +137,6 @@ namespace HRProject.UI
             TextBox_ProjectName.Text = selectedProject.Name;
             TextBox_DescriptionProject.Text = selectedProject.Description;
         }
-        private void Button_ChangeNameOfDepartment_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        //private void TreeView_Department_Initialized(object sender, RoutedEventArgs e)
-        //{
-        //    var departments = _controller.GetAllDepartment();
-        //    TreeView_Department.ItemsSource = departments;
-        //}
 
         private void DataGrid_EmployeeHistory_Loaded(object sender, RoutedEventArgs e)
         {
@@ -167,9 +155,14 @@ namespace HRProject.UI
 
         private void ComboBox_Departments_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            if (ComboBox_Departments.SelectedItem != null)
+            {
             var department = (DepartmentModel)ComboBox_Departments.SelectedItem;
             var chooseEmployeeByDepartments = _controller.GetEmployeeByDepartmentId(department.id);
             ListBox_Employees.ItemsSource = chooseEmployeeByDepartments;
+            TextBox_DepartmentDescription.Text = department.Description;
+            }
+            
         }
 
         private void ComboBox_Departments_Initialazed(object sender, EventArgs e)
@@ -178,13 +171,33 @@ namespace HRProject.UI
             ComboBox_Departments.ItemsSource = departmentModels;
 
         }
+        private void Button_AddDepartment_Click(object sender, RoutedEventArgs e)
+        {
+            Button_AddNewDepartment.IsEnabled = true;
+            TextBox_NameOfNewDepartment.IsEnabled = true;
+            Button_AddDepartment.IsEnabled = false;
+        }
+        private void Button_AddNewDepartment_Click(object sender, RoutedEventArgs e)
+        {
+            Button_AddDepartment.IsEnabled = true;
+            TextBox_NameOfNewDepartment.IsEnabled = false;
+            DepartmentInputModel department = new DepartmentInputModel();
+            department.Name = TextBox_NameOfNewDepartment.Text;
+            department.Description = TextBox_DepartmentDescription.Text;
+            department.isDeleted = false;
+            _controller.AddDepartment(department);
+            TextBox_NameOfNewDepartment.Clear();
+            TextBox_DepartmentDescription.Clear();
+            DepartmentRefresh();
+        }
+
 
         private void ListBox_Employees_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             var selectedEmployee = (EmployeeModel)ListBox_Employees.SelectedItem;
             if (selectedEmployee != null)
             {
-            var chooseEmployeeAllInfo = _controller.GetEmployeeById(selectedEmployee.id);
+                var chooseEmployeeAllInfo = _controller.GetEmployeeById(selectedEmployee.id);
             TextBox_FirstName.Text = chooseEmployeeAllInfo.FirstName;
             TextBox_LastName.Text = chooseEmployeeAllInfo.SecondName;
             TextBox_SecondName.Text = chooseEmployeeAllInfo.LastName;
@@ -194,7 +207,9 @@ namespace HRProject.UI
             ComboBox_Status_Tab1.SelectedIndex = chooseEmployeeAllInfo.StatusId;
             var historyModels = _controller.GetAllEmployeeHistory(selectedEmployee.id);
             DataGrid_EmployeeHistory.ItemsSource = historyModels;
-                TextBox_Position.Text = _controller.GetEmployee_PostionById(selectedEmployee.id).Name;
+            TextBox_Position.Text = _controller.GetEmployee_PostionById(selectedEmployee.id).Name;
+            TextBox_Level.Text = _controller.GetEmployee_PostionById(selectedEmployee.id).LevelOfPositionName;
+            ListBox_Skills.ItemsSource = _controller.GetEmployee_SkillById(selectedEmployee.id);
             }
         }
 
@@ -275,7 +290,14 @@ namespace HRProject.UI
 
         private void ComboBox_PositionCreate_TextChanged(object sender, TextChangedEventArgs e)
         {
-            (sender as ComboBox).ItemsSource = _controller.SearchPosition(name: ComboBox_PositionCreate.Text, limit: 5);
+            if (ComboBox_PositionCreate.Text != "")
+            {
+                (sender as ComboBox).ItemsSource = _controller.SearchPosition(name: ComboBox_PositionCreate.Text, limit: 5);
+            }
+            else
+            {
+                (sender as ComboBox).ItemsSource = _controller.GetAllPosition();
+            }
             (sender as ComboBox).IsDropDownOpen = true;
         }
 
@@ -286,18 +308,62 @@ namespace HRProject.UI
 
         private void ComboBox_PositionCreate_GotFocus(object sender, RoutedEventArgs e)
         {
+            if (ComboBox_PositionCreate.Text != "")
+            {
+                (sender as ComboBox).ItemsSource = _controller.SearchPosition(name: ComboBox_PositionCreate.Text, limit: 5);
+            }
+            else
+            {
+                (sender as ComboBox).ItemsSource = _controller.GetAllPosition();
+            }
             (sender as ComboBox).IsDropDownOpen = true;
         }
 
         private void ComboBox_LevelCreate_GotFocus(object sender, RoutedEventArgs e)
         {
+            if (ComboBox_LevelCreate.Text != "")
+            {
+                (sender as ComboBox).IsDropDownOpen = true;
+            }
+            else
+            {
+                (sender as ComboBox).ItemsSource = _controller.LevelOfPositions_GetAll();
+            }
             (sender as ComboBox).IsDropDownOpen = true;
         }
 
         private void ComboBox_LevelCreate_TextChanged(object sender, TextChangedEventArgs e)
         {
-            (sender as ComboBox).ItemsSource = _controller.LevelOfPositionSearch(name: ComboBox_LevelCreate.Text, limit: 5);
+            if (ComboBox_LevelCreate.Text != "")
+            {
+                (sender as ComboBox).IsDropDownOpen = true;
+            }
+            else
+            {
+                (sender as ComboBox).ItemsSource = _controller.LevelOfPositions_GetAll();
+            }
             (sender as ComboBox).IsDropDownOpen = true;
+        }
+
+        private void Button_DeleteDepartment_Click(object sender, RoutedEventArgs e)
+        {
+            DepartmentModel department = (DepartmentModel)ComboBox_Departments.SelectedItem;
+            _controller.DeleteDepartment(department.id);
+            ComboBox_Departments.SelectedIndex=-1;
+            TextBox_DepartmentDescription.Clear();
+            DepartmentRefresh();
+        }
+
+        private void DepartmentRefresh()
+        {
+            List<DepartmentModel> departmentList = _controller.GetAllDepartment();
+            ComboBox_Departments.ItemsSource = departmentList;
+        }
+
+        private void Button_DeleteEmployee_Click(object sender, RoutedEventArgs e)
+        {
+            EmployeeModel employee = (EmployeeModel)ListBox_Employees.SelectedItem;
+            _controller.DeleteEmployee(employee.id);
         }
     }
 }

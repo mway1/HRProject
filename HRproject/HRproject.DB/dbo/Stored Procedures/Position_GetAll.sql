@@ -1,11 +1,10 @@
 ﻿CREATE PROCEDURE [dbo].[Position_GetAll]
-	@Id int
 AS
 BEGIN
 	SELECT 
-	p.Id,
-	p.[Name] as PositionName,
-	p.IsDeleted
+	p.Id as id,
+	p.[Name] as Name,
+	p.IsDeleted as IsDeleted
 	from dbo.Position p
 	where (p.IsDeleted = 0)
 END

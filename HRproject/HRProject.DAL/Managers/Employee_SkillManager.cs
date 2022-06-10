@@ -5,55 +5,55 @@ using System.Data.SqlClient;
 
 namespace HRProject.DAL.Managers
 {
-    public class Employee_PositionManager
+    public class Employee_SkillManager
     {
-        public void AddEmployee_Position(Employee_PositionDTO newEmployee_Position)
+        public void AddEmployee_Skill(Employee_SkillDTO newEmployee_Skill)
         {
             using (var connection = new SqlConnection(ServerSettings._connectionString))
             {
                 connection.Open();
 
-                connection.QuerySingle<Employee_PositionDTO>(
-                    Employee_PositionStoredProcedures.Employee_Position_Add,
+                connection.QuerySingle<Employee_SkillDTO>(
+                    Employee_SkillStoredProcedures.Employee_Skill_Add,
                     param: new
                     {
-                        newEmployee_Position.EmployeeId,
-                        newEmployee_Position.PositionId,
-                        newEmployee_Position.LevelOfPositionID
+                        newEmployee_Skill.EmployeeId,
+                        newEmployee_Skill.SkillId,
+                        newEmployee_Skill.LevelOfSkill
                     },
                     commandType: System.Data.CommandType.StoredProcedure);
             }
         }
-        public void DeleteEmployee_Position(Employee_PositionDTO input)
+        public void DeleteEmployee_Skill(Employee_SkillDTO input)
 
         {
             using (var connection = new SqlConnection(ServerSettings._connectionString))
             {
                 connection.Open();
                 connection.QuerySingle(
-                    Employee_PositionStoredProcedures.Employee_Position_Delete,
+                   Employee_SkillStoredProcedures.Employee_Skill_Delete,
                     param: new
                     {
                         input.id,
                         input.EmployeeId,
-                        input.PositionId,
-                        input.LevelOfPositionID
+                        input.SkillId,
+                        input.LevelOfSkill
                     },
                     commandType: System.Data.CommandType.StoredProcedure);
             }
         }
-        public Employee_PositionDTO GetEmployee_PositionById(int employeeId)
+        public List<Employee_SkillDTO> GetEmployee_SkillById(int employeeId)
         {
             using (var connection = new SqlConnection(ServerSettings._connectionString))
             {
                 connection.Open();
 
-                return connection.QuerySingle<Employee_PositionDTO>(
-                    Employee_PositionStoredProcedures.Employee_Position_GetById,
+                return connection.Query<Employee_SkillDTO>(
+                    Employee_SkillStoredProcedures.Employee_Skill_GetById,
                     param: new { EmployeeId = employeeId },
-                    commandType: System.Data.CommandType.StoredProcedure);
+                    commandType: System.Data.CommandType.StoredProcedure).ToList();
             }
         }
-        
+
     }
 }
