@@ -377,5 +377,81 @@ namespace HRProject.UI
                 _controller.DeleteEmployeeRequestById(choosenRequest);
             }
         }
+
+        private void ButtonAddRequest_Click(object sender, RoutedEventArgs e)
+        {
+            if (TextBoxQuantity.Visibility is Visibility.Hidden)
+            {
+                TextBoxQuantity.Visibility = Visibility.Visible;
+                ComboBoxPosition.Visibility = Visibility.Visible;
+                ComboBoxPosition.ItemsSource = _controller.GetAllPosition();
+                ComboBoxPosition.SelectedIndex = 0;
+                ComboBoxPositionLevel.Visibility = Visibility.Visible;
+                ComboBoxPositionLevel.ItemsSource = _controller.LevelOfPositions_GetAll();
+                ComboBoxPositionLevel.SelectedIndex = 0;
+                ComboBoxSkill.Visibility = Visibility.Visible;
+                ComboBoxSkill.ItemsSource = _controller.GetAllSkills();
+                ComboBoxSkill.SelectedIndex = 0;
+                ComboBoxSkillLevel.Visibility = Visibility.Visible;
+                ComboBoxSkillLevel.ItemsSource = new int[] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
+                ComboBoxSkillLevel.SelectedIndex = 0;
+            }
+            else
+            {
+                if (IsValidToPullEmployeeRequestAllInfo())
+                {
+                    var selectedProject = (ProjectOutputModel)ListBoxProjects.SelectedItem;
+                    EmployeeRequestCreateInputModel EmployeeRequestModel = new EmployeeRequestCreateInputModel()
+                    {
+                        ProjectId = selectedProject.Id,
+                        Quantity = Convert.ToInt16(TextBoxQuantity.Text)
+                    };
+                    var newEmployeeRequestId = _controller.CreateEmployeeRequest(EmployeeRequestModel);
+
+                    var selectedSkill = (SkillModel)ComboBoxSkill.SelectedItem;
+                    var skillLevel = Convert.ToInt16(ComboBoxSkillLevel.SelectedItem.ToString()!);
+                    EmployeeRequestSkillInputModel EmployeeRequestSkillModel = new EmployeeRequestSkillInputModel()
+                    {
+                       EmployeeRequestId = newEmployeeRequestId,
+                       SkillId = selectedSkill.Id,
+                       LevelOfSkill = skillLevel
+                    };
+                    _controller.CreateEmployeeRequestSkill(EmployeeRequestSkillModel);
+
+                    var selectedPosition = (PositionOutputModel)ComboBoxPosition.SelectedItem;
+                    var positionLevel = (LevelOfPositionOutputModel)ComboBoxPositionLevel.SelectedItem;
+                    EmployeeRequestPositionInputModel PositionModel = new EmployeeRequestPositionInputModel()
+                    {
+                        EmployeeRequestId = newEmployeeRequestId,
+                        PositionId = selectedPosition.Id,
+                        LevelOfPositionId = positionLevel.Id
+                    };
+
+                    _controller.CreateEmployeeRequestPosition(PositionModel);
+                    
+                }
+                TextBoxQuantity.Visibility = Visibility.Hidden;
+                ComboBoxPosition.Visibility = Visibility.Hidden;
+                ComboBoxPositionLevel.Visibility = Visibility.Hidden;
+                ComboBoxSkill.Visibility = Visibility.Hidden;
+                ComboBoxSkillLevel.Visibility = Visibility.Hidden;
+            }            
+        }
+
+        private bool IsValidToPullEmployeeRequestAllInfo()
+        {
+            var isValid = true;
+
+            if(!(int.TryParse(TextBoxQuantity.Text, out int n) &&
+                n > 0 &&
+                ComboBoxPosition.SelectedIndex != -1 &&
+                ComboBoxPositionLevel.SelectedIndex != -1 &&
+                ComboBoxSkill.SelectedIndex != -1 &&
+                ComboBoxSkillLevel.SelectedIndex != -1))
+            {
+                isValid = false;
+            }
+            return isValid;
+        }
     }
 }

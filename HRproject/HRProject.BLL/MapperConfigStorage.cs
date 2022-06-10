@@ -58,7 +58,7 @@ namespace HRProject.BLL
                 .ForMember("Name", opt => opt.MapFrom(c => c.Name));
 
                 cfg.CreateMap<PositionDTO, PositionModel>()
-                .ForMember("Id", opt => opt.MapFrom(c => c.id))
+                .ForMember("Id", opt => opt.MapFrom(c => c.Id))
                 .ForMember("Name", opt => opt.MapFrom(c => c.Name))
                 .ForMember("PositionLevel", opt => opt.MapFrom(c => c.PositionLevel.Name));
 
@@ -66,7 +66,7 @@ namespace HRProject.BLL
                 cfg.CreateMap<SkillDTO, SkillModel>()
                 .ForMember("Id", opt => opt.MapFrom(c => c.Id))
                 .ForMember("Name", opt => opt.MapFrom(c => c.Name))
-                .ForMember("SkillLevel", opt => opt.MapFrom(c => c.SkillLevel.LevelOfSkill));
+                .ForMember("SkillLevel", opt => opt.MapFrom(c => c.SkillLevel.SkillLevel));
 
                 cfg.CreateMap<RequestProjectDTO, ProjectModel>()
                 .ForMember("Id", opt => opt.MapFrom(c => c.Id))
@@ -126,6 +126,12 @@ namespace HRProject.BLL
                 .ForMember("SkillName", opt => opt.MapFrom(c => c.SkillName))
                 .ForMember("LevelOfSkill", opt => opt.MapFrom(c => c.LevelOfSkill));
 
+                cfg.CreateMap<EmployeeRequestCreateInputModel, EmployeeRequestDTO>();
+                
+
+                cfg.CreateMap<EmployeeRequestSkillInputModel, EmployeeRequestSkillDTO>();
+
+                cfg.CreateMap<EmployeeRequestPositionInputModel, EmployeeRequestPositionDTO>();
 
                 cfg.CreateMap<PositionDTO, PositionOutputModel>();
                 cfg.CreateMap<LevelOfPositionDTO, LevelOfPositionOutputModel>();

@@ -43,11 +43,34 @@ namespace HRProject.BLL
             _manager.EmployeeRequestManager.DeleteEmployeeRequestById(selectedRequest);
         }
 
-        public void CreateEmployeeRequest(EmployeeRequestAllInfoModel input)
+        public List<SkillModel> GetAllSkills()
+        {
+            List<SkillDTO> skills = _manager.SkillManager.GetAllSkills();
+            List<SkillModel> viewSkills = new List<SkillModel>();
+
+            return _mapper.Map(skills, viewSkills);
+        }
+
+        public int CreateEmployeeRequest(EmployeeRequestCreateInputModel input)
         {
             EmployeeRequestDTO employeeRequest = new EmployeeRequestDTO();
             var selectedRequest = _mapper.Map(input, employeeRequest);
-            _manager.EmployeeRequestManager.CreateEmployeeRequest(selectedRequest);
+            var newRequestId = _manager.EmployeeRequestManager.CreateEmployeeRequest(selectedRequest);
+            return newRequestId;
+        }
+
+        public void CreateEmployeeRequestSkill(EmployeeRequestSkillInputModel input)
+        {
+            EmployeeRequestSkillDTO employeeRequest = new EmployeeRequestSkillDTO();
+            var selectedRequest = _mapper.Map(input, employeeRequest);
+            _manager.EmployeeRequestManager.CreateEmployeeRequestSkill(selectedRequest);
+        }
+
+        public void CreateEmployeeRequestPosition(EmployeeRequestPositionInputModel input)
+        {
+            EmployeeRequestPositionDTO employeeRequest = new EmployeeRequestPositionDTO();
+            var selectedRequest = _mapper.Map(input, employeeRequest);
+            _manager.EmployeeRequestManager.CreateEmployeeRequestPosition(selectedRequest);
         }
 
         public void AddProject(ProjectInputModel model)
