@@ -125,17 +125,20 @@ namespace HRProject.UI
         {
             _indexRequest = 0;
             ListBoxRequestQuantity.Items.Clear();
-            var selectedProject = (ProjectOutputModel)ListBoxProjects.SelectedItem;
-            var choosenEmployeeRequests = _controller.GetEmployeeRequestAllInfoByProjectId(selectedProject.Id);
-            if (choosenEmployeeRequests.Count > _indexRequest)
+            if (ListBoxProjects.SelectedItem is not null)
             {
-                ListBoxRequestQuantity.Items.Add(choosenEmployeeRequests[_indexRequest]);
-                ListBoxRequestPosition.ItemsSource = choosenEmployeeRequests[_indexRequest].Positions;
-                ListBoxRequestSkills.ItemsSource = choosenEmployeeRequests[_indexRequest].Skills;
-            }
+                var selectedProject = (ProjectOutputModel)ListBoxProjects.SelectedItem;
+                var choosenEmployeeRequests = _controller.GetEmployeeRequestAllInfoByProjectId(selectedProject.Id);
+                if (choosenEmployeeRequests.Count > _indexRequest)
+                {
+                    ListBoxRequestQuantity.Items.Add(choosenEmployeeRequests[_indexRequest]);
+                    ListBoxRequestPosition.ItemsSource = choosenEmployeeRequests[_indexRequest].Positions;
+                    ListBoxRequestSkills.ItemsSource = choosenEmployeeRequests[_indexRequest].Skills;
+                }
 
-            TextBox_ProjectName.Text = selectedProject.Name;
-            TextBox_DescriptionProject.Text = selectedProject.Description;
+                TextBox_ProjectName.Text = selectedProject.Name;
+                TextBox_DescriptionProject.Text = selectedProject.Description;
+            }
         }
 
         private void DataGrid_EmployeeHistory_Loaded(object sender, RoutedEventArgs e)
