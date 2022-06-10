@@ -39,24 +39,24 @@
                                 <Label x:Name="Label_LastName" Content="Фамилия " HorizontalAlignment="Left" Height="26" Margin="18,72,0,0" VerticalAlignment="Top" Width="84" Grid.ColumnSpan="2"/>
                                 <Label x:Name="Label_Email" Content="Email" HorizontalAlignment="Left" Height="26" Margin="18,131,0,0" VerticalAlignment="Top" Width="84" Grid.ColumnSpan="2"/>
                                 <Label x:Name="Label_PhoneNumber" Content="Телефон" HorizontalAlignment="Left" Height="25" Margin="18,159,0,0" VerticalAlignment="Top" Width="87" Grid.ColumnSpan="3" />
-                                <TextBox x:Name="TextBox_FirstName" HorizontalAlignment="Left" Height="20" Margin="152,18,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="162" Foreground="#FFA3A3A3" Grid.ColumnSpan="3"/>
-                                <TextBox x:Name="TextBox_SecondName" Grid.ColumnSpan="3" HorizontalAlignment="Left" Height="20" Margin="152,76,0,0" TextWrapping="Wrap" Text="Иванов" VerticalAlignment="Top" Width="162" Foreground="#FFA3A3A3" />
-                                <TextBox x:Name="TextBox_Email" Grid.ColumnSpan="3" HorizontalAlignment="Left" Height="20" Margin="153,134,0,0" TextWrapping="Wrap" Text="ivanov@mail.ru" VerticalAlignment="Top" Width="162" Foreground="#FFA3A3A3"/>
-                                <TextBox x:Name="TextBox_PhoneNumber" Grid.ColumnSpan="3" HorizontalAlignment="Left" Height="20" Margin="153,162,0,0" TextWrapping="Wrap" Text="+7 999 999 99 99" VerticalAlignment="Top" Width="162" Foreground="#FFA3A3A3"/>
+                                <TextBox x:Name="TextBox_FirstName" HorizontalAlignment="Left" Height="20" Margin="152,18,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="162"  Grid.ColumnSpan="3"/>
+                                <TextBox x:Name="TextBox_SecondName" Grid.ColumnSpan="3" HorizontalAlignment="Left" Height="20" Margin="152,76,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="162"/>
+                                <TextBox x:Name="TextBox_Email" Grid.ColumnSpan="3" HorizontalAlignment="Left" Height="20" Margin="153,134,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="162" />
+                                <TextBox x:Name="TextBox_PhoneNumber" Grid.ColumnSpan="3" HorizontalAlignment="Left" Height="20" Margin="153,162,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="162" />
                                 <Label x:Name="Label_Position" Content="Должность" HorizontalAlignment="Left" Height="26" Margin="18,209,0,0" VerticalAlignment="Top" Width="87" Grid.ColumnSpan="2"/>
                                 <Label x:Name="Label_Level" Content="Уровень" HorizontalAlignment="Left" Height="26" Margin="18,235,0,0" VerticalAlignment="Top" Width="84" Grid.ColumnSpan="3"/>
                                 <Label x:Name="Label_FirstName_Copy2" Content="Компетенции" HorizontalAlignment="Left" Height="26" Margin="93,203,0,0" VerticalAlignment="Top" Width="100" Grid.Column="3"/>
-                                <TextBox x:Name="TextBox_Position" HorizontalAlignment="Left" Height="20" Margin="153,209,0,0" TextWrapping="Wrap" Text="Разработчик" VerticalAlignment="Top" Width="162" Foreground="#FFA3A3A3" Grid.ColumnSpan="3"/>
-                                <TextBox x:Name="TextBox_Level" HorizontalAlignment="Left" Height="20" Margin="153,238,0,0" TextWrapping="Wrap" Text="Джуниор" VerticalAlignment="Top" Width="162" Foreground="#FFA3A3A3" Grid.ColumnSpan="3"/>
+                                <TextBox x:Name="TextBox_Position" HorizontalAlignment="Left" Height="20" Margin="153,209,0,0" TextWrapping="Wrap" Text="Разработчик" VerticalAlignment="Top" Width="162"  Grid.ColumnSpan="3"/>
+                                <TextBox x:Name="TextBox_Level" HorizontalAlignment="Left" Height="20" Margin="153,238,0,0" TextWrapping="Wrap" Text="Джуниор" VerticalAlignment="Top" Width="162" Grid.ColumnSpan="3"/>
                                 <Image Grid.Column="1" HorizontalAlignment="Left" Height="125" Margin="176,34,0,0" VerticalAlignment="Top" Width="113">
                                     <Image.OpacityMask>
                                         <ImageBrush Stretch="None"/>
                                     </Image.OpacityMask>
                                 </Image>
                                 <Image Margin="93,18,44,200" Source="/1614560341_16-p-ikonki-na-belom-fone-18.png" Stretch="Fill" Grid.Column="3"/>
-                                <TextBox x:Name="TextBox_LastName" HorizontalAlignment="Left" Height="20" Margin="152,47,0,0" TextWrapping="Wrap" Text="Иванович" VerticalAlignment="Top" Width="162" Grid.ColumnSpan="3" Foreground="#FFA3A3A3"/>
+                                <TextBox x:Name="TextBox_LastName" HorizontalAlignment="Left" Height="20" Margin="152,47,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="162" Grid.ColumnSpan="3" />
                                 <Label Grid.ColumnSpan="3" x:Name="Label_SecondName" Content="Отчество" HorizontalAlignment="Left" Height="26" Margin="18,44,0,0" VerticalAlignment="Top" Width="84" />
-                                <TextBox x:Name="TextBox_BirthDate" HorizontalAlignment="Left" Height="20" Margin="152,105,0,0" TextWrapping="Wrap" Text="01.01.2001" VerticalAlignment="Top" Width="162" Foreground="#FFA3A3A3" Grid.ColumnSpan="3"/>
+                                <TextBox x:Name="TextBox_BirthDate" HorizontalAlignment="Left" Height="20" Margin="152,105,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="162" Grid.ColumnSpan="3"/>
                                 <Label Grid.ColumnSpan="3" x:Name="Label_BirthDate" Content="Дата рождения" HorizontalAlignment="Left" Height="25" Margin="18,102,0,0" VerticalAlignment="Top" Width="117"/>
                                 <Label x:Name="Label_Project" Content="Проект" HorizontalAlignment="Left" Height="26" Margin="18,281,0,0" VerticalAlignment="Top" Width="84"/>
                                 <Label x:Name="Label_Status" Content="Статус" HorizontalAlignment="Left" Height="26" Margin="18,309,0,0" VerticalAlignment="Top" Width="84"/>
@@ -72,7 +72,7 @@
                                     <ComboBoxItem Content="Свободен"/>
                                     <ComboBoxItem Content="Работает"/>
                                 </ComboBox>
-                                <ListBox x:Name="ListBox_Skills" Grid.Column="2" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="93,229,20,48"/>
+                                <ListBox x:Name="ListBox_Skills" Grid.Column="2" d:ItemsSource="{d:SampleData ItemCount=5}" DisplayMemberPath="SkillName" Margin="93,229,20,48"/>
                                 <ComboBox x:Name="ComboBox_Project_Tab1" Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="20" Margin="81,284,0,0" VerticalAlignment="Top" Width="161" Grid.Column="1"/>
                             </Grid>
                         </TabItem>
@@ -125,16 +125,15 @@
                         </TabItem>
 
                     </TabControl>
-                    <Label x:Name="Label_DepartmentDescription" Content="Описание отдела" HorizontalAlignment="Left" Margin="0,251,0,0" VerticalAlignment="Top" Grid.ColumnSpan="3" FontWeight="Medium" FontFamily="Roboto"/>
-                    <ListBox d:ItemsSource="{d:SampleData ItemCount=5}" Margin="0,275,283,45" Grid.ColumnSpan="3" FontWeight="Medium" FontFamily="Roboto"/>
-                    <TextBox x:Name="TextBox_ChangeNameOfDepartment" HorizontalAlignment="Left" Margin="0,368,0,0" TextWrapping="Wrap" Text="Введите новое название" VerticalAlignment="Top" Height="17" Width="144
-                             " Grid.ColumnSpan="3" Foreground="#FFA3A3A3" VerticalContentAlignment="Center" FontSize="10" FontWeight="Medium" FontFamily="Roboto"/>
-                    <Button x:Name="Button_ChangeNameOfDepartment" Grid.Column="1" Content="Изменить имя" HorizontalAlignment="Left" Margin="105,368,0,0" VerticalAlignment="Top" Height="17" Width="73" FontSize="10" FontWeight="Medium" FontFamily="Roboto" Click="Button_ChangeNameOfDepartment_Click" IsEnabled="False"/>
-                    <Button x:Name="Button_ChangeDescriptionOfDepartment" Content="Изменить описание" HorizontalAlignment="Left" Margin="0,389,0,0" VerticalAlignment="Top" Height="17" Width="109
-                            " FontSize="10" FontWeight="Medium" FontFamily="Roboto" Grid.ColumnSpan="3"/>
-                    <Button x:Name="Button_DeleteDepartment" Content="Удалить отдел" HorizontalAlignment="Left" Margin="70,389,0,0" VerticalAlignment="Top" Height="17" Width="109" FontSize="10" FontWeight="Medium" FontFamily="Roboto" Grid.Column="1"/>
-                    <ComboBox x:Name="ComboBox_Departments"  DisplayMemberPath="Name"  Grid.ColumnSpan="3" HorizontalAlignment="Left" Height="26" Margin="9,10,0,0" VerticalAlignment="Top" Width="203" Initialized="ComboBox_Departments_Initialazed" SelectionChanged="ComboBox_Departments_SelectionChanged"/>
-                    <ListBox x:Name="ListBox_Employees"  DisplayMemberPath="SecondName" Grid.ColumnSpan="3" HorizontalAlignment="Left" Height="178" Margin="7,54,0,0" VerticalAlignment="Top" Width="205" d:ItemsSource="{d:SampleData ItemCount=5}" SelectionChanged="ListBox_Employees_SelectionChanged"/>
+                    <Label x:Name="Label_DepartmentDescription" Content="Описание отдела" HorizontalAlignment="Left" Margin="7,243,0,0" VerticalAlignment="Top" Grid.ColumnSpan="3" FontWeight="Medium" FontFamily="Roboto"/>
+                    <TextBox x:Name="TextBox_NameOfNewDepartment" HorizontalAlignment="Left" Margin="10,383,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="17" Width="132" Grid.ColumnSpan="3" Foreground="Black" VerticalContentAlignment="Center" FontSize="10" FontWeight="Medium" FontFamily="Roboto"/>
+                    <Button x:Name="Button_AddNewDepartment" Grid.Column="2" Content="Добавить" HorizontalAlignment="Left" Margin="52,383,0,0" VerticalAlignment="Top" Height="17" Width="65" FontSize="10" FontWeight="Medium" FontFamily="Roboto" Click="Button_AddNewDepartment_Click" Foreground="Black" Background="#FFDDDDDD"/>
+                    <ComboBox x:Name="ComboBox_Departments"  DisplayMemberPath="Name"  Grid.ColumnSpan="3" HorizontalAlignment="Left" Height="26" Margin="10,21,0,0" VerticalAlignment="Top" Width="203" Initialized="ComboBox_Departments_Initialazed" SelectionChanged="ComboBox_Departments_SelectionChanged"/>
+                    <ListBox x:Name="ListBox_Employees"  DisplayMemberPath="SecondName" Grid.ColumnSpan="3" HorizontalAlignment="Left" Height="173" Margin="7,54,0,0" VerticalAlignment="Top" Width="205" d:ItemsSource="{d:SampleData ItemCount=5}" SelectionChanged="ListBox_Employees_SelectionChanged"/>
+                    <TextBox x:Name="TextBox_DepartmentDescription" Grid.ColumnSpan="3" HorizontalAlignment="Left" Margin="9,264,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="203" Height="83"/>
+                    <Button x:Name="Button_AddDepartment" Content="Добавить новый отдел" Grid.ColumnSpan="3" HorizontalAlignment="Left" Margin="10,360,0,0" VerticalAlignment="Top" Width="202" Click="Button_AddDepartment_Click"/>
+                    <Button x:Name="Button_DeleteDepartment" Content="✕" HorizontalAlignment="Left" Height="16" Margin="101,5,0,0" VerticalAlignment="Top" Width="16" RenderTransformOrigin="0.396,-0.476" IsCancel="True" Foreground="#FFEC0E0E" Click="Button_DeleteDepartment_Click" Grid.Column="2"/>
+                    <Button x:Name="Button_DeleteEmployee" Content="Удалить сотрудника ✘" HorizontalAlignment="Left" Height="16" Margin="7,227,0,0" VerticalAlignment="Top" Width="120" RenderTransformOrigin="0.507,0.009" Grid.ColumnSpan="3" BorderBrush="#FF710202" Foreground="#FF710E0E" Click="Button_DeleteEmployee_Click"/>
                 </Grid>
             </TabItem>
             <TabItem Header="Проекты">
@@ -156,12 +155,23 @@
                     <Label x:Name="Label_ProjectName" Content="Название проекта" HorizontalAlignment="Left" Margin="219,7,0,0" VerticalAlignment="Top" Width="118" Grid.Column="2" Height="26"/>
                     <ListBox x:Name="ListBox_EmployeesOnProject" HorizontalAlignment="Left" Height="223" Margin="219,143,0,0" VerticalAlignment="Top" Width="203" Grid.Column="2" >
                     </ListBox>
-                    <ListBox x:Name="ListBoxEmployeeRequests" HorizontalAlignment="Left" Height="223" Margin="515,143,0,0" VerticalAlignment="Top" Width="204"  Grid.Column="2"/>
-                    <Label x:Name="Label_DescriptionProject" Content="Описание проекта" HorizontalAlignment="Left" Margin="398,7,0,0" VerticalAlignment="Top" Width="118" Grid.Column="2" Height="26" RenderTransformOrigin="2.592,0.475"/>
-                    <TextBox x:Name="TextBox_ProjectName" Grid.Column="2" HorizontalAlignment="Left" Height="24" Margin="219,38,0,0" TextWrapping="Wrap" Text="CRM-система" VerticalAlignment="Top" Width="120" Foreground="#FFAFAFAF"/>
+                    <Label x:Name="Label_DescriptionProject" Content="Описание проекта" HorizontalAlignment="Left" Margin="410,7,0,0" VerticalAlignment="Top" Width="118" Grid.Column="1" Height="26" RenderTransformOrigin="2.592,0.475"/>
+                    <TextBox x:Name="TextBox_ProjectName" Grid.Column="2" HorizontalAlignment="Left" Height="24" Margin="229,38,0,0" TextWrapping="Wrap" Text="CRM-система" VerticalAlignment="Top" Width="120" Foreground="#FFAFAFAF"/>
                     <TextBox x:Name="TextBox_DescriptionProject" Grid.Column="2" HorizontalAlignment="Left" Height="52" Margin="398,38,0,0" TextWrapping="Wrap" Text="Главная функция CRM заключается в оптимизации работы отдела продаж, направленной на повышение качества сервиса и конечной прибыли компании. Программа внедряется для того, чтобы стандартизировать работу сотрудников, наладить продажи предприятия и предотвратить потерю лидов и новых сделок." VerticalAlignment="Top" Width="357" Foreground="#FFBBB4B4" FontSize="9"/>
-                    <Label x:Name="Label_Employee" Grid.Column="2" Content="Сотрудники на проекте" HorizontalAlignment="Left" Height="25" Margin="219,106,0,0" VerticalAlignment="Top" Width="184"/>
-                    <Label x:Name="Label_Request" Grid.Column="2" Content="Требуются" HorizontalAlignment="Left" Height="25" Margin="515,106,0,0" VerticalAlignment="Top" Width="184"/>
+                    <Label x:Name="Label_Employee" Grid.Column="2" Content="Сотрудники на проекте" HorizontalAlignment="Left" Height="25" Margin="229,103,0,0" VerticalAlignment="Top" Width="184"/>
+                    <Label x:Name="Label_Request" Grid.Column="2" Content="Требуются" HorizontalAlignment="Left" Height="25" Margin="543,103,0,0" VerticalAlignment="Top" Width="175"/>
+                    <Label Grid.Column="2" Content="Колличество" HorizontalAlignment="Left" Margin="437,142,0,0" VerticalAlignment="Top"/>
+                    <Label Grid.Column="2" Content="Должность" HorizontalAlignment="Left" Margin="543,142,0,0" VerticalAlignment="Top"/>
+                    <Label Grid.Column="2" Content="Компетенции" HorizontalAlignment="Left" Margin="654,142,0,0" VerticalAlignment="Top"/>
+                    <Button x:Name="ButtonNextRequest" Grid.Column="2" Content=">" HorizontalAlignment="Left" Margin="735,232,0,0" VerticalAlignment="Top" Width="20" Click="ButtonNextRequest_Click"/>
+                    <Button x:Name="ButtonPreviousRequest" Grid.Column="2" Content="&lt;" HorizontalAlignment="Left" Margin="437,232,0,0" VerticalAlignment="Top" Width="22" Click="ButtonPreviousRequest_Click"/>
+                    <ListBox x:Name="ListBoxRequestPosition" Grid.Column="2" HorizontalAlignment="Left" Height="60" Margin="520,164,0,0" VerticalAlignment="Top" Width="120" d:ItemsSource="{d:SampleData ItemCount=5}" DisplayMemberPath="Name"/>
+                    <ListBox x:Name="ListBoxRequestSkills" Grid.Column="2" HorizontalAlignment="Left" Height="60" Margin="640,164,0,0" VerticalAlignment="Top" Width="115" d:ItemsSource="{d:SampleData ItemCount=5}" DisplayMemberPath="Name" />
+                    <ListBox x:Name="ListBoxRequestQuantity" Grid.Column="2" HorizontalAlignment="Left" Height="60" Margin="437,164,0,0" VerticalAlignment="Top" Width="83" d:ItemsSource="{d:SampleData ItemCount=5}" DisplayMemberPath="Quantity"/>
+                    <Button x:Name="ButtonAddRequest" Grid.Column="2" Content="+" HorizontalAlignment="Left" Margin="507,232,0,0" VerticalAlignment="Top" Width="27"/>
+                    <Button x:Name="ButtonDeleteRequest" Grid.Column="2" Content="X" HorizontalAlignment="Left" Margin="589,232,0,0" VerticalAlignment="Top" Width="28" Click="ButtonDeleteRequest_Click"/>
+                    <Button x:Name="ButtonEditRequest" Grid.Column="2" Content="/" HorizontalAlignment="Left" Margin="673,232,0,0" VerticalAlignment="Top" Width="24"/>
+
                 </Grid>
             </TabItem>
 

@@ -1,6 +1,7 @@
-﻿namespace HRProject.BLL.OutputModels
+﻿
+namespace HRProject.BLL.InputModels
 {
-    public class DepartmentModel
+    public class DepartmentInputModel
     {
         public int id { get; set; }
         public string Name { get; set; }
