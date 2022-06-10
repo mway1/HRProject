@@ -68,6 +68,21 @@ namespace HRProject.BLL
                 .ForMember("Name", opt => opt.MapFrom(c => c.Name))
                 .ForMember("SkillLevel", opt => opt.MapFrom(c => c.SkillLevel.LevelOfSkill));
 
+                cfg.CreateMap<RequestProjectDTO, ProjectModel>()
+                .ForMember("Id", opt => opt.MapFrom(c => c.Id))
+                .ForMember("Name", opt => opt.MapFrom(c => c.ProjectName));
+
+                cfg.CreateMap<RequestPositionDTO, PositionModel>()
+                .ForMember("Id", opt => opt.MapFrom(c => c.id))
+                .ForMember("Name", opt => opt.MapFrom(c => $"{c.PositionLevel!.PositionLevel} {c.PositionName}"))
+                .ForMember("PositionLevelId", opt => opt.MapFrom(c => c.PositionLevel!.id));
+
+                cfg.CreateMap<RequestSkillDTO, SkillModel>()
+                .ForMember("Id", opt => opt.MapFrom(c => c.Id))
+                .ForMember("Name", opt => opt.MapFrom(c => $"{c.SkillName} lvl - {c.SkillLevel.LevelOfSkill}"))
+                .ForMember("SkillLevel", opt => opt.MapFrom(c => c.SkillLevel.LevelOfSkill))
+                .ForMember("SkillLevelId", opt => opt.MapFrom(c => c.SkillLevel.Id));
+
                 cfg.CreateMap<EmplooyeeRequestAllInfoDTO, EmployeeRequestAllInfoModel>()
                 .ForMember("Id", opt => opt.MapFrom(c => c.id))
                 .ForMember("Quantity", opt => opt.MapFrom(c => c.Quantity))

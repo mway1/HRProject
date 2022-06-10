@@ -8,4 +8,3 @@
     FOREIGN KEY ([EmployeeId]) REFERENCES [dbo].[Employee] ([id]),
     FOREIGN KEY ([StatusId]) REFERENCES [dbo].[Status] ([id])
 );
-

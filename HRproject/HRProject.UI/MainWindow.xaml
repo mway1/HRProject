@@ -155,12 +155,23 @@
                     <Label x:Name="Label_ProjectName" Content="Название проекта" HorizontalAlignment="Left" Margin="219,7,0,0" VerticalAlignment="Top" Width="118" Grid.Column="2" Height="26"/>
                     <ListBox x:Name="ListBox_EmployeesOnProject" HorizontalAlignment="Left" Height="223" Margin="219,143,0,0" VerticalAlignment="Top" Width="203" Grid.Column="2" >
                     </ListBox>
-                    <ListBox x:Name="ListBoxEmployeeRequests" HorizontalAlignment="Left" Height="223" Margin="515,143,0,0" VerticalAlignment="Top" Width="204"  Grid.Column="2"/>
-                    <Label x:Name="Label_DescriptionProject" Content="Описание проекта" HorizontalAlignment="Left" Margin="398,7,0,0" VerticalAlignment="Top" Width="118" Grid.Column="2" Height="26" RenderTransformOrigin="2.592,0.475"/>
-                    <TextBox x:Name="TextBox_ProjectName" Grid.Column="2" HorizontalAlignment="Left" Height="24" Margin="219,38,0,0" TextWrapping="Wrap" Text="CRM-система" VerticalAlignment="Top" Width="120" Foreground="#FFAFAFAF"/>
+                    <Label x:Name="Label_DescriptionProject" Content="Описание проекта" HorizontalAlignment="Left" Margin="410,7,0,0" VerticalAlignment="Top" Width="118" Grid.Column="1" Height="26" RenderTransformOrigin="2.592,0.475"/>
+                    <TextBox x:Name="TextBox_ProjectName" Grid.Column="2" HorizontalAlignment="Left" Height="24" Margin="229,38,0,0" TextWrapping="Wrap" Text="CRM-система" VerticalAlignment="Top" Width="120" Foreground="#FFAFAFAF"/>
                     <TextBox x:Name="TextBox_DescriptionProject" Grid.Column="2" HorizontalAlignment="Left" Height="52" Margin="398,38,0,0" TextWrapping="Wrap" Text="Главная функция CRM заключается в оптимизации работы отдела продаж, направленной на повышение качества сервиса и конечной прибыли компании. Программа внедряется для того, чтобы стандартизировать работу сотрудников, наладить продажи предприятия и предотвратить потерю лидов и новых сделок." VerticalAlignment="Top" Width="357" Foreground="#FFBBB4B4" FontSize="9"/>
-                    <Label x:Name="Label_Employee" Grid.Column="2" Content="Сотрудники на проекте" HorizontalAlignment="Left" Height="25" Margin="219,106,0,0" VerticalAlignment="Top" Width="184"/>
-                    <Label x:Name="Label_Request" Grid.Column="2" Content="Требуются" HorizontalAlignment="Left" Height="25" Margin="515,106,0,0" VerticalAlignment="Top" Width="184"/>
+                    <Label x:Name="Label_Employee" Grid.Column="2" Content="Сотрудники на проекте" HorizontalAlignment="Left" Height="25" Margin="229,103,0,0" VerticalAlignment="Top" Width="184"/>
+                    <Label x:Name="Label_Request" Grid.Column="2" Content="Требуются" HorizontalAlignment="Left" Height="25" Margin="543,103,0,0" VerticalAlignment="Top" Width="175"/>
+                    <Label Grid.Column="2" Content="Колличество" HorizontalAlignment="Left" Margin="437,142,0,0" VerticalAlignment="Top"/>
+                    <Label Grid.Column="2" Content="Должность" HorizontalAlignment="Left" Margin="543,142,0,0" VerticalAlignment="Top"/>
+                    <Label Grid.Column="2" Content="Компетенции" HorizontalAlignment="Left" Margin="654,142,0,0" VerticalAlignment="Top"/>
+                    <Button x:Name="ButtonNextRequest" Grid.Column="2" Content=">" HorizontalAlignment="Left" Margin="735,232,0,0" VerticalAlignment="Top" Width="20" Click="ButtonNextRequest_Click"/>
+                    <Button x:Name="ButtonPreviousRequest" Grid.Column="2" Content="&lt;" HorizontalAlignment="Left" Margin="437,232,0,0" VerticalAlignment="Top" Width="22" Click="ButtonPreviousRequest_Click"/>
+                    <ListBox x:Name="ListBoxRequestPosition" Grid.Column="2" HorizontalAlignment="Left" Height="60" Margin="520,164,0,0" VerticalAlignment="Top" Width="120" d:ItemsSource="{d:SampleData ItemCount=5}" DisplayMemberPath="Name"/>
+                    <ListBox x:Name="ListBoxRequestSkills" Grid.Column="2" HorizontalAlignment="Left" Height="60" Margin="640,164,0,0" VerticalAlignment="Top" Width="115" d:ItemsSource="{d:SampleData ItemCount=5}" DisplayMemberPath="Name" />
+                    <ListBox x:Name="ListBoxRequestQuantity" Grid.Column="2" HorizontalAlignment="Left" Height="60" Margin="437,164,0,0" VerticalAlignment="Top" Width="83" d:ItemsSource="{d:SampleData ItemCount=5}" DisplayMemberPath="Quantity"/>
+                    <Button x:Name="ButtonAddRequest" Grid.Column="2" Content="+" HorizontalAlignment="Left" Margin="507,232,0,0" VerticalAlignment="Top" Width="27"/>
+                    <Button x:Name="ButtonDeleteRequest" Grid.Column="2" Content="X" HorizontalAlignment="Left" Margin="589,232,0,0" VerticalAlignment="Top" Width="28"/>
+                    <Button x:Name="ButtonEditRequest" Grid.Column="2" Content="/" HorizontalAlignment="Left" Margin="673,232,0,0" VerticalAlignment="Top" Width="24"/>
+
                 </Grid>
             </TabItem>
 

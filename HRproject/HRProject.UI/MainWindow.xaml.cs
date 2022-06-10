@@ -18,6 +18,7 @@ namespace HRProject.UI
         private ObservableCollection<ProjectOutputModel> Projects = new ObservableCollection<ProjectOutputModel>();
         private ObservableCollection<StatusOutputModel> Statuses = new ObservableCollection<StatusOutputModel>();
         private Controller _controller = new Controller();
+        private int _indexRequest = 0;
 
         private int _employeeId = 2;
 
@@ -70,14 +71,74 @@ namespace HRProject.UI
             );
         }
 
+        private void ButtonNextRequest_Click(object sender, RoutedEventArgs e)
+        {
+            ListBoxRequestQuantity.Items.Clear();
+
+            _indexRequest += 1;
+
+            var selectedProject = (ProjectOutputModel)ListBoxProjects.SelectedItem;
+            var choosenEmployeeRequests = _controller.GetEmployeeRequestAllInfoByProjectId(selectedProject.Id);
+            if (choosenEmployeeRequests.Count > _indexRequest && _indexRequest >= 0)
+            {
+                ListBoxRequestQuantity.Items.Add(choosenEmployeeRequests[_indexRequest]);
+                ListBoxRequestPosition.ItemsSource = choosenEmployeeRequests[_indexRequest].Positions;
+                ListBoxRequestSkills.ItemsSource = choosenEmployeeRequests[_indexRequest].Skills;
+            }
+            else if (choosenEmployeeRequests.Count > 0)
+            {
+                _indexRequest = 0;
+                ListBoxRequestQuantity.Items.Add(choosenEmployeeRequests[_indexRequest]);
+                ListBoxRequestPosition.ItemsSource = choosenEmployeeRequests[_indexRequest].Positions;
+                ListBoxRequestSkills.ItemsSource = choosenEmployeeRequests[_indexRequest].Skills;
+            }
+        }
+            private void ButtonPreviousRequest_Click(object sender, RoutedEventArgs e)
+        {
+            ListBoxRequestQuantity.Items.Clear();
+
+            _indexRequest -= 1;
+
+            var selectedProject = (ProjectOutputModel)ListBoxProjects.SelectedItem;
+            var choosenEmployeeRequests = _controller.GetEmployeeRequestAllInfoByProjectId(selectedProject.Id);
+            if (_indexRequest >= 0 && _indexRequest < choosenEmployeeRequests.Count)
+            {
+                ListBoxRequestQuantity.Items.Add(choosenEmployeeRequests[_indexRequest]);
+                ListBoxRequestPosition.ItemsSource = choosenEmployeeRequests[_indexRequest].Positions;
+                ListBoxRequestSkills.ItemsSource = choosenEmployeeRequests[_indexRequest].Skills;
+            }
+            else if (choosenEmployeeRequests.Count != 0 && _indexRequest < 0)
+            {
+                _indexRequest = choosenEmployeeRequests.Count-1;
+                ListBoxRequestQuantity.Items.Add(choosenEmployeeRequests[_indexRequest]);
+                ListBoxRequestPosition.ItemsSource = choosenEmployeeRequests[_indexRequest].Positions;
+                ListBoxRequestSkills.ItemsSource = choosenEmployeeRequests[_indexRequest].Skills;
+            }
+        }
+
         private void ComboBox_Status_Tab1Create_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-
+            
         }
 
         private void ListBoxProjects_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
         {
+            _indexRequest = 0;
+            ListBoxRequestQuantity.Items.Clear();
+            if (ListBoxProjects.SelectedItem is not null)
+            {
+                var selectedProject = (ProjectOutputModel)ListBoxProjects.SelectedItem;
+                var choosenEmployeeRequests = _controller.GetEmployeeRequestAllInfoByProjectId(selectedProject.Id);
+                if (choosenEmployeeRequests.Count > _indexRequest)
+                {
+                    ListBoxRequestQuantity.Items.Add(choosenEmployeeRequests[_indexRequest]);
+                    ListBoxRequestPosition.ItemsSource = choosenEmployeeRequests[_indexRequest].Positions;
+                    ListBoxRequestSkills.ItemsSource = choosenEmployeeRequests[_indexRequest].Skills;
+                }
 
+                TextBox_ProjectName.Text = selectedProject.Name;
+                TextBox_DescriptionProject.Text = selectedProject.Description;
+            }
         }
 
         private void DataGrid_EmployeeHistory_Loaded(object sender, RoutedEventArgs e)
