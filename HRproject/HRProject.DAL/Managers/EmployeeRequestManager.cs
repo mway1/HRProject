@@ -29,12 +29,12 @@ namespace HRProject.DAL.Managers
                     (EmployeeRequestStoredProcedures.GetEmployeeRequestAllInfo,
                     (EmployeeRequest, Project, Position, PositionLevel, Skill, SkillLevel) =>
                     {
-                        if (!result.ContainsKey(EmployeeRequest.id))
+                        if (!result.ContainsKey(EmployeeRequest.Id))
                         {
-                            result.Add(EmployeeRequest.id, EmployeeRequest);
+                            result.Add(EmployeeRequest.Id, EmployeeRequest);
                         }
 
-                        EmplooyeeRequestAllInfoDTO crnt = result[EmployeeRequest.id];
+                        EmplooyeeRequestAllInfoDTO crnt = result[EmployeeRequest.Id];
 
                         if (Project is not null)
                         {
@@ -96,12 +96,12 @@ namespace HRProject.DAL.Managers
                     (EmployeeRequestStoredProcedures.GetEmployeeRequestAllInfoByProjectId,
                     (EmployeeRequest, Project, Position, PositionLevel, Skill, SkillLevel) =>
                     {
-                        if (!result.ContainsKey(EmployeeRequest.id))
+                        if (!result.ContainsKey(EmployeeRequest.Id))
                         {
-                            result.Add(EmployeeRequest.id, EmployeeRequest);
+                            result.Add(EmployeeRequest.Id, EmployeeRequest);
                         }
 
-                        EmplooyeeRequestAllInfoDTO crnt = result[EmployeeRequest.id];
+                        EmplooyeeRequestAllInfoDTO crnt = result[EmployeeRequest.Id];
 
                         if (Project is not null)
                         {
@@ -229,7 +229,7 @@ namespace HRProject.DAL.Managers
             {
                 connection.Open();
 
-                connection.QuerySingle(EmployeeRequestStoredProcedures.DeleteEmployeeRequestById,
+                connection.Query(EmployeeRequestStoredProcedures.DeleteEmployeeRequestById,
                     param: new
                     {
                         input.Id,

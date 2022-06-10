@@ -169,7 +169,7 @@
                     <ListBox x:Name="ListBoxRequestSkills" Grid.Column="2" HorizontalAlignment="Left" Height="60" Margin="640,164,0,0" VerticalAlignment="Top" Width="115" d:ItemsSource="{d:SampleData ItemCount=5}" DisplayMemberPath="Name" />
                     <ListBox x:Name="ListBoxRequestQuantity" Grid.Column="2" HorizontalAlignment="Left" Height="60" Margin="437,164,0,0" VerticalAlignment="Top" Width="83" d:ItemsSource="{d:SampleData ItemCount=5}" DisplayMemberPath="Quantity"/>
                     <Button x:Name="ButtonAddRequest" Grid.Column="2" Content="+" HorizontalAlignment="Left" Margin="507,232,0,0" VerticalAlignment="Top" Width="27"/>
-                    <Button x:Name="ButtonDeleteRequest" Grid.Column="2" Content="X" HorizontalAlignment="Left" Margin="589,232,0,0" VerticalAlignment="Top" Width="28"/>
+                    <Button x:Name="ButtonDeleteRequest" Grid.Column="2" Content="X" HorizontalAlignment="Left" Margin="589,232,0,0" VerticalAlignment="Top" Width="28" Click="ButtonDeleteRequest_Click"/>
                     <Button x:Name="ButtonEditRequest" Grid.Column="2" Content="/" HorizontalAlignment="Left" Margin="673,232,0,0" VerticalAlignment="Top" Width="24"/>
 
                 </Grid>
