@@ -398,13 +398,60 @@ namespace HRProject.UI
             }
             else
             {
+                if (IsValidToPullEmployeeRequestAllInfo())
+                {
+                    var selectedProject = (ProjectOutputModel)ListBoxProjects.SelectedItem;
+                    EmployeeRequestCreateInputModel EmployeeRequestModel = new EmployeeRequestCreateInputModel()
+                    {
+                        ProjectId = selectedProject.Id,
+                        Quantity = Convert.ToInt16(TextBoxQuantity.Text)
+                    };
+                    var newEmployeeRequestId = _controller.CreateEmployeeRequest(EmployeeRequestModel);
+
+                    var selectedSkill = (SkillModel)ComboBoxSkill.SelectedItem;
+                    var skillLevel = Convert.ToInt16(ComboBoxSkillLevel.SelectedItem.ToString()!);
+                    EmployeeRequestSkillInputModel EmployeeRequestSkillModel = new EmployeeRequestSkillInputModel()
+                    {
+                       EmployeeRequestId = newEmployeeRequestId,
+                       SkillId = selectedSkill.Id,
+                       LevelOfSkill = skillLevel
+                    };
+                    _controller.CreateEmployeeRequestSkill(EmployeeRequestSkillModel);
+
+                    var selectedPosition = (PositionOutputModel)ComboBoxPosition.SelectedItem;
+                    var positionLevel = (LevelOfPositionOutputModel)ComboBoxPositionLevel.SelectedItem;
+                    EmployeeRequestPositionInputModel PositionModel = new EmployeeRequestPositionInputModel()
+                    {
+                        EmployeeRequestId = newEmployeeRequestId,
+                        PositionId = selectedPosition.Id,
+                        LevelOfPositionId = positionLevel.Id
+                    };
+
+                    _controller.CreateEmployeeRequestPosition(PositionModel);
+                    
+                }
                 TextBoxQuantity.Visibility = Visibility.Hidden;
                 ComboBoxPosition.Visibility = Visibility.Hidden;
                 ComboBoxPositionLevel.Visibility = Visibility.Hidden;
                 ComboBoxSkill.Visibility = Visibility.Hidden;
                 ComboBoxSkillLevel.Visibility = Visibility.Hidden;
+            }            
+        }
+
+        private bool IsValidToPullEmployeeRequestAllInfo()
+        {
+            var isValid = true;
+
+            if(!(int.TryParse(TextBoxQuantity.Text, out int n) &&
+                n > 0 &&
+                ComboBoxPosition.SelectedIndex != -1 &&
+                ComboBoxPositionLevel.SelectedIndex != -1 &&
+                ComboBoxSkill.SelectedIndex != -1 &&
+                ComboBoxSkillLevel.SelectedIndex != -1))
+            {
+                isValid = false;
             }
-            
+            return isValid;
         }
     }
 }

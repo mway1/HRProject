@@ -4,11 +4,5 @@
     {
         public int ProjectId { get; set; }
         public int Quantity { get; set; }
-
-        public EmployeeRequestCreateInputModel(int projectId, int quantity)
-        {
-            ProjectId = projectId;
-            Quantity = quantity;
-        }
     }
 }

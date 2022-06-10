@@ -240,17 +240,51 @@ namespace HRProject.DAL.Managers
             }
         }
 
-        public void CreateEmployeeRequest(EmployeeRequestDTO input)
+        public int CreateEmployeeRequest(EmployeeRequestDTO input)
         {
             using (var connection = new SqlConnection(_connectionString))
             {
                 connection.Open();
 
-                connection.QuerySingle(EmployeeRequestStoredProcedures.CreateEmployeeRequest,
+                return connection.QuerySingle<int>(EmployeeRequestStoredProcedures.CreateEmployeeRequest,
                     param: new
                     {
                         input.ProjectId,
                         input.Quantity
+                    },
+                commandType: System.Data.CommandType.StoredProcedure);
+            }
+        }
+
+        public void CreateEmployeeRequestSkill(EmployeeRequestSkillDTO input)
+        {
+            using (var connection = new SqlConnection(_connectionString))
+            {
+                connection.Open();
+
+                connection.QuerySingle(EmployeeRequestStoredProcedures.CreateEmployeeRequestSkill,
+                    param: new
+                    {
+                        input.EmployeeRequestId,
+                        input.SkillId,
+                        input.SkillLevel
+                    },
+                commandType: System.Data.CommandType.StoredProcedure);
+            }
+        }
+
+        public void CreateEmployeeRequestPosition(EmployeeRequestPositionDTO input)
+        {
+            using (var connection = new SqlConnection(_connectionString))
+            {
+                connection.Open();
+
+                connection.Query(EmployeeRequestStoredProcedures.CreateEmployeeRequestPosition,
+                    param: new
+                    {
+                        input.EmployeeRequestId,
+                        input.PositionId,
+                        input.LevelOfPositionId
                     },
                 commandType: System.Data.CommandType.StoredProcedure);
             }

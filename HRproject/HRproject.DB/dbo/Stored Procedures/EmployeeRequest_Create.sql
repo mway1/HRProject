@@ -12,4 +12,5 @@ VALUES(
 		@ProjectId,
 		@Quantity,
 		@isDeleted)
+SELECT SCOPE_IDENTITY() 
 END

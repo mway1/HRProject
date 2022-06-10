@@ -72,7 +72,7 @@ namespace HRProject.DAL
                     PositionStoredProcedure.Position_Update,
                     param: new
                     {
-                        Id = positionDTO.id,
+                        Id = positionDTO.Id,
                         Name = positionDTO.Name,
                         LevelOfPositionId = positionDTO.PositionLevel.id
 

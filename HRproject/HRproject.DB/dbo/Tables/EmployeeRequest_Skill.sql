@@ -1,6 +1,6 @@
 ﻿CREATE TABLE [dbo].[EmployeeRequest_Skill]
 (
-	[Id] INT NOT NULL PRIMARY KEY,
+	[Id] INT IDENTITY (1, 1) NOT NULL PRIMARY KEY,
 	[EmployeeRequestId] INT NOT NULL,
 	[SkillId] INT NOT NULL,
 	[LevelOfSkill] INT NULL,
