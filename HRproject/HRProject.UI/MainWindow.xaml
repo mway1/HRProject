@@ -168,9 +168,14 @@
                     <ListBox x:Name="ListBoxRequestPosition" Grid.Column="2" HorizontalAlignment="Left" Height="60" Margin="520,164,0,0" VerticalAlignment="Top" Width="120" d:ItemsSource="{d:SampleData ItemCount=5}" DisplayMemberPath="Name"/>
                     <ListBox x:Name="ListBoxRequestSkills" Grid.Column="2" HorizontalAlignment="Left" Height="60" Margin="640,164,0,0" VerticalAlignment="Top" Width="115" d:ItemsSource="{d:SampleData ItemCount=5}" DisplayMemberPath="Name" />
                     <ListBox x:Name="ListBoxRequestQuantity" Grid.Column="2" HorizontalAlignment="Left" Height="60" Margin="437,164,0,0" VerticalAlignment="Top" Width="83" d:ItemsSource="{d:SampleData ItemCount=5}" DisplayMemberPath="Quantity"/>
-                    <Button x:Name="ButtonAddRequest" Grid.Column="2" Content="+" HorizontalAlignment="Left" Margin="507,232,0,0" VerticalAlignment="Top" Width="27"/>
+                    <Button x:Name="ButtonAddRequest" Grid.Column="2" Content="+" HorizontalAlignment="Left" Margin="507,232,0,0" VerticalAlignment="Top" Width="27" Click="ButtonAddRequest_Click"/>
                     <Button x:Name="ButtonDeleteRequest" Grid.Column="2" Content="X" HorizontalAlignment="Left" Margin="589,232,0,0" VerticalAlignment="Top" Width="28" Click="ButtonDeleteRequest_Click"/>
                     <Button x:Name="ButtonEditRequest" Grid.Column="2" Content="/" HorizontalAlignment="Left" Margin="673,232,0,0" VerticalAlignment="Top" Width="24"/>
+                    <TextBox x:Name="TextBoxQuantity" Grid.Column="2" HorizontalAlignment="Left" Margin="437,270,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="54" Height="20" Visibility="Hidden"/>
+                    <ComboBox x:Name="ComboBoxPosition" Grid.Column="2" HorizontalAlignment="Left" Margin="521,270,0,0" VerticalAlignment="Top" Width="119" Visibility="Hidden"/>
+                    <ComboBox x:Name="ComboBoxSkill" Grid.Column="2" HorizontalAlignment="Left" Margin="652,270,0,0" VerticalAlignment="Top" Width="119" DisplayMemberPath="Name" Visibility="Hidden"/>
+                    <ComboBox x:Name="ComboBoxPositionLevel" Grid.Column="2" HorizontalAlignment="Left" Margin="521,306,0,0" VerticalAlignment="Top" Width="119" Visibility="Hidden"/>
+                    <ComboBox x:Name="ComboBoxSkillLevel" Grid.Column="2" HorizontalAlignment="Left" Margin="652,306,0,0" VerticalAlignment="Top" Width="119" Visibility="Hidden"/>
 
                 </Grid>
             </TabItem>

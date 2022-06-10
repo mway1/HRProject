@@ -377,5 +377,34 @@ namespace HRProject.UI
                 _controller.DeleteEmployeeRequestById(choosenRequest);
             }
         }
+
+        private void ButtonAddRequest_Click(object sender, RoutedEventArgs e)
+        {
+            if (TextBoxQuantity.Visibility is Visibility.Hidden)
+            {
+                TextBoxQuantity.Visibility = Visibility.Visible;
+                ComboBoxPosition.Visibility = Visibility.Visible;
+                ComboBoxPosition.ItemsSource = _controller.GetAllPosition();
+                ComboBoxPosition.SelectedIndex = 0;
+                ComboBoxPositionLevel.Visibility = Visibility.Visible;
+                ComboBoxPositionLevel.ItemsSource = _controller.LevelOfPositions_GetAll();
+                ComboBoxPositionLevel.SelectedIndex = 0;
+                ComboBoxSkill.Visibility = Visibility.Visible;
+                ComboBoxSkill.ItemsSource = _controller.GetAllSkills();
+                ComboBoxSkill.SelectedIndex = 0;
+                ComboBoxSkillLevel.Visibility = Visibility.Visible;
+                ComboBoxSkillLevel.ItemsSource = new int[] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
+                ComboBoxSkillLevel.SelectedIndex = 0;
+            }
+            else
+            {
+                TextBoxQuantity.Visibility = Visibility.Hidden;
+                ComboBoxPosition.Visibility = Visibility.Hidden;
+                ComboBoxPositionLevel.Visibility = Visibility.Hidden;
+                ComboBoxSkill.Visibility = Visibility.Hidden;
+                ComboBoxSkillLevel.Visibility = Visibility.Hidden;
+            }
+            
+        }
     }
 }
