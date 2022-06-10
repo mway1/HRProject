@@ -80,15 +80,13 @@ namespace HRProject.UI
         private void ListBoxProjects_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
         {
             ListBoxRequestQuantity.Items.Clear();
-            ListBoxRequestPosition.Items.Clear();
-            ListBoxRequestSkills.Items.Clear();
             var selectedProject = (ProjectOutputModel)ListBoxProjects.SelectedItem;
             var choosenEmployeeRequests = _controller.GetEmployeeRequestAllInfoByProjectId(selectedProject.Id);
             if (choosenEmployeeRequests.Count != 0)
             {
                 ListBoxRequestQuantity.Items.Add(choosenEmployeeRequests[0]);
-                ListBoxRequestPosition.Items.Add(choosenEmployeeRequests[0]);
-                ListBoxRequestSkills.Items.Add(choosenEmployeeRequests[0]);
+                ListBoxRequestPosition.ItemsSource = choosenEmployeeRequests[0].Positions;
+                ListBoxRequestSkills.ItemsSource = choosenEmployeeRequests[0].Skills;
             }
 
             TextBox_ProjectName.Text = selectedProject.Name;
