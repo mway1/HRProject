@@ -81,6 +81,8 @@ namespace HRProject.DAL.Managers
                 connection.Open();
 
                 Dictionary<int, EmplooyeeRequestAllInfoDTO> result = new Dictionary<int, EmplooyeeRequestAllInfoDTO>();
+                var checkPosition = new List<int>();
+                var checkSkill = new List<int>();
 
                 connection.Query<
                     EmplooyeeRequestAllInfoDTO,
@@ -108,24 +110,28 @@ namespace HRProject.DAL.Managers
 
                         if (crnt.Positions is null && Position is not null)
                         {
+                            checkPosition.Add(Position.id);
                             crnt.Positions = new List<RequestPositionDTO>();
                             Position.PositionLevel = PositionLevel;
                             crnt.Positions.Add(Position);
                         }
-                        else if (Position is not null)
+                        else if (Position is not null && !checkPosition.Contains(Position.id))
                         {
+                            checkPosition.Add(Position.id);
                             Position.PositionLevel = PositionLevel;
                             crnt.Positions!.Add(Position);
                         }
 
                         if (crnt.Skills is null && Skill is not null)
                         {
+                            checkSkill.Add(Skill.Id);
                             crnt.Skills = new List<RequestSkillDTO>();
                             Skill.SkillLevel = SkillLevel;
                             crnt.Skills.Add(Skill);
                         }
-                        else if (Skill is not null)
+                        else if (Skill is not null && !checkSkill.Contains(Skill.Id))
                         {
+                            checkSkill.Add(Skill.Id);
                             Skill.SkillLevel = SkillLevel;
                             crnt.Skills!.Add(Skill);
                         }

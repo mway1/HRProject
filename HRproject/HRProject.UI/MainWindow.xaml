@@ -164,11 +164,14 @@
                     <Label Grid.Column="2" Content="Колличество" HorizontalAlignment="Left" Margin="437,142,0,0" VerticalAlignment="Top"/>
                     <Label Grid.Column="2" Content="Должность" HorizontalAlignment="Left" Margin="543,142,0,0" VerticalAlignment="Top"/>
                     <Label Grid.Column="2" Content="Компетенции" HorizontalAlignment="Left" Margin="654,142,0,0" VerticalAlignment="Top"/>
-                    <Button Grid.Column="2" Content=">" HorizontalAlignment="Left" Margin="735,232,0,0" VerticalAlignment="Top" Width="20"/>
-                    <Button Grid.Column="2" Content="&lt;" HorizontalAlignment="Left" Margin="437,232,0,0" VerticalAlignment="Top" Width="22"/>
+                    <Button x:Name="ButtonNextRequest" Grid.Column="2" Content=">" HorizontalAlignment="Left" Margin="735,232,0,0" VerticalAlignment="Top" Width="20" Click="ButtonNextRequest_Click"/>
+                    <Button x:Name="ButtonPreviousRequest" Grid.Column="2" Content="&lt;" HorizontalAlignment="Left" Margin="437,232,0,0" VerticalAlignment="Top" Width="22" Click="ButtonPreviousRequest_Click"/>
                     <ListBox x:Name="ListBoxRequestPosition" Grid.Column="2" HorizontalAlignment="Left" Height="60" Margin="520,164,0,0" VerticalAlignment="Top" Width="120" d:ItemsSource="{d:SampleData ItemCount=5}" DisplayMemberPath="Name"/>
-                    <ListBox x:Name="ListBoxRequestSkills" Grid.Column="2" HorizontalAlignment="Left" Height="60" Margin="640,164,0,0" VerticalAlignment="Top" Width="115" d:ItemsSource="{d:SampleData ItemCount=5}" DisplayMemberPath="Skills" />
+                    <ListBox x:Name="ListBoxRequestSkills" Grid.Column="2" HorizontalAlignment="Left" Height="60" Margin="640,164,0,0" VerticalAlignment="Top" Width="115" d:ItemsSource="{d:SampleData ItemCount=5}" DisplayMemberPath="Name" />
                     <ListBox x:Name="ListBoxRequestQuantity" Grid.Column="2" HorizontalAlignment="Left" Height="60" Margin="437,164,0,0" VerticalAlignment="Top" Width="83" d:ItemsSource="{d:SampleData ItemCount=5}" DisplayMemberPath="Quantity"/>
+                    <Button x:Name="ButtonAddRequest" Grid.Column="2" Content="+" HorizontalAlignment="Left" Margin="507,232,0,0" VerticalAlignment="Top" Width="27"/>
+                    <Button x:Name="ButtonDeleteRequest" Grid.Column="2" Content="X" HorizontalAlignment="Left" Margin="589,232,0,0" VerticalAlignment="Top" Width="28"/>
+                    <Button x:Name="ButtonEditRequest" Grid.Column="2" Content="/" HorizontalAlignment="Left" Margin="673,232,0,0" VerticalAlignment="Top" Width="24"/>
 
                 </Grid>
             </TabItem>
