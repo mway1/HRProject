@@ -368,5 +368,11 @@ namespace HRProject.UI
             EmployeeModel employee = (EmployeeModel)ListBox_Employees.SelectedItem;
             _controller.DeleteEmployee(employee.id);
         }
+
+        private void ButtonDeleteRequest_Click(object sender, RoutedEventArgs e)
+        {
+            var choosenRequest = (EmployeeRequestAllInfoModel)ListBoxRequestQuantity.Items[0];
+            _controller.DeleteEmployeeRequestById(choosenRequest);
+        }
     }
 }
