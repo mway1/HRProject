@@ -229,7 +229,7 @@ namespace HRProject.DAL.Managers
             {
                 connection.Open();
 
-                connection.QuerySingle(EmployeeRequestStoredProcedures.DeleteEmployeeRequestById,
+                connection.Query(EmployeeRequestStoredProcedures.DeleteEmployeeRequestById,
                     param: new
                     {
                         input.Id,

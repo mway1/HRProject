@@ -371,8 +371,11 @@ namespace HRProject.UI
 
         private void ButtonDeleteRequest_Click(object sender, RoutedEventArgs e)
         {
-            var choosenRequest = (EmployeeRequestAllInfoModel)ListBoxRequestQuantity.Items[0];
-            _controller.DeleteEmployeeRequestById(choosenRequest);
+            if (ListBoxRequestQuantity.Items is not null)
+            {
+                var choosenRequest = (EmployeeRequestAllInfoModel)ListBoxRequestQuantity.Items[0];
+                _controller.DeleteEmployeeRequestById(choosenRequest);
+            }
         }
     }
 }
